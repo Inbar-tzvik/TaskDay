@@ -1,9 +1,12 @@
 <template>
-  <ul class="group-list">
-    <!-- <li v-for="n in 10" :key="Math.random() * 100 + n">{{ n }}</li> -->
-    <item-preview />
+  <!-- <ul class="group-list"> -->
+  <section>
+    <li v-for="task in group.tasks" :key="task.id">
+      <item-preview :task="task" @removeItem="removeItem" />
+    </li>
     <!-- <item-preview @removeToy="removeToy" v-for="toy in toys" :key="toy.id" :toy="toy" /> -->
-  </ul>
+    <!-- </ul> -->
+  </section>
 </template>
 
 <script>
@@ -11,17 +14,17 @@ import itemPreview from './item-preview.vue';
 
 export default {
   props: {
-    toys: {
-      type: Array,
-      required: true,
+    group: {
+      type: Object,
+      // required: true,
     },
   },
   components: {
     itemPreview,
   },
   methods: {
-    removeToy(toyId) {
-      this.$emit('removeToy', toyId);
+    removeItem(itemId) {
+      this.$emit('removeItem', itemId);
     },
   },
 };

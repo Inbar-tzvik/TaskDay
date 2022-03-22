@@ -1,21 +1,25 @@
 <template>
-  <li class="item-preview">
-    <!-- <pre>{{ toy }}</pre> -->
-    <h3>item name</h3>
-    <!-- <button @click="remove(item._id)">X</button> -->
-    <!-- <router-link :to="'/toy/details/' + toy._id">Details</router-link> |
+  <!-- <li class="item-preview"> -->
+  <!-- <pre>{{ toy }}</pre> -->
+  <section>
+    <h3>{{ task.title }}</h3>
+    <p>{{ task.status }}</p>
+    <button @click="remove(task._id)">X</button>
+  </section>
+  <!-- <button @click="remove(item._id)">X</button> -->
+  <!-- <router-link :to="'/toy/details/' + toy._id">Details</router-link> |
       <router-link :to="'/toy/edit/' + toy._id">Edit</router-link> |
       <router-link :toy="toy._id" :to="'/review'">reviews</router-link> -->
-  </li>
+  <!-- </li> -->
 </template>
 
 <script>
 // import customCard from './custom-card.vue';
 
 export default {
-  name: 'toy-preview',
+  name: 'item-preview',
   props: {
-    toy: Object,
+    task: Object,
   },
   components: {
     // customCard,
@@ -32,8 +36,8 @@ export default {
     // goToEdit() {
     //   this.$router.push(`/car/edit/${this.car.id}`);
     // },
-    remove(toyId) {
-      this.$emit('removeToy', toyId);
+    remove(itemId) {
+      this.$emit('removeItem', itemId);
     },
   },
 };

@@ -44,6 +44,9 @@ const board = {
             "tasks": [{
                     "id": "c103",
                     "title": "Do that"
+                    // "status": null,
+                    
+
                 },
                 {
                     "id": "c104",
