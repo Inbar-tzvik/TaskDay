@@ -136,20 +136,33 @@ const board = [
         },
       },
     ],
-    cmpsOrder: ['status-picker', 'member-picker', 'date-picker'],
+    // cmpsOrder: ['status-picker', 'member-picker', 'date-picker'],
   },
 ];
+
 export const boardGroupService = {
   query,
   getBoardById,
   getGroupById,
   removeBoard,
   removeGroup,
-  saveBoard,
   removeTask,
+  saveBoard,
   // getEmptyToy,
 };
 storageService._save(KEY, board);
+
+//CHEKING AREA
+check();
+async function check() {
+  // var boardById = await getBoardById("b101")
+  // console.log('getBoardById: ', boardById);
+  // var groupById = await getGroupById('b101', 'g102')
+  // console.log('getGroupById: ', groupById);
+  // await removeBoard('b101')
+  // await removeGroup('b101', 'g102')
+  // await removeTask('b101', 'g102', 'c103')
+}
 
 function query(filterBy) {
   return storageService.query(KEY) || [];
@@ -189,6 +202,7 @@ async function removeBoard(boardId) {
 }
 
 function removeGroup(boardId, groupId) {
+  // console.log(boardId, groupId);
   return storageService.remove(KEY, boardId, 'groups', groupId);
 }
 
