@@ -193,6 +193,7 @@ function removeGroup(boardId, groupId) {
 }
 
 function removeTask(boardId, groupId, taskId) {
+  console.log(boardId, groupId, taskId);
   return storageService.remove(KEY, boardId, 'groups', groupId, taskId);
 }
 

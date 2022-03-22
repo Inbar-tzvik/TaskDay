@@ -31,8 +31,8 @@ export default {
   },
   created() {},
   methods: {
-    removeItem(itemId) {
-      this.$store.dispatch({ type: 'removeItem', id: itemId, boardId: this.boards._id });
+    removeItem(itemId, groupId) {
+      this.$store.dispatch({ type: 'removeItem', itemId: itemId, groupId: groupId, boardId: this.boards[0]._id });
     },
   },
   components: { groupList, boardFilter },

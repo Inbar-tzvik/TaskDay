@@ -19,12 +19,17 @@ export default {
       // required: true,
     },
   },
+  // data() {
+  //   return {
+  //     groupId: this.group.id,
+  //   };
+  // },
   components: {
     itemPreview,
   },
   methods: {
     removeItem(itemId) {
-      this.$emit('removeItem', itemId);
+      this.$emit('removeItem', itemId, this.group.id);
     },
   },
 };
