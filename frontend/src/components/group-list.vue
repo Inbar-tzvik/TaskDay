@@ -2,7 +2,7 @@
   <section>
     <ul v-for="group in boards.groups" :key="group.id">
       <h4>-{{ group.title }}</h4>
-      <item-list :group="group" />
+      <item-list :group="group" @removeItem="removeitem(group.id)" />
       <!-- <toy-preview @removeToy="removeToy" v-for="toy in toys" :key="toy.id" :toy="toy" /> -->
     </ul>
   </section>
@@ -21,8 +21,8 @@ export default {
     itemList,
   },
   methods: {
-    removeToy(toyId) {
-      this.$emit('removeToy', toyId);
+    removeItem(itemId, groupId) {
+      this.$emit('removeItem', itemId, groupId);
     },
   },
 };

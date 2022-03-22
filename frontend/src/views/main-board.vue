@@ -1,9 +1,10 @@
 <template>
   <section v-if="boards" class="main-board">
-    <h1>{{ boards.title }}</h1>
+    <button>New item</button>
+    <h1>{{ boards[0].title }}</h1>
     <board-filter @setFilter="setFilter" />
     <!-- <pre>{{ boards.groups }}</pre> -->
-    <group-list :boards="boards" />
+    <group-list @removeItem="removeItem" :boards="boards[0]" />
     <!-- <group-list @removeToy="removeToy" v-if="toys" :toys="toys" /> -->
 
     <!-- <fun-filter></fun-filter>
@@ -29,7 +30,11 @@ export default {
     },
   },
   created() {},
-  methods: {},
+  methods: {
+    removeItem(itemId) {
+      this.$store.dispatch({ type: 'removeItem', id: itemId, boardId: this.boards._id });
+    },
+  },
   components: { groupList, boardFilter },
 };
 </script>

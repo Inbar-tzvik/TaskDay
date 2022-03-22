@@ -45,22 +45,24 @@ function put(entityType, updatedEntity, entitySubGroup = null) {
     })
 }
 
-// entitySubGroup = "groups"
-async function remove(entityType, entityId, subGroupName = null, entitySubGroupId = null, itemId = null) {
+async function remove(entityType, entityId, firstGroupsName = null, firstGroupId = null, secondGroupsName = null, secondGroupId = null) {
     try {
+        console.log(entityType, entityId, firstGroupsName, firstGroupId, secondGroupId);
         var entities = await query(entityType)
-        if (subGroupName) {
-            subGroup = entities.subGroupName
-            const idx = subGroup.findIndex((subGroup) => subGroup.id === entitySubGroupId)
-            if (itemId) {
-                var currGroupTasks = subGroup[idx].tasks
-                const task = currGroupTasks.findIndex((item) => item.id === itemId)
-                currGroupTasks.splice(idx, 1)
-            } else subGroup.splice(idx, 1)
-                //TO CHECK - its should work cause its poiner, but m aybe need "entities.subGroupName"
+        const currEntityIdx = entities.findIndex((entity) => entity._id === entityId)
+        const currEntity = entities[currEntityIdx]
+        if (firstGroupsName) {
+            var firstGroups = currEntity[firstGroupsName]
+            const firstGroupIdx = firstGroups.findIndex((subGroup) => subGroup.id === firstGroupId)
+            const firstGroup = firstGroups[firstGroupIdx]
+            if (secondGroupId) {
+                var secondGroups = firstGroup[secondGroupsName]
+                const secondGroup = secondGroups.findIndex((item) => item.id === secondGroupId)
+                secondGroups.splice(secondGroup, 1)
+            } else firstGroups.splice(firstGroupIdx, 1)
+                //TO CHECK-->CHECKED - it works cause its poiner
         } else {
-            const idx = entities.findIndex((entity) => entity._id === entityId)
-            entities.splice(idx, 1)
+            entities.splice(currEntityIdx, 1)
         }
         _save(entityType, entities)
     } catch (err) {

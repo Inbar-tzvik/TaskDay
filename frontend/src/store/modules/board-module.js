@@ -83,16 +83,16 @@ export default {
       }
     },
 
-    async removeItem({ commit }, payload) {
+    async removeItem({ commit }, { itemId, boardId }) {
       try {
-        await toyService.removeItem(payload._id);
+        await boardGroupService.removeTask(itemId, boardId);
         commit(payload);
       } catch {
         console.log('Couldnt remove item');
-        commit({
-          type: 'setIsError',
-          isError: true,
-        });
+        // commit({
+        //   type: 'setIsError',
+        //   isError: true,
+        // });
       }
     },
     //saving item
