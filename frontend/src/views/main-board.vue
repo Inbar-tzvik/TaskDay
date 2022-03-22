@@ -1,8 +1,9 @@
 <template>
-  <section class="main-board">
-    <h1>board name</h1>
+  <section v-if="boards" class="main-board">
+    <h1>{{ boards.title }}</h1>
     <board-filter @setFilter="setFilter" />
-    <group-list v-if="boards" />
+    <!-- <pre>{{ boards.groups }}</pre> -->
+    <group-list :boards="boards" />
     <!-- <group-list @removeToy="removeToy" v-if="toys" :toys="toys" /> -->
 
     <!-- <fun-filter></fun-filter>
@@ -15,7 +16,7 @@
 <script>
 import groupList from '../components/group-list.vue';
 import boardFilter from '../components/board-filter.vue';
-import { boardService } from '../services/board-service.js';
+// import { boardService } from '../services/board-service.js';
 
 export default {
   name: 'main-board',

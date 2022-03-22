@@ -1,10 +1,11 @@
 <template>
-  <ul class="group-list">
-    <!-- <li v-for="n in 10" :key="Math.random() * 100 + n">{{ n }}</li> -->
-    <h4>-group name-</h4>
-    <item-list />
-    <!-- <toy-preview @removeToy="removeToy" v-for="toy in toys" :key="toy.id" :toy="toy" /> -->
-  </ul>
+  <section>
+    <ul v-for="group in boards.groups" :key="group.id">
+      <h4>-{{ group.title }}</h4>
+      <item-list :group="group" />
+      <!-- <toy-preview @removeToy="removeToy" v-for="toy in toys" :key="toy.id" :toy="toy" /> -->
+    </ul>
+  </section>
 </template>
 
 <script>
@@ -12,9 +13,8 @@ import itemList from './item-list.vue';
 
 export default {
   props: {
-    toys: {
-      type: Array,
-      required: true,
+    boards: {
+      type: Object,
     },
   },
   components: {

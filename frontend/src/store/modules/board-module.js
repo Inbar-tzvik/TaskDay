@@ -1,4 +1,4 @@
-import { boardService } from '../../services/board-service';
+import { boardGroupService } from '../../services/board-group-service';
 import { authService } from '../../services/auth-service';
 
 export default {
@@ -7,7 +7,7 @@ export default {
     // user: authService.getLoggedinUser(),
     // currToy: toyService.getEmptyToy(),
     // toysForDisplay: null,
-    // currFilter: null,
+    FilterBy: null,
     // labels: ["funny", "sad", "On wheels", "Box game", "Art", "Baby", "Doll", "Puzzle", "Outdoor"]
   },
   getters: {
@@ -51,18 +51,35 @@ export default {
   },
   actions: {
     //load all boards from DB
+    // async loadBoards({ commit, state }) {
+    //   try {
+    //     const boards = await boardGroupService.query(state.filterBy);
+    //     commit({
+    //       type: 'setBoards',
+    //       boards,
+    //     });
+    //   } catch {
+    //     commit({
+    //       type: 'setIsError',
+    //       isError: true,
+    //     });
+    //   }
+    // },
     async loadBoards({ commit, state }) {
+      console.log('loading board');
       try {
-        const boards = await boardService.query(state.filterBy);
+        const boards = await boardGroupService.query(state.filterBy);
+        console.log(boards);
         commit({
           type: 'setBoards',
           boards,
         });
       } catch {
-        commit({
-          type: 'setIsError',
-          isError: true,
-        });
+        // commit({
+        //   type: 'setIsError',
+        //   isError: true,
+        // });
+        console.log('error occured while getting board');
       }
     },
 
@@ -81,7 +98,7 @@ export default {
     //saving item
     async saveItem({ dispatch }, payload) {
       try {
-        await boardService.saveItem(payload.item);
+        await boardGroupService.saveItem(payload.item);
         dispatch('loadBoards');
       } catch (err) {
         console.log('Couldnt save item', err);
