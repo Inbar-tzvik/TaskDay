@@ -26,7 +26,7 @@ const board = {
     }],
     "groups": [{
             "id": "g101",
-            "title": "Group 1",
+            gu "title": "Group 1",
             "tasks": [{
                     "id": "c101",
                     "title": "Replace logo"
@@ -109,6 +109,15 @@ const board = {
     // for monday
     "cmpsOrder": ["status-picker", "member-picker", "date-picker"]
 }
+
+workspace = [{
+        boardId
+    },
+    {
+        boardId
+    },
+
+]
 const user = {
     "_id": "u101",
     "fullname": "Abi Abambi",
