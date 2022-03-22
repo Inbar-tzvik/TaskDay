@@ -36,7 +36,7 @@ function postMany(entityType, newEntities) {
     })
 }
 
-function put(entityType, updatedEntity) {
+function put(entityType, updatedEntity, entitySubGroup = null) {
     return query(entityType).then((entities) => {
         const idx = entities.findIndex((entity) => entity._id === updatedEntity._id)
         entities.splice(idx, 1, updatedEntity)
@@ -45,12 +45,27 @@ function put(entityType, updatedEntity) {
     })
 }
 
-function remove(entityType, entityId) {
-    return query(entityType).then((entities) => {
-        const idx = entities.findIndex((entity) => entity._id === entityId)
-        entities.splice(idx, 1)
+// entitySubGroup = "groups"
+async function remove(entityType, entityId, subGroupName = null, entitySubGroupId = null, itemId = null) {
+    try {
+        var entities = await query(entityType)
+        if (subGroupName) {
+            subGroup = entities.subGroupName
+            const idx = subGroup.findIndex((subGroup) => subGroup.id === entitySubGroupId)
+            if (itemId) {
+                var currGroupTasks = subGroup[idx].tasks
+                const task = currGroupTasks.findIndex((item) => item.id === itemId)
+                currGroupTasks.splice(idx, 1)
+            } else subGroup.splice(idx, 1)
+                //TO CHECK - its should work cause its poiner, but m aybe need "entities.subGroupName"
+        } else {
+            const idx = entities.findIndex((entity) => entity._id === entityId)
+            entities.splice(idx, 1)
+        }
         _save(entityType, entities)
-    })
+    } catch (err) {
+        console.log('Cannot find group', err);
+    }
 }
 
 function _save(entityType, entities) {
