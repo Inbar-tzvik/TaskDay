@@ -1,7 +1,9 @@
 <template>
   <section class="group-list">
     <ul v-for="group in boards.groups" :key="group.id">
-      <h4>-{{ group.title }}</h4>
+      <input @keyup.enter="changeGroupName" v-model="group.title" />
+      <!-- <h4>-{{ group.title }}</h4> -->
+      <button @click="deleteGroup(group.id)">Delete</button>
       <item-list :group="group" @removeItem="removeItem" />
 
       <!-- <toy-preview @removeToy="removeToy" v-for="toy in toys" :key="toy.id" :toy="toy" /> -->
@@ -28,6 +30,10 @@ export default {
     addItem(groupId, newTask) {
       this.$emit('addItem', groupId, this.newTask);
     },
+    deleteGroup(groupId) {
+      this.$emit('deleteGroup', groupId);
+    },
+    changeGroupName() {},
   },
 };
 </script>

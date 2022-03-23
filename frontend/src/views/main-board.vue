@@ -21,13 +21,13 @@
       </div>
 
       <div>
-        <board-filter @setFilter="setFilter" />
+        <board-filter @addGroup="addGroup" @setFilter="setFilter" />
         <!-- <button>New item</button> -->
       </div>
     </section>
     <section class="board-content">
       <h1>{{ boards[0].title }}</h1>
-      <group-list @addItem="addItem" @removeItem="removeItem" :boards="boards[0]" />
+      <group-list @addItem="addItem" @deleteGroup="deleteGroup" @removeItem="removeItem" :boards="boards[0]" />
     </section>
 
     <!-- <pre>{{ boards.groups }}</pre> -->
@@ -67,6 +67,12 @@ export default {
     },
     addItem(groupId, task) {
       this.$store.dispatch({ type: 'addItem', boardId: this.boards[0]._id, groupId: groupId, task: task });
+    },
+    deleteGroup(groupId) {
+      this.$store.dispatch({ type: 'removeGroup', boardId: this.boards[0]._id, groupId: groupId });
+    },
+    addGroup() {
+      this.$store.dispatch({ type: 'addGroup', boardId: this.boards[0]._id });
     },
   },
   components: { groupList, boardFilter },
