@@ -4,12 +4,12 @@
       <input
         @blur="saveGroup($event.target.value, group)"
         @keyup.enter="saveGroup($event.target.value, group)"
-        v-model="group.title"
+        v-bind:placeholder="group.title"
       />
       <!-- <p>{{ group.style.bgColor }}</p> -->
       <!-- <h4>-{{ group.title }}</h4> -->
       <button @click="deleteGroup(group.id)">Delete</button>
-      <item-list :group="group" @removeItem="removeItem" />
+      <item-list :group="group" @editTask="editTask" @addItem="addItem" @removeItem="removeItem" />
       <!-- <toy-preview @removeToy="removeToy" v-for="toy in toys" :key="toy.id" :toy="toy" /> -->
     </ul>
   </section>
@@ -31,7 +31,6 @@ export default {
   },
   methods: {
     saveGroup(value, group) {
-      console.log(value, group);
       var currGroup = JSON.parse(JSON.stringify(group));
       currGroup.title = value;
       console.log(currGroup);
@@ -43,13 +42,13 @@ export default {
       this.$emit('removeItem', itemId, groupId);
     },
     addItem(groupId, newTask) {
-      this.$emit('addItem', groupId, this.newTask);
+      this.$emit('addItem', groupId, newTask);
     },
     deleteGroup(groupId) {
       this.$emit('deleteGroup', groupId);
     },
-    changeGroupName() {
-      console.log(this.group.title);
+    editTask(item, groupId) {
+      this.$emit('editTask', groupId, item);
     },
   },
 };

@@ -2,12 +2,11 @@
   <!-- <ul class="group-list"> -->
   <section class="item-list">
     <li v-for="task in group.tasks" :key="task.id">
-      <item-preview :task="task" @removeItem="removeItem" />
+      <item-preview :task="task" @removeItem="removeItem" @editTask="editTask" />
     </li>
     <div v-if="newTask">
       <input placeholder="Add Item" v-model="newTask.title" type="text" />
       <button @click="addItem(group.id)">Add Item</button>
-      <pre>{{ this.newTask }}</pre>
     </div>
     <!-- <item-preview @removeToy="removeToy" v-for="toy in toys" :key="toy.id" :toy="toy" /> -->
     <!-- </ul> -->
@@ -44,6 +43,7 @@ export default {
     addItem(groupId) {
       console.log(groupId, this.newTask);
       this.$emit('addItem', groupId, this.newTask);
+      this.addNewTask();
 
       //save the one
       //add new one
@@ -51,6 +51,9 @@ export default {
     },
     removeItem(itemId) {
       this.$emit('removeItem', itemId, this.group.id);
+    },
+    editTask(item) {
+      this.$emit('editTask', item, this.group.id);
     },
   },
 };

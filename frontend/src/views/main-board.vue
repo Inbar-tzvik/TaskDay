@@ -32,6 +32,7 @@
         @addItem="addItem"
         @deleteGroup="deleteGroup"
         @removeItem="removeItem"
+        @editTask="editTask"
         :boards="boards[0]"
       />
     </section>
@@ -65,7 +66,7 @@ export default {
   created() {},
   methods: {
     updateGroup(currGroup) {
-      this.$store.dispatch({ type: 'updateGroup', currGroup: currGroup });
+      this.$store.dispatch({ type: 'updateGroup', currGroup: currGroup, boardId: this.boards[0]._id });
     },
 
     removeItem(itemId, groupId) {
@@ -75,6 +76,7 @@ export default {
       this.$store.dispatch({ type: 'setFilter', filterBy });
     },
     addItem(groupId, task) {
+      console.log(groupId, task);
       this.$store.dispatch({ type: 'addItem', boardId: this.boards[0]._id, groupId: groupId, task: task });
     },
     deleteGroup(groupId) {
@@ -82,6 +84,10 @@ export default {
     },
     addGroup() {
       this.$store.dispatch({ type: 'addGroup', boardId: this.boards[0]._id });
+    },
+    editTask(groupId, item) {
+      console.log(groupId, item);
+      this.$store.dispatch({ type: 'addItem', boardId: this.boards[0]._id, groupId: groupId, task: item });
     },
   },
   components: { groupList, boardFilter },
