@@ -8,7 +8,7 @@ export default {
         // currToy: toyService.getEmptyToy(),
         // toysForDisplay: null,
         FilterBy: null,
-        // labels: ["funny", "sad", "On wheels", "Box game", "Art", "Baby", "Doll", "Puzzle", "Outdoor"]
+        // labels: [“funny”, “sad”, “On wheels”, “Box game”, “Art”, “Baby”, “Doll”, “Puzzle”, “Outdoor”]
     },
     getters: {
         boards(state) {
@@ -32,7 +32,6 @@ export default {
         //     }, 1000);
         // },
     },
-<<<<<<< HEAD
     mutations: {
         setBoards(state, { boards }) {
             state.boards = boards;
@@ -49,57 +48,9 @@ export default {
             if (idx !== -1) state.toys.splice(idx, 1, savedToy);
             else state.toys.unshift(savedToy);
         },
-=======
-    removeItem(state, { id }) {
-      const idx = state.boards.groups.tasks.findIndex((task) => task.id === id);
-      state.boards.groups.tasks.splice(idx, 1);
-    },
-    setFilter(state, { filterBy }) {
-      state.filterBy = filterBy;
-    },
-    saveToy(state, { savedToy }) {
-      const idx = state.toys.findIndex((toy) => toy._id === savedToy._id);
-      if (idx !== -1) state.toys.splice(idx, 1, savedToy);
-      else state.toys.unshift(savedToy);
-    },
-  },
-  actions: {
-    //load all boards from DB
-
-    // },
-    async loadBoards({ commit, state }) {
-      console.log('loading board');
-      try {
-        const boards = await boardGroupService.query(state.filterBy);
-        console.log(boards);
-        commit({
-          type: 'setBoards',
-          boards,
-        });
-      } catch {
-        // commit({
-        //   type: 'setIsError',
-        //   isError: true,
-        // });
-        console.log('error occured while getting board');
-      }
->>>>>>> 9d79033c9666b33c04d0d3f4d6321c9b186e3ecc
     },
     actions: {
         //load all boards from DB
-        // async loadBoards({ commit, state }) {
-        //   try {
-        //     const boards = await boardGroupService.query(state.filterBy);
-        //     commit({
-        //       type: 'setBoards',
-        //       boards,
-        //     });
-        //   } catch {
-        //     commit({
-        //       type: 'setIsError',
-        //       isError: true,
-        //     });
-        //   }
         // },
         async loadBoards({ commit, state }) {
             console.log('loading board');
@@ -118,11 +69,9 @@ export default {
                 console.log('error occured while getting board');
             }
         },
-
-<<<<<<< HEAD
         async removeItem({ dispatch }, { boardId, groupId, itemId }) {
             try {
-                console.log('check', boardId, groupId, itemId);
+                console.log(boardId, groupId, itemId);
                 await boardGroupService.removeTask(boardId, groupId, itemId);
                 console.log('worked');
                 dispatch({ type: 'loadBoards' });
@@ -147,54 +96,21 @@ export default {
                 });
             }
         },
+        async addItem({ dispatch }) {
+            try {
+                await boardGroupService.addItem();
+                dispatch({ type: 'loadBoards' });
+            } catch (err) {
+                console.log('Couldnt save item', err);
+                commit({
+                    type: 'setIsError',
+                    isError: true,
+                });
+            }
+        },
         filter({ commit, dispatch }, { filterBy }) {
             commit({ type: 'setFilter', filterBy });
             dispatch({ type: 'loadBoards' });
         },
-=======
-    async removeItem({ dispatch }, { boardId, groupId, itemId }) {
-      try {
-        console.log(boardId, groupId, itemId);
-        await boardGroupService.removeTask(boardId, groupId, itemId);
-        console.log('worked');
-        dispatch({ type: 'loadBoards' });
-      } catch {
-        console.log('Couldnt remove item');
-        // commit({
-        //   type: 'setIsError',
-        //   isError: true,
-        // });
-      }
-    },
-    //saving item
-    async saveItem({ dispatch }, payload) {
-      try {
-        await boardGroupService.saveItem(payload.item);
-        dispatch({ type: 'loadBoards' });
-      } catch (err) {
-        console.log('Couldnt save item', err);
-        commit({
-          type: 'setIsError',
-          isError: true,
-        });
-      }
-    },
-    async addItem({ dispatch }) {
-      try {
-        await boardGroupService.addItem();
-        dispatch({ type: 'loadBoards' });
-      } catch (err) {
-        console.log('Couldnt save item', err);
-        commit({
-          type: 'setIsError',
-          isError: true,
-        });
-      }
-    },
-
-    filter({ commit, dispatch }, { filterBy }) {
-      commit({ type: 'setFilter', filterBy });
-      dispatch({ type: 'loadBoards' });
->>>>>>> 9d79033c9666b33c04d0d3f4d6321c9b186e3ecc
     },
 };
