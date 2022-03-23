@@ -8,11 +8,15 @@ export default {
     // currToy: toyService.getEmptyToy(),
     // toysForDisplay: null,
     FilterBy: null,
+
     // labels: ["funny", "sad", "On wheels", "Box game", "Art", "Baby", "Doll", "Puzzle", "Outdoor"]
   },
   getters: {
     boards(state) {
       return state.boards;
+    },
+    getUsers(state){
+       return state.boards[0].members.map(user => user.fullname)
     },
     // toysForDisplay(state, { filter }) {
     //     // if (!state.toysForDisplay) return state.toys
@@ -42,6 +46,7 @@ export default {
     },
     setFilter(state, { filterBy }) {
       state.filterBy = filterBy;
+      // console.log('filterBy from state:', filterBy);
     },
     saveToy(state, { savedToy }) {
       const idx = state.toys.findIndex((toy) => toy._id === savedToy._id);
@@ -110,9 +115,10 @@ export default {
         });
       }
     },
-    filter({ commit, dispatch }, { filterBy }) {
-      commit({ type: 'setFilter', filterBy });
-      dispatch({ type: 'loadBoards' });
+    setFilter({ commit, dispatch }, { filterBy }) {
+      commit({ type: 'setFilter', filterBy })
+      dispatch({ type: 'loadBoards' })
+      // console.log(filterBy, 'filterBy')
     },
   },
 };
