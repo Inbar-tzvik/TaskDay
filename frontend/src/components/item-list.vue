@@ -38,9 +38,8 @@ export default {
   },
   methods: {
     addNewTask() {
-      console.log('here');
       this.newTask = boardGroupService.createEmptyTask();
-      console.log(this.newTask);
+      // console.log(this.newTask);
     },
     addItem(groupId) {
       console.log(groupId, this.newTask);
