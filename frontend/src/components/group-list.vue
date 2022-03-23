@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="group-list">
     <ul v-for="group in boards.groups" :key="group.id">
       <h4>-{{ group.title }}</h4>
       <item-list :group="group" @removeItem="removeItem" />

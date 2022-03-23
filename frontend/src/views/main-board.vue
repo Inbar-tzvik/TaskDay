@@ -1,10 +1,40 @@
 <template>
-  <section v-if="boards" class="main-board">
-    <button>New item</button>
-    <h1>{{ boards[0].title }}</h1>
-    <board-filter @setFilter="setFilter" />
+  <section v-if="boards" class="main-board ">
+    <section class="board-header-content">
+      <div class="board-header-main">
+        <div>
+          <h1>sprint 4</h1>
+          <p>Check out the following items to learn about all the cool features and tools monday.com has for you :-)</p>
+        </div>
+        <div>
+          last seen | invite | activity | add to board
+        </div>
+      </div>
+
+      <div class="board-toolbar">
+        <!-- <button class="loolbar-btn">Main-table</button> -->
+        <div class="loolbar-btns">
+          <div>Main-table |Chart | Ghantt | Kanban | +Add View</div>
+        </div>
+
+        <div>
+          <div>Integrate | Automate</div>
+        </div>
+      </div>
+
+      <div>
+        <board-filter @setFilter="setFilter" />
+        <!-- <button>New item</button> -->
+      </div>
+
+    </section>
+    <section class="board-content">
+      <h1>{{ boards[0].title }}</h1>
+      <group-list @removeItem="removeItem" :boards="boards[0]" />
+
+    </section>
+
     <!-- <pre>{{ boards.groups }}</pre> -->
-    <group-list @removeItem="removeItem" :boards="boards[0]" />
     <!-- <group-list @removeToy="removeToy" v-if="toys" :toys="toys" /> -->
 
     <!-- <fun-filter></fun-filter>

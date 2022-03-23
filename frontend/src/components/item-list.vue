@@ -1,6 +1,6 @@
 <template>
   <!-- <ul class="group-list"> -->
-  <section>
+  <section class="item-list">
     <li v-for="task in group.tasks" :key="task.id">
       <item-preview :task="task" @removeItem="removeItem" />
     </li>
