@@ -37,7 +37,7 @@ const board = [{
         _id: 'u101',
         fullname: 'Tal Tarablus',
         imgUrl: 'https://www.google.com',
-    },],
+    }, ],
     groups: [{
             id: 'g101',
             title: 'Group 1',
@@ -158,10 +158,10 @@ async function check() {
     // await createNewBoard()
 
     // var emptyTask = createEmptyTask()
-    // var emptyGroup = createEmptyGroup()
+    // var emptyGroup = await createEmptyGroup('b101')
     // console.log(emptyTask, emptyGroup);
 
-    saveTask(boardId, groupId, task)
+    // saveTask(boardId, groupId, task)
 
 }
 
@@ -211,7 +211,7 @@ async function removeTask(boardId, groupId, taskId) {
 }
 
 async function saveBoard(board) {
-    if (board.id) {
+    if (board._id) {
         try {
             return storageService.put(KEY, board);
         } catch (err) {
@@ -242,9 +242,11 @@ function createEmptyTask() {
     }
 }
 
-//TODO SAVE TO STORAGE!!!!!!!!!!!! and return group
-function createEmptyGroup() {
-    return {
+//TODO QUALITY CHECK
+async function createEmptyGroup(boardId) {
+    var board = await getBoardById(boardId)
+
+    var newGroup = {
         id: 'g' + utilService.makeId(3),
         title: "New Group",
         tasks: [
@@ -252,6 +254,10 @@ function createEmptyGroup() {
         ],
         "style": {}
     }
+
+    board['groups'].unshift(newGroup)
+    saveBoard(board)
+    return board
 }
 
 //SAVE TO STORAGE! (MOST OF THIGNS NOW HARD CODE)
