@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import appHeader from '../components/app-header.vue';
+import appHeader from '../components/app-side-nav.vue';
 
 export default {
   name: 'home',

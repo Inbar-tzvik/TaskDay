@@ -1,0 +1,21 @@
+.main-board {
+  // background-color: wheat;
+  min-width: 95%;
+  min-height: 100vh;
+  margin-left: 30px;
+  border-left: 1px solid #d0d4e4;
+}
+.board-content {
+  padding: 18px 0 40px 16px;
+}
+.container-dots {
+  display: flex;
+}
+.dots-icon {
+  width: 20px;
+}
+.add-to-board {
+  border: 1px solid #d0d4e4;
+  padding: 8px;
+  border-radius: 5px;
+}

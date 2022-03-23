@@ -1,44 +1,48 @@
 <template>
-  <!-- <li class="item-preview"> -->
-  <!-- <pre>{{ toy }}</pre> -->
-  <section class="item-preview">
-    <h3>{{ task.title }}</h3>
+  <section v-if="task" class="item-preview">
+    <h3 v-if="!onEdit">{{ task.title }}</h3>
     <p>{{ task.status }}</p>
-    <button>Update</button>
+    <input
+      v-if="onEdit"
+      @blur="editTask($event.target.value, task, task.title)"
+      @keyup.enter="editTask($event.target.value, task, task.title)"
+      v-bind:placeholder="task.title"
+    />
+    <button @click="edit">Edit</button>
     <button @click="remove(task.id)">X</button>
   </section>
-  <!-- <button @click="remove(item._id)">X</button> -->
-  <!-- <router-link :to="'/toy/details/' + toy._id">Details</router-link> |
-      <router-link :to="'/toy/edit/' + toy._id">Edit</router-link> |
-      <router-link :toy="toy._id" :to="'/review'">reviews</router-link> -->
-  <!-- </li> -->
 </template>
 
 <script>
-// import customCard from './custom-card.vue';
-
 export default {
   name: 'item-preview',
+  data() {
+    return {
+      onEdit: false,
+    };
+  },
   props: {
     task: Object,
   },
-  components: {
-    // customCard,
-  },
-  computed: {
-    formatTime() {
-      return new Date(this.toy.createdAt).toDateString();
-    },
-  },
+  components: {},
+  computed: {},
   methods: {
-    // goToDetail() {
-    //   this.$router.push(`/car/${this.car.id}`);
-    // },
-    // goToEdit() {
-    //   this.$router.push(`/car/edit/${this.car.id}`);
-    // },
     remove(itemId) {
       this.$emit('removeItem', itemId);
+    },
+    edit() {
+      this.onEdit = true;
+    },
+    editTask(value, item, title) {
+      console.log(item);
+      var currTask = JSON.parse(JSON.stringify(item));
+      if (value) currTask.title = value;
+      else {
+        currTask.title = title;
+      }
+      console.log(currTask);
+      this.$emit('editTask', currTask);
+      this.onEdit = false;
     },
   },
 };
