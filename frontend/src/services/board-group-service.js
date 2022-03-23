@@ -131,7 +131,14 @@ export const boardGroupService = {
     removeGroup,
     removeTask,
     saveBoard,
-    //TODO UPDATE
+    createEmptyTask,
+    createEmptyGroup,
+    createNewBoard,
+    saveTask,
+    // EDIT TASk(boradid,groupid,taskid,task) / new task
+    // EDIT GROUP(boradid,groupid,taskid,task) / new task
+    //TODO 
+
     // getEmptyToy,
 };
 storageService._save(KEY, board);
@@ -145,7 +152,14 @@ async function check() {
     // console.log('getGroupById: ', groupById);
     // await removeBoard('b101')
     // await removeGroup('b101', 'g102')
-    await removeTask('b101', 'g102', 'c103')
+    // await removeTask('b101', 'g102', 'c103')
+    // await createNewBoard()
+
+    // var emptyTask = createEmptyTask()
+    // var emptyGroup = createEmptyGroup()
+    // console.log(emptyTask, emptyGroup);
+
+    saveTask(boardId, groupId, task)
 
 }
 
@@ -186,12 +200,11 @@ async function removeBoard(boardId) {
     return storageService.remove(KEY, boardId);
 }
 
-function removeGroup(boardId, groupId) {
-    // console.log(boardId, groupId);
+async function removeGroup(boardId, groupId) {
     return storageService.remove(KEY, boardId, 'groups', groupId);
 }
 
-function removeTask(boardId, groupId, taskId) {
+async function removeTask(boardId, groupId, taskId) {
     return storageService.remove(KEY, boardId, 'groups', groupId, 'tasks', taskId);
 }
 
@@ -207,15 +220,102 @@ async function saveBoard(board) {
     }
 }
 
-function getEmptyGroup() {
-    return {
-        name: '',
-        price: 0,
-        type: '',
-        createdAt: new Date(),
-        inStock: true,
-    };
+async function saveTask(boardId, groupId, task) {
+    if (task.id) {
+        try {
+            return storageService.put(KEY, board);
+        } catch (err) {
+            console.log('Cannot find group', err);
+        }
+    } else {
+        return storageService.post(KEY, board);
+    }
 }
+
+//DONT SAVE TO STORAGE!
+function createEmptyTask() {
+    return {
+        id: 't' + utilService.makeId(3),
+        title: "",
+    }
+}
+
+//TODO SAVE TO STORAGE!!!!!!!!!!!! and return group
+function createEmptyGroup() {
+    return {
+        id: 'g' + utilService.makeId(3),
+        title: "New Group",
+        tasks: [
+            createEmptyTask(),
+        ],
+        "style": {}
+    }
+}
+
+//SAVE TO STORAGE! (MOST OF THIGNS NOW HARD CODE)
+async function createNewBoard() {
+    var emptyBoard = {
+        // _id: 'b' + utilService.makeId(3),
+        title: "New Board",
+        createdAt: new Date(),
+        createdBy: {
+            _id: "u101",
+            fullname: "Abi Abambi",
+            imgUrl: "http://some-img"
+        },
+        style: {},
+        labels: [{
+                id: "l101",
+                title: "Done",
+                color: "#61bd4f"
+            },
+            {
+                id: "l102",
+                title: "Progress",
+                color: "#61bd33"
+            }
+        ],
+        members: [{
+            _id: "u101",
+            fullname: "Tal Tarablus",
+            imgUrl: "https://www.google.com"
+        }],
+        groups: [
+            createEmptyGroup(),
+            createEmptyGroup()
+        ],
+        // "status":{}
+        activitiesLog: [{
+            id: "a101",
+            txt: "Changed Color",
+            createdAt: 154514,
+            byMember: {
+                _id: "u101",
+                fullname: "Abi Abambi",
+                imgUrl: "http://some-img"
+            },
+            task: {
+                id: "c101",
+                title: "Replace Logo"
+            }
+        }],
+        // for monday
+        cmpsOrder: ["status-picker", "member-picker", "date-picker"]
+    }
+
+    storageService.post(KEY, emptyBoard)
+}
+
+// async function createEmptyGroup(boardId) {
+
+//     return {
+//         name: '',
+//         price: 0,
+//         type: '',
+//         createdAt: new Date(),
+//         inStock: true,
+//     };
+// }
 
 function _createBoard() {
     let boards = utilService.loadFromStorage(KEY);
