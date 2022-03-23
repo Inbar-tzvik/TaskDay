@@ -83,10 +83,12 @@ export default {
       }
     },
 
-    async removeItem({ commit }, { itemId, boardId }) {
+    async removeItem({ dispatch }, { boardId, groupId, itemId }) {
       try {
-        await boardGroupService.removeTask(itemId, boardId);
-        commit(payload);
+        console.log(boardId, groupId, itemId);
+        await boardGroupService.removeTask(boardId, groupId, itemId);
+        console.log('worked');
+        dispatch({ type: 'loadBoards' });
       } catch {
         console.log('Couldnt remove item');
         // commit({
@@ -99,7 +101,7 @@ export default {
     async saveItem({ dispatch }, payload) {
       try {
         await boardGroupService.saveItem(payload.item);
-        dispatch('loadBoards');
+        dispatch({ type: 'loadBoards' });
       } catch (err) {
         console.log('Couldnt save item', err);
         commit({

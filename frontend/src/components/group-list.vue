@@ -2,7 +2,7 @@
   <section>
     <ul v-for="group in boards.groups" :key="group.id">
       <h4>-{{ group.title }}</h4>
-      <item-list :group="group" @removeItem="removeitem(group.id)" />
+      <item-list :group="group" @removeItem="removeItem" />
       <!-- <toy-preview @removeToy="removeToy" v-for="toy in toys" :key="toy.id" :toy="toy" /> -->
     </ul>
   </section>
