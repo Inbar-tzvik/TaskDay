@@ -110,6 +110,7 @@ export default {
         });
       }
     },
+
     async addGroup({ dispatch }, { boardId }) {
       try {
         await boardGroupService.createEmptyGroup(boardId);
@@ -133,10 +134,22 @@ export default {
     //       isError: true,
     //     });
     //   }
+
+    // async updateGroup({ dispatch }, { currGroup }) {
+    //   try {
+    //     await boardGroupService.createEmptyGroup(boardId);
+    //     dispatch({ type: 'loadBoards' });
+    //   } catch (err) {
+    //     console.log('Couldnt save item', err);
+    //     commit({
+    //       type: 'setIsError',
+    //       isError: true,
+    //     });
+    //   }
     // },
     setFilter({ commit, dispatch }, { filterBy }) {
       commit({ type: 'setFilter', filterBy });
       dispatch({ type: 'loadBoards' });
-  },
+    },
   },
 };

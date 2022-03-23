@@ -27,7 +27,13 @@
     </section>
     <section class="board-content">
       <h1>{{ boards[0].title }}</h1>
-      <group-list @addItem="addItem" @deleteGroup="deleteGroup" @removeItem="removeItem" :boards="boards[0]" />
+      <group-list
+        @updateGroup="updateGroup"
+        @addItem="addItem"
+        @deleteGroup="deleteGroup"
+        @removeItem="removeItem"
+        :boards="boards[0]"
+      />
     </section>
 
     <!-- <pre>{{ boards.groups }}</pre> -->
@@ -41,7 +47,6 @@
 </template>
 
 <script>
-
 import groupList from '../components/group-list.vue';
 import boardFilter from '../components/board-filter.vue';
 
@@ -59,11 +64,15 @@ export default {
   },
   created() {},
   methods: {
+    updateGroup(currGroup) {
+      this.$store.dispatch({ type: 'updateGroup', currGroup: currGroup });
+    },
+
     removeItem(itemId, groupId) {
       this.$store.dispatch({ type: 'removeItem', itemId: itemId, groupId: groupId, boardId: this.boards[0]._id });
     },
     setFilter(filterBy) {
-      this.$store.dispatch({ type: 'setFilter', filterBy })
+      this.$store.dispatch({ type: 'setFilter', filterBy });
     },
     addItem(groupId, task) {
       this.$store.dispatch({ type: 'addItem', boardId: this.boards[0]._id, groupId: groupId, task: task });

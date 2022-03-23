@@ -1,7 +1,11 @@
 <template>
   <section class="group-list">
     <ul v-for="group in boards.groups" :key="group.id">
-      <input @blur="saveId($event.target.value, group)" @keyup.enter="saveId($event.target.value, group)" />
+      <input
+        @blur="saveGroup($event.target.value, group)"
+        @keyup.enter="saveGroup($event.target.value, group)"
+        v-model="group.title"
+      />
       <!-- <p>{{ group.style.bgColor }}</p> -->
       <!-- <h4>-{{ group.title }}</h4> -->
       <button @click="deleteGroup(group.id)">Delete</button>
@@ -21,16 +25,17 @@ export default {
     },
   },
 
-  created() {
-    // this.currGroup = this.group;
-    // console.log(this.group.title);
-  },
+  created() {},
   components: {
     itemList,
   },
   methods: {
-    saveId(value, group) {
+    saveGroup(value, group) {
       console.log(value, group);
+      var currGroup = JSON.parse(JSON.stringify(group));
+      currGroup.title = value;
+      console.log(currGroup);
+      this.$emit('updateGroup', currGroup);
 
       // this.currGroup = await getGroupById;
     },
