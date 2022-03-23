@@ -1,24 +1,45 @@
 <template>
   <header class="app-header">
     <img src="../../styles/icon/icon.png" alt="" class="icon" />
-    <router-link class="link" to="/">Home</router-link>
-    <router-link class="link" to="/main">Main</router-link>
+
     <div class="top-navigation-items-area">
-      <div>x</div>
-      <div>x</div>
-      <div>x</div>
-      <div>x</div>
+      <div>
+        <menu-icon></menu-icon>
+      </div>
+      <div>
+        <notification-icon></notification-icon>
+      </div>
+      <div>
+        <inbox-icon></inbox-icon>
+      </div>
+
+      <div>
+        <work-icon></work-icon>
+      </div>
     </div>
+    <!-- <router-link class="link" to="/">Home</router-link>
+    <router-link class="link" to="/main">Main</router-link> -->
 
     <div class="bottom-navigation-items-area">
-      <div>x</div>
-      <div>x</div>
-      <div>x</div>
-      <div>x</div>
+      <div>
+        <appsIcon></appsIcon>
+      </div>
+
+      <div>
+        <invite-icon></invite-icon>
+      </div>
+
+      <div>
+        <search-icon></search-icon>
+      </div>
+
+      <div>
+        <help-icon></help-icon>
+      </div>
     </div>
 
     <div>
-      <p>SN</p>
+      <p class="name-icon">SN</p>
     </div>
   </header>
 </template>
@@ -26,6 +47,14 @@
 <script>
 // import { toyService } from "../services/toy-service.js";
 // import customToyd from './custom-toyd.vue'
+import menuIcon from '../components/icons/menu-icon.vue';
+import notificationIcon from '../components/icons/notification-icon.vue';
+import inboxIcon from '../components/icons/inbox-icon.vue';
+import workIcon from '../components/icons/work-icon.vue';
+import appsIcon from '../components/icons/apps-icon.vue';
+import inviteIcon from '../components/icons/invite-icon.vue';
+import searchIcon from '../components/icons/search-icon.vue';
+import helpIcon from '../components/icons/help-icon.vue';
 
 export default {
   data() {
@@ -63,7 +92,14 @@ export default {
     },
   },
   components: {
-    // userMsg
+    menuIcon,
+    notificationIcon,
+    inboxIcon,
+    workIcon,
+    inviteIcon,
+    appsIcon,
+    searchIcon,
+    helpIcon,
   },
 };
 </script>
