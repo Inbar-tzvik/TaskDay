@@ -1,6 +1,6 @@
 const board = {
     "_id": "b101",
-    "title": "Robot dev proj",
+    "title": "type your title",
     "createdAt": 1589983468418,
     // "createdBy": {
     //     "_id": "u101",
@@ -26,10 +26,14 @@ const board = {
     }],
     "groups": [{
             "id": "g101",
-            gu "title": "Group 1",
+            "title": "Group 1",
             "tasks": [{
                     "id": "c101",
-                    "title": "Replace logo"
+                    "title": "Replace logo",
+                    "status-picker": {
+                        "text": "null",
+                        "color": "null"
+                    }
                 },
                 {
                     "id": "c102",
@@ -44,8 +48,8 @@ const board = {
             "tasks": [{
                     "id": "c103",
                     "title": "Do that"
-                    // "status": null,
-                    
+                        // "status": null,
+
 
                 },
                 {
@@ -95,6 +99,7 @@ const board = {
             "style": {}
         }
     ],
+    // "status":{}
     "activitiesLog": [{
         "id": "a101",
         "txt": "Changed Color",
@@ -121,6 +126,7 @@ workspace = [{
     },
 
 ]
+
 const user = {
     "_id": "u101",
     "fullname": "Abi Abambi",

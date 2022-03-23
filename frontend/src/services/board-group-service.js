@@ -131,6 +131,7 @@ export const boardGroupService = {
     removeGroup,
     removeTask,
     saveBoard,
+    //TODO UPDATE
     // getEmptyToy,
 };
 storageService._save(KEY, board);
@@ -144,7 +145,7 @@ async function check() {
     // console.log('getGroupById: ', groupById);
     // await removeBoard('b101')
     // await removeGroup('b101', 'g102')
-    // await removeTask('b101', 'g102', 'c103')
+    await removeTask('b101', 'g102', 'c103')
 
 }
 
