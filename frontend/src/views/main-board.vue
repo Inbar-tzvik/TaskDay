@@ -41,8 +41,10 @@
 </template>
 
 <script>
+
 import groupList from '../components/group-list.vue';
 import boardFilter from '../components/board-filter.vue';
+
 // import { boardService } from '../services/board-service.js';
 
 export default {
@@ -59,6 +61,9 @@ export default {
   methods: {
     removeItem(itemId, groupId) {
       this.$store.dispatch({ type: 'removeItem', itemId: itemId, groupId: groupId, boardId: this.boards[0]._id });
+    },
+    setFilter(filterBy) {
+      this.$store.dispatch({ type: 'setFilter', filterBy })
     },
     addItem(groupId, task) {
       this.$store.dispatch({ type: 'addItem', boardId: this.boards[0]._id, groupId: groupId, task: task });

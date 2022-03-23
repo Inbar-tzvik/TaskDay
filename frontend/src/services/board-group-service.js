@@ -174,8 +174,10 @@ async function check() {
   // await createNewBoard()
 
   // var emptyTask = createEmptyTask()
-  // var emptyGroup = createEmptyGroup()
+  // var emptyGroup = await createEmptyGroup('b101')
   // console.log(emptyTask, emptyGroup);
+
+  // saveTask(boardId, groupId, task)
 
   saveTask(boardId, groupId, task);
 }
@@ -225,17 +227,17 @@ async function removeTask(boardId, groupId, taskId) {
   return storageService.remove(KEY, boardId, 'groups', groupId, 'tasks', taskId);
 }
 
-// async function saveBoard(board) {
-//   if (board.id) {
-//     try {
-//       return storageService.put(KEY, board);
-//     } catch (err) {
-//       console.log('Cannot find group', err);
-//     }
-//   } else {
-//     return storageService.post(KEY, board);
-//   }
-// }
+async function saveBoard(board) {
+  if (board._id) {
+    try {
+      return storageService.put(KEY, board);
+    } catch (err) {
+      console.log('Cannot find group', err);
+    }
+  } else {
+    return storageService.post(KEY, board);
+  }
+}
 
 async function saveTask(boardId, groupId, task) {
   if (task.id) {
@@ -257,26 +259,7 @@ function createEmptyTask() {
   };
 }
 
-//TODO SAVE TO STORAGE!!!!!!!!!!!! and return group
-// function createEmptyGroup() {
-//   return {
-//     id: 'g' + utilService.makeId(3),
-//     title: 'New Group',
-//     tasks: [createEmptyTask()],
-//     style: {},
-//   };
-// }
-async function saveBoard(board) {
-  if (board._id) {
-    try {
-      return storageService.put(KEY, board);
-    } catch (err) {
-      console.log('Cannot find group', err);
-    }
-  } else {
-    return storageService.post(KEY, board);
-  }
-}
+//TODO QUALITY CHECK
 
 async function createEmptyGroup(boardId) {
   var board = await getBoardById(boardId);
