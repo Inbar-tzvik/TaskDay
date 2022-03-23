@@ -1,14 +1,12 @@
 <template>
-  <section v-if="boards" class="main-board ">
+  <section v-if="boards" class="main-board">
     <section class="board-header-content">
       <div class="board-header-main">
         <div>
           <h1>sprint 4</h1>
           <p>Check out the following items to learn about all the cool features and tools monday.com has for you :-)</p>
         </div>
-        <div>
-          last seen | invite | activity | add to board
-        </div>
+        <div>last seen | invite | activity | add to board</div>
       </div>
 
       <div class="board-toolbar">
@@ -26,12 +24,10 @@
         <board-filter @setFilter="setFilter" />
         <!-- <button>New item</button> -->
       </div>
-
     </section>
     <section class="board-content">
       <h1>{{ boards[0].title }}</h1>
-      <group-list @removeItem="removeItem" :boards="boards[0]" />
-
+      <group-list @addItem="addItem" @removeItem="removeItem" :boards="boards[0]" />
     </section>
 
     <!-- <pre>{{ boards.groups }}</pre> -->
@@ -63,6 +59,9 @@ export default {
   methods: {
     removeItem(itemId, groupId) {
       this.$store.dispatch({ type: 'removeItem', itemId: itemId, groupId: groupId, boardId: this.boards[0]._id });
+    },
+    addItem(groupId, task) {
+      this.$store.dispatch({ type: 'addItem', boardId: this.boards[0]._id, groupId: groupId, task: task });
     },
   },
   components: { groupList, boardFilter },
