@@ -12,8 +12,18 @@
   width: 25px;
   height: 25px;
 }
+.container-name-icon {
+  background-color: #ffffff;
+  padding: 5px;
+
+  border-radius: 50%;
+}
 .name-icon {
   background-color: #ffcc00;
+  font-size: 25px;
+  padding: 5px;
+
+  border-radius: 50%;
 }
 
 .board-header-main {
@@ -21,6 +31,18 @@
   min-height: 70px;
   display: flex;
   justify-content: space-between;
+}
+.right-side-header {
+  display: flex;
+  align-items: center;
+  color: #3d3e43;
+
+  // .dots-icon {
+  //   color: #d0d4e4;
+  // }
+}
+.right-side-header div {
+  margin: 10px;
 }
 .app-header a {
   color: white;
@@ -68,7 +90,7 @@
   align-items: center;
   display: flex;
   text-align: center;
-  margin: 10px 0;
+  margin: 25px 0;
 }
 .bottom-navigation-items-area div img {
   width: 25px;

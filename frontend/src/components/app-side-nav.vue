@@ -47,14 +47,14 @@
 <script>
 // import { toyService } from "../services/toy-service.js";
 // import customToyd from './custom-toyd.vue'
-import menuIcon from '../components/icons/menu-icon.vue';
-import notificationIcon from '../components/icons/notification-icon.vue';
-import inboxIcon from '../components/icons/inbox-icon.vue';
-import workIcon from '../components/icons/work-icon.vue';
-import appsIcon from '../components/icons/apps-icon.vue';
-import inviteIcon from '../components/icons/invite-icon.vue';
-import searchIcon from '../components/icons/search-icon.vue';
-import helpIcon from '../components/icons/help-icon.vue';
+import menuIcon from './icons/menu-icon.vue';
+import notificationIcon from './icons/notification-icon.vue';
+import inboxIcon from './icons/inbox-icon.vue';
+import workIcon from './icons/work-icon.vue';
+import appsIcon from './icons/apps-icon.vue';
+import inviteIcon from './icons/invite-icon.vue';
+import searchIcon from './icons/search-icon.vue';
+import helpIcon from './icons/help-icon.vue';
 
 export default {
   data() {

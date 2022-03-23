@@ -1,7 +1,7 @@
 <template>
   <section class="board-filter">
     <button @click="addGroup" class="blue-btn">New Group</button>
-    <div class="blue-btn">></div>
+    <div class="blue-symbl">></div>
     <input
       type="text"
       placeholder="Search"
