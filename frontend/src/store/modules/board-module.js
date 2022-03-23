@@ -109,7 +109,7 @@ export default {
                 });
             }
         },
-        filter({ commit, dispatch }, { filterBy }) {
+        setFilter({ commit, dispatch }, { filterBy }) {
             commit({ type: 'setFilter', filterBy });
             dispatch({ type: 'loadBoards' });
         },

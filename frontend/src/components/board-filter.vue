@@ -1,51 +1,53 @@
 <template>
-    <section class="board-filter">
-      <button class="blue-btn">New Item</button>
-      <div class="blue-btn">></div>
-      <input type="text" placeholder="Search"  v-model="filterBy.txt"  @input="setFilter">
-      <select v-for="(user, idx) in users" :key="idx" v-model="filterBy.user" >
-        <option value="">{{ user }}</option>
-      </select>
-      <button>filter</button>
-      <button>Sort</button>
+  <section class="board-filter">
+    <button class="blue-btn">New Item</button>
+    <div class="blue-btn">></div>
+    <input
+      type="text"
+      placeholder="Search"
+      v-model="filterBy.txt"
+      @input="setFilter"
+    />
 
-     <pre>{{ getUsers }}</pre>
-    
-    </section>
+    <select v-model="filterBy.user">
+      <option v-for="(user, idx) in users" :key="idx">{{ user }}</option>
+    </select>
+    <button>filter</button>
+    <button>Sort</button>
+
+    {{ getUsers }}
+  </section>
 </template>
 
 <script>
-
-
 export default {
   name: 'board-filter',
-  props: {
-
-  },
+  props: {},
   data() {
     return {
       filterBy: {
         txt: '',
-        user: ''
+        user: '',
       },
-      users: null
-    }
+      users: null,
+    };
   },
-  components: {
-   
-  },
+  components: {},
   computed: {
-      boards() {
+    boards() {
       return this.$store.getters.boards[0];
     },
-    getUsers(){
-      this.users = this.$store.getters.getUsers
-    }
+    getUsers() {
+      this.users = this.$store.getters.boards[0].members.map(
+        (user) => user.fullname
+      );
+      // return this.$store.getters.boards[0].members.map(user => user.fullname)
+    },
   },
   methods: {
     setFilter() {
       console.log(this.filterBy);
-      this.$emit('setFilter', JSON.parse(JSON.stringify(this.filterBy)))
+      this.$emit('setFilter', JSON.parse(JSON.stringify(this.filterBy)));
     },
   },
 };

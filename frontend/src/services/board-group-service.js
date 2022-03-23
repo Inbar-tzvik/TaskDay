@@ -37,6 +37,11 @@ const board = [{
         _id: 'u101',
         fullname: 'Tal Tarablus',
         imgUrl: 'https://www.google.com',
+    },
+    {
+        _id: 'u102',
+        fullname: 'Tl rablus',
+        imgUrl: 'https://www.google.com',
     },],
     groups: [{
             id: 'g101',
