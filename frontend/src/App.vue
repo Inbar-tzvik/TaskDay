@@ -1,6 +1,6 @@
 <template>
-  <section class="app-container container">
-    <app-header></app-header>
+  <section class="app-container flex">
+    <app-header></app-header> 
     <router-view />
   </section>
 </template>

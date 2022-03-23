@@ -51,19 +51,7 @@ export default {
   },
   actions: {
     //load all boards from DB
-    // async loadBoards({ commit, state }) {
-    //   try {
-    //     const boards = await boardGroupService.query(state.filterBy);
-    //     commit({
-    //       type: 'setBoards',
-    //       boards,
-    //     });
-    //   } catch {
-    //     commit({
-    //       type: 'setIsError',
-    //       isError: true,
-    //     });
-    //   }
+
     // },
     async loadBoards({ commit, state }) {
       console.log('loading board');
@@ -110,6 +98,19 @@ export default {
         });
       }
     },
+    async addItem({ dispatch }) {
+      try {
+        await boardGroupService.addItem();
+        dispatch({ type: 'loadBoards' });
+      } catch (err) {
+        console.log('Couldnt save item', err);
+        commit({
+          type: 'setIsError',
+          isError: true,
+        });
+      }
+    },
+
     filter({ commit, dispatch }, { filterBy }) {
       commit({ type: 'setFilter', filterBy });
       dispatch({ type: 'loadBoards' });

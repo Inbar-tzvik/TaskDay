@@ -1,22 +1,27 @@
 <template>
-  <header class="main-header">
-    <!-- <slot name="header">default</slot> -->
+  <header class="app-header">
+    <img src="../../styles/icon/icon.png" alt="" class="icon">
+    <router-link class="link" to="/">Home</router-link>
+    <router-link class="link" to="/main">Main</router-link>
+    <div class="top-navigation-items-area">
+      <div>x</div>
+      <div>x</div>
+      <div>x</div>
+      <div>x</div>
+    </div>
 
-    <nav class="flex">
-      <!-- <section class="user-info">
-        <router-link to="/user">{{ user.fullname }}</router-link> | \${{
-          user.username
-        }}
-      </section> -->
+    <div class="bottom-navigation-items-area">
+      <div>x</div>
+      <div>x</div>
+      <div>x</div>
+      <div>x</div>
+    </div>
 
-      <!-- <router-link class="link" to="/user">user</router-link> -->
-      <router-link class="link" to="/">Home</router-link>|
+    <div>
+      <p>SN</p>
+    </div>
+  
 
-      <router-link class="link" to="/main">Main</router-link>
-      <!-- <router-link class="link" to="/car">Car</router-link> -->
-      <!-- <router-link class="link" to="/about">About</router-link> -->
-    </nav>
-    <hr />
   </header>
 </template>
 

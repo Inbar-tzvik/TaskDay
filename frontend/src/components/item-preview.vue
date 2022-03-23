@@ -1,10 +1,10 @@
 <template>
   <!-- <li class="item-preview"> -->
   <!-- <pre>{{ toy }}</pre> -->
-  <section>
+  <section class="item-preview">
+    <button @click="remove(task.id)">X</button>
     <h3>{{ task.title }}</h3>
     <p>{{ task.status }}</p>
-    <button @click="remove(task.id)">X</button>
   </section>
   <!-- <button @click="remove(item._id)">X</button> -->
   <!-- <router-link :to="'/toy/details/' + toy._id">Details</router-link> |
