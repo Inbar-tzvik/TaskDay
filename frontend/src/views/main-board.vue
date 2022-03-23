@@ -46,9 +46,11 @@
     <section class="board-content">
       <h1>{{ boards[0].title }}</h1>
       <group-list
+        @updateGroup="updateGroup"
         @addItem="addItem"
         @deleteGroup="deleteGroup"
         @removeItem="removeItem"
+        @editTask="editTask"
         :boards="boards[0]"
       />
     </section>
@@ -81,6 +83,10 @@ export default {
   },
   created() {},
   methods: {
+    updateGroup(currGroup) {
+      this.$store.dispatch({ type: 'updateGroup', currGroup: currGroup, boardId: this.boards[0]._id });
+    },
+
     removeItem(itemId, groupId) {
       this.$store.dispatch({
         type: 'removeItem',
@@ -93,12 +99,8 @@ export default {
       this.$store.dispatch({ type: 'setFilter', filterBy });
     },
     addItem(groupId, task) {
-      this.$store.dispatch({
-        type: 'addItem',
-        boardId: this.boards[0]._id,
-        groupId: groupId,
-        task: task,
-      });
+      console.log(groupId, task);
+      this.$store.dispatch({ type: 'addItem', boardId: this.boards[0]._id, groupId: groupId, task: task });
     },
     deleteGroup(groupId) {
       this.$store.dispatch({
@@ -109,6 +111,10 @@ export default {
     },
     addGroup() {
       this.$store.dispatch({ type: 'addGroup', boardId: this.boards[0]._id });
+    },
+    editTask(groupId, item) {
+      console.log(groupId, item);
+      this.$store.dispatch({ type: 'addItem', boardId: this.boards[0]._id, groupId: groupId, task: item });
     },
   },
   components: { groupList, boardFilter },

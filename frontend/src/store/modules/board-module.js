@@ -98,9 +98,10 @@ export default {
       }
     },
     //saving item
-    async saveItem({ dispatch }, payload) {
+    async addItem({ dispatch }, { boardId, groupId, task }) {
       try {
-        await boardGroupService.saveItem(payload.item);
+        console.log(boardId, groupId, task);
+        await boardGroupService.saveTask(boardId, groupId, task);
         dispatch({ type: 'loadBoards' });
       } catch (err) {
         console.log('Couldnt save item', err);
@@ -110,6 +111,7 @@ export default {
         });
       }
     },
+
     async addGroup({ dispatch }, { boardId }) {
       try {
         await boardGroupService.createEmptyGroup(boardId);
@@ -133,10 +135,19 @@ export default {
     //       isError: true,
     //     });
     //   }
-    // },
+
+    async updateGroup({ dispatch }, { boardId, currGroup }) {
+      try {
+        console.log('updating');
+        await boardGroupService.saveGroup(boardId, currGroup);
+        dispatch({ type: 'loadBoards' });
+      } catch (err) {
+        console.log('Couldnt save item', err);
+      }
+    },
     setFilter({ commit, dispatch }, { filterBy }) {
       commit({ type: 'setFilter', filterBy });
       dispatch({ type: 'loadBoards' });
-  },
+    },
   },
 };

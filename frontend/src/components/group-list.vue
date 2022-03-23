@@ -1,11 +1,15 @@
 <template>
   <section class="group-list">
     <ul v-for="group in boards.groups" :key="group.id">
-      <input @blur="saveId($event.target.value, group)" @keyup.enter="saveId($event.target.value, group)" />
+      <input
+        @blur="saveGroup($event.target.value, group)"
+        @keyup.enter="saveGroup($event.target.value, group)"
+        v-bind:placeholder="group.title"
+      />
       <!-- <p>{{ group.style.bgColor }}</p> -->
       <!-- <h4>-{{ group.title }}</h4> -->
       <button @click="deleteGroup(group.id)">Delete</button>
-      <item-list :group="group" @removeItem="removeItem" />
+      <item-list :group="group" @editTask="editTask" @addItem="addItem" @removeItem="removeItem" />
       <!-- <toy-preview @removeToy="removeToy" v-for="toy in toys" :key="toy.id" :toy="toy" /> -->
     </ul>
   </section>
@@ -21,16 +25,16 @@ export default {
     },
   },
 
-  created() {
-    // this.currGroup = this.group;
-    // console.log(this.group.title);
-  },
+  created() {},
   components: {
     itemList,
   },
   methods: {
-    saveId(value, group) {
-      console.log(value, group);
+    saveGroup(value, group) {
+      var currGroup = JSON.parse(JSON.stringify(group));
+      currGroup.title = value;
+      console.log(currGroup);
+      this.$emit('updateGroup', currGroup);
 
       // this.currGroup = await getGroupById;
     },
@@ -38,13 +42,13 @@ export default {
       this.$emit('removeItem', itemId, groupId);
     },
     addItem(groupId, newTask) {
-      this.$emit('addItem', groupId, this.newTask);
+      this.$emit('addItem', groupId, newTask);
     },
     deleteGroup(groupId) {
       this.$emit('deleteGroup', groupId);
     },
-    changeGroupName() {
-      console.log(this.group.title);
+    editTask(item, groupId) {
+      this.$emit('editTask', groupId, item);
     },
   },
 };
