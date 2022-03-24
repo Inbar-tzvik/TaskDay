@@ -32,9 +32,11 @@ export default {
   methods: {
     saveGroup(value, group) {
       var currGroup = JSON.parse(JSON.stringify(group));
-      currGroup.title = value;
-      console.log(currGroup);
-      this.$emit('updateGroup', currGroup);
+      if (value) {
+        currGroup.title = value;
+        console.log(currGroup);
+        this.$emit('updateGroup', currGroup);
+      }
 
       // this.currGroup = await getGroupById;
     },
