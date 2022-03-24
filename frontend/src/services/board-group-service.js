@@ -187,7 +187,7 @@ async function check() {
 
 }
 
-//*******/ CHECKING AREA *********/
+//********** /CHECKING AREA *********/
 
 function query(filterBy) {
     return storageService.query(KEY) || [];
