@@ -100,7 +100,6 @@ export default {
     //saving item
     async addItem({ dispatch }, { boardId, groupId, task }) {
       try {
-        console.log(boardId, groupId, task);
         await boardGroupService.saveTask(boardId, groupId, task);
         dispatch({ type: 'loadBoards' });
       } catch (err) {

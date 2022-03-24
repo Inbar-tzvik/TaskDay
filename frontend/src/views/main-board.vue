@@ -8,17 +8,8 @@
         </div>
 
         <div class="right-side-header">
-          <div>
-            <button class="last-seen-btn">
-              <p>Last seen</p>
-              <div>images users?</div>
-            </button>
-          </div>
-
           <div>Invite/ <span>4</span></div>
-
           <div>Activty</div>
-
           <div class="add-to-board">
             <p>+ Add to board</p>
           </div>
@@ -117,11 +108,7 @@ export default {
   created() {},
   methods: {
     updateGroup(currGroup) {
-      this.$store.dispatch({
-        type: 'updateGroup',
-        currGroup: currGroup,
-        boardId: this.boards[0]._id,
-      });
+      this.$store.dispatch({ type: 'updateGroup', currGroup: currGroup, boardId: this.boards[0]._id });
     },
 
     removeItem(itemId, groupId) {
@@ -137,12 +124,7 @@ export default {
     },
     addItem(groupId, task) {
       console.log(groupId, task);
-      this.$store.dispatch({
-        type: 'addItem',
-        boardId: this.boards[0]._id,
-        groupId: groupId,
-        task: task,
-      });
+      this.$store.dispatch({ type: 'addItem', boardId: this.boards[0]._id, groupId: groupId, task: task });
     },
     deleteGroup(groupId) {
       this.$store.dispatch({
@@ -156,12 +138,7 @@ export default {
     },
     editTask(groupId, item) {
       console.log(groupId, item);
-      this.$store.dispatch({
-        type: 'addItem',
-        boardId: this.boards[0]._id,
-        groupId: groupId,
-        task: item,
-      });
+      this.$store.dispatch({ type: 'addItem', boardId: this.boards[0]._id, groupId: groupId, task: item });
     },
   },
   components: { groupList, boardFilter, boardToolbar, boardHeaderMain },
