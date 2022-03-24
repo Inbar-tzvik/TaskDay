@@ -1,7 +1,7 @@
 <template>
   <section v-if="task" class="item-preview">
     <h3 v-if="!onEdit">{{ task.title }}</h3>
-    <p>{{ task.status }}</p>
+    <!-- <p>{{ task.status }}</p> -->
     <input
       v-if="onEdit"
       @blur="editTask($event.target.value, task, task.title)"
@@ -9,7 +9,6 @@
       v-bind:placeholder="task.title"
     />
     <button @click="edit">Edit</button>
-    <button @click="remove(task.id)">X</button>
   </section>
 </template>
 
@@ -27,9 +26,6 @@ export default {
   components: {},
   computed: {},
   methods: {
-    remove(itemId) {
-      this.$emit('removeItem', itemId);
-    },
     edit() {
       this.onEdit = true;
     },
