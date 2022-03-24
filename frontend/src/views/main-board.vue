@@ -2,17 +2,22 @@
   <section v-if="boards" class="main-board">
     <section class="board-header-content">
       <div class="board-header-main">
-        <div>
-          <h1>sprint 4</h1>
-          <p>
-            Check out the following items to learn about all the cool features
-            and tools monday.com has for you :-)
-          </p>
+        <div class="title">
+          <p>sprint 4</p>
         </div>
 
         <div class="right-side-header">
+          <div>
+            <button class="last-seen-btn">
+              <p>Last seen</p>
+              <div>images users?</div>
+            </button>
+          </div>
+
           <div>Invite/ <span>4</span></div>
+
           <div>Activty</div>
+
           <div class="add-to-board">
             <p>+ Add to board</p>
           </div>
@@ -26,11 +31,37 @@
           </div>
         </div>
       </div>
+      <p class="subtitle">
+        Check out the following items to learn about all the cool features and
+        tools monday.com has for you :-)
+      </p>
 
       <div class="board-toolbar">
         <!-- <button class="loolbar-btn">Main-table</button> -->
-        <div class="loolbar-btns">
-          <div>Main-table |Chart | Ghantt | Kanban | +Add View</div>
+        <div class="toolbar-btns flex">
+          <div>
+            <button>Main-table</button>
+          </div>
+
+          <div>
+            <button>Chart</button>
+          </div>
+
+          <div>
+            <button>Main-table</button>
+          </div>
+
+          <div>
+            <button>Gantt</button>
+          </div>
+
+          <div>
+            <button>Kanban</button>
+          </div>
+
+          <div>
+            <button>Add View</button>
+          </div>
         </div>
 
         <div>
@@ -84,7 +115,11 @@ export default {
   created() {},
   methods: {
     updateGroup(currGroup) {
-      this.$store.dispatch({ type: 'updateGroup', currGroup: currGroup, boardId: this.boards[0]._id });
+      this.$store.dispatch({
+        type: 'updateGroup',
+        currGroup: currGroup,
+        boardId: this.boards[0]._id,
+      });
     },
 
     removeItem(itemId, groupId) {
@@ -100,7 +135,12 @@ export default {
     },
     addItem(groupId, task) {
       console.log(groupId, task);
-      this.$store.dispatch({ type: 'addItem', boardId: this.boards[0]._id, groupId: groupId, task: task });
+      this.$store.dispatch({
+        type: 'addItem',
+        boardId: this.boards[0]._id,
+        groupId: groupId,
+        task: task,
+      });
     },
     deleteGroup(groupId) {
       this.$store.dispatch({
@@ -114,7 +154,12 @@ export default {
     },
     editTask(groupId, item) {
       console.log(groupId, item);
-      this.$store.dispatch({ type: 'addItem', boardId: this.boards[0]._id, groupId: groupId, task: item });
+      this.$store.dispatch({
+        type: 'addItem',
+        boardId: this.boards[0]._id,
+        groupId: groupId,
+        task: item,
+      });
     },
   },
   components: { groupList, boardFilter },

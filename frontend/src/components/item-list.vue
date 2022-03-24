@@ -41,9 +41,11 @@ export default {
       // console.log(this.newTask);
     },
     addItem(groupId) {
-      console.log(groupId, this.newTask);
-      this.$emit('addItem', groupId, this.newTask);
-      this.addNewTask();
+      // console.log(groupId, this.newTask);
+      if (this.newTask.title) {
+        this.$emit('addItem', groupId, this.newTask);
+        this.addNewTask();
+      }
 
       //save the one
       //add new one
