@@ -1,7 +1,8 @@
 <template>
   <section v-if="boards" class="main-board">
     <section class="board-header-content">
-      <div class="board-header-main">
+      <board-header-main />
+      <!-- <div class="board-header-main">
         <div class="title">
           <p>sprint 4</p>
         </div>
@@ -30,15 +31,15 @@
             />
           </div>
         </div>
-      </div>
-      <p class="subtitle">
+      </div> -->
+      <!-- <p class="subtitle">
         Check out the following items to learn about all the cool features and
         tools monday.com has for you :-)
-      </p>
-
-      <div class="board-toolbar">
-        <!-- <button class="loolbar-btn">Main-table</button> -->
-        <div class="toolbar-btns flex">
+      </p> -->
+      <board-toolbar></board-toolbar>
+      <!-- <div class="board-toolbar"> -->
+      <!-- <button class="loolbar-btn">Main-table</button> -->
+      <!-- <div class="toolbar-btns flex">
           <div>
             <button>Main-table</button>
           </div>
@@ -67,12 +68,11 @@
         <div>
           <div>Integrate | Automate</div>
         </div>
-      </div>
-
-      <div>
-        <board-filter @addGroup="addGroup" @setFilter="setFilter" />
-        <!-- <button>New item</button> -->
-      </div>
+      </div> -->
+      <!-- <div> -->
+      <board-filter @addGroup="addGroup" @setFilter="setFilter" />
+      <!-- <button>New item</button> -->
+      <!-- </div> -->
     </section>
     <section class="board-content">
       <h1>{{ boards[0].title }}</h1>
@@ -99,6 +99,8 @@
 <script>
 import groupList from '../components/group-list.vue';
 import boardFilter from '../components/board-filter.vue';
+import boardToolbar from '../components/board-toolbar.vue';
+import boardHeaderMain from '../components/board-header-main.vue';
 
 // import { boardService } from '../services/board-service.js';
 
@@ -162,6 +164,6 @@ export default {
       });
     },
   },
-  components: { groupList, boardFilter },
+  components: { groupList, boardFilter, boardToolbar, boardHeaderMain },
 };
 </script>

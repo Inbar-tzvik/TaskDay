@@ -1,19 +1,15 @@
 <template>
   <section class="board-filter">
     <button @click="addGroup" class="blue-btn">New Group</button>
-    <div class="blue-symbl">></div>
-    <input
-      type="text"
-      placeholder="Search"
-      v-model="filterBy.txt"
-      @input="setFilter"
-    />
+    <!-- <div class="blue-symbl">></div> -->
 
-    <select v-model="filterBy.user">
-      <option v-for="(user, idx) in users" :key="idx">{{ user }}</option>
-    </select>
-    <button>filter</button>
-    <button>Sort</button>
+    <div>
+      <input type="text" placeholder="Search" />
+
+      <button>Person</button>
+      <button>filter</button>
+      <button>Sort</button>
+    </div>
   </section>
 </template>
 

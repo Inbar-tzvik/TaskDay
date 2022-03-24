@@ -3,7 +3,7 @@
     <img src="../../styles/icon/icon.png" alt="" class="icon" />
 
     <div class="top-navigation-items-area">
-      <div>
+      <div class="cliked-btn-nav">
         <menu-icon></menu-icon>
       </div>
       <div>
