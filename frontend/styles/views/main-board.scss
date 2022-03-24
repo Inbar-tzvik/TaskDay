@@ -1,8 +1,9 @@
 .main-board {
   // background-color: wheat;
-  min-width: 95%;
+  // min-width: 95%;
+  min-width: 1500px;
   min-height: 100vh;
-  margin-left: 30px;
+  // margin-left: 30px;
   border-left: 1px solid #d0d4e4;
 }
 .board-content {
@@ -14,8 +15,72 @@
 .dots-icon {
   width: 20px;
 }
+.title {
+  display: flex;
+  align-items: center;
+  font-size: 40px;
+  color: #323338;
+}
+.subtitle {
+  color: #757585;
+  width: 900px;
+  padding: 3px;
+
+  &:hover {
+    border: 1px dashed #90919d;
+  }
+}
+// .subtitle:hover {
+//   border: 1px solid #90919d;
+//   background-color: lawngreen;
+// }
 .add-to-board {
-  border: 1px solid #d0d4e4;
+  border: 1px solid #90919d;
   padding: 8px;
   border-radius: 5px;
+}
+.last-seen-btn {
+  display: flex;
+  align-items: center;
+  border: none;
+  background: none;
+  p,
+  div {
+    display: flex;
+  }
+}
+.board-header-main {
+  // background-color: #facbc9;
+  min-height: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+.board-toolbar {
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+
+  // background-color: lightyellow;
+}
+
+.toolbar-btns {
+  color: #90919d;
+
+  div {
+    width: 125px;
+    background-color: lightcoral;
+
+    :hover {
+      background-color: #dcdfec;
+    }
+
+    button {
+      color: #68696c;
+      background-color: lightblue;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
