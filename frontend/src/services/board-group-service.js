@@ -144,11 +144,6 @@ export const boardGroupService = {
     createEmptyGroup,
     createNewBoard,
 
-    // EDIT TASk(boradid,groupid,taskid,task) / new task
-    // EDIT GROUP(boradid,groupid,taskid,task) / new task
-    //TODO
-
-    // getEmptyToy,
 };
 
 

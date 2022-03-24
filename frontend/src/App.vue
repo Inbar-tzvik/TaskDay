@@ -1,13 +1,12 @@
 <template>
   <section class="app-container flex">
-    <nav-bar />
-    <div class="empty-div"></div>
+    <app-header></app-header>
     <router-view />
   </section>
 </template>
 
 <script>
-import navBar from './components/app-side-nav.vue';
+import appHeader from './components/app-side-nav.vue';
 
 export default {
   name: 'app',
@@ -16,7 +15,7 @@ export default {
   },
   methods: {},
   components: {
-    navBar,
+    appHeader,
   },
 };
 </script>

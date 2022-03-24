@@ -1,6 +1,6 @@
 .app-header {
   background-color: #292f4c;
-  width: 73px;
+  width: 65px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -9,8 +9,8 @@
 }
 .icon {
   margin: 10px;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 .container-name-icon {
   background-color: #ffffff;
@@ -26,6 +26,12 @@
   border-radius: 50%;
 }
 
+.board-header-main {
+  // background-color: #facbc9;
+  min-height: 70px;
+  display: flex;
+  justify-content: space-between;
+}
 .right-side-header {
   display: flex;
   align-items: center;
@@ -37,13 +43,6 @@
 }
 .right-side-header div {
   margin: 10px;
-  > * {
-    color: #78797c;
-
-    div {
-      color: #78797c;
-    }
-  }
 }
 .app-header a {
   color: white;
@@ -55,6 +54,14 @@
   padding: 16px 30px 0;
 }
 
+.board-toolbar {
+  height: 45px;
+  display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // background-color: lightyellow;
+}
 .top-navigation-items-area {
   // background-color: #facbc9;
   height: 580px;
