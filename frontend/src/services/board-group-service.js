@@ -49,10 +49,12 @@ const board = [{
             tasks: [{
                     id: 'c101',
                     title: 'Replace logo',
+                    status: 'Working on it',
                 },
                 {
                     id: 'c102',
                     title: 'Add Samples',
+                    status: 'Stuck',
                 },
             ],
             style: { bgColor: 'green' },
@@ -63,6 +65,7 @@ const board = [{
             tasks: [{
                     id: 'c103',
                     title: 'Do that',
+                    status: 'Done',
                 },
                 {
                     id: 'c104',
@@ -125,9 +128,9 @@ const board = [{
             title: 'Replace Logo',
         },
     }, ],
-    // cmpsOrder: ['status-picker', 'member-picker', 'date-picker'],
+    cmpsOrder: ['status-picker', 'date-picker'],
+    // cmpsOrder: ['statusPicker', 'member-picker', 'date-picker'],
 }, ];
-
 
 export const boardGroupService = {
     query,
@@ -146,8 +149,6 @@ export const boardGroupService = {
 
 };
 
-
-
 //************CHEKING AREA - can put on comment *********/
 storageService._save(KEY, board);
 
@@ -163,23 +164,19 @@ async function check() {
     // await removeGroup('b101', 'g102')
     // await removeTask('b101', 'g102', 'c103')
     // await createNewBoard()
-
     // var emptyTask = createEmptyTask()
     // var emptyGroup = await createEmptyGroup('b101')
     // console.log(emptyTask, emptyGroup);
-
     // var group = {
     //     id: 'g101',
     //     title: 'shiva'
     // }
     // await saveGroup('b101', group);
-
     // var task = {
     //     id: 'c102',
     //     title: 'hello',
     // }
     // await saveTask('b101', 'g101', task);
-
 }
 
 //********** /CHECKING AREA *********/
@@ -220,7 +217,7 @@ async function getTaskById(boardId, groupId, taskId) {
     try {
         const currBoard = await storageService.get(KEY, boardId);
         const currGroup = currBoard.groups.find((group) => group.id === groupId);
-        const currTask = currGroup.tasks.find((task) => task.id === taskId)
+        const currTask = currGroup.tasks.find((task) => task.id === taskId);
         return currTask;
     } catch (err) {
         console.log('Cannot find task', err);
@@ -272,22 +269,19 @@ async function saveGroup(boardId, updateGroup) {
 }
 async function saveTask(boardId, groupId, updateTask) {
     try {
-        var currGroup = await getGroupById(boardId, groupId)
-        var currTask = currGroup.tasks.find((task) => task.id === updateTask.id)
-        var currTaskIdx = currGroup.tasks.indexOf(currTask)
-            // console.log(currTaskIdx);
+        var currGroup = await getGroupById(boardId, groupId);
+        var currTask = currGroup.tasks.find((task) => task.id === updateTask.id);
+        var currTaskIdx = currGroup.tasks.indexOf(currTask);
+        // console.log(currTaskIdx);
 
         if (currTask) {
-            currGroup.tasks[currTaskIdx] = updateTask
+            currGroup.tasks[currTaskIdx] = updateTask;
         } else {
-            currGroup.tasks.push(updateTask)
+            currGroup.tasks.push(updateTask);
         }
-        await saveGroup(boardId, currGroup)
-            // return updateTask
-
+        await saveGroup(boardId, currGroup);
+        // return updateTask
     } catch {}
-
-
 }
 
 //DONT SAVE TO STORAGE!
@@ -295,6 +289,7 @@ function createEmptyTask(title = '') {
     return {
         id: 't' + utilService.makeId(3),
         title,
+        status: '-',
     };
 }
 
