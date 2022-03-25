@@ -29,10 +29,11 @@
         background-color: #dcdfec;
       }
     }
-
-    // .dots-icon {
-    //   color: #d0d4e4;
-    // }
+    .dots-icon {
+      width: 20px;
+      height: 15px;
+      margin: 0 5px;
+    }
   }
 
   .title {
@@ -68,7 +69,4 @@
 
 .container-dots {
   display: flex;
-}
-.dots-icon {
-  width: 20px;
 }
