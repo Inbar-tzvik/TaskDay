@@ -61,7 +61,6 @@
   // border-radius: 8px;
   background: white;
   background-color: #f5f6f8;
-
   // border: 1px solid #eee;
   // box-shadow: 10px 10px 0 0 rgba(black, 0.03);
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -70,12 +69,14 @@
     box-sizing: border-box;
     text-align: left;
   }
-
   .dropDownMenuButton {
+    width: 13.57rem;
     border: none;
-    font-size: 0.8125rem;
+    font-size: 1rem;
     background: none;
     outline: none;
+    // color: white;
+
     // border-radius: 4px;
     position: absolute;
     top: 0;
@@ -83,10 +84,10 @@
     display: flex;
     align-items: center;
     // padding: 0 70px 0 20px;
-    margin: 0;
+    margin: 0 auto;
     line-height: 1;
     height: 2.57rem;
-    width: 28.57rem;
+    // width: 28.57rem;
     z-index: 1;
     cursor: pointer;
   }
@@ -285,4 +286,22 @@
 .smooth-dnd-container.vertical > .smooth-dnd-draggable-wrapper {
   overflow: visible;
   display: block;
+}
+
+.item-preview {
+  button {
+    background-color: transparent;
+    border: none;
+    height: 24px;
+    visibility: hidden;
+    &:hover {
+      background-color: white;
+      border-radius: 4px;
+    }
+  }
+  &:hover {
+    button {
+      visibility: visible;
+    }
+  }
 }

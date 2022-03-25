@@ -5,12 +5,14 @@
       <Draggable v-for="task in group.tasks" :key="task.id">
         <!-- <li v-for="task in group.tasks" :key="task.id" class="row-item"> -->
         <li class="row-item">
-          <item-preview :group="group.style" :task="task" @editTask="editTask" />
-          <label v-for="(cmp, idx) in cmps" :key="cmp">
-            <!-- <pre>{{ task }}</pre> -->
-            <component :is="cmp" :task="task" @setVal="setAns($event, idx)"></component>
-            <!-- <component :is="cmp" :info="task" @setVal="setAns($event, idx)"></component> -->
-          </label>
+          <section class="data-in-row">
+            <item-preview :group="group.style" :task="task" @editTask="editTask" />
+            <label v-for="(cmp, idx) in cmps" :key="cmp">
+              <!-- <pre>{{ task }}</pre> -->
+              <component :is="cmp" :task="task" @setVal="setAns($event, idx)"></component>
+              <!-- <component :is="cmp" :info="task" @setVal="setAns($event, idx)"></component> -->
+            </label>
+          </section>
           <div class="end-row"></div>
           <button @click="remove(task.id)">X</button>
         </li>
@@ -20,7 +22,7 @@
       <div class="add-left-indicator">
         <div class="add-left-indicator-inner" :style="{ backgroundColor: group.style.color }"></div>
       </div>
-      <input placeholder="+ Add Item" v-model="newTask.title" type="text" />
+      <input class="add-new-item" placeholder="+ Add Item" v-model="newTask.title" type="text" />
       <button @click="addItem(group.id)">Add Item</button>
       <div class="end-row"></div>
     </div>

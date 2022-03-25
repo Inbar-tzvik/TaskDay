@@ -1,15 +1,15 @@
 <template>
-  <div v-if="task" class="item-preview">
+  <div v-if="currentTask" class="item-preview">
     <div class="left-indicator" :style="{ backgroundColor: group.color }">
       <div class="left-indicator-inner"></div>
     </div>
-    <p v-if="!onEdit">{{ task.title }}</p>
+    <p v-if="!onEdit">{{ currentTask.title }}</p>
     <!-- <p>{{ task.status }}</p> -->
     <input
       v-if="onEdit"
-      @blur="editTask($event.target.value, task, task.title)"
-      @keyup.enter="editTask($event.target.value, task, task.title)"
-      v-bind:placeholder="task.title"
+      @blur="editTask($event.target.value, task)"
+      @keyup.enter="editTask($event.target.value, task)"
+      v-model="currentTask.title"
     />
     <button @click="edit">Edit</button>
     <div class="add-msg">
@@ -44,11 +44,15 @@ export default {
   data() {
     return {
       onEdit: false,
+      currentTask: null,
     };
   },
   props: {
     task: Object,
     group: Object,
+  },
+  created() {
+    this.currentTask = JSON.parse(JSON.stringify(this.task));
   },
   components: {},
   computed: {},
@@ -56,16 +60,19 @@ export default {
     edit() {
       this.onEdit = true;
     },
-    editTask(value, item, title) {
-      console.log(item);
+    editTask(value, item) {
+      console.log('input value', value);
       var currTask = JSON.parse(JSON.stringify(item));
-      if (value) currTask.title = value;
-      else {
-        currTask.title = title;
-      }
-      console.log(currTask);
-      this.$emit('editTask', currTask);
       this.onEdit = false;
+
+      if (value) {
+        currTask.title = value;
+        this.$emit('editTask', currTask);
+      } else {
+        console.log(this.currentTask);
+        this.currentTask.title = this.task.title;
+      }
+      // console.log(currTask);
     },
   },
 };

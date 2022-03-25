@@ -34,11 +34,11 @@
     left: 54px;
     flex: 0 1;
     border-right: none;
-    border-color: #d0d4e4;
+    border-color: red;
     height: 35px;
     flex: 1 1 auto;
     border-radius: 0;
-    border: 1px solid;
+    border: 1px solid #d0d4e4;
     background-color: #fff;
     font-size: 14px;
     outline: none;
@@ -51,6 +51,7 @@
 .add-left-indicator {
   position: sticky;
   left: 46px;
+
   // background-color: rgb(87, 155, 252);
   .add-left-indicator-inner {
     position: relative;
@@ -58,5 +59,24 @@
     height: 100%;
     opacity: 0.5;
     transition: opacity 0.1s ease;
+  }
+}
+
+.data-in-row {
+  display: flex;
+  gap: 2px;
+  &:hover {
+    .item-preview {
+      background-color: #e6e9ef;
+    }
+    .dropDownMenuWrapper {
+      background-color: #e6e9ef;
+    }
+    .el-date-editor {
+      background-color: #e6e9ef;
+    }
+    .demo-date-picker {
+      background-color: #e6e9ef;
+    }
   }
 }
