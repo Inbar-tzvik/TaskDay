@@ -1,7 +1,12 @@
 <template>
   <section class="app-container">
-    <work-space-modal></work-space-modal>
-    <nav-bar />
+    <!-- <work-space-modal :class="openModal"></work-space-modal> -->
+    <work-space-modal
+      :class="[isModalClicked ? 'left' : '']"
+      @closeModal="closeModal"
+    ></work-space-modal>
+
+    <nav-bar @menuClicked="menuClicked" />
     <router-view />
   </section>
 </template>
@@ -15,7 +20,28 @@ export default {
   created() {
     this.$store.dispatch({ type: 'loadBoards' });
   },
-  methods: {},
+  data() {
+    return {
+      isModalClicked: false,
+    };
+  },
+  methods: {
+    menuClicked() {
+      this.isModalClicked = !this.isModalClicked;
+      console.log(this.isModalClicked);
+    },
+    closeModal() {
+      this.isModalClicked = false;
+      console.log(this.isModalClicked);
+    },
+  },
+  getters: {
+    // openModal() {
+    //   if (this.isModalClicked) return 'left';
+    //   else return '';
+    // },
+  },
+  computed: {},
   components: {
     navBar,
     workSpaceModal,

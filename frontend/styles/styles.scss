@@ -1,6 +1,7 @@
 // // SETUP
 // @import 'setup/typography';
-// @import 'setup/variables';
+@import 'setup/variables';
+// @import '../styles/fonts/monday/monday-icons-html.woff';
 // @import 'setup/mixins';
 // @import 'setup/functions';
 // // BASICS
@@ -19,3 +20,7 @@
 
 //  VIEWS
 @import 'views/main-board';
+
+// .filter-icon-html {
+//   @include mkIcon('\f333');
+// }

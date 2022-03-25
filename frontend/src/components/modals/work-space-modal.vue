@@ -1,8 +1,9 @@
 <template>
   <section class="work-space-modal">
+    <div class="close" @click="closeModal">x</div>
     <div class="title-container-modal">
       <div class="title">
-        <p>work space</p>
+        <p>Workspace</p>
 
         <img
           class="dots-icon-modal"
@@ -13,34 +14,52 @@
 
       <div class="main-btn-modal">
         <div>
-          <div>M</div>
-          <div><h1>main workspace</h1></div>
+          <div>
+            <div class="workspace-logo">M</div>
+          </div>
+          <div><h1>Main workspace</h1></div>
         </div>
         <div>></div>
       </div>
     </div>
 
     <div class="items-title">
-      <div><span>+</span> Add</div>
-      <div><span>+</span> Filters</div>
-      <div><span>+</span> Search</div>
+      <div>
+        <span><plus-icon></plus-icon></span> Add
+      </div>
+      <div>
+        <span><filter-icon /></span> Filters
+      </div>
+      <div>
+        <span><search-icon /></span> Search
+      </div>
     </div>
 
     <div class="spacer"></div>
 
     <div class="board-container-modal">
-      <div class="board-item">sprint 4</div>
+      <div class="board-item">
+        <span><board-icon /></span> sprint 4
+      </div>
     </div>
   </section>
 </template>
 
 <script>
+import plusIcon from '../icons/plus-icon.vue';
+import filterIcon from '../icons/filter-icon-modal.vue';
+import searchIcon from '../icons/search-icon-modal.vue';
+import boardIcon from '../icons/board-icon.vue';
 export default {
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    closeModal() {
+      this.$emit('closeModal');
+    },
+  },
   methods: {},
-  components: {},
+  components: { plusIcon, filterIcon, searchIcon, boardIcon },
 };
 </script>

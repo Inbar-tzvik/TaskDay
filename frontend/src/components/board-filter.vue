@@ -7,7 +7,7 @@
       <input type="text" placeholder="Search" />
 
       <button>Person</button>
-      <button>filter</button>
+      <button><span class="filter-icon-html"></span> filter</button>
       <button>Sort</button>
     </div>
   </section>

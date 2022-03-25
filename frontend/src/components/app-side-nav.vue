@@ -3,7 +3,7 @@
     <img src="../../styles/icon/icon.png" alt="" class="icon" />
 
     <div class="top-navigation-items-area">
-      <div class="cliked-btn-nav">
+      <div class="cliked-btn-nav" @click="onClickWorkSpase">
         <menu-icon></menu-icon>
       </div>
       <div>
@@ -59,13 +59,14 @@ import helpIcon from './icons/help-icon.vue';
 export default {
   data() {
     return {
-      isWorkSpace: false,
+      // isWorkSpace: false,
     };
   },
   computed: {},
   methods: {
-    onWorkSpace() {
+    onClickWorkSpase() {
       console.log('yes');
+      this.$emit('menuClicked');
     },
   },
   components: {

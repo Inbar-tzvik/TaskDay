@@ -3,6 +3,10 @@
     <section class="board-header-content">
       <board-header-main />
 
+      <avatar-txt
+        :names="['Shlomi Nugarker', 'Enbar Enbar', 'Itsik Vaknin']"
+      ></avatar-txt>
+
       <board-toolbar></board-toolbar>
 
       <board-filter @addGroup="addGroup" @setFilter="setFilter" />
@@ -36,6 +40,7 @@ import groupList from '../components/group-list.vue';
 import boardFilter from '../components/board-filter.vue';
 import boardToolbar from '../components/board-toolbar.vue';
 import boardHeaderMain from '../components/board-header-main.vue';
+import avatarTxt from '../components/avatar-txt.vue';
 
 // import { boardService } from '../services/board-service.js';
 
@@ -99,6 +104,12 @@ export default {
       });
     },
   },
-  components: { groupList, boardFilter, boardToolbar, boardHeaderMain },
+  components: {
+    groupList,
+    boardFilter,
+    boardToolbar,
+    boardHeaderMain,
+    avatarTxt,
+  },
 };
 </script>

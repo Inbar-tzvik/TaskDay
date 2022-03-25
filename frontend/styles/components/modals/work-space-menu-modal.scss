@@ -8,11 +8,37 @@
   padding: 16px 16px;
   background-color: #f6f7fb;
   border-right: 1px solid #d0d4e4;
+  transition: left 0.3s;
+
+  .close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    right: -15px;
+    border: 1px solid #d0d4e4;
+    transition: width 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $blue;
+      color: white;
+      width: 40px;
+      border-radius: 20px;
+    }
+  }
 
   .title-container-modal {
     margin-bottom: 5px;
     .title {
+      color: #757686;
       margin-bottom: 10px;
+      font-size: 16px;
+      line-height: 21px;
     }
     div {
       display: flex;
@@ -29,11 +55,26 @@
       border-radius: 4px;
       margin-right: 4px;
       border: 1px solid;
+      color: #333439;
+
+      .workspace-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 22px;
+        height: 22px;
+        background-color: #f279f2;
+        border-radius: 7px;
+        font-size: 18px;
+        color: white;
+        margin-right: 5px;
+      }
     }
   }
 
   .items-title {
     margin-top: 10px;
+    color: #323338;
     div {
       display: flex;
       align-items: center;
@@ -41,6 +82,10 @@
       padding: 5px;
       border-radius: 5px;
       height: 35px;
+
+      span {
+        margin-right: 7px;
+      }
 
       &:hover {
         background-color: #dcdfec;
@@ -74,4 +119,8 @@
   width: 25px;
   height: 17px;
   margin: 0 5px;
+}
+
+.left {
+  left: 65px;
 }
