@@ -9,31 +9,50 @@
   align-content: center;
   align-items: center;
 
+  .blue-btn {
+    background-color: #0073ea;
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-right: 1px solid #d0d4e4;
+    border: none;
+    color: white;
+    font-size: 14px;
+  }
+
   div {
     padding: 7px;
     input {
       width: 80px;
-      padding: 5px;
+      padding: 5px 5px 5px 20px;
       border: none;
       transform: width 1s;
       font-size: 14px;
       line-height: 24px;
       transition: width 0.1s;
 
+      &:hover {
+        background-color: #dcdfec;
+        border-radius: 5px;
+      }
+
       &:focus {
         outline: none !important;
         box-shadow: inset 0px 0px 0px 1px #0073ea;
         border-radius: 5px;
         width: 200px;
+        background-color: white;
       }
     }
     button {
       background-color: white;
+      min-width: 100px;
       color: #68696c;
       border: none;
       border-radius: 5px;
       font-size: 14px;
       line-height: 24px;
+      padding: 5px;
 
       &:hover {
         background-color: #dcdfec;

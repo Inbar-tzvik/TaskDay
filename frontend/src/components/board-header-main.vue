@@ -5,17 +5,15 @@
       <div>
         <div class="title">
           <h1>sprint 4</h1>
-          | <span>x</span>|
-          <span>y</span>
+          <span></span>
+          <span></span>
         </div>
       </div>
 
       <div class="right-side-header">
-        <div>
-          <button class="last-seen-btn">
-            <p>Last seen</p>
-            <div>images users?</div>
-          </button>
+        <div class="last-seen-btn">
+          <p>Last seen</p>
+          <p>images users?</p>
         </div>
 
         <div>Invite/ <span>4</span></div>

@@ -8,18 +8,25 @@
     display: flex;
     align-items: center;
     color: #3d3e43;
-    height: 40px;
+    // height: 40px;
+
+    .add-to-board {
+      border: 1px solid #90919d;
+      margin-left: 10px;
+      // padding: 8px;
+      // border-radius: 5px;
+    }
+
+    .last-seen-btn {
+      display: flex;
+    }
 
     div {
-      padding: 10px;
-      font-size: 14px;
+      border-radius: 5px;
+      padding: 7px;
 
-      > * {
-        color: #78797c;
-
-        div {
-          color: #78797c;
-        }
+      &:hover {
+        background-color: #dcdfec;
       }
     }
 
@@ -64,19 +71,4 @@
 }
 .dots-icon {
   width: 20px;
-}
-.add-to-board {
-  border: 1px solid #90919d;
-  padding: 8px;
-  border-radius: 5px;
-}
-.last-seen-btn {
-  display: flex;
-  align-items: center;
-  border: none;
-  background: none;
-  p,
-  div {
-    display: flex;
-  }
 }

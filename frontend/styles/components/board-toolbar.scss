@@ -4,10 +4,11 @@
   justify-content: space-between;
   .toolbar-btns {
     color: #90919d;
+    height: 47px;
 
     div {
       min-width: 100px;
-      padding: 3px;
+      padding: 5px;
 
       :hover {
         background-color: #dcdfec;
@@ -29,6 +30,7 @@
       }
     }
     .blue-bottom {
+      //for clicked btn
       border-bottom: 2px solid #0073ea;
     }
   }
@@ -70,4 +72,11 @@
 .chart-icon {
   width: 20px;
   margin-right: 5px;
+}
+
+.subsets-tab {
+  background-color: #90919d;
+  width: 1px;
+  margin: 8px 8px;
+  height: 20px;
 }
