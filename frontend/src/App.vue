@@ -1,7 +1,7 @@
 <template>
-  <section class="app-container flex">
+  <section class="app-container">
     <nav-bar />
-    <div class="empty-div"></div>
+    <!-- <div class="empty-div">dfsdfssf</div> -->
     <router-view />
   </section>
 </template>
