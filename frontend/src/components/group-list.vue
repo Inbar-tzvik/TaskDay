@@ -4,7 +4,7 @@
       <input
         @blur="saveGroup($event.target.value, group)"
         @keyup.enter="saveGroup($event.target.value, group)"
-        :placeholder="group.title"
+        v-model="group.title"
         :style="{ color: group.style.color }"
       />
       <!-- <p>{{ group.style.bgColor }}</p> -->
@@ -26,8 +26,15 @@ export default {
       type: Object,
     },
   },
+  data() {
+    return {
+      currentGroup: null,
+    };
+  },
 
-  created() {},
+  created() {
+    // this.currentGroup = JSON.parse(JSON.stringify(this.group));
+  },
   components: {
     itemList,
   },
