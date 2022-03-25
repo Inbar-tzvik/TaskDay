@@ -59,36 +59,13 @@ import helpIcon from './icons/help-icon.vue';
 export default {
   data() {
     return {
-      // isCartShown : false
+      isWorkSpace: false,
     };
   },
-  computed: {
-    cartLength() {
-      // return this.$store.state.cart.length
-    },
-    cartTotal() {
-      // return this.$store.getters.cartTotal
-    },
-    cartProducts() {
-      // return this.$store.state.cart
-    },
-    user() {
-      return this.$store.getters.user;
-    },
-  },
+  computed: {},
   methods: {
-    removeFromCart(productId) {
-      // console.log('Remove from Cart:', productId);
-      // this.$store.commit({
-      //     type: 'removeFromCart',
-      //     productId
-      // })
-    },
-    checkout() {
-      // console.log('Checkout!');
-      // this.$store.commit({
-      //     type: 'checkout',
-      // })
+    onWorkSpace() {
+      console.log('yes');
     },
   },
   components: {
