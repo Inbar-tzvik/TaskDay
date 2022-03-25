@@ -4,11 +4,13 @@
       <input
         @blur="saveGroup($event.target.value, group)"
         @keyup.enter="saveGroup($event.target.value, group)"
-        v-bind:placeholder="group.title"
+        :placeholder="group.title"
+        :style="{ color: group.style.color }"
       />
       <!-- <p>{{ group.style.bgColor }}</p> -->
       <!-- <h4>-{{ group.title }}</h4> -->
       <button @click="deleteGroup(group.id)">Delete</button>
+
       <item-list :group="group" @editTask="editTask" @addItem="addItem" @removeItem="removeItem" />
       <!-- <toy-preview @removeToy="removeToy" v-for="toy in toys" :key="toy.id" :toy="toy" /> -->
     </ul>
@@ -32,10 +34,11 @@ export default {
   methods: {
     saveGroup(value, group) {
       var currGroup = JSON.parse(JSON.stringify(group));
-      currGroup.title = value;
-      console.log(currGroup);
-      this.$emit('updateGroup', currGroup);
-
+      if (value) {
+        currGroup.title = value;
+        console.log(currGroup);
+        this.$emit('updateGroup', currGroup);
+      }
       // this.currGroup = await getGroupById;
     },
     removeItem(itemId, groupId) {
