@@ -11,6 +11,7 @@
             <component :is="cmp" :task="task" @setVal="setAns($event, idx)"></component>
             <!-- <component :is="cmp" :info="task" @setVal="setAns($event, idx)"></component> -->
           </label>
+          <div class="end-row"></div>
           <button @click="remove(task.id)">X</button>
         </li>
       </Draggable>

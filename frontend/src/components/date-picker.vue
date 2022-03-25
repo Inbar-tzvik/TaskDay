@@ -28,6 +28,9 @@ export default {
 </script>
 
 <style scoped>
+el-date-picker {
+  width: 200px;
+}
 .demo-date-picker {
   display: flex;
   width: 100%;
@@ -35,7 +38,7 @@ export default {
   flex-wrap: wrap;
 }
 .demo-date-picker .block {
-  padding: 30px 0;
+  /* padding: 30px 0; */
   text-align: center;
   border-right: solid 1px var(--el-border-color);
   flex: 1;
