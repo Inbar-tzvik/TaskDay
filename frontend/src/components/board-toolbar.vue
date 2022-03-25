@@ -25,7 +25,7 @@
         <div>
           <button>Kanban</button>
         </div>
-        <p class="subsets-tab"></p>
+        <p class=" "></p>
         <div>
           <button>+ Add View</button>
         </div>
