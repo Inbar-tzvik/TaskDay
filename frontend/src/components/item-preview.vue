@@ -1,5 +1,8 @@
 <template>
   <div v-if="task" class="item-preview">
+    <div class="left-indicator" :style="{ backgroundColor: group.color }">
+      <div class="left-indicator-inner"></div>
+    </div>
     <p v-if="!onEdit">{{ task.title }}</p>
     <!-- <p>{{ task.status }}</p> -->
     <input
@@ -9,7 +12,7 @@
       v-bind:placeholder="task.title"
     />
     <button @click="edit">Edit</button>
-    <div>
+    <div class="add-msg">
       <svg
         viewBox="0 0 20 20"
         fill="currentColor"
@@ -45,6 +48,7 @@ export default {
   },
   props: {
     task: Object,
+    group: Object,
   },
   components: {},
   computed: {},

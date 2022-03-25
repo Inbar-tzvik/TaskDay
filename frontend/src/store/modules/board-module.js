@@ -117,10 +117,10 @@ export default {
         dispatch({ type: 'loadBoards' });
       } catch (err) {
         console.log('Couldnt save item', err);
-        commit({
-          type: 'setIsError',
-          isError: true,
-        });
+        // commit({
+        //   type: 'setIsError',
+        //   isError: true,
+        // });
       }
     },
     // async addItem({ dispatch }) {
