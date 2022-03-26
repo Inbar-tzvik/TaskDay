@@ -5,6 +5,28 @@
       <Draggable v-for="task in group.tasks" :key="task.id">
         <!-- <li v-for="task in group.tasks" :key="task.id" class="row-item"> -->
         <li class="row-item">
+          <el-dropdown class="side-drop-down" trigger="click">
+            <span class="el-dropdown-link">
+              <font-awesome-icon
+                class="font-arrow-down"
+                icon="caret-down"
+                style="
+                   {
+                  }
+                "
+              />
+              <el-icon class="el-icon--right">
+                <arrow-down />
+              </el-icon>
+            </span>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item @click="remove(task.id)"
+                  ><font-awesome-icon icon="trash-can" /> Delete
+                </el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
           <section class="data-in-row">
             <!-- <font-awesome-icon icon="caret-down"></font-awesome-icon> -->
             <item-preview :group="group.style" :task="task" @editTask="editTask" />
@@ -15,7 +37,6 @@
             </label>
           </section>
           <div class="end-row"></div>
-          <button @click="remove(task.id)">X</button>
         </li>
       </Draggable>
     </Container>

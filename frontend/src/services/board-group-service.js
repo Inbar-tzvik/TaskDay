@@ -61,8 +61,45 @@ const board = [
             title: 'Add Samples',
             status: 'Stuck',
           },
+          {
+            id: 'c113',
+            title: 'Working on css ',
+            status: 'Stuck',
+          },
+          {
+            id: 'c115',
+            title: "Today i don't feel like doing anything",
+            status: 'Done',
+          },
         ],
         style: { color: 'rgb(87, 155, 252)' },
+      },
+      {
+        id: 'g201',
+        title: 'Group 5',
+        tasks: [
+          {
+            id: 'c201',
+            title: 'Replace logo',
+            status: 'Working on it',
+          },
+          {
+            id: 'c202',
+            title: 'Add Samples',
+            status: 'Stuck',
+          },
+          {
+            id: 'c213',
+            title: 'Working on css ',
+            status: 'Stuck',
+          },
+          {
+            id: 'c215',
+            title: "Today i don't feel like doing anything",
+            status: 'Done',
+          },
+        ],
+        style: { color: 'rgb(187, 51, 84)' },
       },
       {
         id: 'g102',
@@ -71,6 +108,11 @@ const board = [
           {
             id: 'c103',
             title: 'Do that',
+            status: 'Done',
+          },
+          {
+            id: 'c114',
+            title: 'Working on css all day',
             status: 'Done',
           },
           {

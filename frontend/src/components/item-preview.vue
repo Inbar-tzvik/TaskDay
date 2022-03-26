@@ -1,17 +1,21 @@
 <template>
   <div v-if="currentTask" class="item-preview">
-    <div class="left-indicator" :style="{ backgroundColor: group.color }">
-      <div class="left-indicator-inner"></div>
+    <div all-edit>
+      <div class="left-indicator" :style="{ backgroundColor: group.color }">
+        <div class="left-indicator-inner"></div>
+      </div>
+      <div class="edit-name-task">
+        <p v-if="!onEdit">{{ currentTask.title }}</p>
+        <!-- <p>{{ task.status }}</p> -->
+        <input
+          v-if="onEdit"
+          @blur="editTask($event.target.value, task)"
+          @keyup.enter="editTask($event.target.value, task)"
+          v-model="currentTask.title"
+        />
+        <button @click="edit">Edit</button>
+      </div>
     </div>
-    <p v-if="!onEdit">{{ currentTask.title }}</p>
-    <!-- <p>{{ task.status }}</p> -->
-    <input
-      v-if="onEdit"
-      @blur="editTask($event.target.value, task)"
-      @keyup.enter="editTask($event.target.value, task)"
-      v-model="currentTask.title"
-    />
-    <button @click="edit">Edit</button>
     <div class="add-msg">
       <svg
         viewBox="0 0 20 20"
