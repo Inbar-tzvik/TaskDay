@@ -6,6 +6,7 @@
         <!-- <li v-for="task in group.tasks" :key="task.id" class="row-item"> -->
         <li class="row-item">
           <section class="data-in-row">
+            <!-- <font-awesome-icon icon="caret-down"></font-awesome-icon> -->
             <item-preview :group="group.style" :task="task" @editTask="editTask" />
             <label v-for="(cmp, idx) in cmps" :key="cmp">
               <!-- <pre>{{ task }}</pre> -->
