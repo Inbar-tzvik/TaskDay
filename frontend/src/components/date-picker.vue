@@ -47,6 +47,7 @@ el-date-picker {
 
   input {
     background-color: #c4c4c4;
+
     // border-radius: 11px;
   }
   .el-range-separator {
@@ -54,6 +55,10 @@ el-date-picker {
     margin-top: 4px;
     // border-radius: 11px;
   }
+}
+
+.el-range-editor:focus {
+  outline: none;
 }
 .el-date-editor .el-range-input {
   font-size: 13px;

@@ -3,6 +3,7 @@ import App from './App.vue';
 import router from './router';
 import ElementPlus from 'element-plus';
 import store from './store';
+import DropdownMenu from '@innologica/vue-dropdown-menu';
 
 // Styles
 import '../styles/styles.scss';
@@ -27,6 +28,8 @@ const app = createApp(App);
 
 app.component('font-awesome-icon', FontAwesomeIcon);
 app.use(ElementPlus);
+app.use(DropdownMenu);
+
 app.use(router);
 app.use(store);
 app.mount('#app');

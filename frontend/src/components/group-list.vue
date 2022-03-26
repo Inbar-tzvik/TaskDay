@@ -1,34 +1,76 @@
 <template>
   <section class="group-list">
     <ul v-for="group in boards.groups" :key="group.id">
+      <div class="group-title-btn">
+        <el-dropdown trigger="click">
+          <span class="el-dropdown-link">
+            <font-awesome-icon
+              icon="caret-down"
+              :style="{
+                backgroundColor: group.style.color,
+                borderColor: group.style.color,
+                color: group.style.color,
+              }"
+            />
+            <el-icon class="el-icon--right">
+              <arrow-down />
+            </el-icon>
+          </span>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item @click="deleteGroup(group.id)"
+                ><font-awesome-icon icon="trash-can" /> Delete
+              </el-dropdown-item>
+              <el-dropdown-item
+                ><font-awesome-icon
+                  icon="circle"
+                  :style="{
+                    color: group.style.color,
+                  }"
+                />
+                Change group color</el-dropdown-item
+              >
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+      </div>
       <div class="group-header-columns">
-        <div class="group-title-btn">
-          <font-awesome-icon
-            icon="caret-down"
-            :style="{ backgroundColor: group.style.color, borderColor: group.style.color }"
+        <div class="group-name-all">
+          <input
+            class="group-name"
+            @blur="saveGroup($event.target.value, group)"
+            @keyup.enter="saveGroup($event.target.value, group)"
+            v-model="group.title"
+            :style="{ color: group.style.color }"
           />
         </div>
-        <input
-          @blur="saveGroup($event.target.value, group)"
-          @keyup.enter="saveGroup($event.target.value, group)"
-          v-model="group.title"
-          :style="{ color: group.style.color }"
-        />
-        <button @click="deleteGroup(group.id)">Delete</button>
+
         <!-- *****ITZIK***** -->
-        <div class="cmp-colomn-title" v-for="cmp in boards.cmpsOrder" :key="cmp">
-          <svg viewBox="0 0 20 20" fill="currentColor" width="20" height="20" class="drag-handle">
-            <path
-              d="M7.5 4C6.67157 4 6 3.32843 6 2.5 6 1.67157 6.67157 1 7.5 1 8.32843 1 9 1.67157 9 2.5 9 3.32843 8.32843 4 7.5 4zM12.5 4C11.6716 4 11 3.32843 11 2.5 11 1.67157 11.6716 1 12.5 1 13.3284 1 14 1.67157 14 2.5 14 3.32843 13.3284 4 12.5 4zM7.5 9C6.67157 9 6 8.32843 6 7.5 6 6.67157 6.67157 6 7.5 6 8.32843 6 9 6.67157 9 7.5 9 8.32843 8.32843 9 7.5 9zM12.5 9C11.6716 9 11 8.32843 11 7.5 11 6.67157 11.6716 6 12.5 6 13.3284 6 14 6.67157 14 7.5 14 8.32843 13.3284 9 12.5 9zM7.5 14C6.67157 14 6 13.3284 6 12.5 6 11.6716 6.67157 11 7.5 11 8.32843 11 9 11.6716 9 12.5 9 13.3284 8.32843 14 7.5 14zM7.5 19C6.67157 19 6 18.3284 6 17.5 6 16.6716 6.67157 16 7.5 16 8.32843 16 9 16.6716 9 17.5 9 18.3284 8.32843 19 7.5 19zM12.5 14C11.6716 14 11 13.3284 11 12.5 11 11.6716 11.6716 11 12.5 11 13.3284 11 14 11.6716 14 12.5 14 13.3284 13.3284 14 12.5 14zM12.5 19C11.6716 19 11 18.3284 11 17.5 11 16.6716 11.6716 16 12.5 16 13.3284 16 14 16.6716 14 17.5 14 18.3284 13.3284 19 12.5 19z"
-              fill="currentColor"
-            ></path>
-          </svg>
-          <!-- <img
-            class="dots-icon"
-            src="../components/icons/sort-column-icon.vue"
-            alt=""
-          /> -->
-          <span>{{ cmp }}</span>
+        <div
+          @mouseover="isOnColumnTitle = true"
+          @mouseleave="isOnColumnTitle = false"
+          class="flex cmp-column-title"
+          v-for="cmp in boards.cmpsOrder"
+          :key="cmp"
+        >
+          <div class="inside-column-left">
+            <svg viewBox="0 0 20 20" fill="currentColor" width="20" height="20" class="drag-handle">
+              <path
+                d="M7.5 4C6.67157 4 6 3.32843 6 2.5 6 1.67157 6.67157 1 7.5 1 8.32843 1 9 1.67157 9 2.5 9 3.32843 8.32843 4 7.5 4zM12.5 4C11.6716 4 11 3.32843 11 2.5 11 1.67157 11.6716 1 12.5 1 13.3284 1 14 1.67157 14 2.5 14 3.32843 13.3284 4 12.5 4zM7.5 9C6.67157 9 6 8.32843 6 7.5 6 6.67157 6.67157 6 7.5 6 8.32843 6 9 6.67157 9 7.5 9 8.32843 8.32843 9 7.5 9zM12.5 9C11.6716 9 11 8.32843 11 7.5 11 6.67157 11.6716 6 12.5 6 13.3284 6 14 6.67157 14 7.5 14 8.32843 13.3284 9 12.5 9zM7.5 14C6.67157 14 6 13.3284 6 12.5 6 11.6716 6.67157 11 7.5 11 8.32843 11 9 11.6716 9 12.5 9 13.3284 8.32843 14 7.5 14zM7.5 19C6.67157 19 6 18.3284 6 17.5 6 16.6716 6.67157 16 7.5 16 8.32843 16 9 16.6716 9 17.5 9 18.3284 8.32843 19 7.5 19zM12.5 14C11.6716 14 11 13.3284 11 12.5 11 11.6716 11.6716 11 12.5 11 13.3284 11 14 11.6716 14 12.5 14 13.3284 13.3284 14 12.5 14zM12.5 19C11.6716 19 11 18.3284 11 17.5 11 16.6716 11.6716 16 12.5 16 13.3284 16 14 16.6716 14 17.5 14 18.3284 13.3284 19 12.5 19z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </div>
+          <div class="inside-column-center">
+            <span>{{ cmp }}</span>
+          </div>
+          <div class="inside-column-right">
+            <div>
+              <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAAaklEQVRIie3Puw2AMBAE0REpMRb99wENkJFQDiSQICP8WTvakS69dwfOOecqWoFTPMsbGSLwqP0jfecE7Oi+PYA59UIVnoWq8CK0Fq9CS3EJmotL0VS8CfqHN0W/8C7oUwC2e0Iv1DkX7QJoloFuj+gDsgAAAABJRU5ErkJggg=="
+              />
+            </div>
+          </div>
         </div>
         <!-- *****ITZIK***** -->
       </div>
@@ -42,6 +84,8 @@
 </template>
 
 <script>
+import { ArrowDown } from '@element-plus/icons-vue';
+
 import itemList from './item-list.vue';
 
 export default {
@@ -53,6 +97,10 @@ export default {
   data() {
     return {
       currentGroup: null,
+      show: false,
+      // ITZIK
+      isOnColumnTitle: true,
+      // ITZIK
     };
   },
 
@@ -89,16 +137,31 @@ export default {
 </script>
 
 <style>
-.cmp-colomn-title {
+.cmp-column-title {
   color: #676879;
-  align-self: center;
-  /* width? */
-  /* for cass?
-  &:hover {
-background-color: #F5F6F8
-  } */
+  left: 168px;
+  width: 188px;
+  justify-content: space-between;
+  align-items: center;
+  /* margin: 0 5px; */
+  /* //TODO - height should be determine! */
+  height: 100%;
 }
-.cmp-colomn-title:hover {
+.cmp-column-title:hover {
   background-color: #f5f6f8;
+}
+.inside-column-left svg path {
+  cursor: move;
+}
+.inside-column-center span:hover {
+  /* margin: 0.5rem; */
+  /* padding: 1px; */
+  border: dashed #c8c9cb 0.2px;
+  cursor: text;
+}
+.inside-column-right div {
+  width: 12px;
+  padding-top: 5px;
+  /* justify-content:flex-start; */
 }
 </style>
