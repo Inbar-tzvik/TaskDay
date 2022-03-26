@@ -1,6 +1,7 @@
 <template>
   <section class="work-space-modal">
-    <div class="close" @click="closeModal">x</div>
+    <div class="close" @click="closeModal">&lt;</div>
+    &gt;
     <div class="title-container-modal">
       <div class="title">
         <p>Workspace</p>
@@ -19,7 +20,7 @@
           </div>
           <div><h1>Main workspace</h1></div>
         </div>
-        <div>></div>
+        <div>↑↓</div>
       </div>
     </div>
 

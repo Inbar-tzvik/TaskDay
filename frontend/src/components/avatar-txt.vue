@@ -1,6 +1,6 @@
 <template>
   <section class="avatar">
-    {{ getLetters }}
+    <!-- {{ getLetters }} -->
 
     <!-- <div v-for="name in getLetters" :key="getId">
       <div>{{ name }}</div>

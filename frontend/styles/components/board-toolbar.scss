@@ -31,7 +31,7 @@
     }
     .blue-bottom {
       //for clicked btn
-      border-bottom: 2px solid #0073ea;
+      border-bottom: 2px solid $blue;
     }
   }
 
@@ -64,7 +64,7 @@
   justify-content: center;
 
   &:hover {
-    background-color: #0073ea;
+    background-color: $blue;
     color: white;
   }
 }

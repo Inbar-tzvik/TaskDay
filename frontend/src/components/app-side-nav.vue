@@ -3,7 +3,7 @@
     <img src="../../styles/icon/icon.png" alt="" class="icon" />
 
     <div class="top-navigation-items-area">
-      <div class="cliked-btn-nav" @click="onClickWorkSpase">
+      <div class="cliked-btn-nav" @click="onClickWorkSpace">
         <menu-icon></menu-icon>
       </div>
       <div>
@@ -64,8 +64,7 @@ export default {
   },
   computed: {},
   methods: {
-    onClickWorkSpase() {
-      console.log('yes');
+    onClickWorkSpace() {
       this.$emit('menuClicked');
     },
   },

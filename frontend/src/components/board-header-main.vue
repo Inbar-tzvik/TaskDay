@@ -16,8 +16,16 @@
           <p>images users?</p>
         </div>
 
-        <div>Invite/ <span>4</span></div>
+        <div>
+          <img
+            class="invite-user-img"
+            src="../../styles/icon/user.png"
+            alt=""
+          />
+          Invite/ <span>4</span>
+        </div>
 
+        <!-- <img src="../../styles/icon/activity-icon.png" alt="" /> -->
         <div>Activty</div>
 
         <div class="add-to-board">
