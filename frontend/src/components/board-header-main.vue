@@ -12,21 +12,38 @@
 
       <div class="right-side-header">
         <div class="last-seen-btn">
-          <p>Last seen</p>
-          <p>images users?</p>
+          <button>
+            <p>Last seen</p>
+          </button>
+        </div>
+        <div>
+          <button>
+            <img src="" alt="" />
+            images users
+          </button>
         </div>
 
         <div>
-          <img
-            class="invite-user-img"
-            src="../../styles/icon/user.png"
-            alt=""
-          />
-          Invite/ <span>4</span>
+          <button>
+            <img
+              class="invite-user-img"
+              src="../../styles/icon/user.png"
+              alt=""
+            />
+            Invite/ <span>4</span>
+          </button>
         </div>
 
-        <!-- <img src="../../styles/icon/activity-icon.png" alt="" /> -->
-        <div>Activty</div>
+        <div>
+          <button>
+            <img
+              class="icon-header"
+              src="../../styles/icon/activity.png"
+              alt=""
+            />
+            Activty
+          </button>
+        </div>
 
         <div class="add-to-board">
           <p>+ Add to board</p>

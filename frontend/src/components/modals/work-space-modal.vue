@@ -1,7 +1,6 @@
 <template>
   <section class="work-space-modal">
     <div class="close" @click="closeModal">&lt;</div>
-    &gt;
     <div class="title-container-modal">
       <div class="title">
         <p>Workspace</p>

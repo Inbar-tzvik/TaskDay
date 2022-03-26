@@ -3,6 +3,10 @@
   min-height: 40px;
   display: flex;
   justify-content: space-between;
+  .icon-header {
+    width: 20px;
+    margin-right: 5px;
+  }
 
   .right-side-header {
     display: flex;
@@ -15,6 +19,9 @@
       margin-left: 10px;
       // padding: 8px;
       // border-radius: 5px;
+      &:hover {
+        background-color: #dcdfec;
+      }
     }
 
     .last-seen-btn {
@@ -25,9 +32,19 @@
       border-radius: 5px;
       padding: 7px;
 
-      &:hover {
-        background-color: #dcdfec;
+      button {
+        background-color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 7px;
+        font-size: 14px;
+        &:hover {
+          background-color: #dcdfec;
+        }
       }
+      // &:hover {
+      //   background-color: #dcdfec;
+      // }
     }
     .dots-icon {
       width: 20px;

@@ -4,26 +4,57 @@
       <!-- <button class="loolbar-btn">Main-table</button> -->
       <div class="toolbar-btns flex">
         <div class="blue-bottom">
-          <button>Main-table</button>
+          <button>
+            <img
+              class="icon-toolbar"
+              src="../../styles/icon/table.png"
+              alt=""
+            />Main-table
+          </button>
         </div>
 
         <div>
           <button>
-            <img class="chart-icon" src="../../styles/icon/chart.png" alt="" />
+            <img
+              class="chart-icon icon-toolbar"
+              src="../../styles/icon/chart.png"
+              alt=""
+            />
             Chart
           </button>
         </div>
 
         <div>
-          <button>Main-table</button>
+          <button>
+            <img
+              class="icon-toolbar"
+              src="../../styles/icon/table.png"
+              alt=""
+            />Main-table
+          </button>
         </div>
 
         <div>
-          <button>Gantt</button>
+          <button>
+            <img
+              class="icon-toolbar"
+              src="../../styles/icon/gantt.png"
+              alt=""
+            />
+            Gantt
+          </button>
         </div>
 
         <div>
-          <button>Kanban</button>
+          <button>
+            <img
+              class="icon-toolbar"
+              src="../../styles/icon/kanban.png"
+              alt=""
+            />
+
+            Kanban
+          </button>
         </div>
         <p class="subsets-tab"></p>
         <div>

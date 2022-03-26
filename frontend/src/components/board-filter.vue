@@ -11,7 +11,12 @@
       </div>
 
       <button>
-        <!-- <span><img src="../../styles/icon/user-filter.png" alt="" /></span> -->
+        <span
+          ><img
+            class="icon-img-person"
+            src="../../styles/icon/user-filter.png"
+            alt=""
+        /></span>
         Person
       </button>
       <button>
