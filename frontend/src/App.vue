@@ -3,10 +3,15 @@
     <!-- <work-space-modal :class="openModal"></work-space-modal> -->
     <work-space-modal
       :class="[isModalClicked ? 'left' : '']"
-      @closeModal="closeModal"
+      @closeModal="this.isModalClicked = !this.isModalClicked"
     ></work-space-modal>
+    <!-- <work-space-modal
+      :class="[isModalClicked ? 'left' : '']"
+      @closeModal="closeModal"
+    ></work-space-modal> -->
 
-    <nav-bar @menuClicked="menuClicked" />
+    <!-- <nav-bar @menuClicked="menuClicked" /> -->
+    <nav-bar @menuClicked="this.isModalClicked = !this.isModalClicked" />
     <router-view />
   </section>
 </template>
@@ -25,16 +30,7 @@ export default {
       isModalClicked: false,
     };
   },
-  methods: {
-    menuClicked() {
-      this.isModalClicked = !this.isModalClicked;
-      console.log(this.isModalClicked);
-    },
-    closeModal() {
-      this.isModalClicked = false;
-      console.log(this.isModalClicked);
-    },
-  },
+  methods: {},
   getters: {
     // openModal() {
     //   if (this.isModalClicked) return 'left';
