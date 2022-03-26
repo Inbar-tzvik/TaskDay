@@ -90,7 +90,9 @@
             Automate
           </button>
         </div>
-        <span class="collapse-btn">d</span>
+        <span class="collapse-btn"
+          ><img class="arrow-up" src="../../styles/icon/arrow-up.png" alt=""
+        /></span>
       </div>
     </div>
     <!-- <div class="collapse-btn">d</div> -->

@@ -11,6 +11,7 @@
   transition: left 0.3s;
 
   .close {
+    font-size: 19px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -56,6 +57,10 @@
       margin-right: 4px;
       border: 1px solid;
       color: #333439;
+
+      .arrow-down {
+        font-size: 20px;
+      }
 
       .workspace-logo {
         display: flex;

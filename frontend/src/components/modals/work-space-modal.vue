@@ -19,7 +19,7 @@
           </div>
           <div><h1>Main workspace</h1></div>
         </div>
-        <div>↑↓</div>
+        <div class="arrow-down">˅</div>
       </div>
     </div>
 
