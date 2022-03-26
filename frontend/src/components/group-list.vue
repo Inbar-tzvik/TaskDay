@@ -1,6 +1,10 @@
 <template>
   <section class="group-list">
     <ul v-for="group in boards.groups" :key="group.id">
+
+
+      <li class="group-first-line">
+
       <div class="group-title-btn">
         <img src="../assets/caret-down.svg" />
       </div>
@@ -13,6 +17,8 @@
       <!-- <p>{{ group.style.bgColor }}</p> -->
       <!-- <h4>-{{ group.title }}</h4> -->
       <button @click="deleteGroup(group.id)">Delete</button>
+
+      </li>
 
       <item-list :group="group" @editTask="editTask" @addItem="addItem" @removeItem="removeItem" />
       <!-- <toy-preview @removeToy="removeToy" v-for="toy in toys" :key="toy.id" :toy="toy" /> -->
