@@ -2,6 +2,11 @@
   height: 45px;
   display: flex;
   justify-content: space-between;
+
+  .icon-toolbar {
+    width: 20px;
+    margin-right: 5px;
+  }
   .toolbar-btns {
     color: #90919d;
     height: 47px;
@@ -79,4 +84,8 @@
   width: 1px;
   margin: 8px 8px;
   height: 20px;
+}
+
+.arrow-up {
+  width: 10px;
 }

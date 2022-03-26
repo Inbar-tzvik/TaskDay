@@ -3,6 +3,14 @@
   min-height: 40px;
   display: flex;
   justify-content: space-between;
+  .icon-header {
+    width: 20px;
+    margin-right: 5px;
+  }
+
+  .invite {
+    padding: 7px;
+  }
 
   .right-side-header {
     display: flex;
@@ -13,26 +21,48 @@
     .add-to-board {
       border: 1px solid #90919d;
       margin-left: 10px;
+      padding: 7px;
       // padding: 8px;
       // border-radius: 5px;
-    }
-
-    .last-seen-btn {
-      display: flex;
-    }
-
-    div {
-      border-radius: 5px;
-      padding: 7px;
-
       &:hover {
         background-color: #dcdfec;
       }
     }
+
+    .last-seen-btn {
+      display: flex;
+      &:hover {
+        background-color: #dcdfec;
+      }
+
+      button {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    div {
+      border-radius: 5px;
+      // padding: 7px;
+
+      button {
+        background-color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 7px;
+        font-size: 14px;
+        &:hover {
+          background-color: #dcdfec;
+        }
+      }
+      // &:hover {
+      //   background-color: #dcdfec;
+      // }
+    }
     .dots-icon {
       width: 20px;
       height: 15px;
-      margin: 0 5px;
+      margin: 0 0 0 15px;
     }
   }
 
@@ -41,6 +71,13 @@
     align-items: center;
     font-size: 40px;
     color: #323338;
+
+    span {
+      display: flex;
+      justify-content: center;
+      margin-left: 5px;
+      cursor: pointer;
+    }
 
     h1 {
       font-family: roboto-light, Rubik, 'Noto Kufi Arabic', 'Noto Sans JP',
@@ -57,14 +94,12 @@
   padding: 3px;
 
   &:hover {
-    -webkit-box-shadow: dashed inset 0px 0px 0px 1px #000000;
-    box-shadow: inset 0px 0px 0px 1px #000000;
+    -webkit-box-shadow: dashed inset 0px 0px 0px 1px #c4c4c4;
+    box-shadow: inset 0px 0px 0px 1px #c4c4c4;
   }
 }
 .board-header-content {
   min-height: 100px;
-  // background-color: lightcoral;
-  // padding: 20px 30px 0;
 }
 
 .container-dots {
@@ -74,4 +109,17 @@
 .invite-user-img {
   width: 13px;
   height: 13px;
+}
+
+.star-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+
+.info-icon {
+  margin-left: 5px;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
 }

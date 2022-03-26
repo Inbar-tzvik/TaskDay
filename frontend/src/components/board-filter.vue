@@ -1,7 +1,9 @@
 <template>
   <section class="board-filter">
     <button @click="addGroup" class="blue-btn">New Group</button>
-    <button class="half-btn">></button>
+    <button class="half-btn">
+      <!-- <font-awesome-icon icon="fa-light fa-chevron-right" /> -->
+    </button>
     <!-- <div class="blue-symbl">></div> -->
 
     <div>
@@ -11,7 +13,12 @@
       </div>
 
       <button>
-        <!-- <span><img src="../../styles/icon/user-filter.png" alt="" /></span> -->
+        <span
+          ><img
+            class="icon-img-person"
+            src="../../styles/icon/user-filter.png"
+            alt=""
+        /></span>
         Person
       </button>
       <button>
