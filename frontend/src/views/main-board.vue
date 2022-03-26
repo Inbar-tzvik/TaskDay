@@ -15,6 +15,15 @@
     </section>
     <section class="board-content">
       <h1>{{ boards[0].title }}</h1>
+
+<font-awesome-icon icon="fa-solid fa-caret-down" />
+
+<!-- explicit style -->
+<!-- <font-awesome-icon :icon="['fas', 'phone']" /> -->
+
+<!-- implicit style (fas is assumed) -->
+<font-awesome-icon icon="phone" />
+
       <group-list
         @updateGroup="updateGroup"
         @addItem="addItem"
