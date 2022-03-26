@@ -2,6 +2,7 @@
   <section>
     <integrate-btn></integrate-btn>
     <div class="board-header-main">
+      <div class="menu-circle" @click="onCircle">></div>
       <div>
         <div class="title">
           <h1>sprint 4</h1>
@@ -107,6 +108,9 @@ export default {
     },
     onClickInfo() {
       this.isInfo = !this.isInfo;
+    },
+    onCircle() {
+      this.$emit('circleClicked');
     },
   },
 };

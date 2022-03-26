@@ -6,7 +6,7 @@
     ></work-space-modal>
 
     <nav-bar @menuClicked="this.isModalClicked = !this.isModalClicked" />
-    <router-view />
+    <router-view @circleClicked="this.isModalClicked = !this.isModalClicked" />
   </section>
 </template>
 

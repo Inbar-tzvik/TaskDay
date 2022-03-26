@@ -2,7 +2,7 @@
   <section>
     <section v-if="boards" class="main-board">
       <section class="board-header-content">
-        <board-header-main />
+        <board-header-main @circleClicked="circleClicked" />
 
         <board-toolbar></board-toolbar>
 
@@ -29,6 +29,7 @@
 
       <!-- <fun-filter></fun-filter>
     <fun-list /> -->
+      <details-modal></details-modal>
     </section>
   </section>
 
@@ -41,6 +42,7 @@ import boardFilter from '../components/board-filter.vue';
 import boardToolbar from '../components/board-toolbar.vue';
 import boardHeaderMain from '../components/board-header-main.vue';
 import workSpaceModal from '../components/modals/work-space-modal.vue';
+import detailsModal from '../components/modals/details-modal.vue';
 
 // import { boardService } from '../services/board-service.js';
 
@@ -103,6 +105,9 @@ export default {
         task: item,
       });
     },
+    circleClicked() {
+      this.$emit('circleClicked');
+    },
   },
   components: {
     groupList,
@@ -110,6 +115,7 @@ export default {
     boardToolbar,
     boardHeaderMain,
     workSpaceModal,
+    detailsModal,
   },
 };
 </script>

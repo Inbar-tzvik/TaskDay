@@ -65,7 +65,12 @@
       <div class="integrations-btn-content toolbar-btns flex">
         <div>
           <button>
-            <span>x-</span>
+            <span
+              ><img
+                class="integrate-icon integrate-2 flex"
+                src="../../styles/icon/integrate-2.png"
+                alt=""
+            /></span>
             Integrate
             <img
               class="integrate-icon"

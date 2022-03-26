@@ -1,0 +1,16 @@
+.details-modal {
+  display: none;
+  width: 43vw;
+  height: 100vw;
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: 25px;
+
+  .title-container {
+    min-height: 165px;
+    border-bottom: 1px solid $border;
+    font-size: 24px;
+  }
+}
