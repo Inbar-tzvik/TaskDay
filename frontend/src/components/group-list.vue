@@ -1,6 +1,9 @@
 <template>
   <section class="group-list">
     <ul v-for="group in boards.groups" :key="group.id">
+      <div class="group-title-btn">
+        <img src="../assets/caret-down.svg" />
+      </div>
       <input
         @blur="saveGroup($event.target.value, group)"
         @keyup.enter="saveGroup($event.target.value, group)"

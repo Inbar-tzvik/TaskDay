@@ -51,11 +51,13 @@ el-date-picker {
   }
   .el-range-separator {
     background-color: #c4c4c4;
+    margin-top: 4px;
     // border-radius: 11px;
   }
 }
 .el-date-editor .el-range-input {
   font-size: 13px;
+  margin-top: 4px;
 }
 // #c4c4c4
 // }  display: flex;
