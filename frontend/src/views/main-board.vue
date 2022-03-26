@@ -3,9 +3,7 @@
     <section class="board-header-content">
       <board-header-main />
 
-      <avatar-txt
-        :names="['Shlomi Nugarker', 'Enbar Enbar', 'Itsik Vaknin']"
-      ></avatar-txt>
+      <avatar-txt :names="['Shlomi Nugarker', 'Enbar Enbar', 'Itsik Vaknin']"></avatar-txt>
 
       <board-toolbar></board-toolbar>
 
@@ -16,14 +14,7 @@
     <section class="board-content">
       <h1>{{ boards[0].title }}</h1>
 
-<font-awesome-icon icon="fa-solid fa-caret-down" />
-
-<!-- explicit style -->
-<!-- <font-awesome-icon :icon="['fas', 'phone']" /> -->
-
-<!-- implicit style (fas is assumed) -->
-<font-awesome-icon icon="phone" />
-
+      <!-- <font-awesome-icon icon="arrow-down" /> -->
       <group-list
         @updateGroup="updateGroup"
         @addItem="addItem"
