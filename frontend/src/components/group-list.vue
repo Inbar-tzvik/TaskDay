@@ -35,6 +35,7 @@
       <!-- <p>{{ group.style.bgColor }}</p> -->
       <!-- <h4>-{{ group.title }}</h4> -->
 
+
       <item-list :group="group" @editTask="editTask" @addItem="addItem" @removeItem="removeItem" />
       <!-- <toy-preview @removeToy="removeToy" v-for="toy in toys" :key="toy.id" :toy="toy" /> -->
     </ul>
