@@ -103,7 +103,6 @@
 
 <script>
 import { ArrowDown } from '@element-plus/icons-vue';
-
 import itemList from './item-list.vue';
 
 export default {
