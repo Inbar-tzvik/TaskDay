@@ -1,4 +1,6 @@
 .group-list {
+  margin-right: 5px;
+
   //   background-color: lawngreen;
 }
 .group-list ul {
@@ -10,11 +12,30 @@
     height: 40px;
   }
 }
+.cmp-column-title {
+  &:hover {
+    .drag-handle {
+      display: block;
+    }
+    .inside-column-right img {
+      display: block;
+    }
+  }
+}
 .group-header-columns {
   display: flex;
-  margin-bottom: 2px;
+  gap: 2px;
+  margin-bottom: 3px;
   // justify-content: center;
   // align-items: center;
+}
+.drag-handle {
+  display: none;
+}
+.inside-column-right {
+  img {
+    display: none;
+  }
 }
 .group-title-btn {
   // height: 40px;
@@ -29,7 +50,7 @@
   // height: 100%;
 }
 .group-name-all {
-  width: 64.28rem;
+  width: 57rem;
   position: relative;
   min-height: 40px;
   text-align: left;

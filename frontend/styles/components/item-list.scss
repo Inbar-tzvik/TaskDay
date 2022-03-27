@@ -45,7 +45,7 @@
     width: 1324px;
     display: flex;
     justify-content: space-between;
-    width: 1662px;
+    width: 1560px;
   }
   input {
     // width: 92.14rem;
@@ -81,6 +81,7 @@
 .add-left-indicator {
   position: sticky;
   left: 46px;
+  height: 34px;
 
   // background-color: rgb(87, 155, 252);
   .add-left-indicator-inner {

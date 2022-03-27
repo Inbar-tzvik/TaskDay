@@ -2,7 +2,7 @@
   <div v-if="currentTask" class="item-preview">
     <div class="all-edit">
       <div class="left-indicator" :style="{ backgroundColor: group.color }">
-        <div class="left-indicator-inner"></div>
+        <div class="left-indicator-inner" :style="{ backgroundColor: group.color }"></div>
       </div>
       <div class="edit-name-task">
         <p v-if="!onEdit">{{ currentTask.title }}</p>
