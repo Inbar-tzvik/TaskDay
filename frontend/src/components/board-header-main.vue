@@ -2,7 +2,13 @@
   <section>
     <integrate-btn></integrate-btn>
     <div class="board-header-main">
-      <div class="menu-circle" @click="onCircle">></div>
+      <div class="menu-circle" @click="onCircle">
+        <img
+          class="arrow-right-icon"
+          src="../../styles/icon/arrow-right.svg"
+          alt=""
+        />
+      </div>
       <div>
         <div class="title">
           <h1>sprint 4</h1>
@@ -52,7 +58,7 @@
         </div>
 
         <div class="add-to-board">
-          <p>+ Add to board</p>
+          <p><span>+</span> Add to board</p>
         </div>
 
         <div class="container-dots">

@@ -1,4 +1,5 @@
 .details-modal {
+  z-index: 10;
   display: none;
   border-left: 1px solid $clr1;
   width: 700px;
@@ -51,7 +52,7 @@
 
     .item-tabs {
       // background-color: aquamarine;
-      color: #323338;
+      color: #6e6f72;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -62,6 +63,11 @@
       .tab-btn {
         background-color: white;
         border: none;
+
+        div {
+          color: #6e6f72;
+          font-size: 14px;
+        }
 
         &.tab-btn-clicked {
           border-bottom: 4px solid $blue;
@@ -106,6 +112,11 @@
   .details-container {
     .update-details-page {
       padding: 20px 20px;
+
+      .send-update {
+        // background-color: lightgreen;
+        margin-bottom: 40px;
+      }
       div {
         p {
           margin-top: 6px;
@@ -115,22 +126,35 @@
           padding: 10px 20px;
           border-radius: 8px;
           border: 1px solid $blue;
+          font-size: 18px;
         }
       }
       .space-view {
-        padding: 20px;
+        // padding: 20px;
 
         .post-component {
-          border: 1px solid black;
+          border: 1px solid $clr1;
+          border-radius: 5px;
           .post-header {
             display: flex;
             justify-content: space-between;
             position: relative;
             font-size: 20px;
+            padding: 15px;
 
             .left-side-post {
               display: flex;
               align-items: center;
+              p {
+                margin: 0;
+              }
+
+              .logged-in {
+                margin-left: 5px;
+                border-radius: 50%;
+                width: 10px;
+                height: 10px;
+              }
             }
             div {
               .user-img {
@@ -139,10 +163,12 @@
             }
           }
           .title {
+            // background-color: lightcoral;
             width: 100%;
             margin-left: 8px;
           }
           .post-title {
+            // background-color: #d0d4e4;
             // position: ;
             top: 0;
             right: 0;
@@ -154,12 +180,70 @@
             font-size: 14px;
             font-weight: 400;
 
+            .time {
+              margin-right: 5px;
+            }
+
             .clock-post-img {
               width: 15px;
+              margin-right: 5px;
             }
             .alarm-post-img {
               width: 15px;
             }
+          }
+          .post-actions {
+            div {
+              height: 40px;
+              align-items: center;
+            }
+            .left-btn {
+              border-top: 1px solid $clr1;
+              border-right: 1px solid $clr1;
+
+              &:hover {
+                background-color: #dcdfec;
+              }
+            }
+            .right-btn {
+              border-top: 1px solid $clr1;
+              border-right: 1px solid $clr1;
+
+              &:hover {
+                background-color: #dcdfec;
+              }
+            }
+          }
+        }
+      }
+      .body-text {
+        padding: 0 15px 15px 15px;
+
+        .text {
+          min-height: 45px;
+        }
+
+        .seen-area {
+          // background-color: lightcoral;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          padding-bottom: 15px;
+
+          p {
+            margin: 0;
+          }
+        }
+      }
+      .post-actions {
+        display: flex;
+        justify-content: space-between;
+        div {
+          display: flex;
+          justify-content: center;
+          width: 50%;
+          p {
+            margin: 0;
           }
         }
       }
@@ -186,6 +270,18 @@
   min-width: 1px;
 }
 
+.green {
+  background-color: #00ca72;
+}
+.like-icon {
+  width: 15px;
+  margin-right: 5px;
+}
+
+.reply-icon {
+  width: 15px;
+  margin-right: 5px;
+}
 // .tab-btn-clicked {
 //   border-bottom: 1px solid $blue;
 // }

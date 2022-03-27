@@ -8,6 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 5px;
     width: 25px;
     height: 25px;
     border-radius: 50%;
@@ -32,7 +33,7 @@
   }
 
   .invite {
-    padding: 7px;
+    padding: 10px;
   }
 
   .right-side-header {
@@ -42,9 +43,10 @@
     // height: 40px;
 
     .add-to-board {
-      border: 1px solid #90919d;
+      border: 1px solid #c3c6d4;
       margin-left: 10px;
-      padding: 7px;
+      padding: 7px 10px;
+      color: #3d3e43;
       // padding: 8px;
       // border-radius: 5px;
       &:hover {
@@ -61,6 +63,7 @@
       button {
         display: flex;
         align-items: center;
+        color: #3d3e43;
       }
     }
 
@@ -72,8 +75,9 @@
         background-color: white;
         border: none;
         border-radius: 5px;
-        padding: 7px;
+        padding: 7px 15px;
         font-size: 14px;
+        color: #3d3e43;
         &:hover {
           background-color: #dcdfec;
         }
@@ -108,6 +112,7 @@
       font-size: 30px;
       line-height: 40px;
       height: 42px;
+      color: #3d3e43;
     }
   }
 }
@@ -146,3 +151,10 @@
   height: 20px;
   margin-top: 2px;
 }
+
+.arrow-right-icon {
+  width: 7px;
+  color: #323338;
+}
+
+// filter: opacity(0.5);
