@@ -21,7 +21,7 @@
           @deleteGroup="deleteGroup"
           @removeItem="removeItem"
           @editTask="editTask"
-          :boards="boards[0]"
+          :boards="boards"
         />
       </section>
 

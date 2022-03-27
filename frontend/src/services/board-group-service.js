@@ -12,196 +12,202 @@ const FUNDAY_URL = '//localhost:3030/api/funday/';
 
 //TODO - MAKE id for inner tasks/groups. like "t-"+makeId(4)
 const board = [{
-    _id: 'b101',
-    title: 'Robot dev proj',
-    createdAt: 1589983468418,
-    // "createdBy": {
-    //     "_id": "u101",
-    //     "fullname": "Abi Abambi",
-    //     "imgUrl": "http://some-img"
-    // },
-    style: { bgColor: 'red' },
-    labels: [{
-            id: 'l101',
-            title: 'Done',
-            color: '#61bd4f',
-        },
-        {
-            id: 'l102',
-            title: 'Progress',
-            color: '#61bd33',
-        },
-    ],
-    members: [{
-            _id: 'm101',
-            fullname: 'Inbari Tzvik',
-            imgUrl: 'https://www.google.com',
-        },
-        {
-            _id: 'm102',
-            fullname: 'Ganesh',
-            imgUrl: 'https://www.google.com',
-        },
-        {
-            _id: 'm101',
-            fullname: 'baba sali',
-            imgUrl: 'https://www.google.com',
-        },
-    ],
-    groups: [{
-            id: 'g101',
-            title: 'Group 1',
-            tasks: [{
-                    id: 'c101',
-                    title: 'Replace logo',
-                    status: 'Working on it',
-                    priority: 'Medium',
-                    members: [{
-                            _id: 'u101',
-                            fullname: 'Inbari Tzvik',
-                            imgUrl: 'https://st.depositphotos.com/1491329/3629/i/950/depositphotos_36297389-stock-photo-beauty-portrait-beautiful-spa-woman.jpg',
-                        },
-                        {
+        _id: 'b101',
+        title: 'Robot dev proj',
+        createdAt: 1589983468418,
+        // "createdBy": {
+        //     "_id": "u101",
+        //     "fullname": "Abi Abambi",
+        //     "imgUrl": "http://some-img"
+        // },
+        style: { bgColor: 'red' },
+        labels: [{
+                id: 'l101',
+                title: 'Done',
+                color: '#61bd4f',
+            },
+            {
+                id: 'l102',
+                title: 'Progress',
+                color: '#61bd33',
+            },
+        ],
+        members: [{
+                _id: 'm101',
+                fullname: 'Inbari Tzvik',
+                imgUrl: 'https://www.google.com',
+            },
+            {
+                _id: 'm102',
+                fullname: 'Ganesh',
+                imgUrl: 'https://www.google.com',
+            },
+            {
+                _id: 'm101',
+                fullname: 'baba sali',
+                imgUrl: 'https://www.google.com',
+            },
+        ],
+        groups: [{
+                id: 'g101',
+                title: 'Group 1',
+                tasks: [{
+                        id: 'c101',
+                        title: 'Replace logo',
+                        status: 'Working on it',
+                        priority: 'Medium',
+                        members: [{
+                                _id: 'u101',
+                                fullname: 'Inbari Tzvik',
+                                imgUrl: 'https://st.depositphotos.com/1491329/3629/i/950/depositphotos_36297389-stock-photo-beauty-portrait-beautiful-spa-woman.jpg',
+                            },
+                            {
+                                _id: 'u102',
+                                fullname: 'Ganesh',
+                                imgUrl: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png',
+                            },
+                        ]
+                    },
+                    {
+                        id: 'c102',
+                        title: 'Add Samples',
+                        status: 'Stuck',
+                        priority: 'High',
+                        members: [{
                             _id: 'u102',
-                            fullname: 'Ganesh',
-                            imgUrl: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png',
-                        },
-                    ]
-                },
-                {
-                    id: 'c102',
-                    title: 'Add Samples',
-                    status: 'Stuck',
-                    priority: 'High',
-                    members: []
-                },
-                {
-                    id: 'c113',
-                    title: 'Working on css ',
-                    status: 'Stuck',
-                    priority: 'Medium',
-                    members: []
-                },
-                {
-                    id: 'c115',
-                    title: "Today i don't feel like doing anything",
-                    status: 'Done',
-                    priority: 'Low',
-                    members: []
-                },
-            ],
-            style: { color: 'rgb(87, 155, 252)' },
-        },
-        {
-            id: 'g201',
-            title: 'Group 5',
-            tasks: [{
-                    id: 'c201',
-                    title: 'Replace logo',
-                    status: 'Working on it',
-                    priority: 'Medium',
-                    members: []
-                },
-                {
-                    id: 'c202',
-                    title: 'Add Samples',
-                    status: 'Stuck',
-                    members: []
-                },
-                {
-                    id: 'c213',
-                    title: 'Working on css ',
-                    status: 'Stuck',
-                    members: []
-                },
-                {
-                    id: 'c215',
-                    title: "Today i don't feel like doing anything",
-                    status: 'Done',
-                    members: []
-                },
-            ],
-            style: { color: 'rgb(187, 51, 84)' },
-        },
-        {
-            id: 'g102',
-            title: 'Group 2',
-            tasks: [{
-                    id: 'c103',
-                    title: 'Do that',
-                    status: 'Done',
-                    members: []
-                },
-                {
-                    id: 'c114',
-                    title: 'Working on css all day',
-                    status: 'Done',
-                    members: []
-                },
-                {
-                    id: 'c104',
-                    title: 'Help me',
-                    status: 'in-progress',
-                    description: 'description',
-                    comments: [{
-                        id: 'ZdPnm',
-                        txt: 'also @yaronb please CR this',
-                        createdAt: 1590999817436.0,
+                            fullname: 'Ganesh Shiva',
+                            imgUrl: '',
+                        }, ]
+                    },
+                    {
+                        id: 'c113',
+                        title: 'Working on css ',
+                        status: 'Stuck',
+                        priority: 'Medium',
+                        members: []
+                    },
+                    {
+                        id: 'c115',
+                        title: "Today i don't feel like doing anything",
+                        status: 'Done',
+                        priority: 'Low',
+                        members: []
+                    },
+                ],
+                style: { color: 'rgb(87, 155, 252)' },
+            },
+            {
+                id: 'g201',
+                title: 'Group 5',
+                tasks: [{
+                        id: 'c201',
+                        title: 'Replace logo',
+                        status: 'Working on it',
+                        priority: 'Medium',
+                        members: []
+                    },
+                    {
+                        id: 'c202',
+                        title: 'Add Samples',
+                        status: 'Stuck',
+                        members: []
+                    },
+                    {
+                        id: 'c213',
+                        title: 'Working on css ',
+                        status: 'Stuck',
+                        members: []
+                    },
+                    {
+                        id: 'c215',
+                        title: "Today i don't feel like doing anything",
+                        status: 'Done',
+                        members: []
+                    },
+                ],
+                style: { color: 'rgb(187, 51, 84)' },
+            },
+            {
+                id: 'g102',
+                title: 'Group 2',
+                tasks: [{
+                        id: 'c103',
+                        title: 'Do that',
+                        status: 'Done',
+                        members: []
+                    },
+                    {
+                        id: 'c114',
+                        title: 'Working on css all day',
+                        status: 'Done',
+                        members: []
+                    },
+                    {
+                        id: 'c104',
+                        title: 'Help me',
+                        status: 'in-progress',
+                        description: 'description',
+                        comments: [{
+                            id: 'ZdPnm',
+                            txt: 'also @yaronb please CR this',
+                            createdAt: 1590999817436.0,
+                            byMember: {
+                                _id: 'u101',
+                                fullname: 'Tal Tarablus',
+                                imgUrl: 'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
+                            },
+                        }, ],
+                        checklists: [{
+                            id: 'YEhmF',
+                            title: 'Checklist',
+                            todos: [{
+                                id: '212jX',
+                                title: 'To Do 1',
+                                isDone: false,
+                            }, ],
+                        }, ],
+                        members: [{
+                            _id: 'u101',
+                            username: 'Tal',
+                            fullname: 'Tal Tarablus',
+                            imgUrl: 'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
+                        }, ],
+                        labelIds: ['l101', 'l102'],
+                        createdAt: 1590999730348,
+                        dueDate: 16156215211,
                         byMember: {
                             _id: 'u101',
+                            username: 'Tal',
                             fullname: 'Tal Tarablus',
                             imgUrl: 'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
                         },
-                    }, ],
-                    checklists: [{
-                        id: 'YEhmF',
-                        title: 'Checklist',
-                        todos: [{
-                            id: '212jX',
-                            title: 'To Do 1',
-                            isDone: false,
-                        }, ],
-                    }, ],
-                    members: [{
-                        _id: 'u101',
-                        username: 'Tal',
-                        fullname: 'Tal Tarablus',
-                        imgUrl: 'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
-                    }, ],
-                    labelIds: ['l101', 'l102'],
-                    createdAt: 1590999730348,
-                    dueDate: 16156215211,
-                    byMember: {
-                        _id: 'u101',
-                        username: 'Tal',
-                        fullname: 'Tal Tarablus',
-                        imgUrl: 'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
+                        style: {
+                            //   color: 'rgb(87, 155, 252)',
+                        },
                     },
-                    style: {
-                        //   color: 'rgb(87, 155, 252)',
-                    },
-                },
-            ],
-            style: { color: 'rgb(162, 93, 220)' },
-        },
-    ],
-    activitiesLog: [{
-        id: 'a101',
-        txt: 'Changed Color',
-        createdAt: 154514,
-        byMember: {
-            _id: 'u101',
-            fullname: 'Abi Abambi',
-            imgUrl: 'http://some-img',
-        },
-        task: {
-            id: 'c101',
-            title: 'Replace Logo',
-        },
-    }, ],
-    cmpsOrder: ['status-picker', 'date-picker', 'priority-picker', 'member-picker'],
-    // cmpsOrder: ['statusPicker', 'member-picker', 'date-picker'],
-}, ];
+                ],
+                style: { color: 'rgb(162, 93, 220)' },
+            },
+        ],
+        activitiesLog: [{
+            id: 'a101',
+            txt: 'Changed Color',
+            createdAt: 154514,
+            byMember: {
+                _id: 'u101',
+                fullname: 'Abi Abambi',
+                imgUrl: 'http://some-img',
+            },
+            task: {
+                id: 'c101',
+                title: 'Replace Logo',
+            },
+        }, ],
+        cmpsOrder: ['status-picker', 'date-picker', 'priority-picker', 'member-picker'],
+        // cmpsOrder: ['statusPicker', 'member-picker', 'date-picker'],
+    },
+
+];
 
 export const boardGroupService = {
     query,

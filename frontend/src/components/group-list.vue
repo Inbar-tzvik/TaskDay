@@ -1,6 +1,6 @@
 <template>
   <section class="group-list">
-    <ul v-for="group in boards.groups" :key="group.id">
+    <ul v-for="group in board.groups" :key="group.id">
       <div class="group-title-btn">
         <el-dropdown trigger="click">
           <span class="el-dropdown-link">
@@ -14,7 +14,7 @@
               }"
             />
             <el-icon class="el-icon--right">
-              <arrow-down />
+              <!-- <arrow-down /> -->
             </el-icon>
           </span>
           <template #dropdown>
@@ -36,8 +36,8 @@
         </el-dropdown>
       </div>
       <div class="group-header-columns">
-        <div class="group-name-all" @mouseover="group.openGroupName = true" @mouseleave="group.openGroupName = false">
-          <div class="group-name-func" v-show="group.openGroupName">
+        <div class="group-name-all" @mouseover="openGroupName = true" @mouseleave="openGroupName = false">
+          <div class="group-name-func" v-show="openGroupName">
             <!-- <div class="group-name-collase">V</div> -->
             <div class="group-name-func-drag">
               <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 256 256" id="Flat">
@@ -87,7 +87,9 @@
       <!-- <p>{{ group.style.bgColor }}</p> -->
       <!-- <h4>-{{ group.title }}</h4> -->
 
-      <item-list :group="group" @editTask="editTask" @addItem="addItem" @removeItem="removeItem" />
+<!-- //TOFIX - boards here is boards[0]!!! fix it!!!! -->
+
+      <item-list :board="board" :group="group" @editTask="editTask" @addItem="addItem" @removeItem="removeItem" />
       <!-- <toy-preview @removeToy="removeToy" v-for="toy in toys" :key="toy.id" :toy="toy" /> -->
     </ul>
   </section>
@@ -102,9 +104,11 @@ export default {
     boards: {
       type: Object,
     },
+    emits:['updateGroup','removeItem','addItem','deleteGroup','editTask']
   },
   data() {
     return {
+      board: this.boards[0],
       currentGroup: null,
       show: false,
       // ITZIK

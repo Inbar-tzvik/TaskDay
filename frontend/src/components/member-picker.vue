@@ -1,23 +1,14 @@
 <template>
   <section class="dropDownMenuWrapper">
-    <button
-      
-      class="dropDownMenuButton"
-      ref="menu"
-      @click="openClose"
-    >
+    <button class="dropDownMenuButton" ref="menu" @click="openClose">
       <!-- {{ `${imgUrl}` }} -->
-      <div v-for="shortMember in shortMembers"
-      :key="shortMember" class="avatars">
+      <div v-for="shortMember in shortMembers" :key="shortMember" class="avatars">
         <div v-if="shortMember.imgUrl">
-        <el-avatar fit="cover" alt="" class="avatar-img" :src="shortMember.imgUrl" />
-      </div>
-      <div>
-            <el-avatar class="avatar-name" icon="string">check</el-avatar>
-      </div>
-        <!-- <div>
-          <el-avatar>{{ val }}</el-avatar>
-        </div> -->
+          <el-avatar fit="cover" alt class="avatar-img" :src="shortMember.imgUrl" />
+        </div>
+        <div v-else>
+          <el-avatar class="avatar-name">{{ shortMember.shortName }}</el-avatar>
+        </div>
       </div>
     </button>
 
@@ -36,9 +27,9 @@
   </section>
 </template>
 
-<script>
+<script >
 // import avatar from "./avatar-cmp.vue";
-import { UserFilled } from '@element-plus/icons-vue';
+// import { UserFilled } from '@element-plus/icons-vue';
 
 
 export default {
@@ -48,29 +39,30 @@ export default {
   data() {
     return {
       boards: [],
-      opts: this.$store.getters.boards[0].members.map(member => member.fullname),
+      opts: null,
       // membersFullname: this.task.members.map(member => member.fullname),
-      shortMembersName: null, 
-      membersImg:this.task.members.map(member => member.imgUrl),
+      shortMembersName: null,
+      membersImg: this.task.members?.map(member => member.imgUrl),
       isOpen: false, // Variable if the menu is open or closed
     };
   },
   created() {
-   this.shortMembers = this.task.members.map(member => {
-        return {
-          shortName:this.makeShortName(member.fullname),
-          imgUrl:member.imgUrl
-        }
-        })
+    this.boards = this.$store.getters.boards
+    this.shortMembers = this.task.members?.map(member => {
+      return {
+        shortName: this.makeShortName(member.fullname),
+        imgUrl: member.imgUrl
+      }
+    })
   },
-  
+
   methods: {
-    makeShortName(fullname){
+    makeShortName(fullname) {
       var shortName = fullname.split(' ')
-      shortName = shortName.map(fullname=>fullname[0])
-      // console.log('ssss',shortName);
-return shortName
-    }, 
+      shortName = shortName.map(fullname => fullname[0])
+      shortName = shortName.join('')
+      return shortName
+    },
 
     openClose() {
       // Toggle between open or closed ( true || false )
@@ -83,25 +75,18 @@ return shortName
 };
 </script>
 
-<style lang="scss" scoped>
-.avatars{
-
+<style scoped>
+.avatars {
   display: flex;
 }
 .avatar-img {
   width: 27px;
-  height:24px;
+  height: 24px;
 }
-.demo-type > div {
+.avatar-name {
+  width: 27px;
+  height: 24px;
   flex: 1;
   text-align: center;
-}
-
-.demo-type > div:not(:last-child) {
-  border-right: 1px solid var(--el-border-color);
-}
-
-.avatar-name{
-  border-right: 1px solid var(--el-border-color);
 }
 </style>

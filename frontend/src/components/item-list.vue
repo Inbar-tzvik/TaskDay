@@ -1,8 +1,8 @@
 <template>
   <!-- <ul class="group-list"> -->
   <section class="item-list">
-    <Container :get-child-payload="getChildPayload" orientation="vertical" @drop="onDrop">
-      <Draggable v-for="task in group.tasks" :key="task.id">
+    <Container group-name="eltasks" :get-child-payload="getChildPayload" orientation="vertical" @drop="onDrop($event, 'eltasks')">
+      <Draggable v-for="task in currGroup.tasks" :key="task.id">
         <!-- <li v-for="task in group.tasks" :key="task.id" class="row-item"> -->
         <li class="row-item" @click="isClicked = false">
           <el-dropdown class="side-drop-down" trigger="click">
@@ -16,7 +16,7 @@
                 "
               />
               <el-icon class="el-icon--right">
-                <arrow-down />
+                <!-- <arrow-down /> -->
               </el-icon>
             </span>
             <template #dropdown>
@@ -67,6 +67,8 @@ import datePicker from './date-picker.vue';
 import { Container, Draggable } from 'vue3-smooth-dnd';
 import priorityPicker from './priority-picker.vue';
 import memberPicker from './member-picker.vue';
+import { objectEntries } from '@antfu/utils';
+
 
 export default {
   props: {
@@ -74,22 +76,29 @@ export default {
       type: Object,
       // required: true,
     },
+    board:{
+      type: Object,
+    }
   },
   data() {
     return {
+      currGroup: JSON.parse(JSON.stringify(this.group)),
+      // eltasks: JSON.parse(JSON.stringify(this.group.tasks)),
+      // eltasks:this.group.tasks,
       newTask: null,
       cmps: null,
-      currGroup: null,
+      currBoard: JSON.parse(JSON.stringify(this.board)),
+      // currGroup: null,
       isClicked: false,
     };
   },
   async created() {
-    this.currGroup = JSON.parse(JSON.stringify(this.group));
+    // this.currGroup = JSON.parse(JSON.stringify(this.group));
     this.getEmptyNewTask();
     try {
       const board = await boardGroupService.query();
       this.cmps = board[0].cmpsOrder;
-      console.log(this.cmps[0]);
+      // console.log(this.cmps[0]);
     } catch {
       console.log('error occured while getting board');
     }
@@ -101,15 +110,51 @@ export default {
     Container,
     Draggable,
     priorityPicker,
-    memberPicker
+    memberPicker,
   },
   methods: {
     getChildPayload(index) {
-      var item = this.currGroup.tasks[index];
-      return {
-        item,
+      return  this.currGroup.tasks[index];
         // generate custom payload data here
-      };
+    },
+    onDrop(dropResult) {
+
+      this.currGroup.tasks = this.applyDrag(this.currGroup.tasks, dropResult);
+      // this.$store.dispatch({type: 'updateBoard'},{board:this.currBoard})
+      // console.log(this.currBoard);
+      // this.$store.dispatch({
+      //   type: 'updateBoard',
+      //   board:this.currBoard,
+      //   // boardId: this.boards[0]._id,
+      // });
+    },
+        applyDrag(arr, dragResult) {
+      console.log('currBoard:', this.currBoard)
+      const { removedIndex, addedIndex, payload } = dragResult;
+
+      if (removedIndex === null && addedIndex === null) return arr;
+      const result = [...arr];
+      let taskToAdd = payload;
+
+      if (removedIndex !== null) {
+        taskToAdd = result.splice(removedIndex, 1)[0];
+      }
+      if (addedIndex !== null) {
+        result.splice(addedIndex, 0, taskToAdd);
+      }
+      // if (result === []){
+      //   result.push(taskToAdd)
+      // }
+      // console.log('this.currGroup',this.currGroup)
+
+    this.$store.dispatch({
+        type: 'updateGroup',
+        currGroup: this.currGroup,
+        boardId: this.board._id,
+      });
+
+
+      return result;
     },
     remove(itemId) {
       var itemIdx = this.currGroup.tasks.findIndex((task) => task.id === itemId);
@@ -127,43 +172,12 @@ export default {
         this.currGroup.tasks.push(this.newTask);
         this.getEmptyNewTask();
       }
-      //save the one
-      //add new one
-      // this.getEmptyNewTask;
     },
 
     editTask(item) {
       this.$emit('editTask', item, this.group.id);
     },
-    onDrop(dropResult) {
-      this.currGroup.tasks = this.applyDrag(this.currGroup.tasks, dropResult);
-      // console.log(this.currGroup);
 
-      // TODO GETTERSD CURR BOARD!!
-      this.$store.dispatch({ type: 'updateGroup', currGroup: this.currGroup, boardId: 'b101' });
-
-      //dispach -> to update  board!
-    },
-    applyDrag(arr, dragResult) {
-      const { removedIndex, addedIndex, payload } = dragResult;
-
-      console.log('arr,removedIndex, addedIndex, payload', arr, removedIndex, addedIndex, payload);
-      // console.log('before one:',this.group.tasks);
-      if (removedIndex === null && addedIndex === null) return arr;
-      const result = [...arr];
-      let itemToAdd = payload;
-      // removedIndex = 0
-      // console.log('before two:',result);
-      if (removedIndex !== null) {
-        itemToAdd = result.splice(removedIndex, 1)[0];
-      }
-      if (addedIndex !== null) {
-        result.splice(addedIndex, 0, itemToAdd);
-      }
-      // console.log('after one:',this.group.tasks);
-      console.log('after two:', result);
-      return result;
-    },
   },
 };
 </script>
