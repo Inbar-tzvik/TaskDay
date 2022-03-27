@@ -29,7 +29,7 @@
 
 <script >
 // import avatar from "./avatar-cmp.vue";
-import { UserFilled } from '@element-plus/icons-vue';
+// import { UserFilled } from '@element-plus/icons-vue';
 
 
 export default {
@@ -39,15 +39,16 @@ export default {
   data() {
     return {
       boards: [],
-      opts: this.$store.getters.boards[0].members.map(member => member.fullname),
+      opts: null,
       // membersFullname: this.task.members.map(member => member.fullname),
       shortMembersName: null,
-      membersImg: this.task.members.map(member => member.imgUrl),
+      membersImg: this.task.members?.map(member => member.imgUrl),
       isOpen: false, // Variable if the menu is open or closed
     };
   },
   created() {
-    this.shortMembers = this.task.members.map(member => {
+    this.boards = this.$store.getters.boards
+    this.shortMembers = this.task.members?.map(member => {
       return {
         shortName: this.makeShortName(member.fullname),
         imgUrl: member.imgUrl

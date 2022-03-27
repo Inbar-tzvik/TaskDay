@@ -14,23 +14,6 @@ export default {
     boards(state) {
       return JSON.parse(JSON.stringify(state.boards));
     },
-    // toysForDisplay(state, { filter }) {
-    //     // if (!state.toysForDisplay) return state.toys
-    //     // return state.toysForDisplay
-    //     return state.toys
-    // },
-    // labels(state) {
-    //     return state.lables
-    // },
-    // getCurrToy(state) {
-    //     return {...state.currToy }
-    // },
-    // user(state) {
-    //     setTimeout(() => {
-    //         // state.user = authService.getLoggedinUser()
-    //         // return state.user
-    //     }, 1000);
-    // },
   },
   mutations: {
     setBoards(state, { boards }) {
@@ -43,15 +26,32 @@ export default {
     setFilter(state, { filterBy }) {
       state.filterBy = filterBy;
     },
-    saveToy(state, { savedToy }) {
-      const idx = state.toys.findIndex((toy) => toy._id === savedToy._id);
-      if (idx !== -1) state.toys.splice(idx, 1, savedToy);
-      else state.toys.unshift(savedToy);
-    },
+    // saveToy(state, { savedToy }) {
+    //     const idx = state.toys.findIndex((toy) => toy._id === savedToy._id);
+    //     if (idx !== -1) state.toys.splice(idx, 1, savedToy);
+    //     else state.toys.unshift(savedToy);
+    // },
   },
   actions: {
     //load all boards from DB
     // },
+    async loadBoards({ commit, state }) {
+      console.log('loading board');
+      try {
+        const boards = await boardGroupService.query(state.filterBy);
+        console.log(boards);
+        commit({
+          type: 'setBoards',
+          boards,
+        });
+      } catch {
+        // commit({
+        //   type: 'setIsError',
+        //   isError: true,
+        // });
+        console.log('error occured while getting board');
+      }
+    },
     async loadBoards({ commit, state }) {
       console.log('loading board');
       try {
@@ -123,22 +123,21 @@ export default {
         // });
       }
     },
-    // async addItem({ dispatch }) {
-    //   try {
-    //     await boardGroupService.addItem();
-    //     dispatch({ type: 'loadBoards' });
-    //   } catch (err) {
-    //     console.log('Couldnt save item', err);
-    //     commit({
-    //       type: 'setIsError',
-    //       isError: true,
-    //     });
-    //   }
 
     async updateGroup({ dispatch }, { boardId, currGroup }) {
       try {
         console.log('updating');
         await boardGroupService.saveGroup(boardId, currGroup);
+        dispatch({ type: 'loadBoards' });
+      } catch (err) {
+        console.log('Couldnt save item', err);
+      }
+    },
+    async updateBoard({ dispatch }, { board }) {
+      try {
+        console.log('updating');
+        // const copyBoard = JSON.parse(JSON.stringify(state.boards[0]))
+        await boardGroupService.saveBoard(board);
         dispatch({ type: 'loadBoards' });
       } catch (err) {
         console.log('Couldnt save item', err);

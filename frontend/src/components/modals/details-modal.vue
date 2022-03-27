@@ -1,12 +1,14 @@
 <template>
   <section class="details-modal">
     <div class="title-container">
-      <div class="close-details-btn">X</div>
+      <div class="close-details-btn">
+        <!-- <img src="../../../styles/icon/left.svg" alt="" />ss -->
+      </div>
 
       <div class="details-input flex">
         <h1>sdfsd sdfd adfdf</h1>
         <div class="add-view-container flex">
-          <span>IT</span>
+          <span><img src="" alt="" /></span>
           <p class="subset-tab-details"></p>
           <div>
             <img
@@ -58,6 +60,10 @@
                   />
                 </div>
                 <div class="title">Itzik Vaknin</div>
+
+                <div>
+                  <p class="green logged-in"></p>
+                </div>
               </div>
               <div class="post-title">
                 <div>
@@ -67,7 +73,7 @@
                     alt=""
                   />
                 </div>
-                <div>1d</div>
+                <div class="time">1d</div>
                 <div>
                   <img
                     class="alarm-post-img"
@@ -77,8 +83,34 @@
                 </div>
               </div>
             </div>
-            <div class="body-text"></div>
-            <div class="post-actions"></div>
+            <div class="body-text">
+              <p class="text">sdgsfgsfgsfg</p>
+              <div class="seen-area">
+                <span>image</span>
+                <span>1</span>
+                <p>seen</p>
+              </div>
+            </div>
+            <div class="post-actions">
+              <div class="left-btn">
+                <span
+                  ><img
+                    class="like-icon"
+                    src="../../../styles/icon/like.png"
+                    alt=""
+                /></span>
+                <p>like</p>
+              </div>
+              <div class="right-btn">
+                <span>
+                  <img
+                    class="reply-icon"
+                    src="../../../styles/icon/reply.png"
+                    alt=""
+                /></span>
+                <p>Reply</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -90,6 +122,7 @@
 
 <script>
 import avatarIng from '../../components/avatar-img.vue';
+import likeIcon from '../../components/icons/like-icon.vue';
 
 export default {
   name: '',
@@ -97,7 +130,7 @@ export default {
   data() {
     return {};
   },
-  components: { avatarIng },
+  components: { avatarIng, likeIcon },
   computed: {},
   methods: {},
 };

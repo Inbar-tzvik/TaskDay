@@ -23,11 +23,15 @@ export default {
         '../../styles/shlomi.jpg',
         '../../styles/shlomi.jpg',
       ],
+      // imgs: [],
       margin: -5,
     };
   },
   props: {
-    imgs: Array,
+    urls: Array,
+  },
+  created() {
+    // console.log(this.imgs);
   },
   components: {},
   computed: {
@@ -40,8 +44,8 @@ export default {
 </script>
 <style>
 .avater-img {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   /* margin-left: 20px; */
   border: 1px solid white;
