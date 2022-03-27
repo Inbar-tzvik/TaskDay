@@ -12,7 +12,7 @@
         <!-- </div> -->
       </section>
       <section class="board-content">
-        <h1>{{ boards[0].title }}</h1>
+        <!-- <h1>{{ boards[0].title }}</h1> -->
 
         <!-- <font-awesome-icon icon="arrow-down" /> -->
         <group-list
