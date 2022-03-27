@@ -39,17 +39,25 @@
   width: 1324px;
   display: flex;
   margin-left: 5px;
+  margin-top: 1px;
+  form {
+    border: none;
+    height: 35px;
+    width: 1324px;
+    display: flex;
+    justify-content: space-between;
+  }
   input {
-    width: 92.14rem;
-
+    // width: 92.14rem;
+    border: 1px solid #d0d4e4;
+    // border: none;
     position: sticky;
     left: 54px;
     flex: 0 1;
     border-right: none;
-    height: 35px;
+    height: 33px;
     flex: 1 1 auto;
     border-radius: 0;
-    border: 1px solid #d0d4e4;
     background-color: #fff;
     font-size: 14px;
     outline: none;
@@ -61,6 +69,9 @@
   &:hover {
     .add-left-indicator-inner {
       opacity: 1;
+    }
+    form {
+      // border: 1px solid black;
     }
     input {
       border: 1px solid black;
@@ -129,4 +140,35 @@
 .all-edit {
   display: flex;
   justify-content: space-between;
+}
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.add-item {
+  button {
+    border: none;
+    height: 34px;
+    // width: 26px;
+    left: 54px;
+    padding: 0px 12px;
+    background-color: #0085ff;
+    color: white;
+    animation: 0.2s ease-out 0s 1 slideInFromLeft;
+  }
+}
+
+input:focus {
+  // background-color: chartreuse;
+  // outline: none;
+  button {
+    // opacity: 1;
+  }
+  .add-item input {
+    // background-color: chartreuse;
+  }
 }

@@ -4,7 +4,7 @@
     <Container :get-child-payload="getChildPayload" orientation="vertical" @drop="onDrop">
       <Draggable v-for="task in group.tasks" :key="task.id">
         <!-- <li v-for="task in group.tasks" :key="task.id" class="row-item"> -->
-        <li class="row-item">
+        <li class="row-item" @click="isClicked = false">
           <el-dropdown class="side-drop-down" trigger="click">
             <span class="el-dropdown-link">
               <font-awesome-icon
@@ -44,8 +44,16 @@
       <div class="add-left-indicator">
         <div class="add-left-indicator-inner" :style="{ backgroundColor: group.style.color }"></div>
       </div>
-      <input class="add-new-item" placeholder="+ Add Item" v-model="newTask.title" type="text" />
-      <button @click="addItem(group.id)">Add Item</button>
+      <form>
+        <input
+          @click="isClicked = true"
+          class="add-new-item"
+          placeholder="+ Add Item"
+          v-model="newTask.title"
+          type="text"
+        />
+        <button v-if="isClicked" @click="addItem(group.id)">Add</button>
+      </form>
       <div class="end-row"></div>
     </div>
   </section>
@@ -70,6 +78,7 @@ export default {
       newTask: null,
       cmps: null,
       currGroup: null,
+      isClicked: false,
     };
   },
   async created() {

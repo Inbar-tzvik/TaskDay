@@ -37,17 +37,17 @@
   flex: 0 0 8px;
   height: 34px;
   width: 8px;
-  transition: flex-basis 0.1s ease-in;
   position: relative;
   // background-color: rgb(87, 155, 252);
-  .left-indicator-inner {
-    position: relative;
-    width: 8px;
-    height: 100%;
-    overflow: hidden;
-    transition: width 0.07s cubic-bezier(0, 0, 0.35, 1);
-    will-change: width;
-    &:hover {
+  &:hover {
+    .left-indicator-inner {
+      transition: flex-basis 0.1s ease-in;
+      position: relative;
+      // width: 8px;
+      height: 100%;
+      overflow: hidden;
+      // transition: width 0.07s cubic-bezier(0, 0, 0.35, 1);
+      will-change: width;
       width: 32px;
     }
   }
