@@ -73,7 +73,11 @@ const board = [{
                     title: 'Add Samples',
                     status: 'Stuck',
                     priority: 'High',
-                    members: []
+                    members: [{
+                        _id: 'u102',
+                        fullname: 'Ganesh Shiva',
+                        imgUrl: '',
+                    }, ]
                 },
                 {
                     id: 'c113',

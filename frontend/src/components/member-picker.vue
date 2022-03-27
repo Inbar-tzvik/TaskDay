@@ -1,20 +1,14 @@
 <template>
   <section class="dropDownMenuWrapper">
-    <button
-      
-      class="dropDownMenuButton"
-      ref="menu"
-      @click="openClose"
-    >
+    <button class="dropDownMenuButton" ref="menu" @click="openClose">
       <!-- {{ `${imgUrl}` }} -->
-      <div v-for="imgUrl in membersImg"
-      :key="imgUrl" class="avatars">
-        <div>
-        <el-avatar size="small"  :src="imgUrl" />
-      </div>
-        <!-- <div>
-          <el-avatar>{{ val }}</el-avatar>
-        </div> -->
+      <div v-for="shortMember in shortMembers" :key="shortMember" class="avatars">
+        <div v-if="shortMember.imgUrl">
+          <el-avatar fit="cover" alt class="avatar-img" :src="shortMember.imgUrl" />
+        </div>
+        <div v-else>
+          <el-avatar class="avatar-name">{{ shortMember.shortName }}</el-avatar>
+        </div>
       </div>
     </button>
 
@@ -33,8 +27,7 @@
   </section>
 </template>
 
-<script>
-//ITZIK
+<script >
 // import avatar from "./avatar-cmp.vue";
 import { UserFilled } from '@element-plus/icons-vue';
 
@@ -47,17 +40,29 @@ export default {
     return {
       boards: [],
       opts: this.$store.getters.boards[0].members.map(member => member.fullname),
-      membersFullname: this.task.members.map(member => member.fullname),
-      membersImg:this.task.members.map(member => member.imgUrl),
+      // membersFullname: this.task.members.map(member => member.fullname),
+      shortMembersName: null,
+      membersImg: this.task.members.map(member => member.imgUrl),
       isOpen: false, // Variable if the menu is open or closed
     };
   },
   created() {
-    //     user() {
-    //   this.boards = this.$store.getters.boards;
-    // },
+    this.shortMembers = this.task.members.map(member => {
+      return {
+        shortName: this.makeShortName(member.fullname),
+        imgUrl: member.imgUrl
+      }
+    })
   },
+
   methods: {
+    makeShortName(fullname) {
+      var shortName = fullname.split(' ')
+      shortName = shortName.map(fullname => fullname[0])
+      shortName = shortName.join('')
+      return shortName
+    },
+
     openClose() {
       // Toggle between open or closed ( true || false )
       this.isOpen = !this.isOpen;
@@ -69,21 +74,18 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.avatars{
-
+<style scoped>
+.avatars {
   display: flex;
 }
 .avatar-img {
   width: 27px;
-  height:24px;
+  height: 24px;
 }
-// .demo-type > div {
-//   flex: 1;
-//   text-align: center;
-// }
-
-// .demo-type > div:not(:last-child) {
-//   border-right: 1px solid var(--el-border-color);
-// }
+.avatar-name {
+  width: 27px;
+  height: 24px;
+  flex: 1;
+  text-align: center;
+}
 </style>
