@@ -1,0 +1,67 @@
+drop-down-main-board {
+  .drop-down-main-board {
+    width: 200px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    background-color: coral;
+  }
+  .el-tooltip__trigger {
+    height: 34px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .el-scrollbar_view {
+    //   top: -18px;
+    width: 190px;
+    //   margin-left: 3px;
+    display: flex;
+    justify-content: center;
+  }
+  .el-dropdown__popper.el-popper[role='tooltip'] {
+    //   top: -18px;
+  }
+  // // .el-popper__arrow {
+  // //   top: -18px;
+  // // }
+  .el-dropdown__popper {
+    margin-top: -10px;
+    width: 144px;
+    height: 210px;
+    //   margin-left: 3px;
+    display: flex;
+    justify-content: center;
+    bottom: 62px !important;
+  }
+  .el-dropdown-menu__item {
+    width: 112px;
+    justify-content: center;
+    margin-top: 6px;
+    color: white;
+  }
+  //   background-color: cornflowerblue;
+
+  .working {
+    background-color: #fec173;
+  }
+  .stuck {
+    background-color: #e2435c;
+  }
+  .done {
+    background-color: #00c875;
+  }
+  .no-status {
+    background-color: #c4c4c4;
+    height: 32px;
+  }
+}
+
+// }
+// .el-popper[data-popper-placement^='bottom'] > .el-popper__arrow {
+//   top: -23px;
+// }
+
+// .el-drop
+// .el-popper is-pure is-light el-dropdown__popper"

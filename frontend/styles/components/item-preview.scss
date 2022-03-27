@@ -46,6 +46,8 @@
 }
 
 .dropDownMenuWrapper {
+  display: flex;
+  justify-content: center;
   position: relative;
   // width: 150px;
   // height: 60px;
@@ -63,6 +65,7 @@
     box-sizing: border-box;
     text-align: left;
   }
+
   .dropDownMenuButton {
     display: flex;
     justify-content: center;
@@ -71,7 +74,8 @@
     font-size: 1rem;
     background: none;
     outline: none;
-    // color: white;
+    color: white;
+    margin-top: 2px;
 
     // border-radius: 4px;
     position: absolute;
@@ -82,14 +86,14 @@
     // padding: 0 70px 0 20px;
     margin: 0 auto;
     line-height: 1;
-    height: 2.57rem;
+    height: 34px;
     // width: 28.57rem;
     z-index: 1;
     cursor: pointer;
   }
 
   .dropDownMenuButton--dark {
-    color: #eee;
+    // color: #eee;
   }
 
   .iconWrapper {
@@ -181,10 +185,12 @@
   }
 
   .dropdownMenu {
+    top: 16px;
+    margin-left: 30px;
     position: absolute;
-    top: 100%;
-    width: 100%;
-    min-width: 300px;
+    // top: 100%;
+    width: 144px;
+    // min-width: 300px;
     min-height: 10px;
     border-radius: 8px;
     border: 1px solid #eee;
@@ -199,7 +205,7 @@
       height: 20px;
       position: absolute;
       top: -10px;
-      left: 20px;
+      left: 55px;
       border-left: 1px solid #eee;
       border-top: 1px solid #eee;
       background: white;
@@ -213,9 +219,15 @@
     }
 
     .option {
-      width: 100%;
+      color: white;
+
+      height: 30px;
+      // width: 170px;
       border-bottom: 1px solid #eee;
-      padding: 20px 0;
+      margin-bottom: 3px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       cursor: pointer;
       position: relative;
       z-index: 5;
@@ -242,6 +254,13 @@
       font-size: 14px;
       margin: 3px 0 0 0;
       cursor: default;
+    }
+    p {
+      height: 30px;
+      min-width: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 

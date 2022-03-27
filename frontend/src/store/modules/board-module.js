@@ -12,7 +12,7 @@ export default {
   },
   getters: {
     boards(state) {
-      return state.boards;
+      return JSON.parse(JSON.stringify(state.boards));
     },
     // toysForDisplay(state, { filter }) {
     //     // if (!state.toysForDisplay) return state.toys
