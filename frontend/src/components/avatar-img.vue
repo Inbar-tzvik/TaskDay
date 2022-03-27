@@ -27,7 +27,7 @@ export default {
     };
   },
   props: {
-    urls: Array,
+    imgs: Array,
   },
   components: {},
   computed: {

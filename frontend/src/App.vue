@@ -1,5 +1,5 @@
 <template>
-  <section class="app-container">
+  <section class="app-container flex">
     <work-space-modal
       :class="[isModalClicked ? 'left' : '']"
       @closeModal="this.isModalClicked = !this.isModalClicked"
