@@ -101,7 +101,7 @@ export default {
     Container,
     Draggable,
     priorityPicker,
-    memberPicker
+    memberPicker,
   },
   methods: {
     getChildPayload(index) {
