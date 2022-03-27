@@ -36,10 +36,12 @@
 }
 
 .add-item {
-  max-width: 825px;
+  width: 1324px;
   display: flex;
   margin-left: 5px;
   input {
+    width: 92.14rem;
+
     position: sticky;
     left: 54px;
     flex: 0 1;

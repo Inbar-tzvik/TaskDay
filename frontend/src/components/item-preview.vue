@@ -1,6 +1,6 @@
 <template>
   <div v-if="currentTask" class="item-preview">
-    <div all-edit>
+    <div class="all-edit">
       <div class="left-indicator" :style="{ backgroundColor: group.color }">
         <div class="left-indicator-inner"></div>
       </div>
