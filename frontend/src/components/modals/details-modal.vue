@@ -2,7 +2,7 @@
   <section class="details-modal">
     <div class="title-container">
       <div class="close-details-btn">
-        <img src="../../../styles/icon/left.svg" alt="" />ss
+        <!-- <img src="../../../styles/icon/left.svg" alt="" />ss -->
       </div>
 
       <div class="details-input flex">
