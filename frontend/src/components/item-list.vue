@@ -65,6 +65,8 @@ import { boardGroupService } from '../services/board-group-service.js';
 import statusPicker from './status-picker.vue';
 import datePicker from './date-picker.vue';
 import { Container, Draggable } from 'vue3-smooth-dnd';
+import priorityPicker from './priority-picker.vue';
+import memberPicker from './member-picker.vue';
 
 export default {
   props: {
@@ -98,6 +100,8 @@ export default {
     datePicker,
     Container,
     Draggable,
+    priorityPicker,
+    memberPicker
   },
   methods: {
     getChildPayload(index) {

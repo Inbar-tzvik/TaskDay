@@ -1,6 +1,6 @@
 <template>
   <section class="dropDownMenuWrapper">
-    <button class="dropDownMenuButton" ref="menu" @click="openClose">{{ vals }}</button>
+    <button class="dropDownMenuButton" ref="menu" @click="openClose">{{ task.priority }}</button>
 
     <!-- <div class="iconWrapper">
       <div class="bar1" :class="{ 'bar1--open': isOpen }" />
@@ -24,16 +24,10 @@ export default {
   }, // Menu title from the parent
   data() {
     return {
-      boards:[],
-            opts: this.$store.getters.boards[0].members.map(member=>member.fullname),
-      vals: this.task.members.map(member=>member.fullname),
+      opts: ['High', 'Low', 'Medium', ''],
+      val: '',
       isOpen: false, // Variable if the menu is open or closed
     };
-  },
-  created(){
-    //     user() {
-    //   this.boards = this.$store.getters.boards;
-    // },
   },
   methods: {
     openClose() {
