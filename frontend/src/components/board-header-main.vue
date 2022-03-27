@@ -24,7 +24,7 @@
         <div class="last-seen-btn">
           <button>
             Last seen
-            <avatar-img :urls="[]"></avatar-img>
+            <!-- <avatar-img :urls="[]"></avatar-img> -->
             <!-- <p>Last seen</p> -->
           </button>
         </div>
@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import avatarImg from './avatar-img.vue';
+// import avatarImg from './avatar-img.vue';
 import integrateBtn from './icons/integrate-btn.vue';
 export default {
   name: 'board-header-main',
@@ -91,7 +91,7 @@ export default {
       isInfo: true,
     };
   },
-  components: { integrateBtn, avatarImg },
+  components: { integrateBtn },
   computed: {
     getStar() {
       if (this.isStared) return this.starSrc.yellow;
