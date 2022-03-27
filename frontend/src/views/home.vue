@@ -1,5 +1,5 @@
 <template>
-  <section class="">
+  <section class="home-page">
     <h1>Home page</h1>
     <!-- <app-header>
     <template>
@@ -23,3 +23,11 @@ export default {
   },
 };
 </script>
+
+<style>
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+</style>

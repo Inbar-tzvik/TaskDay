@@ -5,6 +5,7 @@
   // width: 4.642857rem;
   height: 100vh;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   align-items: center;
   color: white;
@@ -22,12 +23,28 @@
   border-radius: 50%;
 }
 .name-icon {
+  height: 45px;
+  display: flex;
+  width: 45px;
+  align-items: center;
+  border: 1px solid rgb(0, 0, 0);
+  justify-content: center;
   background-color: #ffcc00;
-  font-size: 25px;
+  font-size: 20px;
   padding: 5px;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
   border-radius: 50%;
   padding: 10px;
+}
+.icon-container {
+  width: 47px;
+  height: 47px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 // .right-side-header div {
@@ -55,7 +72,7 @@
 }
 .top-navigation-items-area {
   // background-color: #facbc9;
-  height: 580px;
+  // height: 580px;
   display: flex;
   flex-direction: column;
 }

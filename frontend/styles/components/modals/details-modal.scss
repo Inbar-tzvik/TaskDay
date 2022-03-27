@@ -1,16 +1,191 @@
 .details-modal {
   display: none;
-  width: 43vw;
+  border-left: 1px solid $clr1;
+  width: 700px;
   height: 100vw;
   background-color: rgb(255, 255, 255);
   position: fixed;
   right: 0;
   top: 0;
-  padding: 25px;
+
+  h1 {
+    font-size: 18px;
+  }
 
   .title-container {
-    min-height: 165px;
+    // background-color: lightcoral;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 120px;
     border-bottom: 1px solid $border;
-    font-size: 24px;
+    font-size: 18px;
+
+    // .item-tabs {
+    //   color: #323338;
+
+    //   .tab-btn {
+    //   }
+    // }
+
+    .close-details-btn {
+      margin: 20px 20px 5px 20px;
+      color: #777a86;
+    }
+
+    .details-input {
+      display: flex;
+      margin: 0 20px;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 20px;
+
+      .add-view-container {
+        align-items: center;
+      }
+
+      p {
+        color: #323338;
+      }
+    }
+
+    .item-tabs {
+      // background-color: aquamarine;
+      color: #323338;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0px 20px;
+      font-size: 14px;
+
+      .tab-btn {
+        background-color: white;
+        border: none;
+
+        &.tab-btn-clicked {
+          border-bottom: 4px solid $blue;
+        }
+      }
+
+      .left-tabs {
+        // background-color: blue;
+        display: flex;
+        div {
+          // background-color: antiquewhite;
+          padding: 10px 16px;
+          border-radius: 5px;
+
+          &:hover {
+            background-color: #dcdfec;
+          }
+        }
+      }
+
+      .right-tabs {
+        // background-color: burlywood;
+        display: flex;
+        // padding: 16px;
+
+        div {
+          // background-color: crimson;
+          border-radius: 5px;
+          padding: 7px 16px;
+          border-radius: 5px;
+          display: flex;
+          align-items: center;
+
+          &:hover {
+            background-color: #dcdfec;
+          }
+        }
+      }
+    }
+  }
+
+  .details-container {
+    .update-details-page {
+      padding: 20px 20px;
+      div {
+        p {
+          margin-top: 6px;
+        }
+        input {
+          width: 100%;
+          padding: 10px 20px;
+          border-radius: 8px;
+          border: 1px solid $blue;
+        }
+      }
+      .space-view {
+        padding: 20px;
+
+        .post-component {
+          border: 1px solid black;
+          .post-header {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            font-size: 20px;
+
+            .left-side-post {
+              display: flex;
+              align-items: center;
+            }
+            div {
+              .user-img {
+                width: 35px;
+              }
+            }
+          }
+          .title {
+            width: 100%;
+            margin-left: 8px;
+          }
+          .post-title {
+            // position: ;
+            top: 0;
+            right: 0;
+            z-index: 1;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-pack: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 400;
+
+            .clock-post-img {
+              width: 15px;
+            }
+            .alarm-post-img {
+              width: 15px;
+            }
+          }
+        }
+      }
+    }
+
+    .send-update {
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 }
+
+.dots {
+  width: 15px;
+  // padding-left: 5px;
+}
+
+.subset-tab-details {
+  background-color: #d0d4e4;
+  width: 1px;
+  margin: 8px 8px;
+  height: 18px;
+  padding: 0;
+  min-width: 1px;
+}
+
+// .tab-btn-clicked {
+//   border-bottom: 1px solid $blue;
+// }

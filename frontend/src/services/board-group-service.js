@@ -59,12 +59,12 @@ const board = [{
                     members: [{
                             _id: 'u101',
                             fullname: 'Inbari Tzvik',
-                            imgUrl: 'https://www.google.com',
+                            imgUrl: 'https://st.depositphotos.com/1491329/3629/i/950/depositphotos_36297389-stock-photo-beauty-portrait-beautiful-spa-woman.jpg',
                         },
                         {
                             _id: 'u102',
                             fullname: 'Ganesh',
-                            imgUrl: 'https://www.google.com',
+                            imgUrl: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png',
                         },
                     ]
                 },

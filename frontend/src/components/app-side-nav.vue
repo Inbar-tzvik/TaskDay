@@ -1,45 +1,49 @@
 <template>
   <header class="app-header">
-    <img src="../../styles/icon/icon.png" alt="" class="icon" />
+    <div>
+      <img src="../../styles/icon/icon.png" alt="" class="icon" />
 
-    <div class="top-navigation-items-area">
-      <div class="cliked-btn-nav" @click="onClickWorkSpace">
-        <menu-icon></menu-icon>
-      </div>
-      <div>
-        <notification-icon></notification-icon>
-      </div>
-      <div>
-        <inbox-icon></inbox-icon>
-      </div>
+      <div class="top-navigation-items-area">
+        <div class="cliked-btn-nav" @click="onClickWorkSpace">
+          <menu-icon></menu-icon>
+        </div>
+        <div>
+          <notification-icon></notification-icon>
+        </div>
+        <div>
+          <inbox-icon></inbox-icon>
+        </div>
 
-      <div>
-        <work-icon></work-icon>
+        <div>
+          <work-icon></work-icon>
+        </div>
       </div>
     </div>
     <!-- <router-link class="link" to="/">Home</router-link>
     <router-link class="link" to="/main">Main</router-link> -->
-
-    <div class="bottom-navigation-items-area">
-      <div>
-        <appsIcon></appsIcon>
-      </div>
-
-      <div>
-        <invite-icon></invite-icon>
-      </div>
-
-      <div>
-        <search-icon></search-icon>
-      </div>
-
-      <div>
-        <help-icon></help-icon>
-      </div>
-    </div>
-
     <div>
-      <p class="name-icon">SN</p>
+      <div class="bottom-navigation-items-area">
+        <div>
+          <appsIcon></appsIcon>
+        </div>
+
+        <div>
+          <invite-icon></invite-icon>
+        </div>
+
+        <div>
+          <search-icon></search-icon>
+        </div>
+
+        <div>
+          <help-icon></help-icon>
+        </div>
+      </div>
+
+      <div class="icon-container">
+        <h3 class="name-icon">SN</h3>
+        <!-- <p class="name-icon">SN</p> -->
+      </div>
     </div>
   </header>
 </template>

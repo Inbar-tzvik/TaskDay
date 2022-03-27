@@ -1,5 +1,6 @@
 <template>
-  <section>
+  <section class="flex">
+    <div class="empty-div"></div>
     <section v-if="boards" class="main-board">
       <section class="board-header-content">
         <board-header-main @circleClicked="circleClicked" />
