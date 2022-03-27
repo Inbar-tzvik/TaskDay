@@ -46,7 +46,7 @@ export default {
       { status: 'Working on it', color: '#fec173' },
       { status: 'Done', color: '#00c875' },
     ];
-    console.log('here', this.bgColor(this.task.status));
+    // console.log('here', this.bgColor(this.task.status));
     this.styleObj.backgroundColor = this.bgColor(this.task.status);
   },
   methods: {
@@ -55,8 +55,8 @@ export default {
       this.isOpen = !this.isOpen;
     },
     bgColor(taskStatus) {
-      console.log(taskStatus);
-      console.log('opts', this.opts);
+      // console.log(taskStatus);
+      // console.log('opts', this.opts);
       for (var i = 0; i < this.opts.length; i++) {
         if (taskStatus === this.opts[i].status) {
           return this.opts[i].color;
@@ -64,7 +64,7 @@ export default {
       }
     },
     changeStatus(value, taskId) {
-      console.log(value, taskId);
+      // console.log(value, taskId);
     },
   },
   computed: {},
