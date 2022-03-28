@@ -17,7 +17,7 @@ import workSpaceModal from './components/modals/work-space-modal.vue';
 export default {
   name: 'app',
   created() {
-    this.$store.dispatch({ type: 'loadBoards' });
+    this.boards = this.$store.dispatch({ type: 'loadBoards' });
   },
   data() {
     return {

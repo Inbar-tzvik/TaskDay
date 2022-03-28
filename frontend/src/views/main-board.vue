@@ -11,7 +11,7 @@
         <!-- <button>New item</button> -->
         <!-- </div> -->
       </section>
-      <section class="board-content">
+      <section v-if="board" class="board-content">
         <!-- <h1>{{ board.title }}</h1> -->
 
         <!-- <font-awesome-icon icon="arrow-down" /> -->
@@ -44,6 +44,7 @@ import boardToolbar from '../components/board-toolbar.vue';
 import boardHeaderMain from '../components/board-header-main.vue';
 import workSpaceModal from '../components/modals/work-space-modal.vue';
 import detailsModal from '../components/modals/details-modal.vue';
+import { boardGroupService } from '../services/board-group-service';
 
 // import { boardService } from '../services/board-service.js';
 
@@ -51,13 +52,30 @@ export default {
   name: 'main-board',
   data() {
     return {
+      board: null,
       isDetails: false,
     };
   },
   computed: {
-    board() {
-      //TODO -"this.$store.getters.boards" this sould be for boards-menu and then to store - "setCurrBoard"
+    boardForDisplay() {
+      // //    //TODO -"this.$store.getters.boards" this sould be for boards-menu and then to store - "setCurrBoard"
+      // //   return this.$store.getters.currBoard
+      // this.board = this.$store.getters.currBoard
       return this.$store.getters.currBoard;
+    },
+  },
+  watch: {
+    '$route.params.boardId': {
+      async handler() {
+        await this.$store.dispatch({
+          type: 'setCurrBoard',
+          boardId: this.$route.params.boardId,
+        });
+        this.board = this.$store.getters.currBoard;
+        //  this.boardForDisplay;
+        // console.log('watcher this.board',this.board);
+      },
+      immediate: true,
     },
   },
   created() {},
