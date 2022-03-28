@@ -47,10 +47,6 @@ export default {
   },
   computed: {
     board() {
-      // //    //TODO -"this.$store.getters.boards" this sould be for boards-menu and then to store - "setCurrBoard"
-      // //   return this.$store.getters.currBoard
-      // this.board = this.$store.getters.currBoard
-      console.log('this.$store.getters.currBoard', this.$store.getters.currBoard);
       return this.$store.getters.currBoard;
     },
   },
@@ -61,20 +57,19 @@ export default {
           type: 'setCurrBoard',
           boardId: this.$route.params.boardId,
         });
-        // this.board = this.$store.getters.currBoard;
-        //  this.boardForDisplay;
-        // console.log('watcher this.board',this.board);
       },
       immediate: true,
     },
   },
   created() {},
   methods: {
-    updateGroup(currGroup) {
+    updateGroup(currGroup,addedIdxForDrop = null) {
+      // console.log('currGroup,addedIdxForDrop',currGroup,addedIdxForDrop);
       this.$store.dispatch({
         type: 'updateGroup',
         currGroup: currGroup,
         boardId: this.board._id,
+        addedIdxForDrop
       });
     },
     removeItem(itemId, groupId) {
@@ -88,21 +83,23 @@ export default {
     setFilter(filterBy) {
       this.$store.dispatch({ type: 'setFilter', filterBy });
     },
-    addItem(groupId, task) {
-      console.log(groupId, task);
+    addItem(groupId, task,fromIdx = null) {
+      // console.log(groupId, task);
+      // console.log('fromIdx',fromIdx);
       this.$store.dispatch({
         type: 'addItem',
         boardId: this.board._id,
         groupId: groupId,
         task: task,
+        fromIdx,
       });
     },
-    deleteGroup(groupId) {
-      // console.log(groupId, this.board._id);
+    deleteGroup(groupId,removedIndex = null) {
       this.$store.dispatch({
         type: 'removeGroup',
         boardId: this.board._id,
         groupId: groupId,
+        removedIndex,
       });
     },
     addGroup() {

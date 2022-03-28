@@ -165,37 +165,35 @@ export default {
     },
     onDrop(dropResult) {
       this.board.groups = this.applyDrag(this.board.groups, dropResult);
+      this.$store.dispatch({
+        type: 'updateBoard',
+        board: this.board,
+      });
     },
+
     applyDrag(arr, dragResult) {
       // console.log('currBoard:', this.currBoard)
       const { removedIndex, addedIndex, payload } = dragResult;
 
       if (removedIndex === null && addedIndex === null) return arr;
       const result = [...arr];
-      let taskToAdd = payload;
+      let groupToAdd = payload;
 
       if (removedIndex !== null) {
-        taskToAdd = result.splice(removedIndex, 1)[0];
+        groupToAdd = result.splice(removedIndex, 1)[0];
       }
       if (addedIndex !== null) {
-        result.splice(addedIndex, 0, taskToAdd);
+        result.splice(addedIndex, 0, groupToAdd);
       }
-      // if (result === []){
-      //   result.push(taskToAdd)
-      // }
-      // console.log('this.currGroup',this.currGroup)
 
-      this.$store.dispatch({
-        type: 'updateBoard',
-        board: this.board,
-      });
       return result;
     },
+
     saveGroup(value, group) {
       var currGroup = JSON.parse(JSON.stringify(group));
       if (value) {
         currGroup.title = value;
-        console.log(currGroup);
+        // console.log(currGroup);
         this.$emit('updateGroup', currGroup);
       }
       // this.currGroup = await getGroupById;
@@ -203,13 +201,11 @@ export default {
     removeItem(itemId, groupId) {
       this.$emit('removeItem', itemId, groupId);
     },
-    addItem(groupId, newTask) {
-      this.$emit('addItem', groupId, newTask);
+    addItem(groupId, newTask, fromIdx = null) {
+      this.$emit('addItem', groupId, newTask, fromIdx);
     },
-    deleteGroup(groupId) {
-      var groupIdxToRemove = this.board.groups.findIndex((group) => group.id === groupId);
-      this.board.groups.splice(groupIdxToRemove, 1);
-      this.$emit('deleteGroup', groupId);
+    deleteGroup(groupId, removedIndex = null) {
+      this.$emit('deleteGroup', groupId, removedIndex);
     },
     editTask(item, groupId) {
       this.$emit('editTask', groupId, item);

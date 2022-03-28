@@ -15,11 +15,11 @@ const router = createRouter({
             name: 'home',
             component: home,
         },
-
+        // THIS WILL BE HOME PAGE!!!
         // {
         //     path: '/main',
         //     name: 'main-board',
-        //     component: mainBoard,
+        //     component: HOME PAGE!!!!!!!!!!!!!!!!!!!
         // },
         {
             path: '/main/:boardId',
