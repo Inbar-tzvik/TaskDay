@@ -50,11 +50,13 @@ export default {
   },
   components: { filterIcon, searchIcon },
   computed: {
-    boards() {
-      return this.$store.getters.boards[0];
+    board() {
+      return this.$store.getters.currBoard
+      // return this.$store.getters.boards[0];
     },
     getUsers() {
-      this.users = this.$store.getters.boards[0].members.map(
+      //should be from store???
+      this.users = this.$store.getters.board.members.map(
         (user) => user.fullname
       );
       // return this.$store.getters.boards[0].members.map(user => user.fullname)
