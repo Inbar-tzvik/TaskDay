@@ -120,18 +120,24 @@ const board = [
             id: 'c202',
             title: 'Add Samples',
             status: 'Stuck',
+            priority: 'Medium',
+
             members: [],
           },
           {
             id: 'c213',
             title: 'Working on css ',
             status: 'Stuck',
+            priority: 'Medium',
+
             members: [],
           },
           {
             id: 'c215',
             title: "Today i don't feel like doing anything",
             status: 'Done',
+            priority: 'Medium',
+
             members: [],
           },
         ],
@@ -145,18 +151,24 @@ const board = [
             id: 'c103',
             title: 'Do that',
             status: 'Done',
+            priority: 'Low',
+
             members: [],
           },
           {
             id: 'c114',
             title: 'Working on css all day',
             status: 'Done',
+            priority: 'Low',
+
             members: [],
           },
           {
             id: 'c104',
             title: 'Help me',
             status: '',
+            priority: '',
+
             description: 'description',
             comments: [
               {
