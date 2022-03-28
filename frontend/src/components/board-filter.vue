@@ -9,9 +9,9 @@
     <div>
       <div class="input-container">
         <span class="search-icon"> <search-icon /></span>
-        <input type="text" placeholder="Search" />
+        <input type="text" placeholder="Search" v-model="filterBy.title" @input="setFiltertTitle" />
       </div>
-
+      <pre>{{ filterBy }}</pre>
       <button>
         <span>
           <!-- <img
@@ -42,7 +42,7 @@ export default {
   data() {
     return {
       filterBy: {
-        txt: '',
+        title: '',
         user: '',
       },
       users: null,
@@ -51,14 +51,12 @@ export default {
   components: { filterIcon, searchIcon },
   computed: {
     board() {
-      return this.$store.getters.currBoard
+      return this.$store.getters.currBoard;
       // return this.$store.getters.boards[0];
     },
     getUsers() {
       //should be from store???
-      this.users = this.$store.getters.board.members.map(
-        (user) => user.fullname
-      );
+      this.users = this.$store.getters.board.members.map((user) => user.fullname);
       // return this.$store.getters.boards[0].members.map(user => user.fullname)
     },
   },
@@ -69,6 +67,9 @@ export default {
     },
     addGroup() {
       this.$emit('addGroup');
+    },
+    setFilterTitle() {
+      this.$emit('filteredTitle', this.filter);
     },
   },
 };

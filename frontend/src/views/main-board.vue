@@ -7,7 +7,7 @@
 
         <board-toolbar></board-toolbar>
 
-        <board-filter @addGroup="addGroup" @setFilter="setFilter" />
+        <board-filter @addGroup="addGroup" @filteredTitle="setFilter" />
         <!-- <button>New item</button> -->
         <!-- </div> -->
       </section>
@@ -46,13 +46,12 @@ import detailsModal from '../components/modals/details-modal.vue';
 export default {
   name: 'main-board',
   data() {
-    return {
-    };
+    return {};
   },
   computed: {
-     board() {
-       //TODO -"this.$store.getters.boards" this sould be for boards-menu and then to store - "setCurrBoard"
-      return this.$store.getters.currBoard
+    board() {
+      //TODO -"this.$store.getters.boards" this sould be for boards-menu and then to store - "setCurrBoard"
+      return this.$store.getters.currBoard;
     },
   },
   created() {},
