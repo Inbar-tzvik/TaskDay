@@ -1,13 +1,8 @@
 <template>
   <!-- <ul class="group-list"> -->
   <section class="item-list">
-    <Container
-      group-name="eltasks"
-      :get-child-payload="getChildPayload"
-      orientation="vertical"
-      @drop="onDrop($event, 'eltasks')"
-    >
-      <Draggable v-for="task in currGroup.tasks" :key="task.id">
+    <Container group-name="tasksForDrop" :get-child-payload="getChildPayload" orientation="vertical" @drop="onDrop($event, 'tasksForDrop')">
+      <Draggable v-for="task in currGroup.tasks" :key="task.id" :non-drag-area-selector="item-preview">
         <!-- <li v-for="task in group.tasks" :key="task.id" class="row-item"> -->
         <li class="row-item" @click="isClicked = false">
           <el-dropdown class="side-drop-down" trigger="click">
@@ -92,8 +87,8 @@ export default {
   data() {
     return {
       currGroup: JSON.parse(JSON.stringify(this.group)),
-      // eltasks: JSON.parse(JSON.stringify(this.group.tasks)),
-      // eltasks:this.group.tasks,
+      // tasksForDrop: JSON.parse(JSON.stringify(this.group.tasks)),
+      // tasksForDrop:this.group.tasks,
       newTask: null,
       cmps: null,
       currBoard: JSON.parse(JSON.stringify(this.board)),
@@ -139,8 +134,8 @@ export default {
       //   // boardId: this.boards[0]._id,
       // });
     },
-    applyDrag(arr, dragResult) {
-      console.log('currBoard:', this.currBoard);
+        applyDrag(arr, dragResult) {
+      // console.log('currBoard:', this.currBoard)
       const { removedIndex, addedIndex, payload } = dragResult;
 
       if (removedIndex === null && addedIndex === null) return arr;
@@ -163,7 +158,6 @@ export default {
         currGroup: this.currGroup,
         boardId: this.board._id,
       });
-
       return result;
     },
     remove(itemId) {

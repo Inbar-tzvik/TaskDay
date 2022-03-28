@@ -55,8 +55,8 @@ export default {
       this.isOpen = !this.isOpen;
     },
     bgColor(taskStatus) {
-      console.log(taskStatus);
-      console.log('opts', this.opts);
+      // console.log(taskStatus);
+      // console.log('opts', this.opts);
       for (var i = 0; i < this.opts.length; i++) {
         if (taskStatus === this.opts[i].status) {
           return this.opts[i].color;

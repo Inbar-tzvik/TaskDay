@@ -89,6 +89,7 @@ export default {
       });
     },
     deleteGroup(groupId) {
+      // console.log(groupId, this.boards[0]._id);
       this.$store.dispatch({
         type: 'removeGroup',
         boardId: this.boards[0]._id,
