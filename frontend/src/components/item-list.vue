@@ -1,7 +1,12 @@
 <template>
   <!-- <ul class="group-list"> -->
   <section class="item-list">
-    <Container group-name="eltasks" :get-child-payload="getChildPayload" orientation="vertical" @drop="onDrop($event, 'eltasks')">
+    <Container
+      group-name="eltasks"
+      :get-child-payload="getChildPayload"
+      orientation="vertical"
+      @drop="onDrop($event, 'eltasks')"
+    >
       <Draggable v-for="task in currGroup.tasks" :key="task.id">
         <!-- <li v-for="task in group.tasks" :key="task.id" class="row-item"> -->
         <li class="row-item" @click="isClicked = false">
@@ -32,7 +37,12 @@
             <item-preview :group="group.style" :task="task" @editTask="editTask" />
             <label v-for="(cmp, idx) in cmps" :key="cmp">
               <!-- <pre>{{ task }}</pre> -->
-              <component :is="cmp" :task="task" @setVal="setAns($event, idx)"></component>
+              <component
+                @updatedStatus="updatedStatus"
+                :is="cmp"
+                :task="task"
+                @setVal="setAns($event, idx)"
+              ></component>
               <!-- <component :is="cmp" :info="task" @setVal="setAns($event, idx)"></component> -->
             </label>
           </section>
@@ -69,16 +79,15 @@ import priorityPicker from './priority-picker.vue';
 import memberPicker from './member-picker.vue';
 import { objectEntries } from '@antfu/utils';
 
-
 export default {
   props: {
     group: {
       type: Object,
       // required: true,
     },
-    board:{
+    board: {
       type: Object,
-    }
+    },
   },
   data() {
     return {
@@ -113,12 +122,14 @@ export default {
     memberPicker,
   },
   methods: {
+    updatedStatus(updatedTask) {
+      this.$emit('updatedStatus', this.group.id, updatedTask);
+    },
     getChildPayload(index) {
-      return  this.currGroup.tasks[index];
-        // generate custom payload data here
+      return this.currGroup.tasks[index];
+      // generate custom payload data here
     },
     onDrop(dropResult) {
-
       this.currGroup.tasks = this.applyDrag(this.currGroup.tasks, dropResult);
       // this.$store.dispatch({type: 'updateBoard'},{board:this.currBoard})
       // console.log(this.currBoard);
@@ -128,8 +139,8 @@ export default {
       //   // boardId: this.boards[0]._id,
       // });
     },
-        applyDrag(arr, dragResult) {
-      console.log('currBoard:', this.currBoard)
+    applyDrag(arr, dragResult) {
+      console.log('currBoard:', this.currBoard);
       const { removedIndex, addedIndex, payload } = dragResult;
 
       if (removedIndex === null && addedIndex === null) return arr;
@@ -147,12 +158,11 @@ export default {
       // }
       // console.log('this.currGroup',this.currGroup)
 
-    this.$store.dispatch({
+      this.$store.dispatch({
         type: 'updateGroup',
         currGroup: this.currGroup,
         boardId: this.board._id,
       });
-
 
       return result;
     },
@@ -177,7 +187,6 @@ export default {
     editTask(item) {
       this.$emit('editTask', item, this.group.id);
     },
-
   },
 };
 </script>

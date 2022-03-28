@@ -87,9 +87,16 @@
       <!-- <p>{{ group.style.bgColor }}</p> -->
       <!-- <h4>-{{ group.title }}</h4> -->
 
-<!-- //TOFIX - boards here is boards[0]!!! fix it!!!! -->
+      <!-- //TOFIX - boards here is boards[0]!!! fix it!!!! -->
 
-      <item-list :board="board" :group="group" @editTask="editTask" @addItem="addItem" @removeItem="removeItem" />
+      <item-list
+        @updatedStatus="updatedStatus"
+        :board="board"
+        :group="group"
+        @editTask="editTask"
+        @addItem="addItem"
+        @removeItem="removeItem"
+      />
       <!-- <toy-preview @removeToy="removeToy" v-for="toy in toys" :key="toy.id" :toy="toy" /> -->
     </ul>
   </section>
@@ -104,7 +111,7 @@ export default {
     boards: {
       type: Object,
     },
-    emits:['updateGroup','removeItem','addItem','deleteGroup','editTask']
+    emits: ['updateGroup', 'removeItem', 'addItem', 'deleteGroup', 'editTask'],
   },
   data() {
     return {
@@ -146,6 +153,9 @@ export default {
     },
     editTask(item, groupId) {
       this.$emit('editTask', groupId, item);
+    },
+    updatedStatus(groupId, task) {
+      this.$emit('updatedStatus', groupId, task);
     },
   },
 };

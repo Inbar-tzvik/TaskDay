@@ -69,6 +69,7 @@
   .dropDownMenuButton {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 13.57rem;
     border: none;
     font-size: 1rem;
@@ -76,20 +77,35 @@
     outline: none;
     color: white;
     margin-top: 2px;
-
-    // border-radius: 4px;
-    position: absolute;
     top: 0;
     left: 0;
-    display: flex;
-    align-items: center;
-    // padding: 0 70px 0 20px;
-    margin: 0 auto;
-    line-height: 1;
     height: 34px;
-    // width: 28.57rem;
     z-index: 1;
     cursor: pointer;
+    position: relative;
+    &:hover {
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-width: 0 12px 12px 0;
+        border-style: solid;
+        border-color: #c7c7c7ad #fff;
+        background: #c7c7c7ad;
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
+        // transform: translate(120%, 50%);
+
+        // transition: border-width 0.2s;
+
+        /* Firefox 3.0 damage limitation */
+      }
+    }
+  }
+  .dropDownMenuButton:before:hover {
+    transition: 5s;
   }
 
   .dropDownMenuButton--dark {
@@ -186,12 +202,12 @@
 
   .dropdownMenu {
     top: 16px;
-    margin-left: 30px;
+    // margin-left: 30px;
     position: absolute;
     // top: 100%;
     width: 144px;
     // min-width: 300px;
-    min-height: 10px;
+    min-height: 200px;
     border-radius: 8px;
     border: 1px solid #eee;
     box-shadow: 10px 10px 0 0 rgba(black, 0.03);
@@ -205,14 +221,13 @@
       height: 20px;
       position: absolute;
       top: -10px;
-      left: 55px;
+      left: 58px;
       border-left: 1px solid #eee;
       border-top: 1px solid #eee;
       background: white;
       transform: rotate(45deg);
       border-radius: 4px 0 0 0;
     }
-
     .menuArrow--dark {
       background: #333;
       border: none;
