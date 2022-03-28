@@ -1,5 +1,7 @@
 import { boardGroupService } from '../../services/board-group-service';
 import { authService } from '../../services/auth-service';
+import { vModelRadio } from 'vue';
+// import { statSync } from 'fs';
 
 export default {
     state: {
@@ -16,8 +18,9 @@ export default {
             return JSON.parse(JSON.stringify(state.boards));
         },
         currBoard(state) {
+            // console.log('currBoard', state.currBoard);
             //the menu should set the curr board!!! if not - [0]
-            return JSON.parse(JSON.stringify(state.boards[0]));
+            return JSON.parse(JSON.stringify(state.currBoard));
         },
     },
     mutations: {
@@ -34,7 +37,8 @@ export default {
         setCurrBoard(state, { board }) {
             //TODO - find board by id or index and set!
             // state.currBoard = board;
-            state.currBoard = state.boards[0]
+            state.currBoard = board
+                // console.log(state.currBoard);
         },
 
     },
@@ -128,7 +132,11 @@ export default {
                 console.log('Couldnt save item', err);
             }
         },
-        async setCurrBoard({ commit, dispatch }, { board }) {
+        async setCurrBoard({ commit, state, dispatch }, { boardId }) {
+            // var board = state.boards.filter(board => board._id === boardId)
+            var board = await boardGroupService.getBoardById(boardId)
+                // console.log('board in setCuttboard', board);
+
             commit({ type: 'setCurrBoard', board });
             dispatch({ type: 'loadBoards' });
 

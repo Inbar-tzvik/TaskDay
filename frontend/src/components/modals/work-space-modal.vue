@@ -37,8 +37,8 @@
     <div class="spacer"></div>
 
     <div class="board-container-modal">
-      <div class="board-item">
-        <span><board-icon /></span> sprint 4
+      <div v-for="board in boards" :key="board._id" class="board-item" @click="moveToBoard(board._id)">
+        <span><board-icon /></span> {{board._id}}
       </div>
     </div>
   </section>
@@ -50,15 +50,28 @@ import filterIcon from '../icons/filter-icon-modal.vue';
 import searchIcon from '../icons/search-icon-modal.vue';
 import boardIcon from '../icons/board-icon.vue';
 export default {
+props: {
+    // boards: Array,
+  },
   data() {
     return {};
   },
   computed: {
+    boards() {
+      return this.$store.getters.boards;
+    },
     closeModal() {
       this.$emit('closeModal');
     },
   },
-  methods: {},
+  methods: {
+    moveToBoard(boardId){
+      
+
+this.$router.push(`/main/${boardId}`)
+//UPDATE CURR BOARD
+    },
+  },
   components: { plusIcon, filterIcon, searchIcon, boardIcon },
 };
 </script>

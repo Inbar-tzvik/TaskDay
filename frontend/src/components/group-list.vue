@@ -133,9 +133,9 @@ import { Container, Draggable } from 'vue3-smooth-dnd';
 
 export default {
   props: {
-    // board: {
-    //   type: Object,
-    // },
+    board: {
+      type: Object,
+    },
     emits: ['updateGroup', 'removeItem', 'addItem', 'deleteGroup', 'editTask'],
   },
   data() {
@@ -150,14 +150,15 @@ export default {
     };
   },
   computed: {
-    board() {
-      return this.$store.getters.currBoard
-    },
+    // board() {
+    //   return this.$store.getters.currBoard
+    // },
   },
 
   created() {
+    // console.log('board group list',this.board);
     // this.board = this.$store.getters.currBoard
-    this.$store.dispatch({ type: 'setCurrBoard', board: this.board });
+    // this.$store.dispatch({ type: 'setCurrBoard', board: this.board });
     this.openGroupName = false;
     // this.currentGroup = JSON.parse(JSON.stringify(this.group));
   },
