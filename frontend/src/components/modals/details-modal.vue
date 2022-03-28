@@ -2,20 +2,22 @@
   <section class="details-modal">
     <div class="title-container">
       <div class="close-details-btn">
-        <!-- <img src="../../../styles/icon/left.svg" alt="" />ss -->
+        <font-awesome-icon class="close-icon" icon="x" />
       </div>
 
       <div class="details-input flex">
         <h1>sdfsd sdfd adfdf</h1>
+        <!-- <input type="text" /> -->
         <div class="add-view-container flex">
-          <span><img src="" alt="" /></span>
+          <span>
+            <img
+              class="user-img-title"
+              src="../../../styles/icon/def-user.png"
+              alt=""
+          /></span>
           <p class="subset-tab-details"></p>
           <div>
-            <img
-              class="dots"
-              src="../../../styles/icon/three-dots.svg"
-              alt=""
-            />
+            <font-awesome-icon class="dots" icon="ellipsis" />
           </div>
         </div>
       </div>
@@ -86,8 +88,13 @@
             <div class="body-text">
               <p class="text">sdgsfgsfgsfg</p>
               <div class="seen-area">
-                <span>image</span>
-                <span>1</span>
+                <span
+                  ><img
+                    class="view-icon"
+                    src="../../../styles/icon/view.png"
+                    alt=""
+                /></span>
+                <span class="seen">1</span>
                 <p>seen</p>
               </div>
             </div>

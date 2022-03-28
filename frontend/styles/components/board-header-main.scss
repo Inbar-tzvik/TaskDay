@@ -19,12 +19,17 @@
     font-size: 18px;
     transition: width 0.1s;
     cursor: pointer;
+    color: #323338;
 
     &:hover {
       background-color: $blue;
       width: 30px;
       border-radius: 30px;
       color: white;
+
+      .arrow-right-icon {
+        color: white;
+      }
     }
   }
   .icon-header {
@@ -107,7 +112,8 @@
     }
 
     h1 {
-      font-family: roboto-light, Rubik, 'Noto Kufi Arabic', 'Noto Sans JP', sans-serif;
+      font-family: roboto-light, Rubik, 'Noto Kufi Arabic', 'Noto Sans JP',
+        sans-serif;
       font-size: 30px;
       line-height: 40px;
       height: 42px;
@@ -149,10 +155,12 @@
   width: 20px;
   height: 20px;
   margin-top: 2px;
+  color: #676879;
 }
 
 .arrow-right-icon {
   width: 7px;
+  margin: 0px;
   color: #323338;
 }
 

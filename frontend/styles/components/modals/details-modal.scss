@@ -9,6 +9,21 @@
   right: 0;
   top: 0;
 
+  .user-img-title {
+    width: 25px;
+  }
+
+  .close-details-btn {
+    .close-icon {
+      width: 15px;
+      height: 15px;
+      padding: 5px;
+      border-radius: 5px;
+      &:hover {
+        background-color: #dcdfec;
+      }
+    }
+  }
   h1 {
     font-size: 18px;
   }
@@ -254,6 +269,9 @@
       justify-content: flex-end;
     }
   }
+  .seen {
+    margin-right: 5px;
+  }
 }
 
 .dots {
@@ -272,6 +290,13 @@
 
 .green {
   background-color: #00ca72;
+}
+.view-icon {
+  width: 15px;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .like-icon {
   width: 15px;

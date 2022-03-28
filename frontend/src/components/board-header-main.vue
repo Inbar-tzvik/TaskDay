@@ -3,21 +3,13 @@
     <integrate-btn></integrate-btn>
     <div class="board-header-main">
       <div class="menu-circle" @click="onCircle">
-        <img
-          class="arrow-right-icon"
-          src="../../styles/icon/arrow-right.svg"
-          alt=""
-        />
+        <font-awesome-icon class="arrow-right-icon" icon="angle-right" />
       </div>
       <div>
         <div class="title">
           <h1>sprint 4</h1>
           <span @click="onClickInfo" :class="getInfo">
-            <img
-              class="info-icon"
-              v-bind:src="getInfo"
-              title="Hide board description"
-            />
+            <font-awesome-icon class="info-icon" icon="circle-info" />
           </span>
 
           <span @click="onClickStar" :class="getStar">
@@ -53,6 +45,7 @@
               src="../../styles/icon/activity.png"
               alt=""
             /> -->
+
             Activty
           </button>
         </div>
@@ -62,11 +55,7 @@
         </div>
 
         <div class="container-dots">
-          <img
-            class="dots-icon"
-            src="../../styles/icon/three-dots.svg"
-            alt=""
-          />
+          <font-awesome-icon class="dots-icon" icon="ellipsis" />
         </div>
       </div>
     </div>
@@ -78,7 +67,7 @@
 </template>
 
 <script>
-// import avatarImg from './avatar-img.vue';
+import avatarImg from './avatar-img.vue';
 import integrateBtn from './icons/integrate-btn.vue';
 export default {
   name: 'board-header-main',
@@ -97,7 +86,7 @@ export default {
       isInfo: true,
     };
   },
-  components: { integrateBtn },
+  components: { integrateBtn, avatarImg },
   computed: {
     getStar() {
       if (this.isStared) return this.starSrc.yellow;

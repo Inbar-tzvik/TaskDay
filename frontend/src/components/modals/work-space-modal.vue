@@ -1,15 +1,12 @@
 <template>
   <section class="work-space-modal">
-    <div class="close" @click="closeModal">&lt;</div>
+    <div class="close" @click="closeModal">
+      <font-awesome-icon class="arrow-left" icon="angle-left" />
+    </div>
     <div class="title-container-modal">
       <div class="title">
         <p>Workspace</p>
-
-        <img
-          class="dots-icon-modal"
-          src="../../../styles/icon/three-dots.svg"
-          alt=""
-        />
+        <font-awesome-icon class="dots-icon-modal" icon="ellipsis" />
       </div>
 
       <div class="main-btn-modal">
@@ -19,7 +16,9 @@
           </div>
           <div><h1>Main workspace</h1></div>
         </div>
-        <div class="arrow-down">˅</div>
+        <div>
+          <font-awesome-icon class="arrow-down" icon="angle-down" />
+        </div>
       </div>
     </div>
 

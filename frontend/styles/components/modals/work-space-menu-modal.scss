@@ -16,14 +16,24 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background-color: white;
     border-radius: 50%;
     right: -15px;
     border: 1px solid #d0d4e4;
     transition: width 0.2s;
     cursor: pointer;
+    color: #5c5c61;
+
+    .arrow-left {
+      width: 9px;
+      margin: 0px;
+      font-size: 15px;
+      &:hover {
+        color: white;
+      }
+    }
 
     &:hover {
       background-color: $blue;
@@ -124,6 +134,7 @@
   width: 25px;
   height: 17px;
   margin: 0 5px;
+  color: #323338;
 }
 
 .left {

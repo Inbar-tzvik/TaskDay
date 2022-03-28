@@ -91,13 +91,14 @@
         </div>
         <div>
           <button>
-            <span>x-</span>
+            <span><font-awesome-icon class="robot-icon" icon="robot" /></span>
             Automate
           </button>
         </div>
-        <span class="collapse-btn"
-          ><img class="arrow-up" src="../../styles/icon/arrow-up.png" alt=""
-        /></span>
+        <span class="collapse-btn">
+          <!-- <img class="arrow-up" src="../../styles/icon/arrow-up.png" alt="" -->
+          <font-awesome-icon class="arrow-up" icon="angle-up" />
+        </span>
       </div>
     </div>
     <!-- <div class="collapse-btn">d</div> -->

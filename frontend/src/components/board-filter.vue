@@ -13,12 +13,14 @@
       </div>
 
       <button>
-        <span
-          ><img
+        <span>
+          <!-- <img
             class="icon-img-person"
             src="../../styles/icon/user-filter.png"
             alt=""
-        /></span>
+          /> -->
+          <font-awesome-icon icon="circle-user" />
+        </span>
         Person
       </button>
       <button>
