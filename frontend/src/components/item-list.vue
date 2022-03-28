@@ -7,7 +7,7 @@
       orientation="vertical"
       @drop="onDrop($event, 'tasksForDrop')"
     >
-      <Draggable v-for="task in currGroup.tasks" :key="task.id" :non-drag-area-selector="item - preview">
+      <Draggable v-for="task in currGroup.tasks" :key="task.id">
         <!-- <li v-for="task in group.tasks" :key="task.id" class="row-item"> -->
         <li class="row-item" @click="isClicked = false">
           <el-dropdown class="side-drop-down" trigger="click">
@@ -189,3 +189,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.taskDrag{
+background-color: red;
+}
+</style>

@@ -44,10 +44,10 @@ export default {
       { status: 'Done', color: '#00c875' },
       { status: '', color: '#c4c4c4' },
     ];
-    console.log('here', this.bgColor(this.task.currTask));
+    // console.log('here', this.bgColor(this.task.currTask));
     this.styleObj.backgroundColor = this.bgColor(this.currTask.status);
     (this.styleObj['border-color'] = this.bgColor(this.currTask.status)), '#fff';
-    console.log(this.styleObj);
+    // console.log(this.styleObj);
   },
   methods: {
     openClose() {
@@ -65,7 +65,7 @@ export default {
       return '#c4c4c4';
     },
     changeStatus(value, task) {
-      console.log(value, task);
+      // console.log(value, task);
       var updatedTask = JSON.parse(JSON.stringify(task));
       updatedTask.status = value;
       this.currTask.status = value;
