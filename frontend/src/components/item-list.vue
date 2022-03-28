@@ -1,8 +1,13 @@
 <template>
   <!-- <ul class="group-list"> -->
   <section class="item-list">
-    <Container group-name="tasksForDrop" :get-child-payload="getChildPayload" orientation="vertical" @drop="onDrop($event, 'tasksForDrop')">
-      <Draggable v-for="task in currGroup.tasks" :key="task.id" :non-drag-area-selector="item-preview">
+    <Container
+      group-name="tasksForDrop"
+      :get-child-payload="getChildPayload"
+      orientation="vertical"
+      @drop="onDrop($event, 'tasksForDrop')"
+    >
+      <Draggable v-for="task in currGroup.tasks" :key="task.id" :non-drag-area-selector="item - preview">
         <!-- <li v-for="task in group.tasks" :key="task.id" class="row-item"> -->
         <li class="row-item" @click="isClicked = false">
           <el-dropdown class="side-drop-down" trigger="click">
@@ -134,7 +139,7 @@ export default {
       //   // boardId: this.boards[0]._id,
       // });
     },
-        applyDrag(arr, dragResult) {
+    applyDrag(arr, dragResult) {
       // console.log('currBoard:', this.currBoard)
       const { removedIndex, addedIndex, payload } = dragResult;
 
