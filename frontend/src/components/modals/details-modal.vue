@@ -1,7 +1,7 @@
 <template>
   <section class="details-modal" ref="detailModal">
     <div class="title-container">
-      <div class="close-details-btn">
+      <div class="close-details-btn" @click="closeDetails">
         <font-awesome-icon class="close-icon" icon="x" />
       </div>
 
@@ -10,11 +10,13 @@
         <!-- <input type="text" /> -->
         <div class="add-view-container flex">
           <span>
-            <img
+            <!-- <img
               class="user-img-title"
               src="../../../styles/icon/def-user.png"
               alt=""
-            />
+            /> -->
+
+            <avatar-img></avatar-img>
           </span>
           <p class="subset-tab-details"></p>
           <div>
@@ -59,7 +61,8 @@
           >
             <div class="post-header">
               <div class="left-side-post">
-                <div>
+                <div class="img-user-container">
+                  <!-- <member-picker :task="task"></member-picker> -->
                   <img class="user-img" :src="comment.byMember.imgUrl" alt="" />
                 </div>
                 <div class="title">
@@ -102,13 +105,14 @@
               </div>
             </div>
             <div class="post-actions">
-              <div class="left-btn">
-                <span
-                  ><img
-                    class="like-icon"
-                    src="../../../styles/icon/like.png"
-                    alt=""
-                /></span>
+              <div
+                class="left-btn"
+                :class="{ blue: comment.isLike, red: !comment.isLike }"
+                @click="setLike(comment.id)"
+              >
+                <span>
+                  <font-awesome-icon icon="thumbs-up" />
+                </span>
                 <p>like</p>
               </div>
               <div class="right-btn">
@@ -131,7 +135,8 @@
 </template>
 
 <script>
-import avatarIng from '../../components/avatar-img.vue';
+// import { json } from 'stream/consumers';
+import avatarImg from '../../components/avatar-img.vue';
 import likeIcon from '../../components/icons/like-icon.vue';
 import memberPicker from '../../components/member-picker.vue';
 
@@ -140,9 +145,10 @@ export default {
   props: {},
   data() {
     return {
+      currDate: null,
       task: {
         id: 'c104',
-        title: 'Help me',
+        title: 'כשיוצרים טאסק\גרופ ריק, יש צורך בASYNC?',
         status: 'in-progress',
         description: 'description',
         comments: [
@@ -152,9 +158,21 @@ export default {
             createdAt: 1590999817436.0,
             byMember: {
               _id: 'u101',
-              fullname: 'Tal Tarablus',
+              fullname: 'Itzik Vaknin',
               imgUrl: '../../../styles/shlomi.jpg',
             },
+            isLike: true,
+          },
+          {
+            id: 'ZdPnm',
+            txt: 'commentssss',
+            createdAt: 1590999817436.0,
+            byMember: {
+              _id: 'u101',
+              fullname: 'Itzik Vaknin',
+              imgUrl: '../../../styles/shlomi.jpg',
+            },
+            isLike: false,
           },
         ],
         checklists: [
@@ -174,7 +192,7 @@ export default {
           {
             _id: 'u101',
             username: 'Tal',
-            fullname: 'Tal Tarablus',
+            fullname: 'Itzik Vaknin',
             imgUrl:
               'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
           },
@@ -195,17 +213,31 @@ export default {
       },
     };
   },
-  components: { avatarIng, likeIcon, memberPicker },
-  created() {
-    // this.date = new Date().getTime();
-  },
+  components: { avatarImg, likeIcon, memberPicker },
+  created() {},
 
   computed: {
     getComments() {
       return this.task.comments;
     },
+    getMembers() {
+      return this.task.members;
+    },
+    getTask() {},
   },
-  methods: {},
+  methods: {
+    closeDetails() {
+      this.$emit('closeDetails');
+    },
+    setLike(commentId) {
+      // console.log(JSON.parse(JSON.stringify(this.task.comments)));
+      // console.log(json.parse(json.stringft(this.task.comments)));
+      // var idx = this.task.comments[1].findIndex(
+      //   (comment) => comment.id === commentId
+      // );
+      // console.log(idx);
+    },
+  },
 };
 </script>
 

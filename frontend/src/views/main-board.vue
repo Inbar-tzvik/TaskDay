@@ -5,7 +5,7 @@
       <section class="board-header-content">
         <board-header-main @circleClicked="circleClicked" />
 
-        <board-toolbar></board-toolbar>
+        <board-toolbar @openDetails="openDetails"></board-toolbar>
 
         <board-filter @addGroup="addGroup" @setFilter="setFilter" />
         <!-- <button>New item</button> -->
@@ -26,7 +26,11 @@
         />
       </section>
 
-      <details-modal></details-modal>
+      <details-modal
+        v-if="isDetails"
+        @closeDetails="closeDetails"
+        :class="{ showModal: isDetails }"
+      ></details-modal>
     </section>
   </section>
 
@@ -47,12 +51,13 @@ export default {
   name: 'main-board',
   data() {
     return {
+      isDetails: false,
     };
   },
   computed: {
-     board() {
-       //TODO -"this.$store.getters.boards" this sould be for boards-menu and then to store - "setCurrBoard"
-      return this.$store.getters.currBoard
+    board() {
+      //TODO -"this.$store.getters.boards" this sould be for boards-menu and then to store - "setCurrBoard"
+      return this.$store.getters.currBoard;
     },
   },
   created() {},
@@ -95,7 +100,10 @@ export default {
     },
     addGroup() {
       // this.users = this.$store.getters.currBoard
-      this.$store.dispatch({ type: 'addGroup', boardId: this.$store.getters.currBoard._id });
+      this.$store.dispatch({
+        type: 'addGroup',
+        boardId: this.$store.getters.currBoard._id,
+      });
     },
     editTask(groupId, item) {
       console.log(groupId, item);
@@ -117,6 +125,13 @@ export default {
     },
     circleClicked() {
       this.$emit('circleClicked');
+    },
+    openDetails() {
+      console.log();
+      this.isDetails = !this.isDetails;
+    },
+    closeDetails() {
+      this.isDetails = !this.isDetails;
     },
   },
   components: {
