@@ -83,29 +83,23 @@
     z-index: 1;
     cursor: pointer;
     position: relative;
-    &:hover {
-      &:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        border-width: 0 12px 12px 0;
-        border-style: solid;
-        border-color: #c7c7c7ad #fff;
-        background: #c7c7c7ad;
-        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
-        -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
-        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
-        // transform: translate(120%, 50%);
 
-        // transition: border-width 0.2s;
-
-        /* Firefox 3.0 damage limitation */
-      }
+    &::before {
+      content: '';
+      width: 0px;
+      height: 0px;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      border-width: 0;
+      border-style: solid;
+      transform: rotate(270deg);
+      border-color: #00000033 #fff transparent transparent;
+      transition: border-width 0.4s ease-out;
     }
   }
-  .dropDownMenuButton:before:hover {
-    transition: 5s;
+  .dropDownMenuButton:hover:before {
+    border-width: 10px 10px 0 0;
   }
 
   .dropDownMenuButton--dark {
