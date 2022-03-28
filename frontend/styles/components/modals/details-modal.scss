@@ -1,6 +1,6 @@
 .details-modal {
   z-index: 10;
-  display: none;
+  // display: none;
   border-left: 1px solid $clr1;
   width: 700px;
   height: 100vw;
@@ -8,6 +8,10 @@
   position: fixed;
   right: 0;
   top: 0;
+
+  .show-modal {
+    right: 0;
+  }
 
   .user-img-title {
     width: 25px;
@@ -150,6 +154,7 @@
         .post-component {
           border: 1px solid $clr1;
           border-radius: 5px;
+          margin-bottom: 15px;
           .post-header {
             display: flex;
             justify-content: space-between;
@@ -160,6 +165,11 @@
             .left-side-post {
               display: flex;
               align-items: center;
+
+              .img-user-container {
+                width: 50px;
+                height: 50px;
+              }
               p {
                 margin: 0;
               }
@@ -173,7 +183,11 @@
             }
             div {
               .user-img {
-                width: 35px;
+                display: flex;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
               }
             }
           }
@@ -301,6 +315,10 @@
 .like-icon {
   width: 15px;
   margin-right: 5px;
+}
+
+.blue {
+  color: rgb(31, 147, 214);
 }
 
 .reply-icon {

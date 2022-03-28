@@ -4,16 +4,13 @@
     <section v-if="board" class="main-board">
       <section class="board-header-content">
         <board-header-main @circleClicked="circleClicked" />
-
-        <board-toolbar></board-toolbar>
-
+        <board-toolbar @openDetails="openDetails"></board-toolbar>
         <board-filter @addGroup="addGroup" @filteredTitle="setFilter" />
         <!-- <button>New item</button> -->
         <!-- </div> -->
       </section>
-      <section class="board-content">
+      <section v-if="board" class="board-content">
         <!-- <h1>{{ board.title }}</h1> -->
-
         <!-- <font-awesome-icon icon="arrow-down" /> -->
         <group-list
           @updatedStatus="updatedStatus"
@@ -25,14 +22,11 @@
           :board="board"
         />
       </section>
-
-      <details-modal></details-modal>
+      <details-modal v-if="isDetails" @closeDetails="closeDetails" :class="{ showModal: isDetails }"></details-modal>
     </section>
   </section>
-
   <!-- <button @click="goToEdit" class="btn btn-secondary">Add a new car</button> -->
 </template>
-
 <script>
 import groupList from '../components/group-list.vue';
 import boardFilter from '../components/board-filter.vue';
@@ -40,18 +34,36 @@ import boardToolbar from '../components/board-toolbar.vue';
 import boardHeaderMain from '../components/board-header-main.vue';
 import workSpaceModal from '../components/modals/work-space-modal.vue';
 import detailsModal from '../components/modals/details-modal.vue';
-
+import { boardGroupService } from '../services/board-group-service';
 // import { boardService } from '../services/board-service.js';
-
 export default {
   name: 'main-board',
   data() {
-    return {};
+    return {
+      // board: null,
+      isDetails: false,
+    };
   },
   computed: {
     board() {
-      //TODO -"this.$store.getters.boards" this sould be for boards-menu and then to store - "setCurrBoard"
+      // //    //TODO -"this.$store.getters.boards" this sould be for boards-menu and then to store - "setCurrBoard"
+      // //   return this.$store.getters.currBoard
+      // this.board = this.$store.getters.currBoard
       return this.$store.getters.currBoard;
+    },
+  },
+  watch: {
+    '$route.params.boardId': {
+      async handler() {
+        await this.$store.dispatch({
+          type: 'setCurrBoard',
+          boardId: this.$route.params.boardId,
+        });
+        // this.board = this.$store.getters.currBoard;
+        //  this.boardForDisplay;
+        // console.log('watcher this.board',this.board);
+      },
+      immediate: true,
     },
   },
   created() {},
@@ -63,7 +75,6 @@ export default {
         boardId: this.board._id,
       });
     },
-
     removeItem(itemId, groupId) {
       this.$store.dispatch({
         type: 'removeItem',
@@ -94,7 +105,10 @@ export default {
     },
     addGroup() {
       // this.users = this.$store.getters.currBoard
-      this.$store.dispatch({ type: 'addGroup', boardId: this.$store.getters.currBoard._id });
+      this.$store.dispatch({
+        type: 'addGroup',
+        boardId: this.$store.getters.currBoard._id,
+      });
     },
     editTask(groupId, item) {
       console.log(groupId, item);
@@ -116,6 +130,16 @@ export default {
     },
     circleClicked() {
       this.$emit('circleClicked');
+    },
+    openDetails() {
+      console.log();
+      this.isDetails = !this.isDetails;
+    },
+    closeDetails() {
+      this.isDetails = !this.isDetails;
+    },
+    setFilter(filterBy) {
+      this.$store.dispatch({ type: 'setFilter', filterBy });
     },
   },
   components: {

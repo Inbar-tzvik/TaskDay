@@ -1,6 +1,7 @@
 import { boardGroupService } from '../../services/board-group-service';
 import { authService } from '../../services/auth-service';
-
+import { vModelRadio } from 'vue';
+// import { statSync } from 'fs';
 export default {
   state: {
     boards: [],
@@ -16,20 +17,22 @@ export default {
       return JSON.parse(JSON.stringify(state.boards));
     },
     currBoard(state) {
-      if (state.filterBy.title) {
-        // email.isRead === filter.isReadnow &&
-        var regex = new RegExp(filter.txt, 'i');
-        var result = emailsBeforeFil.filter((email) => {
-          return (
-            loggedinUser.email !== email.to &&
-            (regex.test(email.subject) || regex.test(email.from.name) || regex.test(email.body))
-          );
-        });
-      }
+      // console.log('currBoard', state.currBoard);
       //the menu should set the curr board!!! if not - [0]
-      else return JSON.parse(JSON.stringify(state.boards[0]));
+      // if (state.filterBy.title) {
+      //     // email.isRead === filter.isReadnow &&
+      //     var regex = new RegExp(filter.txt, ‘i’);
+      //     var result = emailsBeforeFil.filter((email) => {
+      //       return (
+      //         loggedinUser.email !== email.to &&
+      //         (regex.test(email.subject) || regex.test(email.from.name) || regex.test(email.body))
+      //       );
+      //     });
+      //   }
+      //   //the menu should set the curr board!!! if not - [0]
+      // //   else return JSON.parse(JSON.stringify(state.boards[0]));
+      return JSON.parse(JSON.stringify(state.currBoard));
     },
-    fillterdBoard(state) {},
   },
   mutations: {
     setBoards(state, { boards }) {
@@ -45,7 +48,13 @@ export default {
     setCurrBoard(state, { board }) {
       //TODO - find board by id or index and set!
       // state.currBoard = board;
-      state.currBoard = state.boards[0];
+      state.currBoard = board;
+      // console.log(state.currBoard);
+    },
+    addItem(state, { boardId, groupId, task }) {
+      const idx = state.currBoard.groups.findIndex((group) => group.id === groupId);
+      state.currBoard[idx].tasks.push(task);
+      console.log(state.currBoard);
     },
   },
   actions: {
@@ -91,19 +100,25 @@ export default {
       }
     },
     //saving item
-    async addItem({ dispatch }, { boardId, groupId, task }) {
+    async addItem({ dispatch, commit }, { boardId, groupId, task }) {
+      console.log(boardId, groupId, { ...task });
       try {
         await boardGroupService.saveTask(boardId, groupId, task);
-        dispatch({ type: 'loadBoards' });
+        commit({
+          type: 'addItem',
+          boardId,
+          groupId,
+          task,
+        });
+        // dispatch({ type: 'loadBoards' });
       } catch (err) {
         console.log('Couldnt save item', err);
-        commit({
-          type: 'setIsError',
-          isError: true,
-        });
+        // commit({
+        //   type: 'setIsError',
+        //   isError: true,
+        // });
       }
     },
-
     async addGroup({ dispatch }, { boardId }) {
       try {
         await boardGroupService.createEmptyGroup(boardId);
@@ -116,7 +131,6 @@ export default {
         // });
       }
     },
-
     async updateGroup({ dispatch }, { boardId, currGroup }) {
       try {
         console.log('updating group...');
@@ -126,7 +140,6 @@ export default {
         console.log('Couldnt save item', err);
       }
     },
-
     async updateBoard({ dispatch }, { board }) {
       try {
         console.log('updating');
@@ -137,7 +150,10 @@ export default {
         console.log('Couldnt save item', err);
       }
     },
-    async setCurrBoard({ commit, dispatch }, { board }) {
+    async setCurrBoard({ commit, state, dispatch }, { boardId }) {
+      // var board = state.boards.filter(board => board._id === boardId)
+      var board = await boardGroupService.getBoardById(boardId);
+      // console.log('board in setCuttboard', board);
       commit({ type: 'setCurrBoard', board });
       dispatch({ type: 'loadBoards' });
     },

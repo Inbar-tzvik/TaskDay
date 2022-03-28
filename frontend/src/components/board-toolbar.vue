@@ -95,7 +95,7 @@
             Automate
           </button>
         </div>
-        <span class="collapse-btn">
+        <span class="collapse-btn" @click="openDetails">
           <!-- <img class="arrow-up" src="../../styles/icon/arrow-up.png" alt="" -->
           <font-awesome-icon class="arrow-up" icon="angle-up" />
         </span>
@@ -115,6 +115,10 @@ export default {
   },
   components: {},
   computed: {},
-  methods: {},
+  methods: {
+    openDetails() {
+      this.$emit('openDetails');
+    },
+  },
 };
 </script>

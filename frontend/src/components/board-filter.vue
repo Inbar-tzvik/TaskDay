@@ -9,7 +9,7 @@
     <div>
       <div class="input-container">
         <span class="search-icon"> <search-icon /></span>
-        <input type="text" placeholder="Search" v-model="filterBy.title" @input="setFiltertTitle" />
+        <input type="text" placeholder="Search" @input="setFilterTitle" v-model="filterBy.title" />
       </div>
       <pre>{{ filterBy }}</pre>
       <button>
@@ -69,7 +69,7 @@ export default {
       this.$emit('addGroup');
     },
     setFilterTitle() {
-      this.$emit('filteredTitle', this.filter);
+      this.$emit('filteredTitle', { ...this.filterBy });
     },
   },
 };

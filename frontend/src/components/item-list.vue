@@ -178,7 +178,7 @@ export default {
       // console.log(groupId, this.newTask);
       if (this.newTask.title) {
         this.$emit('addItem', groupId, this.newTask);
-        this.currGroup.tasks.push(this.newTask);
+        // this.currGroup.tasks.push(this.newTask);
         this.getEmptyNewTask();
       }
     },
@@ -191,7 +191,7 @@ export default {
 </script>
 
 <style>
-.taskDrag{
-background-color: red;
+.taskDrag {
+  background-color: red;
 }
 </style>

@@ -23,16 +23,13 @@ export default {
         '../../styles/shlomi.jpg',
         '../../styles/shlomi.jpg',
       ],
-      // imgs: [],
       margin: -5,
     };
   },
   props: {
     urls: Array,
   },
-  created() {
-    // console.log(this.imgs);
-  },
+  created() {},
   components: {},
   computed: {
     getId() {
