@@ -16,6 +16,7 @@
 
         <!-- <font-awesome-icon icon="arrow-down" /> -->
         <group-list
+          @updatedStatus="updatedStatus"
           @updateGroup="updateGroup"
           @addItem="addItem"
           @deleteGroup="deleteGroup"
@@ -88,6 +89,7 @@ export default {
       });
     },
     deleteGroup(groupId) {
+      // console.log(groupId, this.boards[0]._id);
       this.$store.dispatch({
         type: 'removeGroup',
         boardId: this.boards[0]._id,
@@ -104,6 +106,15 @@ export default {
         boardId: this.boards[0]._id,
         groupId: groupId,
         task: item,
+      });
+    },
+    updatedStatus(groupId, task) {
+      console.log('i am in board', groupId, task);
+      this.$store.dispatch({
+        type: 'addItem',
+        boardId: this.boards[0]._id,
+        groupId: groupId,
+        task: task,
       });
     },
     circleClicked() {

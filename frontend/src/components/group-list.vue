@@ -1,6 +1,9 @@
 <template>
   <section class="group-list">
-    <ul v-for="group in board.groups" :key="group.id">
+<Container group-name="groupsForDrop" :get-child-payload="getChildPayload" orientation="vertical" @drop="onDrop($event, 'groupsForDrop')">
+      <Draggable v-for="group in board.groups" :key="group.id">
+     
+    <ul>
       <div class="group-title-btn">
         <el-dropdown trigger="click">
           <span class="el-dropdown-link">
@@ -58,7 +61,7 @@
         <!-- *****ITZIK***** -->
         <div
           class="flex cmp-column-title"
-          v-for="cmp in boards.cmpsOrder"
+          v-for="cmp in board.cmpsOrder"
           :key="cmp.id"
           @mouseover="group.isOnColumnTitle = true"
           @mouseleave="group.isOnColumnTitle = false"
@@ -87,24 +90,35 @@
       <!-- <p>{{ group.style.bgColor }}</p> -->
       <!-- <h4>-{{ group.title }}</h4> -->
 
-<!-- //TOFIX - boards here is boards[0]!!! fix it!!!! -->
+      <!-- //TOFIX - boards here is boards[0]!!! fix it!!!! -->
 
-      <item-list :board="board" :group="group" @editTask="editTask" @addItem="addItem" @removeItem="removeItem" />
+      <item-list
+        @updatedStatus="updatedStatus"
+        :board="board"
+        :group="group"
+        @editTask="editTask"
+        @addItem="addItem"
+        @removeItem="removeItem"
+      />
       <!-- <toy-preview @removeToy="removeToy" v-for="toy in toys" :key="toy.id" :toy="toy" /> -->
     </ul>
+</Draggable>
+    </Container>
+
   </section>
 </template>
 
 <script>
 import { ArrowDown } from '@element-plus/icons-vue';
 import itemList from './item-list.vue';
+import { Container, Draggable } from 'vue3-smooth-dnd';
 
 export default {
   props: {
     boards: {
       type: Object,
     },
-    emits:['updateGroup','removeItem','addItem','deleteGroup','editTask']
+    emits: ['updateGroup', 'removeItem', 'addItem', 'deleteGroup', 'editTask'],
   },
   data() {
     return {
@@ -124,8 +138,43 @@ export default {
   },
   components: {
     itemList,
+        Container,
+    Draggable,
   },
   methods: {
+        getChildPayload(index) {
+      return  this.board.groups[index];
+        // generate custom payload data here
+    },
+    onDrop(dropResult) {
+      this.board.groups = this.applyDrag(this.board.groups, dropResult);
+
+    },
+            applyDrag(arr, dragResult) {
+      // console.log('currBoard:', this.currBoard)
+      const { removedIndex, addedIndex, payload } = dragResult;
+
+      if (removedIndex === null && addedIndex === null) return arr;
+      const result = [...arr];
+      let taskToAdd = payload;
+
+      if (removedIndex !== null) {
+        taskToAdd = result.splice(removedIndex, 1)[0];
+      }
+      if (addedIndex !== null) {
+        result.splice(addedIndex, 0, taskToAdd);
+      }
+      // if (result === []){
+      //   result.push(taskToAdd)
+      // }
+      // console.log('this.currGroup',this.currGroup)
+
+    this.$store.dispatch({
+        type: 'updateBoard',
+        board: this.board,
+      });
+      return result;
+    },
     saveGroup(value, group) {
       var currGroup = JSON.parse(JSON.stringify(group));
       if (value) {
@@ -142,10 +191,15 @@ export default {
       this.$emit('addItem', groupId, newTask);
     },
     deleteGroup(groupId) {
+      var groupIdxToRemove = this.board.groups.findIndex(group=>group.id === groupId)
+      this.board.groups.splice(groupIdxToRemove,1)
       this.$emit('deleteGroup', groupId);
     },
     editTask(item, groupId) {
       this.$emit('editTask', groupId, item);
+    },
+    updatedStatus(groupId, task) {
+      this.$emit('updatedStatus', groupId, task);
     },
   },
 };
