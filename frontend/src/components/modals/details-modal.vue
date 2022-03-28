@@ -1,12 +1,12 @@
 <template>
-  <section class="details-modal">
+  <section class="details-modal" ref="detailModal">
     <div class="title-container">
       <div class="close-details-btn">
         <font-awesome-icon class="close-icon" icon="x" />
       </div>
 
       <div class="details-input flex">
-        <h1>sdfsd sdfd adfdf</h1>
+        <h1>{{ task.title }}</h1>
         <!-- <input type="text" /> -->
         <div class="add-view-container flex">
           <span>
@@ -14,7 +14,8 @@
               class="user-img-title"
               src="../../../styles/icon/def-user.png"
               alt=""
-          /></span>
+            />
+          </span>
           <p class="subset-tab-details"></p>
           <div>
             <font-awesome-icon class="dots" icon="ellipsis" />
@@ -51,17 +52,19 @@
           </div>
         </div>
         <div class="space-view">
-          <div class="post-component">
+          <div
+            class="post-component"
+            v-for="comment in getComments"
+            :key="comment.id"
+          >
             <div class="post-header">
               <div class="left-side-post">
                 <div>
-                  <img
-                    class="user-img"
-                    src="../../../styles/icon/def-user.png"
-                    alt=""
-                  />
+                  <img class="user-img" :src="comment.byMember.imgUrl" alt="" />
                 </div>
-                <div class="title">Itzik Vaknin</div>
+                <div class="title">
+                  {{ comment.byMember.fullname }}
+                </div>
 
                 <div>
                   <p class="green logged-in"></p>
@@ -86,7 +89,7 @@
               </div>
             </div>
             <div class="body-text">
-              <p class="text">sdgsfgsfgsfg</p>
+              <p class="text">{{ comment.txt }}</p>
               <div class="seen-area">
                 <span
                   ><img
@@ -130,15 +133,80 @@
 <script>
 import avatarIng from '../../components/avatar-img.vue';
 import likeIcon from '../../components/icons/like-icon.vue';
+import memberPicker from '../../components/member-picker.vue';
 
 export default {
   name: '',
   props: {},
   data() {
-    return {};
+    return {
+      task: {
+        id: 'c104',
+        title: 'Help me',
+        status: 'in-progress',
+        description: 'description',
+        comments: [
+          {
+            id: 'ZdPnm',
+            txt: 'also @yaronb please CR this',
+            createdAt: 1590999817436.0,
+            byMember: {
+              _id: 'u101',
+              fullname: 'Tal Tarablus',
+              imgUrl: '../../../styles/shlomi.jpg',
+            },
+          },
+        ],
+        checklists: [
+          {
+            id: 'YEhmF',
+            title: 'Checklist',
+            todos: [
+              {
+                id: '212jX',
+                title: 'To Do 1',
+                isDone: false,
+              },
+            ],
+          },
+        ],
+        members: [
+          {
+            _id: 'u101',
+            username: 'Tal',
+            fullname: 'Tal Tarablus',
+            imgUrl:
+              'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
+          },
+        ],
+        labelIds: ['l101', 'l102'],
+        createdAt: 1590999730348,
+        dueDate: 16156215211,
+        byMember: {
+          _id: 'u101',
+          username: 'Tal',
+          fullname: 'Tal Tarablus',
+          imgUrl:
+            'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
+        },
+        style: {
+          bgColor: '#26de81',
+        },
+      },
+    };
   },
-  components: { avatarIng, likeIcon },
-  computed: {},
+  components: { avatarIng, likeIcon, memberPicker },
+  created() {
+    // this.date = new Date().getTime();
+  },
+
+  computed: {
+    getComments() {
+      return this.task.comments;
+    },
+  },
   methods: {},
 };
 </script>
+
+<style></style>
