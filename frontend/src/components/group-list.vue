@@ -138,6 +138,7 @@ export default {
     },
     emits: ['updateGroup', 'removeItem', 'addItem', 'deleteGroup', 'editTask'],
   },
+   
   data() {
     return {
       // board: this.boards[0],
@@ -151,11 +152,19 @@ export default {
   },
   computed: {
     // board() {
-    //   return this.$store.getters.currBoard
-    // },
+    //   return this.board
+    //   // return this.$store.getters.currBoard
+    },
+  
+    mounted() {
+    
+      return this.board
+      // return this.$store.getters.currBoard
+  
   },
 
   created() {
+    console.log('this group-list-created',this.board);
     // console.log('board group list',this.board);
     // this.board = this.$store.getters.currBoard
     // this.$store.dispatch({ type: 'setCurrBoard', board: this.board });

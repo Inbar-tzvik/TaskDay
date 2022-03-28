@@ -7,7 +7,7 @@
       orientation="vertical"
       @drop="onDrop($event, 'tasksForDrop')"
     >
-      <Draggable v-for="task in currGroup.tasks" :key="task.id">
+      <Draggable v-for="task in group.tasks" :key="task.id">
         <!-- <li v-for="task in group.tasks" :key="task.id" class="row-item"> -->
         <li class="row-item" @click="isClicked = false">
           <el-dropdown class="side-drop-down" trigger="click">
@@ -178,7 +178,7 @@ export default {
       // console.log(groupId, this.newTask);
       if (this.newTask.title) {
         this.$emit('addItem', groupId, this.newTask);
-        this.currGroup.tasks.push(this.newTask);
+        // this.currGroup.tasks.push(this.newTask);
         this.getEmptyNewTask();
       }
     },

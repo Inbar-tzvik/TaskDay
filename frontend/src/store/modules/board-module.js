@@ -40,7 +40,24 @@ export default {
             state.currBoard = board
                 // console.log(state.currBoard);
         },
+        addItem(state, { board, groupId, task }) {
+            //I ADDED TO CURR BOARD - BUT! also can do it for state.boards!(maybe its better, ask shani)
 
+            // var boardIdx = state.boards.findIndex(boardFromStates => boardFromStates._id === board._id)
+            var groupIdx = state.currBoard.groups.findIndex(group => group.id === groupId)
+                // console.log(board, boardIdx);
+                // state.boards[boardIdx] = board
+                // console.log(state.currBoard.groups[0].tasks);
+            state.currBoard.groups[groupIdx].tasks.push(task)
+            console.log('state.currBoard', state.currBoard);
+            // state.currBoard.groups[0].tasks.push(task)
+            // console.log('gor inside');
+            // state.boards = 0;
+            // state.currBoard = 0
+            // console.log('groupIdx,boardIdx', groupIdx, boardIdx);
+            // console.log(state.currBoard);
+            // console.log(boardId, groupId, task);
+        }
     },
     actions: {
         async loadBoards({ commit, state }) {
@@ -86,10 +103,18 @@ export default {
             }
         },
         //saving item
-        async addItem({ dispatch }, { boardId, groupId, task }) {
+        async addItem({ dispatch, commit }, { boardId, groupId, task }) {
             try {
                 await boardGroupService.saveTask(boardId, groupId, task);
-                dispatch({ type: 'loadBoards' });
+                var board = await boardGroupService.getBoardById(boardId)
+                commit({
+                    type: 'addItem',
+                    board,
+                    groupId,
+                    task
+                });
+
+                // dispatch({ type: 'loadBoards' });
             } catch (err) {
                 console.log('Couldnt save item', err);
                 commit({

@@ -16,6 +16,7 @@
 
         <!-- <font-awesome-icon icon="arrow-down" /> -->
         <group-list
+        v-if="board"
           @updatedStatus="updatedStatus"
           @updateGroup="updateGroup"
           @addItem="addItem"
@@ -52,15 +53,16 @@ export default {
   name: 'main-board',
   data() {
     return {
-      board: null,
+      // board: null,
       isDetails: false,
     };
   },
   computed: {
-    boardForDisplay() {
+    board() {
       // //    //TODO -"this.$store.getters.boards" this sould be for boards-menu and then to store - "setCurrBoard"
       // //   return this.$store.getters.currBoard
       // this.board = this.$store.getters.currBoard
+      console.log('this.$store.getters.currBoard',this.$store.getters.currBoard);
       return this.$store.getters.currBoard;
     },
   },
@@ -71,7 +73,7 @@ export default {
           type: 'setCurrBoard',
           boardId: this.$route.params.boardId,
         });
-        this.board = this.$store.getters.currBoard;
+        // this.board = this.$store.getters.currBoard;
         //  this.boardForDisplay;
         // console.log('watcher this.board',this.board);
       },
