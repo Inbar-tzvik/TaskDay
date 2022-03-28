@@ -456,7 +456,8 @@ async function removeBoard(boardId) {
     return storageService.remove(KEY, boardId);
 }
 
-async function removeGroup(boardId, groupId) {
+async function removeGroup(boardId, groupId, removedIndex = null) {
+
     return storageService.remove(KEY, boardId, 'groups', groupId);
 }
 
@@ -478,34 +479,42 @@ async function saveBoard(board) {
 
 //ASK - THE FUNCTION RETURN THE NEW Board!!, or something else??
 //WHAT SHULD DO WITH ERRORS?
-async function saveGroup(boardId, updateGroup) {
+async function saveGroup(boardId, updateGroup, addedIdxForDrop = null) {
     try {
         var currBoard = await getBoardById(boardId);
         var currGroup = currBoard.groups.find((group) => group.id === updateGroup.id);
         var currGroupIdx = currBoard.groups.indexOf(currGroup);
 
-        if (currGroup) {
-            currBoard.groups[currGroupIdx] = updateGroup;
-        } else currBoard.groups.push(updateGroup);
-        // console.log(currBoard);
+        if (addedIdxForDrop) {
+            currBoard.groups.splice(addedIdxForDrop, 0, updateGroup)
+        } else {
+            if (currGroup) {
+                currBoard.groups[currGroupIdx] = updateGroup;
+            } else currBoard.groups.push(updateGroup);
+        }
         await saveBoard(currBoard);
         return currBoard;
     } catch (err) {
         console.log('Cannot update/save group', err);
     }
 }
-async function saveTask(boardId, groupId, updateTask) {
+async function saveTask(boardId, groupId, updateTask, fromIdx = null) {
     try {
         var currGroup = await getGroupById(boardId, groupId);
         var currTask = currGroup.tasks.find((task) => task.id === updateTask.id);
         var currTaskIdx = currGroup.tasks.indexOf(currTask);
         // console.log(currTaskIdx);
 
-        if (currTask) {
-            currGroup.tasks[currTaskIdx] = updateTask;
+        if (fromIdx) {
+            currGroup.tasks.splice(fromIdx, 0, updateTask)
         } else {
-            currGroup.tasks.push(updateTask);
+            if (currTask) {
+                currGroup.tasks[currTaskIdx] = updateTask;
+            } else {
+                currGroup.tasks.push(updateTask);
+            }
         }
+
         await saveGroup(boardId, currGroup);
         // return updateTask
     } catch {}
@@ -534,7 +543,7 @@ async function createEmptyGroup(boardId) {
     };
     board['groups'].unshift(newGroup);
     saveBoard(board);
-    return board;
+    return newGroup;
 }
 //SAVE TO STORAGE! (MOST OF THIGNS NOW HARD CODE)
 async function createNewBoard() {

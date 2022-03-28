@@ -27,36 +27,41 @@ export default {
         setBoards(state, { boards }) {
             state.boards = boards;
         },
-        removeItem(state, { id }) {
-            const idx = state.boards.groups.tasks.findIndex((task) => task.id === id);
-            state.boards.groups.tasks.splice(idx, 1);
-        },
         setFilter(state, { filterBy }) {
             state.filterBy = filterBy;
         },
         setCurrBoard(state, { board }) {
-            //TODO - find board by id or index and set!
-            // state.currBoard = board;
             state.currBoard = board
-                // console.log(state.currBoard);
         },
-        addItem(state, { board, groupId, task }) {
-            //I ADDED TO CURR BOARD - BUT! also can do it for state.boards!(maybe its better, ask shani)
-
-            // var boardIdx = state.boards.findIndex(boardFromStates => boardFromStates._id === board._id)
+        addItem(state, { groupId, task, fromIdx = null }) {
             var groupIdx = state.currBoard.groups.findIndex(group => group.id === groupId)
-                // console.log(board, boardIdx);
-                // state.boards[boardIdx] = board
-                // console.log(state.currBoard.groups[0].tasks);
-            state.currBoard.groups[groupIdx].tasks.push(task)
-            console.log('state.currBoard', state.currBoard);
-            // state.currBoard.groups[0].tasks.push(task)
-            // console.log('gor inside');
-            // state.boards = 0;
-            // state.currBoard = 0
-            // console.log('groupIdx,boardIdx', groupIdx, boardIdx);
-            // console.log(state.currBoard);
-            // console.log(boardId, groupId, task);
+            var taskIdx = state.currBoard.groups[groupIdx].tasks.findIndex(taskFromCurrBoard => taskFromCurrBoard.id === task.id)
+
+            if (fromIdx) {
+                state.currBoard.groups[groupIdx].tasks.splice(fromIdx, 0, task)
+            } else {
+                if (taskIdx >= 0) {
+                    state.currBoard.groups[groupIdx].tasks[taskIdx] = task
+                } else state.currBoard.groups[groupIdx].tasks.push(task)
+            }
+
+        },
+        removeItem(state, { groupId, itemId }) {
+            var groupIdx = state.currBoard.groups.findIndex(group => group.id === groupId)
+            var taskIdx = state.currBoard.groups[groupIdx].tasks.findIndex(taskFromCurrBoard => taskFromCurrBoard.id === itemId)
+            console.log('groupId, itemId', groupIdx, taskIdx);
+            state.currBoard.groups[groupIdx].tasks.splice(taskIdx, 1)
+        },
+        addGroup(state, { newGroup }) {
+            state.currBoard.groups.splice(0, 0, newGroup)
+        },
+        updateGroup(state, { currGroup }) {
+            var groupIdx = state.currBoard.groups.findIndex(group => group.id === currGroup.id)
+            state.currBoard.groups.splice(groupIdx, 1, currGroup)
+        },
+        removeGroup(state, { groupId }) {
+            var groupIdxToRemove = state.currBoard.groups.findIndex(group => group.id === groupId)
+            state.currBoard.groups.splice(groupIdxToRemove, 1)
         }
     },
     actions: {
@@ -76,11 +81,15 @@ export default {
                 console.log('error occured while getting board');
             }
         },
-        async removeItem({ dispatch }, { boardId, groupId, itemId }) {
+        async removeItem({ dispatch, commit }, { boardId, groupId, itemId }) {
             try {
                 // console.log(boardId, groupId, itemId);
                 await boardGroupService.removeTask(boardId, groupId, itemId);
-                dispatch({ type: 'loadBoards' });
+                commit({
+                    type: 'removeItem',
+                    groupId,
+                    itemId
+                });
             } catch {
                 console.log('Couldnt remove item');
                 // commit({
@@ -89,32 +98,31 @@ export default {
                 // });
             }
         },
-        async removeGroup({ dispatch }, { boardId, groupId }) {
+        async removeGroup({ dispatch, commit }, { boardId, groupId, removedIndex = null }) {
             try {
-
-                await boardGroupService.removeGroup(boardId, groupId);
-                dispatch({ type: 'loadBoards' });
+                await boardGroupService.removeGroup(boardId, groupId, removedIndex = null);
+                commit({
+                    type: 'removeGroup',
+                    groupId,
+                });
             } catch {
-                console.log('Couldnt remove item');
+                console.log('Couldnt remove group');
                 // commit({
                 //   type: 'setIsError',
                 //   isError: true,
                 // });
             }
         },
-        //saving item
-        async addItem({ dispatch, commit }, { boardId, groupId, task }) {
+        //saving/add item
+        async addItem({ dispatch, commit }, { boardId, groupId, task, fromIdx = null }) {
             try {
-                await boardGroupService.saveTask(boardId, groupId, task);
-                var board = await boardGroupService.getBoardById(boardId)
+                await boardGroupService.saveTask(boardId, groupId, task, fromIdx);
                 commit({
                     type: 'addItem',
-                    board,
                     groupId,
-                    task
+                    task,
+                    fromIdx
                 });
-
-                // dispatch({ type: 'loadBoards' });
             } catch (err) {
                 console.log('Couldnt save item', err);
                 commit({
@@ -123,11 +131,13 @@ export default {
                 });
             }
         },
-
-        async addGroup({ dispatch }, { boardId }) {
+        async addGroup({ dispatch, commit }, { boardId }) {
             try {
-                await boardGroupService.createEmptyGroup(boardId);
-                dispatch({ type: 'loadBoards' });
+                var newGroup = await boardGroupService.createEmptyGroup(boardId);
+                commit({
+                    type: 'addGroup',
+                    newGroup,
+                });
             } catch (err) {
                 console.log('Couldnt save item', err);
                 // commit({
@@ -136,23 +146,33 @@ export default {
                 // });
             }
         },
-
-        async updateGroup({ dispatch }, { boardId, currGroup }) {
+        async updateGroup({ dispatch, commit }, { boardId, currGroup, addedIdxForDrop = null }) {
+            console.log('boardId, currGroup', boardId, currGroup);
             try {
+                // if (removeIdxForDrop){
+
+                // }
                 console.log('updating group...');
-                await boardGroupService.saveGroup(boardId, currGroup);
-                dispatch({ type: 'loadBoards' });
+                await boardGroupService.saveGroup(boardId, currGroup, addedIdxForDrop);
+                commit({
+                    type: 'updateGroup',
+                    currGroup,
+                });
             } catch (err) {
                 console.log('Couldnt save item', err);
             }
         },
-
-        async updateBoard({ dispatch }, { board }) {
+        async updateBoard({ dispatch, commit }, { board }) {
             try {
                 console.log('updating');
                 // const copyBoard = JSON.parse(JSON.stringify(state.boards[0]))
                 await boardGroupService.saveBoard(board);
-                dispatch({ type: 'loadBoards' });
+
+                commit({
+                    type: 'setCurrBoard',
+                    board,
+                });
+                // dispatch({ type: 'loadBoards' });
             } catch (err) {
                 console.log('Couldnt save item', err);
             }

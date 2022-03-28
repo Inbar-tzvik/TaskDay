@@ -26,8 +26,8 @@
             </span>
             <template #dropdown>
               <el-dropdown-menu>
-                <el-dropdown-item @click="remove(task.id)"
-                  ><font-awesome-icon icon="trash-can" /> Delete
+                <el-dropdown-item @click="remove(task.id)">
+                  <font-awesome-icon icon="trash-can" />Delete
                 </el-dropdown-item>
               </el-dropdown-menu>
             </template>
@@ -94,14 +94,18 @@ export default {
       currGroup: JSON.parse(JSON.stringify(this.group)),
       // tasksForDrop: JSON.parse(JSON.stringify(this.group.tasks)),
       // tasksForDrop:this.group.tasks,
+      currGroups:[],
+      
       newTask: null,
       cmps: null,
       currBoard: JSON.parse(JSON.stringify(this.board)),
       // currGroup: null,
       isClicked: false,
+      counter:0
     };
   },
   async created() {
+    this.counter = 0;
     // this.currGroup = JSON.parse(JSON.stringify(this.group));
     this.getEmptyNewTask();
     try {
@@ -126,22 +130,48 @@ export default {
       this.$emit('updatedStatus', this.group.id, updatedTask);
     },
     getChildPayload(index) {
+
+      // console.log('indexindexindex',index,groupId);
       return this.currGroup.tasks[index];
       // generate custom payload data here
     },
     onDrop(dropResult) {
-      this.currGroup.tasks = this.applyDrag(this.currGroup.tasks, dropResult);
-      // this.$store.dispatch({type: 'updateBoard'},{board:this.currBoard})
-      // console.log(this.currBoard);
-      // this.$store.dispatch({
-      //   type: 'updateBoard',
-      //   board:this.currBoard,
-      //   // boardId: this.boards[0]._id,
-      // });
+      
+      // console.log('dropResult',dropResult);
+      const { removedIndex, addedIndex, payload } = dropResult;
+      console.log('removedIndex, addedIndex', removedIndex, addedIndex);
+
+   this.currGroup.tasks = this.applyDrag(this.currGroup.tasks, dropResult);
+      // this.currGroups.push(this.currGroup)
+
+
+// if (this.currBoard.groups.length === this.counter-1) {
+// console.log('this.currGroups',this.currGroups);
+// }
+
+
+// var groupIdx = this.currBoard.groups.findIndex(group =>group.id ===this.currGroup.id)
+// this.currBoard.groups[groupIdx].tasks = this.currGroup.tasks
+
+// console.log('this.currBoard',this.currBoard);
+
+        this.$store.dispatch({
+          type: 'updateGroup',
+          currGroup: this.currGroup,
+          boardId: this.board._id,
+        });
+
+
+
     },
     applyDrag(arr, dragResult) {
       // console.log('currBoard:', this.currBoard)
       const { removedIndex, addedIndex, payload } = dragResult;
+
+      this.counter++
+      console.log('this.counter',this.counter);
+
+      // console.log('removedIndex, addedIndex',removedIndex, addedIndex);
 
       if (removedIndex === null && addedIndex === null) return arr;
       const result = [...arr];
@@ -153,21 +183,33 @@ export default {
       if (addedIndex !== null) {
         result.splice(addedIndex, 0, taskToAdd);
       }
-      // if (result === []){
-      //   result.push(taskToAdd)
-      // }
-      // console.log('this.currGroup',this.currGroup)
-
-      this.$store.dispatch({
-        type: 'updateGroup',
-        currGroup: this.currGroup,
-        boardId: this.board._id,
-      });
+      // console.log('result',result);      
       return result;
     },
+    //     async applyDrag(arr, dragResult) {
+    //       // console.log('currBoard:', this.currBoard)
+    //       const { removedIndex, addedIndex, payload } = dragResult;
+
+    //       if (removedIndex === null && addedIndex === null) return arr;
+    //       const result = [...arr];
+    //       let taskToAdd = payload;
+
+    //         // console.log('removedIndex, addedIndex',removedIndex, addedIndex);
+
+    //       if (removedIndex !== null) {
+    //         // taskToAdd = result.splice(removedIndex, 1)[0];
+    //         await this.remove(result[removedIndex].id)
+    //       }
+    //       if (addedIndex !== null) {
+    //         // result.splice(addedIndex, 0, taskToAdd);
+    // await this.$emit('addItem', this.group.id, taskToAdd,addedIndex);
+    //       }
+
+    //       return result;
+    //     },
     remove(itemId) {
-      var itemIdx = this.currGroup.tasks.findIndex((task) => task.id === itemId);
-      this.currGroup.tasks.splice(itemIdx, 1);
+      // var itemIdx = this.currGroup.tasks.findIndex((task) => task.id === itemId);
+      // this.currGroup.tasks.splice(itemIdx, 1);
       this.$emit('removeItem', itemId, this.group.id);
     },
     getEmptyNewTask() {
@@ -191,7 +233,7 @@ export default {
 </script>
 
 <style>
-.taskDrag{
-background-color: red;
+.taskDrag {
+  background-color: red;
 }
 </style>
