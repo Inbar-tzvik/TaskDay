@@ -9,7 +9,7 @@ export default {
     // user: authService.getLoggedinUser(),
     // currToy: toyService.getEmptyToy(),
     // toysForDisplay: null,
-    FilterBy: null,
+    filterBy: null,
     // labels: [“funny”, “sad”, “On wheels”, “Box game”, “Art”, “Baby”, “Doll”, “Puzzle”, “Outdoor”]
   },
   getters: {
@@ -17,21 +17,44 @@ export default {
       return JSON.parse(JSON.stringify(state.boards));
     },
     currBoard(state) {
-      // console.log('currBoard', state.currBoard);
-      //the menu should set the curr board!!! if not - [0]
-      // if (state.filterBy.title) {
-      //     // email.isRead === filter.isReadnow &&
-      //     var regex = new RegExp(filter.txt, ‘i’);
-      //     var result = emailsBeforeFil.filter((email) => {
-      //       return (
-      //         loggedinUser.email !== email.to &&
-      //         (regex.test(email.subject) || regex.test(email.from.name) || regex.test(email.body))
-      //       );
+      console.log('state.filterBy', state.filterBy);
+      if (state.filterBy) {
+        //     // email.isRead === filter.isReadnow &&
+
+        var regex = new RegExp(state.filterBy.title, 'i');
+        var result = state.currBoard.groups.filter((group) => regex.test(group.title));
+        var copyCurrBoard = JSON.parse(JSON.stringify(result));
+        console.log('befoe tasks', copyCurrBoard);
+        copyCurrBoard.groups = result;
+        for (var i = 0; i < state.currBoard.groups.length; i++) {
+          var groupRun = JSON.parse(JSON.stringify(state.currBoard.groups[i]));
+          var taskFiltered = state.currBoard.groups[i].tasks.filter((task) => regex.test(task.title));
+          console.log(` group ${i}`, taskFiltered);
+          if (taskFiltered.length > 0) {
+            if (!copyCurrBoard.groups.find((group) => group.id === groupRun.id)) {
+              groupRun.tasks = taskFiltered;
+              copyCurrBoard.groups.push(groupRun);
+            }
+          }
+        }
+
+        console.log('after flter', copyCurrBoard);
+
+        return copyCurrBoard;
+      } else {
+        // console.log('fullBoard', JSON.parse(JSON.stringify(state.currBoard)));
+        return JSON.parse(JSON.stringify(state.currBoard));
+      }
+
       //     });
       //   }
       //   //the menu should set the curr board!!! if not - [0]
       // //   else return JSON.parse(JSON.stringify(state.boards[0]));
-      return JSON.parse(JSON.stringify(state.currBoard));
+      // },
+      // console.log(‘currBoard’, state.currBoard);
+      //the menu should set the curr board!!! if not - [0]
+      // console.log('currBoard', state.currBoard);
+      //the menu should set the curr board!!! if not - [0]
     },
   },
   mutations: {
@@ -51,11 +74,25 @@ export default {
       state.currBoard = board;
       // console.log(state.currBoard);
     },
-    addItem(state, { boardId, groupId, task }) {
-      const idx = state.currBoard.groups.findIndex((group) => group.id === groupId);
-      state.currBoard[idx].tasks.push(task);
-      console.log(state.currBoard);
+    addItem(state, { board, groupId, task }) {
+      //I ADDED TO CURR BOARD - BUT! also can do it for state.boards!(maybe its better, ask shani)
+
+      // var boardIdx = state.boards.findIndex(boardFromStates => boardFromStates._id === board._id)
+      var groupIdx = state.currBoard.groups.findIndex((group) => group.id === groupId);
+      // console.log(board, boardIdx);
+      // state.boards[boardIdx] = board
+      // console.log(state.currBoard.groups[0].tasks);
+      state.currBoard.groups[groupIdx].tasks.push(task);
+      console.log('state.currBoard', state.currBoard);
+      // state.currBoard.groups[0].tasks.push(task)
+      // console.log('gor inside');
+      // state.boards = 0;
+      // state.currBoard = 0
+      // console.log('groupIdx,boardIdx', groupIdx, boardIdx);
+      // console.log(state.currBoard);
+      // console.log(boardId, groupId, task);
     },
+    //update group name current
   },
   actions: {
     async loadBoards({ commit, state }) {
@@ -101,24 +138,26 @@ export default {
     },
     //saving item
     async addItem({ dispatch, commit }, { boardId, groupId, task }) {
-      console.log(boardId, groupId, { ...task });
       try {
         await boardGroupService.saveTask(boardId, groupId, task);
+        var board = await boardGroupService.getBoardById(boardId);
         commit({
           type: 'addItem',
-          boardId,
+          board,
           groupId,
           task,
         });
+
         // dispatch({ type: 'loadBoards' });
       } catch (err) {
         console.log('Couldnt save item', err);
-        // commit({
-        //   type: 'setIsError',
-        //   isError: true,
-        // });
+        commit({
+          type: 'setIsError',
+          isError: true,
+        });
       }
     },
+
     async addGroup({ dispatch }, { boardId }) {
       try {
         await boardGroupService.createEmptyGroup(boardId);
@@ -131,6 +170,7 @@ export default {
         // });
       }
     },
+
     async updateGroup({ dispatch }, { boardId, currGroup }) {
       try {
         console.log('updating group...');
@@ -140,6 +180,7 @@ export default {
         console.log('Couldnt save item', err);
       }
     },
+
     async updateBoard({ dispatch }, { board }) {
       try {
         console.log('updating');
@@ -154,12 +195,13 @@ export default {
       // var board = state.boards.filter(board => board._id === boardId)
       var board = await boardGroupService.getBoardById(boardId);
       // console.log('board in setCuttboard', board);
+
       commit({ type: 'setCurrBoard', board });
       dispatch({ type: 'loadBoards' });
     },
     setFilter({ commit, dispatch }, { filterBy }) {
       commit({ type: 'setFilter', filterBy });
-      dispatch({ type: 'loadBoards' });
+      //   dispatch({ type: 'loadBoards' });
     },
   },
 };

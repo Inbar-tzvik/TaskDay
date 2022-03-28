@@ -11,7 +11,6 @@
         <span class="search-icon"> <search-icon /></span>
         <input type="text" placeholder="Search" @input="setFilterTitle" v-model="filterBy.title" />
       </div>
-      <pre>{{ filterBy }}</pre>
       <button>
         <span>
           <!-- <img

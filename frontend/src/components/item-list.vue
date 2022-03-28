@@ -7,7 +7,7 @@
       orientation="vertical"
       @drop="onDrop($event, 'tasksForDrop')"
     >
-      <Draggable v-for="task in currGroup.tasks" :key="task.id">
+      <Draggable v-for="task in group.tasks" :key="task.id">
         <!-- <li v-for="task in group.tasks" :key="task.id" class="row-item"> -->
         <li class="row-item" @click="isClicked = false">
           <el-dropdown class="side-drop-down" trigger="click">
@@ -65,6 +65,9 @@
         <button v-if="isClicked" @click="addItem(group.id)">Add</button>
       </form>
       <div class="end-row"></div>
+    </div>
+    <div class="task-full-line">
+      <div class="status-progress-bar"></div>
     </div>
   </section>
 </template>
@@ -193,5 +196,19 @@ export default {
 <style>
 .taskDrag {
   background-color: red;
+}
+.status-progress-bar {
+  height: 40px;
+  width: 168px;
+  background-color: #f5f6f8;
+
+  /* left: -800px; */
+}
+.task-full-line {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) repeat(6, 200px) 30px;
+  height: 40px;
+  display: block;
+  /* width: 799px; */
 }
 </style>
