@@ -1,7 +1,7 @@
 <template>
   <section class="flex">
     <div class="empty-div"></div>
-    <section v-if="boards" class="main-board">
+    <section v-if="board" class="main-board">
       <section class="board-header-content">
         <board-header-main @circleClicked="circleClicked" />
 
@@ -12,7 +12,7 @@
         <!-- </div> -->
       </section>
       <section class="board-content">
-        <!-- <h1>{{ boards[0].title }}</h1> -->
+        <!-- <h1>{{ board.title }}</h1> -->
 
         <!-- <font-awesome-icon icon="arrow-down" /> -->
         <group-list
@@ -22,15 +22,10 @@
           @deleteGroup="deleteGroup"
           @removeItem="removeItem"
           @editTask="editTask"
-          :boards="boards"
+          :board="board"
         />
       </section>
 
-      <!-- <pre>{{ boards.groups }}</pre> -->
-      <!-- <group-list @removeToy="removeToy" v-if="toys" :toys="toys" /> -->
-
-      <!-- <fun-filter></fun-filter>
-    <fun-list /> -->
       <details-modal></details-modal>
     </section>
   </section>
@@ -51,11 +46,13 @@ import detailsModal from '../components/modals/details-modal.vue';
 export default {
   name: 'main-board',
   data() {
-    return {};
+    return {
+    };
   },
   computed: {
-    boards() {
-      return this.$store.getters.boards;
+     board() {
+       //TODO -"this.$store.getters.boards" this sould be for boards-menu and then to store - "setCurrBoard"
+      return this.$store.getters.currBoard
     },
   },
   created() {},
@@ -64,7 +61,7 @@ export default {
       this.$store.dispatch({
         type: 'updateGroup',
         currGroup: currGroup,
-        boardId: this.boards[0]._id,
+        boardId: this.board._id,
       });
     },
 
@@ -73,7 +70,7 @@ export default {
         type: 'removeItem',
         itemId: itemId,
         groupId: groupId,
-        boardId: this.boards[0]._id,
+        boardId: this.board._id,
       });
     },
     setFilter(filterBy) {
@@ -83,27 +80,28 @@ export default {
       console.log(groupId, task);
       this.$store.dispatch({
         type: 'addItem',
-        boardId: this.boards[0]._id,
+        boardId: this.board._id,
         groupId: groupId,
         task: task,
       });
     },
     deleteGroup(groupId) {
-      // console.log(groupId, this.boards[0]._id);
+      // console.log(groupId, this.board._id);
       this.$store.dispatch({
         type: 'removeGroup',
-        boardId: this.boards[0]._id,
+        boardId: this.board._id,
         groupId: groupId,
       });
     },
     addGroup() {
-      this.$store.dispatch({ type: 'addGroup', boardId: this.boards[0]._id });
+      // this.users = this.$store.getters.currBoard
+      this.$store.dispatch({ type: 'addGroup', boardId: this.$store.getters.currBoard._id });
     },
     editTask(groupId, item) {
       console.log(groupId, item);
       this.$store.dispatch({
         type: 'addItem',
-        boardId: this.boards[0]._id,
+        boardId: this.board._id,
         groupId: groupId,
         task: item,
       });
@@ -112,7 +110,7 @@ export default {
       console.log('i am in board', groupId, task);
       this.$store.dispatch({
         type: 'addItem',
-        boardId: this.boards[0]._id,
+        boardId: this.board._id,
         groupId: groupId,
         task: task,
       });

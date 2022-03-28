@@ -4,6 +4,7 @@ import { authService } from '../../services/auth-service';
 export default {
     state: {
         boards: [],
+        currBoard: null,
         // user: authService.getLoggedinUser(),
         // currToy: toyService.getEmptyToy(),
         // toysForDisplay: null,
@@ -13,6 +14,10 @@ export default {
     getters: {
         boards(state) {
             return JSON.parse(JSON.stringify(state.boards));
+        },
+        currBoard(state) {
+            //the menu should set the curr board!!! if not - [0]
+            return JSON.parse(JSON.stringify(state.boards[0]));
         },
     },
     mutations: {
@@ -26,32 +31,14 @@ export default {
         setFilter(state, { filterBy }) {
             state.filterBy = filterBy;
         },
-        // saveToy(state, { savedToy }) {
-        //     const idx = state.toys.findIndex((toy) => toy._id === savedToy._id);
-        //     if (idx !== -1) state.toys.splice(idx, 1, savedToy);
-        //     else state.toys.unshift(savedToy);
-        // },
+        setCurrBoard(state, { board }) {
+            //TODO - find board by id or index and set!
+            // state.currBoard = board;
+            state.currBoard = state.boards[0]
+        },
+
     },
     actions: {
-        //load all boards from DB
-        // },
-        async loadBoards({ commit, state }) {
-            console.log('loading board');
-            try {
-                const boards = await boardGroupService.query(state.filterBy);
-                console.log(boards);
-                commit({
-                    type: 'setBoards',
-                    boards,
-                });
-            } catch {
-                // commit({
-                //   type: 'setIsError',
-                //   isError: true,
-                // });
-                console.log('error occured while getting board');
-            }
-        },
         async loadBoards({ commit, state }) {
             try {
                 const boards = await boardGroupService.query(state.filterBy);
@@ -130,6 +117,7 @@ export default {
                 console.log('Couldnt save item', err);
             }
         },
+
         async updateBoard({ dispatch }, { board }) {
             try {
                 console.log('updating');
@@ -139,6 +127,11 @@ export default {
             } catch (err) {
                 console.log('Couldnt save item', err);
             }
+        },
+        async setCurrBoard({ commit, dispatch }, { board }) {
+            commit({ type: 'setCurrBoard', board });
+            dispatch({ type: 'loadBoards' });
+
         },
         setFilter({ commit, dispatch }, { filterBy }) {
             commit({ type: 'setFilter', filterBy });
