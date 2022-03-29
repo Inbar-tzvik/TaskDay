@@ -27,10 +27,13 @@ async function deleteGroup(req, res) {
 
 async function addGroup(req, res) {
     try {
-        const boardId = req.query.boardId
-        var group = req.body
+        const boardId = req.body.boardId
+        var group = req.body.group
+            // console.log('req.query.boardId', req.body.boardId);
             // group.byUserId = req.session.user._id
         group = await groupService.add(boardId, group)
+
+
 
         // // prepare the updated group for sending out
         // group.aboutUser = await userService.getById(group.aboutUserId)

@@ -29,13 +29,16 @@ async function query(filterBy = {}) {
 
 }
 async function update(boardId, group) {
+    //MONGO
     try {
-        const boardIdx = gBoards.findIndex(board => board._id === boardId)
-        const groupIdx = gBoards[boardIdx].groups.findIndex(groupFromGroups => groupFromGroups.id === group.id)
-        console.log('groupIdx', groupIdx);
-        gBoards[boardIdx].groups[groupIdx] = group
-        _saveBoardsToFile()
-        return group
+        const _id = ObjectId(boardId)
+        const collection = await dbService.getCollection('board')
+        const resGroup = await collection.updateOne({ "_id": _id, "groups.id": group.id }, {
+            $set: {
+                "groups.$": group
+            }
+        })
+        return resGroup
     } catch (err) {
         console.log(err);
         logger.error('cannot find group', err)
@@ -43,24 +46,23 @@ async function update(boardId, group) {
     }
 
 
-
+    // LOCAL:
     // try {
-    //     const _id = ObjectId(boardId)
-    //     const collection = await dbService.getCollection('board')
-    //     const resGroup = await collection.updateOne(
-    //         { "_id": _id, "groups.id": group.id },
-    //         {
-    //             $set: {
-    //                 "groups.$": group
-    //             }
-    //         }
-    //     )
-    //     return resGroup
+    //     const boardIdx = gBoards.findIndex(board => board._id === boardId)
+    //     const groupIdx = gBoards[boardIdx].groups.findIndex(groupFromGroups => groupFromGroups.id === group.id)
+    //     console.log('groupIdx', groupIdx);
+    //     gBoards[boardIdx].groups[groupIdx] = group
+    //     _saveBoardsToFile()
+    //     return group
     // } catch (err) {
     //     console.log(err);
     //     logger.error('cannot find group', err)
     //     throw err
     // }
+
+
+
+
 }
 
 async function remove(boardId, groupId) {
