@@ -65,3 +65,11 @@ drop-down-main-board {
 
 // .el-drop
 // .el-popper is-pure is-light el-dropdown__popper"
+.done-gif {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 888888;
+  height: 34px;
+  width: 100%;
+}
