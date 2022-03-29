@@ -67,7 +67,24 @@
       <div class="end-row"></div>
     </div>
     <div class="task-full-line">
-      <div class="status-progress-bar"></div>
+      <div class="epmty-div"></div>
+      <div class="status-progress-bar">
+        <!-- <div class="colors-status"> -->
+        <div class="progress" style="width: 30%; background-color: #fec173"></div>
+        <div class="progress" style="width: 40%; background-color: #00c875"></div>
+        <div class="progress" style="width: 10%; background-color: #e2435c"></div>
+        <div class="progress" style="width: 20%; background-color: #c4c4c4"></div>
+        <!-- </div> -->
+      </div>
+      <div class="date"></div>
+      <div class="status-progress-bar">
+        <!-- <div class="colors-status"> -->
+        <div class="progress" style="width: 30%; background-color: #fec173"></div>
+        <div class="progress" style="width: 40%; background-color: #00c875"></div>
+        <div class="progress" style="width: 0%; background-color: #66b400"></div>
+        <div class="progress" style="width: 0%; background-color: rgb(141, 3, 72)"></div>
+        <!-- </div> -->
+      </div>
     </div>
   </section>
 </template>
@@ -131,6 +148,7 @@ export default {
   methods: {
     updatedStatus(updatedTask) {
       this.$emit('updatedStatus', this.group.id, updatedTask);
+      this.updateStatus();
     },
     getChildPayload(index) {
       // console.log('indexindexindex',index,groupId);
@@ -224,26 +242,47 @@ export default {
     editTask(item) {
       this.$emit('editTask', item, this.group.id);
     },
+    updateStatus() {},
   },
 };
 </script>
 
 <style>
+.progress {
+  max-width: 100%;
+  height: 100%;
+  max-width: 100%;
+  /* z-index: 1; */
+  height: 25px;
+  width: 20%;
+  background-color: green;
+}
 .taskDrag {
   background-color: red;
 }
+.colors-status {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
 .status-progress-bar {
+  width: 100%;
   height: 40px;
-  width: 168px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #f5f6f8;
 
   /* left: -800px; */
 }
 .task-full-line {
   display: grid;
-  grid-template-columns: minmax(320px, 1fr) repeat(6, 200px) 30px;
+  grid-template-columns: minmax(20px, 0.75fr) repeat(4, 190px) 30px;
   height: 40px;
-  display: block;
+  margin-left: 1px;
+  /* display: block; */
   /* width: 799px; */
 }
 </style>

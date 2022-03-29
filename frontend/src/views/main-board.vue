@@ -63,13 +63,13 @@ export default {
   },
   created() {},
   methods: {
-    updateGroup(currGroup,addedIdxForDrop = null) {
+    updateGroup(currGroup, addedIdxForDrop = null) {
       // console.log('currGroup,addedIdxForDrop',currGroup,addedIdxForDrop);
       this.$store.dispatch({
         type: 'updateGroup',
         currGroup: currGroup,
         boardId: this.board._id,
-        addedIdxForDrop
+        addedIdxForDrop,
       });
     },
     removeItem(itemId, groupId) {
@@ -83,7 +83,7 @@ export default {
     setFilter(filterBy) {
       this.$store.dispatch({ type: 'setFilter', filterBy });
     },
-    addItem(groupId, task,fromIdx = null) {
+    addItem(groupId, task, fromIdx = null) {
       // console.log(groupId, task);
       // console.log('fromIdx',fromIdx);
       this.$store.dispatch({
@@ -94,7 +94,7 @@ export default {
         fromIdx,
       });
     },
-    deleteGroup(groupId,removedIndex = null) {
+    deleteGroup(groupId, removedIndex = null) {
       this.$store.dispatch({
         type: 'removeGroup',
         boardId: this.board._id,
