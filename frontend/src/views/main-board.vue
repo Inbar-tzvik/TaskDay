@@ -1,6 +1,6 @@
 <template>
   <section class="flex">
-    <div class="empty-div"></div>
+    <div class="empty-div" v-if="!isDetails"></div>
     <section v-if="board" class="main-board">
       <section class="board-header-content">
         <board-header-main @circleClicked="circleClicked" />
@@ -23,7 +23,11 @@
           :board="board"
         />
       </section>
-      <details-modal v-if="isDetails" @closeDetails="closeDetails" :class="{ showModal: isDetails }"></details-modal>
+      <details-modal
+        v-if="isDetails"
+        @closeDetails="closeDetails"
+        :class="{ showModal: isDetails }"
+      ></details-modal>
     </section>
   </section>
   <!-- <button @click="goToEdit" class="btn btn-secondary">Add a new car</button> -->

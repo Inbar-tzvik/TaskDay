@@ -45,8 +45,11 @@
 
     <div class="details-container">
       <div class="update-details-page detail-page">
-        <div>
+        <div class="input-update">
           <input type="text" placeholder="Write an update" />
+          <div>
+            <button @click="updateComment()">update</button>
+          </div>
         </div>
         <div class="send-update">
           <div>
@@ -104,6 +107,24 @@
                 <p>seen</p>
               </div>
             </div>
+
+            <div class="reply-txt-container">
+              <div class="reply-txt">
+                <!-- <div
+                  class="txt-container"
+                  v-for="(reply, idx) in comment.reply"
+                  :key="idx"
+                >
+                  <div class="img-reply">
+                    <img :src="reply.byMember.imgUrl" alt="" />
+                  </div>
+                  <div>
+                    <p>{{ reply.txt }}</p>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+
             <div class="post-actions">
               <div
                 class="left-btn"
@@ -122,7 +143,33 @@
                     src="../../../styles/icon/reply.png"
                     alt=""
                 /></span>
-                <p>Reply</p>
+                <p @click="isReply = !isReply">Reply</p>
+              </div>
+            </div>
+            <div class="reply-container" v-if="isReply">
+              <div class="left-side-reply">
+                <div>
+                  <img class="user-img" :src="comment.byMember.imgUrl" alt="" />
+                </div>
+              </div>
+              <div class="right-side-reply">
+                <div class="input-btns-container">
+                  <div>
+                    <input type="text" />
+                  </div>
+
+                  <div class="btns-container-reply">
+                    <div>
+                      <span>
+                        <font-awesome-icon icon="file" />
+                        <a href="">Add files</a>
+                      </span>
+                    </div>
+                    <div class="reply-btn">
+                      <button>Reply</button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -145,10 +192,8 @@ export default {
   props: {},
   data() {
     return {
+      isReply: false,
       currDate: null,
-      task2: {
-        comment: 'ff',
-      },
       task: {
         id: 'c104',
         title: 'ASYdsssssNC?',
@@ -156,44 +201,74 @@ export default {
         description: 'description',
         comments: [
           {
-            id: 'ZdPnm',
+            id: 'ZdPsnm',
             txt: 'also @yaronb please CR this',
             createdAt: 1590999817436.0,
             byMember: {
-              _id: 'u101',
+              _id: 'u10b1',
               fullname: 'Itzik Vaknin',
               imgUrl: '../../../styles/shlomi.jpg',
             },
+            reply: [
+              {
+                byMember: {
+                  _id: 'u10bu1',
+                  fullname: 'Itzik Vaknin',
+                  imgUrl: '../../../styles/shlomi.jpg',
+                },
+                txt: 'this is reply',
+              },
+            ],
             isLike: true,
           },
           {
-            id: 'ZdPnm',
+            id: 'ZdPdnm',
             txt: 'commentssss',
             createdAt: 1590999817436.0,
             byMember: {
-              _id: 'u101',
+              _id: 'u10f1',
               fullname: 'Itzik Vaknin',
               imgUrl: '../../../styles/shlomi.jpg',
             },
+            reply: [
+              {
+                byMember: {
+                  _id: 'u1v0b1',
+                  fullname: 'Itzik Vaknin',
+                  imgUrl: '../../../styles/shlomi.jpg',
+                },
+                txt: 'this is reply',
+              },
+            ],
             isLike: false,
           },
           {
-            id: 'ZdPnm',
+            id: 'ZdPtnm',
             txt: 'com ghjc ntssss',
             createdAt: 1590999417436.0,
             byMember: {
-              _id: 'u101',
+              _id: 'u10d1',
               fullname: 'shlkomi',
               imgUrl: '../../../styles/shlomi.jpg',
             },
+            reply: [
+              {
+                byMember: {
+                  _id: 'u1c0b1',
+                  fullname: 'Itzik Vaknin',
+                  imgUrl: '../../../styles/shlomi.jpg',
+                },
+                txt: 'this is reply',
+              },
+            ],
             isLike: false,
           },
           {
-            id: 'ZdPnm',
+            id: 'ZdPjnm',
             txt: 'com ghjc ntssss',
             createdAt: 1590999417436.0,
             byMember: {
-              _id: 'u101',
+              _id: 'u1x01',
               fullname: 'shlkomi',
               imgUrl: '../../../styles/shlomi.jpg',
             },
@@ -215,7 +290,7 @@ export default {
         ],
         members: [
           {
-            _id: 'u101',
+            _id: 'u1m01',
             username: 'Tal',
             fullname: 'Itzik Vaknin',
             imgUrl:
@@ -226,7 +301,7 @@ export default {
         createdAt: 1590999730348,
         dueDate: 16156215211,
         byMember: {
-          _id: 'u101',
+          _id: 'u10o1',
           username: 'Tal',
           fullname: 'Tal Tarablus',
           imgUrl:
@@ -255,12 +330,13 @@ export default {
       this.$emit('closeDetails');
     },
     setLike(commentId) {
-      // console.log({ ...this.task });
-      console.log(JSON.parse(JSON.stringify(this.task)));
+      console.log(commentId);
+      // console.log(JSON.parse(JSON.stringify(this.task)));
       var idx = this.task.comments.findIndex(
         (comment) => comment.id === commentId
       );
-      console.log(idx);
+      // console.log(idx);
+      this.task.comments[idx].isLike = !this.task.comments[idx].isLike;
     },
   },
 };
