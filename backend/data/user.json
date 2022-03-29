@@ -12,10 +12,10 @@
         "isAdmin": true
     }, {
         "_id": "u102",
-        "fullname": "Ganesh",
+        "fullname": "Zohar Ganesh",
         "username": "1234",
         "password": "4321",
-        "imgUrl": "http://some-img.jpg",
+        "imgUrl": "https://upload.wikimedia.org/wikipedia/en/0/01/Zohar_Argov_%281980s%29.jpg",
         "mentions": [{
             "id": "m101",
             "boardId": "62430dc81cdd644b3e5acabd",
@@ -28,7 +28,7 @@
         "fullname": "Baba Ninja",
         "username": "1234",
         "password": "4321",
-        "imgUrl": "http://some-img.jpg",
+        "imgUrl": "https://cdn.myimgstock.com/myimgstock/preview/sri-sai-baba-face-images-photos-2-11609604164xclnpdmkfv.jpg",
         "mentions": [{
             "id": "m101",
             "boardId": "62430dc81cdd644b3e5acabd",
