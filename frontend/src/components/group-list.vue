@@ -8,40 +8,40 @@
     >
       <Draggable v-for="group in board.groups" :key="group.id">
         <ul>
-          <div class="group-title-btn">
-            <el-dropdown trigger="click">
-              <span class="el-dropdown-link">
-                <font-awesome-icon
-                  class="group-arrow"
-                  icon="caret-down"
-                  :style="{
-                    backgroundColor: group.style.color,
-                    borderColor: group.style.color,
-                    color: group.style.color,
-                  }"
-                />
-                <el-icon class="el-icon--right">
-                  <!-- <arrow-down /> -->
-                </el-icon>
-              </span>
-              <template #dropdown>
-                <el-dropdown-menu>
-                  <el-dropdown-item @click="deleteGroup(group.id)">
-                    <font-awesome-icon icon="trash-can" />Delete
-                  </el-dropdown-item>
-                  <el-dropdown-item>
-                    <font-awesome-icon
-                      icon="circle"
-                      :style="{
-                        color: group.style.color,
-                      }"
-                    />Change group color
-                  </el-dropdown-item>
-                </el-dropdown-menu>
-              </template>
-            </el-dropdown>
-          </div>
           <div class="group-header-columns">
+            <div class="group-title-btn">
+              <el-dropdown trigger="click">
+                <span class="el-dropdown-link">
+                  <font-awesome-icon
+                    class="group-arrow"
+                    icon="caret-down"
+                    :style="{
+                      backgroundColor: group.style.color,
+                      borderColor: group.style.color,
+                      color: group.style.color,
+                    }"
+                  />
+                  <el-icon class="el-icon--right">
+                    <!-- <arrow-down /> -->
+                  </el-icon>
+                </span>
+                <template #dropdown>
+                  <el-dropdown-menu>
+                    <el-dropdown-item @click="deleteGroup(group.id)">
+                      <font-awesome-icon icon="trash-can" />Delete
+                    </el-dropdown-item>
+                    <el-dropdown-item>
+                      <font-awesome-icon
+                        icon="circle"
+                        :style="{
+                          color: group.style.color,
+                        }"
+                      />Change group color
+                    </el-dropdown-item>
+                  </el-dropdown-menu>
+                </template>
+              </el-dropdown>
+            </div>
             <div class="group-name-all" @mouseover="openGroupName = true" @mouseleave="openGroupName = false">
               <div class="group-name-func" v-show="openGroupName">
                 <!-- <div class="group-name-collase">V</div> -->
@@ -103,6 +103,7 @@
             @addItem="addItem"
             @removeItem="removeItem"
           />
+          <!-- <item-sum v-for="cmp in board.cmpsOrder" :key="cmp" :group="group" :cmp="cmp" /> -->
           <!-- <toy-preview @removeToy="removeToy" v-for="toy in toys" :key="toy.id" :toy="toy" /> -->
         </ul>
       </Draggable>
@@ -224,16 +225,22 @@ export default {
 .cmp-column-title {
   color: #676879;
   left: 168px;
-  width: 188px;
+  min-width: 188px;
   justify-content: space-between;
   align-items: center;
   /* margin: 0 5px; */
   /* //TODO - height should be determine! */
-  height: 100%;
+  height: 40px;
 }
 .cmp-column-title:hover {
   background-color: #f5f6f8;
   /* transition: 0s; */
+}
+.inside-column-left {
+  height: 100%;
+  width: 20px;
+  display: flex;
+  align-items: center;
 }
 .inside-column-left svg path {
   cursor: move;

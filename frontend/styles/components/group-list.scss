@@ -24,6 +24,7 @@
 }
 .group-header-columns {
   display: flex;
+  // justify-content: space-around;
   gap: 2px;
   margin-bottom: 3px;
   // justify-content: center;
@@ -43,15 +44,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
   // width: 30px;
-  left: -20px;
-  margin-top: 10px;
+  left: 10px;
+  padding-top: 16px;
+  // margin-right: 15px;
+  position: sticky;
+  z-index: 8;
+
   // height: 100%;
 }
 .group-name-all {
-  width: 695px;
-  position: relative;
+  min-width: 695px;
+  position: sticky;
   min-height: 40px;
   text-align: left;
   // flex: 1 0 308px;
@@ -59,7 +63,13 @@
   display: flex;
   align-items: center;
   padding-bottom: 1px;
-  z-index: 1;
+  z-index: 4;
+  left: 30px;
+  background-color: white;
+  opacity: 0.9;
+  padding-left: 6px;
+  // padding-right: 10px;
+  // margin-right: 14px;
   &:hover {
     // position: relative;
     transition: margin-left 0.1s ease;
@@ -68,6 +78,9 @@
 .group-name {
   border: none;
   font-size: 18px;
+  position: sticky;
+  z-index: 4;
+  left: 32px;
 }
 
 .fa-caret-down {
@@ -99,4 +112,9 @@
 }
 .svg-inline--fa {
   margin-right: 5px;
+}
+
+.board-content {
+  // overflow-x: auto;
+  flex: 1;
 }

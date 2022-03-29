@@ -80,13 +80,13 @@ el-date-picker {
 }
 .demo-date-picker {
   margin: 0 auto;
-  height: 2.57rem;
+  height: 2.42rem;
   background-color: #f5f6f8;
 
   display: block;
   color: var(--el-text-color-secondary);
   font-size: 14px;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
 }
 .el-date-editor .el-range__icon {
   display: none;

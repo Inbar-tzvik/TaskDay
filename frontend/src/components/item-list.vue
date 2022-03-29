@@ -66,26 +66,6 @@
       </form>
       <div class="end-row"></div>
     </div>
-    <div class="task-full-line">
-      <div class="epmty-div"></div>
-      <div class="status-progress-bar">
-        <!-- <div class="colors-status"> -->
-        <div class="progress" style="width: 30%; background-color: #fec173"></div>
-        <div class="progress" style="width: 40%; background-color: #00c875"></div>
-        <div class="progress" style="width: 10%; background-color: #e2435c"></div>
-        <div class="progress" style="width: 20%; background-color: #c4c4c4"></div>
-        <!-- </div> -->
-      </div>
-      <div class="date"></div>
-      <div class="status-progress-bar">
-        <!-- <div class="colors-status"> -->
-        <div class="progress" style="width: 30%; background-color: #fec173"></div>
-        <div class="progress" style="width: 40%; background-color: #00c875"></div>
-        <div class="progress" style="width: 0%; background-color: #66b400"></div>
-        <div class="progress" style="width: 0%; background-color: rgb(141, 3, 72)"></div>
-        <!-- </div> -->
-      </div>
-    </div>
   </section>
 </template>
 
@@ -279,10 +259,17 @@ export default {
 }
 .task-full-line {
   display: grid;
-  grid-template-columns: minmax(20px, 0.75fr) repeat(4, 190px) 30px;
+  grid-template-columns: 695px repeat(4, 190px) 30px;
   height: 40px;
-  margin-left: 1px;
+  left: 30px;
+  margin-left: 25px;
   /* display: block; */
   /* width: 799px; */
+}
+.epmty-div {
+  position: sticky;
+  left: 40px;
+  background-color: white;
+  opacity: 0.9;
 }
 </style>
