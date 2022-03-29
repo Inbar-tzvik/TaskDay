@@ -1,7 +1,8 @@
 <template>
   <section class="dropDownMenuWrapper">
     <button :style="styleObj" class="dropDownMenuButton" ref="menu" @click="openClose">
-      {{ currTask.status }}
+      <span v-if="!isPlay">{{ currTask.status }} </span>
+      <span v-else> <img class="done-gif" src="../assets/done.gif" alt="" /> {{ currTask.status }} </span>
     </button>
 
     <section class="dropdownMenu" v-if="isOpen">
@@ -22,6 +23,7 @@ export default {
   }, // Menu title from the parent
   data() {
     return {
+      isPlay: false,
       currTask: JSON.parse(JSON.stringify(this.task)),
       opts: [],
       val: '',
@@ -48,6 +50,14 @@ export default {
     (this.styleObj['border-color'] = this.bgColor(this.currTask.status)), '#fff';
   },
   methods: {
+    changeStatusForImg() {
+      console.log(this.$refs);
+      this.isPlay = true;
+      setTimeout(() => {
+        this.isPlay = false;
+      }, 2500);
+    },
+
     openClose() {
       // Toggle between open or closed ( true || false )
       this.isOpen = !this.isOpen;
@@ -67,6 +77,7 @@ export default {
       updatedTask.status = value;
       this.currTask.status = value;
       this.styleObj.backgroundColor = this.bgColor(this.currTask.status);
+      if (value === 'Done') this.changeStatusForImg();
       this.$emit('updatedStatus', updatedTask);
     },
   },

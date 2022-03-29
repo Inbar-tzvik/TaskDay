@@ -123,51 +123,5 @@ export default {
 };
 </script>
 <style>
-.progress {
-  max-width: 100%;
-  height: 100%;
-  max-width: 100%;
-  /* z-index: 1; */
-  height: 25px;
-  width: 20%;
-  background-color: green;
-}
-.taskDrag {
-  background-color: red;
-}
-.colors-status {
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
-.progress-bar {
-  /* width: 100%; */
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f5f6f8;
 
-  /* left: -800px; */
-}
-.el-progress-bar {
-  height: 25px;
-}
-.task-full-line {
-  display: grid;
-  grid-template-columns: 695px repeat(4, 190px) 30px;
-  height: 40px;
-  left: 30px;
-  margin-left: 25px;
-  /* display: block; */
-  /* width: 799px; */
-}
-.epmty-div {
-  position: sticky;
-  left: 40px;
-  background-color: white;
-  opacity: 0.9;
-}
 </style>
