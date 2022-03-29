@@ -1,11 +1,11 @@
 <template>
   <section class="app-container flex">
+    <nav-bar @menuClicked="this.isModalClicked = !this.isModalClicked" />
     <work-space-modal
       :class="[isModalClicked ? 'left' : '']"
       @closeModal="this.isModalClicked = !this.isModalClicked"
     ></work-space-modal>
 
-    <nav-bar @menuClicked="this.isModalClicked = !this.isModalClicked" />
     <router-view @circleClicked="this.isModalClicked = !this.isModalClicked" />
   </section>
 </template>

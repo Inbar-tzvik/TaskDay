@@ -1,6 +1,6 @@
 <template>
   <section class="flex">
-    <div class="empty-div"></div>
+    <div class="empty-div" v-if="!isDetails"></div>
     <section v-if="board" class="main-board">
       <section class="board-header-content">
         <board-header-main @circleClicked="circleClicked" />
@@ -23,7 +23,11 @@
           :board="board"
         />
       </section>
-      <details-modal v-if="isDetails" @closeDetails="closeDetails" :class="{ showModal: isDetails }"></details-modal>
+      <details-modal
+        v-if="isDetails"
+        @closeDetails="closeDetails"
+        :class="{ showModal: isDetails }"
+      ></details-modal>
     </section>
   </section>
   <!-- <button @click="goToEdit" class="btn btn-secondary">Add a new car</button> -->
@@ -63,13 +67,13 @@ export default {
   },
   created() {},
   methods: {
-    updateGroup(currGroup,addedIdxForDrop = null) {
+    updateGroup(currGroup, addedIdxForDrop = null) {
       // console.log('currGroup,addedIdxForDrop',currGroup,addedIdxForDrop);
       this.$store.dispatch({
         type: 'updateGroup',
         currGroup: currGroup,
         boardId: this.board._id,
-        addedIdxForDrop
+        addedIdxForDrop,
       });
     },
     removeItem(itemId, groupId) {
@@ -83,7 +87,7 @@ export default {
     setFilter(filterBy) {
       this.$store.dispatch({ type: 'setFilter', filterBy });
     },
-    addItem(groupId, task,fromIdx = null) {
+    addItem(groupId, task, fromIdx = null) {
       // console.log(groupId, task);
       // console.log('fromIdx',fromIdx);
       this.$store.dispatch({
@@ -94,7 +98,7 @@ export default {
         fromIdx,
       });
     },
-    deleteGroup(groupId,removedIndex = null) {
+    deleteGroup(groupId, removedIndex = null) {
       this.$store.dispatch({
         type: 'removeGroup',
         boardId: this.board._id,
