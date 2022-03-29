@@ -103,8 +103,10 @@
             @addItem="addItem"
             @removeItem="removeItem"
           />
-          <!-- <item-sum v-for="cmp in board.cmpsOrder" :key="cmp" :group="group" :cmp="cmp" /> -->
           <!-- <toy-preview @removeToy="removeToy" v-for="toy in toys" :key="toy.id" :toy="toy" /> -->
+          <li c v-if="board.cmpsOrder">
+            <item-sum :group="group" :cmps="board.cmpsOrder" />
+          </li>
         </ul>
       </Draggable>
     </Container>
@@ -115,6 +117,7 @@
 import { ArrowDown } from '@element-plus/icons-vue';
 import itemList from './item-list.vue';
 import { Container, Draggable } from 'vue3-smooth-dnd';
+import itemSum from './item-sum.vue';
 
 export default {
   props: {
@@ -158,6 +161,7 @@ export default {
     itemList,
     Container,
     Draggable,
+    itemSum,
   },
   methods: {
     getChildPayload(index) {

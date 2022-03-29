@@ -209,7 +209,7 @@ currTasks: JSON.parse(JSON.stringify(this.group.tasks)),
 }
 .task-full-line {
   display: grid;
-  grid-template-columns: 695px repeat(4, 190px) 30px;
+  grid-template-columns: 700px repeat(4, 190px) 30px;
   height: 40px;
   left: 30px;
   margin-left: 25px;
