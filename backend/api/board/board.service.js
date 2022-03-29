@@ -121,6 +121,7 @@ async function update(board) {
         logger.error(`cannot update board ${boardId}`, err)
         throw err
     }
+
     // FOR LOCAL DB + SERVER:
     // try {
     //     var updateIdx = gBoards.findIndex(boardFromBoards => boardFromBoards._id === board._id)
