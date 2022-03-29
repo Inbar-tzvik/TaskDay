@@ -758,3 +758,6 @@
 3/29/2022, 5:59:49 PM - INFO - Server is running on port: 3030
 3/29/2022, 7:35:12 PM - INFO - Server is running on port: 3030
 3/29/2022, 7:35:32 PM - INFO - Server is running on port: 3030
+3/30/2022, 12:19:39 AM - INFO - Server is running on port: 3030
+3/30/2022, 12:25:51 AM - DEBUG - auth.service - login with username: mama
+3/30/2022, 12:25:52 AM - ERROR - Failed to Login Invalid username or password
