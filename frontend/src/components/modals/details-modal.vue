@@ -146,9 +146,12 @@ export default {
   data() {
     return {
       currDate: null,
+      task2: {
+        comment: 'ff',
+      },
       task: {
         id: 'c104',
-        title: 'כשיוצרים טאסק\גרופ ריק, יש צורך בASYNC?',
+        title: 'ASYdsssssNC?',
         status: 'in-progress',
         description: 'description',
         comments: [
@@ -170,6 +173,28 @@ export default {
             byMember: {
               _id: 'u101',
               fullname: 'Itzik Vaknin',
+              imgUrl: '../../../styles/shlomi.jpg',
+            },
+            isLike: false,
+          },
+          {
+            id: 'ZdPnm',
+            txt: 'com ghjc ntssss',
+            createdAt: 1590999417436.0,
+            byMember: {
+              _id: 'u101',
+              fullname: 'shlkomi',
+              imgUrl: '../../../styles/shlomi.jpg',
+            },
+            isLike: false,
+          },
+          {
+            id: 'ZdPnm',
+            txt: 'com ghjc ntssss',
+            createdAt: 1590999417436.0,
+            byMember: {
+              _id: 'u101',
+              fullname: 'shlkomi',
               imgUrl: '../../../styles/shlomi.jpg',
             },
             isLike: false,
@@ -230,12 +255,12 @@ export default {
       this.$emit('closeDetails');
     },
     setLike(commentId) {
-      // console.log(JSON.parse(JSON.stringify(this.task.comments)));
-      // console.log(json.parse(json.stringft(this.task.comments)));
-      // var idx = this.task.comments[1].findIndex(
-      //   (comment) => comment.id === commentId
-      // );
-      // console.log(idx);
+      // console.log({ ...this.task });
+      console.log(JSON.parse(JSON.stringify(this.task)));
+      var idx = this.task.comments.findIndex(
+        (comment) => comment.id === commentId
+      );
+      console.log(idx);
     },
   },
 };
