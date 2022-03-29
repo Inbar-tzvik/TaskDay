@@ -37,22 +37,25 @@
 
 .add-item {
   display: flex;
-  margin-left: 5px;
+  margin-left: 25px;
   margin-top: 1px;
   form {
     border: none;
     height: 35px;
-    width: 1324px;
+    // width: 1324px;
     display: flex;
     justify-content: space-between;
-    width: 1560px;
+    width: 1458px;
+    position: sticky;
+    left: 40px;
+    z-index: 4;
   }
   input {
     // width: 92.14rem;
     border: 1px solid #d0d4e4;
     // border: none;
-    position: sticky;
-    left: 54px;
+    // position: sticky;
+    // left: 54px;
     flex: 0 1;
     border-right: none;
     height: 33px;
@@ -65,6 +68,8 @@
     padding-left: 20px;
     padding-top: 4px;
     text-align: left;
+    // position: fixed;
+    // left: 40px;
   }
   &:hover {
     .add-left-indicator-inner {
@@ -79,9 +84,10 @@
   }
 }
 .add-left-indicator {
-  position: sticky;
-  left: 46px;
+  position: fixed;
+  // left: 20px;
   height: 34px;
+  z-index: 7;
 
   // background-color: rgb(87, 155, 252);
   .add-left-indicator-inner {
@@ -114,7 +120,7 @@
     }
   }
 }
-.side-drop-down {
+.-down {
   margin-left: -27px;
   width: 30px;
   height: 30px;
@@ -172,4 +178,9 @@ input:focus {
   .add-item input {
     // background-color: chartreuse;
   }
+}
+.side-drop-down {
+  position: sticky;
+  left: 10px;
+  // padding-right: 4px;
 }
