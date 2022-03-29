@@ -1,48 +1,52 @@
 [{
-        "fullname": "user",
-        "username": "user",
-        "password": "123",
-        "createdAt": 1646840261999,
-        "isAdmin": false
-    },
-    {
-        "fullname": "itzik",
-        "username": "userAdmin",
-        "password": "123",
-        "createdAt": 1646839526827,
-        "isAdmin": false
-    },
-    {
-        "fullname": "fds",
-        "username": "fsd",
-        "password": "fsd",
-        "createdAt": 1646839503073,
-        "isAdmin": false
-    },
-    {
-        "fullname": "chang",
-        "username": "user1055",
-        "password": "123",
-        "createdAt": 1646838726837,
-        "isAdmin": false
-    },
-    {
-        "fullname": "Gaga Bi",
-        "username": "user123",
-        "password": "123",
-        "createdAt": 1646819705788,
-        "isAdmin": false
-    },
-    {
-        "fullname": "Baba Ji",
-        "username": "baba",
-        "password": "123",
-        "isAdmin": false
-    },
-    {
-        "fullname": "Mama Di",
-        "username": "mama",
-        "password": "123",
+        "_id": "u101",
+        "fullname": "Inbari Tzvik",
+        "username": "1234",
+        "password": "4321",
+        "imgUrl": "http://some-img.jpg",
+        "mentions": [{
+            "id": "m101",
+            "boardId": "62430dc81cdd644b3e5acabd",
+            "taskId": "t101"
+        }],
         "isAdmin": true
+    }, {
+        "_id": "u102",
+        "fullname": "Ganesh",
+        "username": "1234",
+        "password": "4321",
+        "imgUrl": "http://some-img.jpg",
+        "mentions": [{
+            "id": "m101",
+            "boardId": "62430dc81cdd644b3e5acabd",
+            "taskId": "t101"
+        }],
+        "isAdmin": true
+    },
+    {
+        "_id": "u103",
+        "fullname": "Baba Ninja",
+        "username": "1234",
+        "password": "4321",
+        "imgUrl": "http://some-img.jpg",
+        "mentions": [{
+            "id": "m101",
+            "boardId": "62430dc81cdd644b3e5acabd",
+            "taskId": "t101"
+        }],
+        "isAdmin": false
+    },
+    {
+        "_id": "u104",
+        "fullname": "Erez tal",
+        "username": "baba23",
+        "password": "4321",
+        "imgUrl": "https://pbs.twimg.com/media/DxwB0a_WoAEQShC.jpg",
+        "mentions": [{
+            "id": "m101",
+            "boardId": "62430dc81cdd644b3e5acabd",
+            "taskId": "t101"
+        }],
+        "isAdmin": false
     }
 ]
