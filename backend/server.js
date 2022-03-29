@@ -2,11 +2,14 @@ const express = require('express')
 const expressSession = require('express-session')
 const cors = require('cors')
 const path = require('path')
-    // const cookieParser = require('cookie-parser')
-    // const bodyParser = require('body-parser')
-    // const toyService = require('./services/toy.service')
-    // const userService = require('./services/user.service')
-    // const { save } = require('./services/toy.service')
+require('dotenv').config();
+process.env
+console.log('env', process.env);
+// const cookieParser = require('cookie-parser')
+// const bodyParser = require('body-parser')
+// const toyService = require('./services/toy.service')
+// const userService = require('./services/user.service')
+// const { save } = require('./services/toy.service')
 const app = express()
 const http = require('http').createServer(app)
 
