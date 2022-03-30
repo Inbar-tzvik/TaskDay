@@ -4,14 +4,14 @@
       <div class="plus-btn">+</div>
 
       <!-- {{ `${imgUrl}` }} -->
-      <div class="avatars" v-if="task.members.length > 0">
-        <div v-for="shortMember in shortMembers" :key="shortMember">
-          <div v-if="shortMember.imgUrl">
-            <el-avatar fit="cover" class="avatar-img" :src="shortMember.imgUrl" />
+      <div class="avatars" v-if="assignedMembers.length > 0">
+        <div v-for="member in assignedMembers" :key="member">
+          <div v-if="member.imgUrl">
+            <el-avatar fit="cover" class="avatar-img" :src="member.imgUrl" />
           </div>
-          <div v-else>
-            <el-avatar class="avatar-name">{{ shortMember.shortName }}</el-avatar>
-          </div>
+          <!-- <div v-else>
+            <el-avatar class="avatar-img" src="https://cdn.monday.com/icons/dapulse-person-column.svg" />
+          </div> -->
         </div>
       </div>
 
@@ -27,21 +27,23 @@
     </div>-->
 
     <section class="dropdownMenu" v-if="isOpen">
-      <div class="menuArrow" />
-      <div v-if="task.members.length > 0">
-        <section class="avatars-menu" v-for="shortMember in shortMembers" :key="shortMember">
-          <div v-if="shortMember.imgUrl" class="">
-            <el-avatar fit="cover" alt class="avatar-img avatars option" :src="shortMember.imgUrl" />
+      <div class="assigned-persons" v-if="task.members.length > 0">
+        <div class="avatar" v-for="member in assignedMembers" :key="member">
+          <el-avatar fit="cover" class="avatar-img" :src="member.imgUrl" />
+          <div class="remove-person-btn" @click="removePerson(member)">
+            <font-awesome-icon icon="xmark" />
           </div>
-          <div v-else class="">
-            <el-avatar class="avatar-name avatars option">{{ shortMember.shortName }}</el-avatar>
-          </div>
-        </section>
+        </div>
       </div>
-      <div v-else>
-        <section class="avatars-menu">
-          <el-avatar class="avatar-img" src="https://cdn.monday.com/icons/dapulse-person-column.svg" />
-        </section>
+      <div class="title">
+        <span class="title-txt">People</span>
+      </div>
+      <div class="persons-to-pick" v-if="notAssignedMembers.length">
+        <div class="person-to-pick" v-for="(person, idx) in notAssignedMembers" :key="idx" @click="addPerson(person)">
+          <div class="person-img">
+            <el-avatar fit="cover" class="avatar-img" :src="person.imgUrl" />
+          </div>
+        </div>
       </div>
     </section>
   </section>
@@ -54,6 +56,7 @@ import { UserFilled } from '@element-plus/icons-vue';
 export default {
   props: {
     task: Object,
+    board: Object,
   }, // Menu title from the parent
   data() {
     return {
@@ -66,21 +69,53 @@ export default {
       shortMembers: [],
       currTask: JSON.parse(JSON.stringify(this.task)),
       currMembers: JSON.parse(JSON.stringify(this.task.members)),
+      assignedMembers: [],
+      notAssignedMembers: [],
+      members: this.board.members,
     };
   },
   created() {
     this.boards = this.$store.getters.boards;
-    console.log(' task memmbers', this.task.members.length);
     this.shortMembers = this.task.members?.map((member) => {
       return {
         shortName: this.makeShortName(member.fullname),
         imgUrl: member.imgUrl,
       };
     });
-    console.log('members-pickerrr', this.shortMembers);
+    this.assignedMembers = [...this.task.members];
+    this.notAssignedMembers = this.members.filter((member) => {
+      return !this.assignedMembers.find((assMem) => assMem._id === member._id);
+    });
   },
 
   methods: {
+    removePerson(person) {
+      // console.log(person);
+      this.notAssignedMembers.push(person);
+      console.log(this.assignedMembers);
+
+      const idx = this.assignedMembers.findIndex((member) => member._id === person._id);
+      this.assignedMembers.splice(idx, 1);
+      console.log(this.assignedMembers);
+      console.log('removed');
+      this.$emit(
+        'removeAssignedMember',
+
+        person._id,
+        // groupId: this.groupId,
+        this.item
+      );
+    },
+    addPerson(person) {
+      this.assignedMembers.push(person);
+      const idx = this.notAssignedMembers.findIndex((member) => member._id === person._id);
+      this.notAssignedMembers.splice(idx, 1);
+      this.$emit('addAssignedMember', {
+        person,
+        groupId: this.groupId,
+        itemId: this.item.id,
+      });
+    },
     makeShortName(fullname) {
       var shortName = fullname.split(' ');
       shortName = shortName.map((fullname) => fullname[0]);
@@ -95,7 +130,6 @@ export default {
   },
   computed: {
     checkLength() {
-      console.log('length of array', this.shortMembers);
       if (this.shortMembers.length > 0) return true;
       else return false;
     },
@@ -106,7 +140,53 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.assigned-persons {
+  display: flex;
+  flex-direction: column;
+  // flex-wrap: wrap;
+  .avatar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #e5f4ff;
+    border-radius: 10px;
+    padding-inline-end: 10px;
+    margin-bottom: 2px;
+    margin-inline-end: 2px;
+    img {
+      border-radius: 50%;
+    }
+    // .person-img {
+    //   width: 22px;
+    //   height: 22px;
+    // }
+    // .person-name {
+    //   font-size: rem(12px);
+    //   padding: 0 5px;
+    // }
+    .remove-person-btn {
+      font-size: rem(12px);
+      padding: 0 2px;
+      margin: 2px;
+      border-radius: 10px;
+      &:hover {
+        background-color: #fff;
+        cursor: pointer;
+      }
+    }
+  }
+}
+// .remove-person-btn {
+//   font-size: rem(12px);
+//   padding: 0 2px;
+//   margin: 2px;
+//   border-radius: 10px;
+//   &:hover {
+//     background-color: #fff;
+//     cursor: pointer;
+//   }
+// }
 .avatars-menu {
   display: flex;
   flex-direction: column;
