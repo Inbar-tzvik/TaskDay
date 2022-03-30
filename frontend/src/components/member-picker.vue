@@ -1,9 +1,11 @@
 <template>
   <section class="dropDownMenuWrapper">
-    <button class="dropDownMenuButton" ref="menu" @click="openClose">
+    <button class="dropDownMenuButton member-picker" ref="menu" @click="openClose">
+      <div class="plus-btn">+</div>
+
       <!-- {{ `${imgUrl}` }} -->
-      <div v-if="task.members.length > 0">
-        <div v-for="shortMember in shortMembers" :key="shortMember" class="avatars">
+      <div class="avatars" v-if="task.members.length > 0">
+        <div v-for="shortMember in shortMembers" :key="shortMember">
           <div v-if="shortMember.imgUrl">
             <el-avatar fit="cover" class="avatar-img" :src="shortMember.imgUrl" />
           </div>
@@ -14,7 +16,7 @@
       </div>
 
       <div v-else>
-        <el-avatar class="avatar-img" src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" />
+        <el-avatar class="avatar-img" src="https://cdn.monday.com/icons/dapulse-person-column.svg" />
       </div>
     </button>
 
@@ -26,15 +28,21 @@
 
     <section class="dropdownMenu" v-if="isOpen">
       <div class="menuArrow" />
-      <section v-for="shortMember in shortMembers" :key="shortMember" class="avatars option">
-        <div v-if="shortMember.imgUrl">
-          <el-avatar fit="cover" alt class="avatar-img" :src="shortMember.imgUrl" />
-        </div>
-        <div v-else>
-          <el-avatar class="avatar-name option">{{ shortMember.shortName }}</el-avatar>
-        </div>
-        >
-      </section>
+      <div v-if="task.members.length > 0">
+        <section v-for="shortMember in shortMembers" :key="shortMember">
+          <div v-if="shortMember.imgUrl" class="">
+            <el-avatar fit="cover" alt class="avatar-img avatars option" :src="shortMember.imgUrl" />
+          </div>
+          <div v-else class="">
+            <el-avatar class="avatar-name avatars option">{{ shortMember.shortName }}</el-avatar>
+          </div>
+        </section>
+      </div>
+      <div v-else>
+        <section class="avatars option">
+          <el-avatar class="avatar-img" src="https://cdn.monday.com/icons/dapulse-person-column.svg" />
+        </section>
+      </div>
     </section>
   </section>
 </template>
@@ -103,13 +111,16 @@ export default {
   display: flex;
 }
 .avatar-img {
-  width: 27px;
-  height: 24px;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  margin: 0 -4px;
 }
 .avatar-name {
-  width: 27px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   flex: 1;
   text-align: center;
+  margin: 0 -4px;
 }
 </style>
