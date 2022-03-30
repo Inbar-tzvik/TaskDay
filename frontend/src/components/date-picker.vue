@@ -33,8 +33,8 @@ export default {
   data() {
     return {
       value1: '',
-      startDate: this.task.dates.startDate,
-      endDate: this.task.dates.endDate,
+      startDate: this.task.dates.startDate?this.task.dates.startDate:'',
+      endDate: this.task.dates.endDate?this.task.dates.endDate:'',
       // value2: '',
     };
   },

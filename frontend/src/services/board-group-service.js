@@ -164,9 +164,6 @@ async function saveBoard(board) {
         const addedBoard = await httpService.post(`board`, board)
         return addedBoard
     }
-} else {
-    return storageService.post(KEY, board);
-}
 }
 
 //ASK - THE FUNCTION RETURN THE NEW Board!!, or something else??
@@ -189,11 +186,6 @@ async function saveGroup(boardId, updateGroup, addedIdxForDrop = null) {
     } catch (err) {
         console.log('Cannot get group from server', err);
     }
-    await saveBoard(currBoard);
-    return currBoard;
-} catch (err) {
-    console.log('Cannot update/save group', err);
-}
 }
 async function saveTask(boardId, groupId, updateTask, fromIdx = null) {
     try {
@@ -230,9 +222,8 @@ function createEmptyTask(title = '') {
         id: 't' + utilService.makeId(3),
         title,
         status: '-',
-        dates: { startDate: '', endDate: '' },
-
         members: [],
+        dates: { startDate: '', endDate: '' },
     };
 }
 
@@ -254,112 +245,84 @@ async function createEmptyGroup(boardId) {
 //SAVE TO STORAGE! (MOST OF THIGNS NOW HARD CODE)
 async function createNewBoard() {
     var emptyBoard = {
-            // _id: 'b' + utilService.makeId(3),
-            title: 'New Board',
-            createdAt: new Date(),
-            createdBy: {
+        // _id: 'b' + utilService.makeId(3),
+        title: 'New Board',
+        createdAt: new Date(),
+        createdBy: {
+            _id: 'u101',
+            fullname: 'Abi Abambi',
+            imgUrl: 'http://some-img',
+        },
+        style: {},
+        labels: [{
+                id: 'l101',
+                title: 'Done',
+                color: '#61bd4f',
+            },
+            {
+                id: 'l102',
+                title: 'Progress',
+                color: '#61bd33',
+            },
+        ],
+        members: [{
+            _id: 'u101',
+            fullname: 'Tal Tarablus',
+            imgUrl: 'https://www.google.com',
+        }, ],
+        groups: [createEmptyGroup(), createEmptyGroup()],
+        // "status":{}
+        activitiesLog: [{
+            id: 'a101',
+            txt: 'Changed Color',
+            createdAt: 154514,
+            byMember: {
                 _id: 'u101',
                 fullname: 'Abi Abambi',
                 imgUrl: 'http://some-img',
             },
-            style: {},
-            labels: [{
-                    id: 'l101',
-                    title: 'Done',
-                    color: '#61bd4f',
-                },
-                {
-                    id: 'l102',
-                    title: 'Progress',
-                    color: '#61bd33',
-                },
-            ],
-            members: [{
-                _id: 'u101',
-                fullname: 'Tal Tarablus',
-                imgUrl: 'https://www.google.com',
-            }, ],
-            groups: [createEmptyGroup(), createEmptyGroup()],
-            // "status":{}
-            activitiesLog: [{
-                    id: 'a101',
-                    txt: 'Changed Color',
-                    createdAt: 154514,
-                    byMember: {
-                        _id: 'u101',
-                        fullname: 'Abi Abambi',
-                        imgUrl: 'http://some-img',
-                    },
-                    style: {},
-                    labels: [{
-                            id: 'l101',
-                            title: 'Done',
-                            color: '#61bd4f',
-                        },
-                        {
-                            id: 'l102',
-                            title: 'Progress',
-                            color: '#61bd33',
-                        },
-                    ],
-                    members: [{
-                        _id: 'u101',
-                        fullname: 'Tal Tarablus',
-                        imgUrl: 'https://www.google.com',
-                    }, ],
-                    groups: [createEmptyGroup(), createEmptyGroup()],
-                    // "status":{}
-                    activitiesLog: [{
-                        id: 'a101',
-                        txt: 'Changed Color',
-                        createdAt: 154514,
-                        byMember: {
-                            _id: 'u101',
-                            fullname: 'Abi Abambi',
-                            imgUrl: 'http://some-img',
-                        },
-                        task: {
-                            id: 'c101',
-                            title: 'Replace Logo',
-                        },
-                    }, ],
-                    // for monday
-                    cmpsOrder: ['status-picker', 'members-picker', 'date-picker'],
-                };
+            task: {
+                id: 'c101',
+                title: 'Replace Logo',
+            },
+        }, ],
+        // for monday
+        cmpsOrder: ['status-picker', 'members-picker', 'date-picker'],
+    };
 
-                // storageService.post(KEY, emptyBoard);
-                return emptyBoard
-            }
+    // storageService.post(KEY, emptyBoard);
+    return emptyBoard
+}
 
-            function _createBoard() {
-                let boards = utilService.loadFromStorage(KEY);
-                if (!boards || !boards.length) {
-                    boards = [{
-                            _id: utilService.makeId(),
-                            name: 'Fiat',
-                            price: 30,
-                            lables: ['Funny'],
-                            inStock: true,
-                            reviews: ['nice board', 'bad board'],
-                        },
-                        {
-                            _id: utilService.makeId(),
-                            name: 'Honda',
-                            price: 87,
-                            lables: ['Funny'],
-                            inStock: false,
-                            reviews: ['nice board', 'bad board'],
-                        },
-                        {
-                            _id: utilService.makeId(),
-                            name: 'Toyota',
-                            price: 54,
-                            lables: ['Sad'],
-                            inStock: true,
-                            reviews: ['nice board', 'bad board'],
-                        },
-                    ];
-                    utilService.saveToStorage(KEY, boards);
-                }
-                return boards;
-            }
+function _createBoard() {
+    let boards = utilService.loadFromStorage(KEY);
+    if (!boards || !boards.length) {
+        boards = [{
+                _id: utilService.makeId(),
+                name: 'Fiat',
+                price: 30,
+                lables: ['Funny'],
+                inStock: true,
+                reviews: ['nice board', 'bad board'],
+            },
+            {
+                _id: utilService.makeId(),
+                name: 'Honda',
+                price: 87,
+                lables: ['Funny'],
+                inStock: false,
+                reviews: ['nice board', 'bad board'],
+            },
+            {
+                _id: utilService.makeId(),
+                name: 'Toyota',
+                price: 54,
+                lables: ['Sad'],
+                inStock: true,
+                reviews: ['nice board', 'bad board'],
+            },
+        ];
+        utilService.saveToStorage(KEY, boards);
+    }
+    return boards;
+}
