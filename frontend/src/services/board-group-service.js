@@ -370,6 +370,60 @@ const boards = [{
     },
 ];
 
+const user = [{
+        _id: "u101",
+        fullname: "Inbari Tzvik",
+        username: "1234",
+        password: "4321",
+        imgUrl: "http://some-img.jpg",
+        mentions: [{
+            id: "m101",
+            boardId: "62430dc81cdd644b3e5acabd",
+            taskId: "t101"
+        }],
+        isAdmin: true
+    },
+    {
+        _id: "u102",
+        fullname: "Zohar Ganesh",
+        username: "1234",
+        password: "4321",
+        imgUrl: "https://upload.wikimedia.org/wikipedia/en/0/01/Zohar_Argov_%281980s%29.jpg",
+        mentions: [{
+            id: "m101",
+            boardId: "62430dc81cdd644b3e5acabd",
+            taskId: "t101"
+        }],
+        isAdmin: true
+    },
+    {
+        _id: "u103",
+        fullname: "Baba Ninja",
+        username: "1234",
+        password: "4321",
+        imgUrl: "https://cdn.myimgstock.com/myimgstock/preview/sri-sai-baba-face-images-photos-2-11609604164xclnpdmkfv.jpg",
+        mentions: [{
+            id: "m101",
+            boardId: "62430dc81cdd644b3e5acabd",
+            taskId: "t101"
+        }],
+        isAdmin: false
+    },
+    {
+        _id: "u104",
+        fullname: "Erez tal",
+        username: "baba23",
+        password: "4321",
+        imgUrl: "https://pbs.twimg.com/media/DxwB0a_WoAEQShC.jpg",
+        mentions: [{
+            id: "m101",
+            boardId: "62430dc81cdd644b3e5acabd",
+            taskId: "t101"
+        }],
+        isAdmin: false
+    }
+]
+
 export const boardGroupService = {
     query,
     getBoardById,

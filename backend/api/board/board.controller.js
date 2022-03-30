@@ -1,14 +1,17 @@
 const boardService = require('./board.service.js');
 const logger = require('../../services/logger.service')
+    // Importing chalk module
+const chalk = require("chalk");
 
 // GET LIST
 async function getBoards(req, res) {
     try {
         var queryParams = req.query;
         const boards = await boardService.query(queryParams)
+        console.log(chalk.green('got your boards from server!'));
         res.json(boards);
     } catch (err) {
-        logger.error('Failed to get boards', err)
+        logger.error(chalk.red('Failed to get boards'), err)
         res.status(500).send({ err: 'Failed to get boards' })
     }
 
@@ -31,7 +34,7 @@ async function getBoardById(req, res) {
         const board = await boardService.getById(boardId)
         res.json(board)
     } catch (err) {
-        logger.error('Failed to get board', err)
+        logger.error(chalk.red('Failed to get board'), err)
         res.status(500).send({ err: 'Failed to get board' })
     }
 
@@ -54,7 +57,7 @@ async function addBoard(req, res) {
         const addedBoard = await boardService.add(comingBoard)
         res.json(addedBoard)
     } catch (err) {
-        logger.error('Failed to add board', err)
+        logger.error(chalk.red('Failed to add board'), err)
         res.status(500).send({ err: 'Failed to add board' })
     }
     // FOR MONGO + SERVER:
@@ -76,7 +79,7 @@ async function updateBoard(req, res) {
         const updatedBoard = await boardService.update(comingBoard)
         res.json(updatedBoard)
     } catch (err) {
-        logger.error('Failed to update board', err)
+        logger.error(chalk.red('Failed to update board'), err)
         res.status(500).send({ err: 'Failed to update board' })
     }
     // FOR MONGO + SERVER:
@@ -98,7 +101,7 @@ async function removeBoard(req, res) {
         const removedId = await boardService.remove(boardId)
         res.json(removedId)
     } catch (err) {
-        logger.error('Failed to remove board', err)
+        logger.error(chalk.red('Failed to remove board'), err)
         res.status(500).send({ err: 'Failed to remove board' })
     }
 
