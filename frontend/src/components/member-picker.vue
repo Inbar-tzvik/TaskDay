@@ -29,7 +29,7 @@
     <section class="dropdownMenu" v-if="isOpen">
       <div class="menuArrow" />
       <div v-if="task.members.length > 0">
-        <section v-for="shortMember in shortMembers" :key="shortMember">
+        <section class="avatars-menu" v-for="shortMember in shortMembers" :key="shortMember">
           <div v-if="shortMember.imgUrl" class="">
             <el-avatar fit="cover" alt class="avatar-img avatars option" :src="shortMember.imgUrl" />
           </div>
@@ -39,7 +39,7 @@
         </section>
       </div>
       <div v-else>
-        <section class="avatars option">
+        <section class="avatars-menu">
           <el-avatar class="avatar-img" src="https://cdn.monday.com/icons/dapulse-person-column.svg" />
         </section>
       </div>
@@ -107,6 +107,12 @@ export default {
 </script>
 
 <style scoped>
+.avatars-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
 .avatars {
   display: flex;
 }
