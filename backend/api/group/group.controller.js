@@ -15,13 +15,20 @@ async function getGroups(req, res) {
 
 async function deleteGroup(req, res) {
     try {
-        const boardId = req.query.boardId
-        await groupService.remove(boardId, req.params.id)
-        res.send({ msg: 'Deleted successfully' })
+        res.send({ msg: 'can`t remove 1 group from server, please update the whole board' })
     } catch (err) {
         logger.error('Failed to delete group', err)
-        res.status(500).send({ err: 'Failed to delete group' })
+        res.status(500).send({ err: 'can`t remove 1 group from server, please update the whole board' })
     }
+
+    // try {
+    //     const boardId = req.query.boardId
+    //     await groupService.remove(boardId, req.params.id)
+    //     res.send({ msg: 'Deleted successfully' })
+    // } catch (err) {
+    //     logger.error('Failed to delete group', err)
+    //     res.status(500).send({ err: 'Failed to delete group' })
+    // }
 }
 
 
