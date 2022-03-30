@@ -769,3 +769,23 @@
 3/30/2022, 12:36:04 AM - ERROR - Failed to Login Invalid username or password
 3/30/2022, 12:36:20 AM - DEBUG - auth.service - login with username: mama
 3/30/2022, 12:36:20 AM - ERROR - Failed to Login Invalid username or password
+3/30/2022, 1:25:18 AM - INFO - Server is running on port: 3030
+3/30/2022, 1:25:42 AM - INFO - Server is running on port: 3030
+3/30/2022, 1:27:44 AM - INFO - Server is running on port: 3030
+3/30/2022, 1:33:42 AM - INFO - Server is running on port: 3030
+3/30/2022, 1:36:12 AM - INFO - Server is running on port: 3030
+3/30/2022, 1:36:57 AM - INFO - Server is running on port: 3030
+3/30/2022, 1:39:17 AM - INFO - Server is running on port: 3030
+3/30/2022, 1:39:29 AM - INFO - Req!!!
+3/30/2022, 1:40:06 AM - INFO - Server is running on port: 3030
+3/30/2022, 1:40:09 AM - INFO - Req!!!
+3/30/2022, 1:40:10 AM - ERROR - Failed to get boards | {}
+3/30/2022, 1:40:19 AM - INFO - Server is running on port: 3030
+3/30/2022, 1:40:20 AM - INFO - Req!!!
+3/30/2022, 1:40:20 AM - ERROR - Failed to get boards | {}
+3/30/2022, 1:40:49 AM - INFO - Server is running on port: 3030
+3/30/2022, 1:40:53 AM - INFO - Req!!!
+3/30/2022, 1:41:09 AM - INFO - Server is running on port: 3030
+3/30/2022, 1:41:12 AM - INFO - Req!!!
+3/30/2022, 1:41:12 AM - ERROR - [31mFailed to get boards[39m | {}
+3/30/2022, 1:42:01 AM - INFO - Server is running on port: 3030
