@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     changeStatusForImg() {
-      console.log(this.$refs);
+      // console.log(this.$refs);
       this.isPlay = true;
       setTimeout(() => {
         this.isPlay = false;

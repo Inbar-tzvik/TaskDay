@@ -131,7 +131,7 @@ currTasks: JSON.parse(JSON.stringify(this.group.tasks)),
       this.updateStatus();
     },
     getItemPayload(group) {
-      console.log('group',group);
+      // console.log('group',group);
       return (index) => group.tasks[index];
     },
     onDrop(dropResult) {
@@ -139,7 +139,7 @@ currTasks: JSON.parse(JSON.stringify(this.group.tasks)),
       this.$store.dispatch({type: 'updateBoard',board:this.board});
     },
     applyDrag(tasks, dragResult) {
-      console.log('tasks', tasks);
+      // console.log('tasks', tasks);
       const { removedIndex, addedIndex, payload } = dragResult;
       if (removedIndex === null && addedIndex === null) return tasks;
       let itemToAdd = payload;

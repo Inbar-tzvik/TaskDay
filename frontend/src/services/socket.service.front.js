@@ -75,8 +75,6 @@ function createDummySocketService() {
 }
 
 
-
-
 var msgs = [];
 
 socketService.on('chat topic', ((toy_id) =>

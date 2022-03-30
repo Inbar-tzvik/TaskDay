@@ -38,7 +38,7 @@
 
     <div class="board-container-modal">
       <div v-for="board in boards" :key="board._id" class="board-item" @click="moveToBoard(board._id)">
-        <span><board-icon /></span> {{board._id}}
+        <span><board-icon /></span> {{board.title}}
       </div>
     </div>
   </section>
@@ -66,8 +66,7 @@ props: {
   },
   methods: {
     moveToBoard(boardId){
-      
-
+    
 this.$router.push(`/main/${boardId}`)
 //UPDATE CURR BOARD
     },

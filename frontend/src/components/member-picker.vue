@@ -70,14 +70,14 @@ export default {
   },
   created() {
     this.boards = this.$store.getters.boards;
-    console.log(' task memmbers', this.task.members.length);
+    // console.log(' task memmbers', this.task.members.length);
     this.shortMembers = this.task.members?.map((member) => {
       return {
         shortName: this.makeShortName(member.fullname),
         imgUrl: member.imgUrl,
       };
     });
-    console.log('members-pickerrr', this.shortMembers);
+    // console.log('members-pickerrr', this.shortMembers);
   },
 
   methods: {

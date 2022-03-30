@@ -76,6 +76,7 @@ async function updateBoard(req, res) {
     try {
         console.log('Backend updating your board:');
         const comingBoard = req.body;
+        // console.log('comingBoard', comingBoard);
         const updatedBoard = await boardService.update(comingBoard)
         res.json(updatedBoard)
     } catch (err) {

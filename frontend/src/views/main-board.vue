@@ -41,6 +41,9 @@ import workSpaceModal from '../components/modals/work-space-modal.vue';
 import detailsModal from '../components/modals/details-modal.vue';
 import { boardGroupService } from '../services/board-group-service';
 // import { boardService } from '../services/board-service.js';
+import { socketService } from '@/services/socket.service.front';
+
+
 export default {
   name: 'main-board',
   data() {
@@ -61,11 +64,17 @@ export default {
           type: 'setCurrBoard',
           boardId: this.$route.params.boardId,
         });
+        socketService.emit('curr board', this.$route.params.boardId)
       },
       immediate: true,
     },
   },
-  created() {},
+  created() {
+    socketService.on('boardChanged', ((boardId)=>{
+              // console.log('boardId',boardId);
+              this.$store.dispatch({type: 'setCurrBoard', boardId});
+            }))
+  },
   methods: {
     updateGroup(currGroup, addedIdxForDrop = null) {
       // console.log('currGroup,addedIdxForDrop',currGroup,addedIdxForDrop);

@@ -7,8 +7,6 @@ export default {
         boards: [],
         currBoard: null,
         // user: authService.getLoggedinUser(),
-        // currToy: toyService.getEmptyToy(),
-        // toysForDisplay: null,
         filterBy: null,
         // labels: [“funny”, “sad”, “On wheels”, “Box game”, “Art”, “Baby”, “Doll”, “Puzzle”, “Outdoor”]
     },
@@ -17,7 +15,7 @@ export default {
             return JSON.parse(JSON.stringify(state.boards));
         },
         currBoard(state) {
-            console.log('state.filterBy', state.filterBy);
+            // console.log('state.filterBy', state.filterBy);
             if (state.filterBy) {
                 //     // email.isRead === filter.isReadnow &&
 

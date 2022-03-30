@@ -14,13 +14,20 @@ function connectSockets(http, session) {
         socket.on('disconnect', socket => {
             console.log('Someone disconnected')
         })
-        socket.on('chat topic', topic => {
-            if (socket.myTopic === topic) return;
-            if (socket.myTopic) {
-                socket.leave(socket.myTopic)
+
+        socket.on('curr board', boardId => {
+            // console.log('checkkk boardId', boardId);
+            if (socket.myBoardId === boardId) return;
+            if (socket.myBoardId) {
+                socket.leave(socket.myBoardId)
             }
-            socket.join(topic)
-            socket.myTopic = topic
+            socket.join(boardId)
+            socket.myBoardId = boardId
+        })
+        socket.on('boardChanged', boardId => {
+            //FOR MYSELF - try to remove next line cause it wasnt send in this condition
+            // console.log('shivaaaa', boardId);
+            gIo.to(socket.myBoardId).emit('boardChanged', boardId)
         })
         socket.on('chat newMsg', msg => {
             console.log('Emitting Chat msg', msg);

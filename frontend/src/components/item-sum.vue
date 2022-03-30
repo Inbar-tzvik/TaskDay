@@ -63,7 +63,7 @@ export default {
     },
     styleObj(status, key) {
       var width = key * this.widthUnitStatus() + 'px';
-      console.log(width);
+      // console.log(width);
       return {
         backgroundColor: this.optsStatus[status],
         width: width,
@@ -92,7 +92,7 @@ export default {
         // statusMap[item.status.txt] ? statusMap[item.status.txt] + 1 : 1;
       });
       this.cellsColorsStatus = cellsColorsStatus;
-      console.log('statusMap', statusMap);
+      // console.log('statusMap', statusMap);
       return statusMap;
     },
     priorityCount(cmp) {

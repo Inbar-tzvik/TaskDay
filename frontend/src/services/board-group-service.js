@@ -1,513 +1,109 @@
 import { storageService } from './storage-service.js';
 import { utilService } from './util-service.js';
-import axios from 'axios';
+import { httpService } from './http.service.js'
+// import axios from 'axios';
+import { socketService } from '@/services/socket.service.front';
+
 
 const KEY = 'funday_db';
 // _createToys()
 
-const FUNDAY_URL = '//localhost:3030/api/funday/';
-// const TOY_URL = (process.env.NODE_ENV !== 'development') ?
+const FUNDAY_URL = '//localhost:3030/api/';
+// const FUNDAY_URL = (process.env.NODE_ENV !== 'development') ?
 //     '/api/funday/' :
 //     '//localhost:3030/api/funday/';
 
-//TODO - MAKE id for inner tasks/groups. like "t-"+makeId(4)
-const boards = [{
-        _id: "b101",
-        title: "GaneshUpdate12",
-        createdAt: 1589983468418,
-        style: {
-            bgColor: "blue"
-        },
-        labels: [{
-                id: "l101",
-                title: "Done",
-                color: "#61bd4f"
-            },
-            {
-                id: "l102",
-                title: "Progress",
-                color: "#61bd33"
-            }
-        ],
-        members: [{
-                _id: "u101",
-                fullname: "Inbari Tzvik",
-                imgUrl: "https://www.google.com"
-            },
-            {
-                _id: "u102",
-                fullname: "Zohar Ganesh",
-                imgUrl: "https://upload.wikimedia.org/wikipedia/en/0/01/Zohar_Argov_%281980s%29.jpg"
-            },
-            {
-                _id: "u103",
-                fullname: "Baba Ninja",
-                imgUrl: "https://cdn.myimgstock.com/myimgstock/preview/sri-sai-baba-face-images-photos-2-11609604164xclnpdmkfv.jpg"
-            }
-        ],
-        groups: [{
-                id: "g101",
-                title: "this group updated by Taskday",
-                tasks: [{
-                        id: "t101",
-                        title: "this task updated by Taskday",
-                        status: "Working on it",
-                        priority: "Medium",
-                        members: [{
-                                _id: "u101",
-                                fullname: "Inbari Tzvik",
-                                imgUrl: "https://st.depositphotos.com/1491329/3629/i/950/depositphotos_36297389-stock-photo-beauty-portrait-beautiful-spa-woman.jpg"
-                            },
-                            {
-                                _id: "u102",
-                                fullname: "Zohar Ganesh",
-                                imgUrl: "https://upload.wikimedia.org/wikipedia/en/0/01/Zohar_Argov_%281980s%29.jpg"
-                            },
-                            {
-                                _id: "u104",
-                                fullname: "Erez Tal",
-                                imgUrl: "https://pbs.twimg.com/media/DxwB0a_WoAEQShC.jpg"
-                            }
-                        ]
-                    },
-                    {
-                        id: "t102",
-                        title: "Add Samples",
-                        status: "Stuck",
-                        priority: "High",
-                        members: [{
-                                _id: "u102",
-                                fullname: "Ganesh Shiva",
-                                imgUrl: ""
-                            },
-                            {
-                                _id: "u104",
-                                fullname: "Erez Tal",
-                                imgUrl: "https://pbs.twimg.com/media/DxwB0a_WoAEQShC.jpg"
-                            }
-                        ]
-                    },
-                    {
-                        id: "t113",
-                        title: "Working on css ",
-                        status: "Stuck",
-                        priority: "Medium",
-                        members: [{
-                            _id: "u104",
-                            fullname: "Erez Tal",
-                            imgUrl: "https://pbs.twimg.com/media/DxwB0a_WoAEQShC.jpg"
-                        }]
-                    },
-                    {
-                        id: "t115",
-                        title: "Today i don't feel like doing anything",
-                        status: "Done",
-                        priority: "Low",
-                        members: []
-                    }
-                ],
-                style: {
-                    color: "rgb(87, 155, 252)"
-                }
-            },
-            {
-                id: "g201",
-                title: "Group 5",
-                tasks: [{
-                        id: "c201",
-                        title: "Replace logo",
-                        status: "Working on it",
-                        priority: "Medium",
-                        members: [{
-                            _id: "u103",
-                            fullname: "Baba Ninja",
-                            imgUrl: "https://cdn.myimgstock.com/myimgstock/preview/sri-sai-baba-face-images-photos-2-11609604164xclnpdmkfv.jpg"
-                        }]
-                    },
-                    {
-                        id: "c202",
-                        title: "Add Samples",
-                        status: "Stuck",
-                        priority: "Medium",
-                        members: []
-                    },
-                    {
-                        id: "c213",
-                        title: "Working on css ",
-                        status: "Stuck",
-                        priority: "Medium",
-                        members: [{
-                            _id: "u103",
-                            fullname: "Baba Ninja",
-                            imgUrl: "https://cdn.myimgstock.com/myimgstock/preview/sri-sai-baba-face-images-photos-2-11609604164xclnpdmkfv.jpg"
-                        }]
-                    },
-                    {
-                        id: "c215",
-                        title: "Today i don't feel like doing anything",
-                        status: "Done",
-                        priority: "Medium",
-                        members: []
-                    }
-                ],
-                style: {
-                    color: "rgb(187, 51, 84)"
-                }
-            },
-            {
-                id: "g134",
-                title: "this new group by Taskday",
-                tasks: [{
-                        id: "t101",
-                        title: "this task updated by Taskday",
-                        status: "Working on it",
-                        priority: "Medium",
-                        members: [{
-                                _id: "u101",
-                                fullname: "Inbari Tzvik",
-                                imgUrl: "https://st.depositphotos.com/1491329/3629/i/950/depositphotos_36297389-stock-photo-beauty-portrait-beautiful-spa-woman.jpg"
-                            },
-                            {
-                                _id: "u102",
-                                fullname: "Zohar Ganesh",
-                                imgUrl: "https://upload.wikimedia.org/wikipedia/en/0/01/Zohar_Argov_%281980s%29.jpg"
-                            }
-                        ]
-                    },
-                    {
-                        id: "t102",
-                        title: "Add Samples",
-                        status: "Stuck",
-                        priority: "High",
-                        members: [{
-                            _id: "u102",
-                            fullname: "Zohar Ganesh",
-                            imgUrl: "https://upload.wikimedia.org/wikipedia/en/0/01/Zohar_Argov_%281980s%29.jpg"
-                        }]
-                    },
-                    {
-                        id: "t113",
-                        title: "Working on css ",
-                        status: "Stuck",
-                        priority: "Medium",
-                        members: []
-                    },
-                    {
-                        id: "t115",
-                        title: "Today i don't feel like doing anything",
-                        status: "Done",
-                        priority: "Low",
-                        members: []
-                    }
-                ],
-                style: {
-                    color: "rgb(87, 155, 252)"
-                }
-            }
-        ],
-        activitiesLog: [{
-            id: "a101",
-            txt: "Changed Color",
-            createdAt: 154514,
-            byMember: {
-                _id: "u101",
-                fullname: "Abi Abambi",
-                imgUrl: "http://some-img"
-            },
-            task: {
-                id: "t101",
-                title: "Replace Logo"
-            }
-        }],
-        cmpsOrder: [
-            "status-picker",
-            "date-picker",
-            "priority-picker",
-            "member-picker"
-        ]
-    },
-    {
-        _id: "b102",
-        title: "Shiva Project",
-        createdAt: 1589983468422,
-        style: {
-            bgColor: "red"
-        },
-        labels: [{
-                id: "l101",
-                title: "Done",
-                color: "#61bd4f"
-            },
-            {
-                id: "l102",
-                title: "Progress",
-                color: "#61bd33"
-            }
-        ],
-        members: [{
-                _id: "u101",
-                fullname: "Inbari Tzvik",
-                imgUrl: "https://www.google.com"
-            },
-            {
-                _id: "u102",
-                fullname: "Zohar Ganesh",
-                imgUrl: "https://upload.wikimedia.org/wikipedia/en/0/01/Zohar_Argov_%281980s%29.jpg"
-            },
-            {
-                _id: "u103",
-                fullname: "Baba Ninja",
-                imgUrl: "https://cdn.myimgstock.com/myimgstock/preview/sri-sai-baba-face-images-photos-2-11609604164xclnpdmkfv.jpg"
-            }
-        ],
-        groups: [{
-                id: "g101",
-                title: "Group 1",
-                tasks: [{
-                        id: "t101",
-                        title: "Replace logo",
-                        status: "Working on it",
-                        priority: "Medium",
-                        members: [{
-                                _id: "u101",
-                                fullname: "Inbari Tzvik",
-                                imgUrl: "https://st.depositphotos.com/1491329/3629/i/950/depositphotos_36297389-stock-photo-beauty-portrait-beautiful-spa-woman.jpg"
-                            },
-                            {
-                                _id: "u102",
-                                fullname: "Zohar Ganesh",
-                                imgUrl: "https://upload.wikimedia.org/wikipedia/en/0/01/Zohar_Argov_%281980s%29.jpg"
-                            }
-                        ]
-                    },
-                    {
-                        id: "t102",
-                        title: "Add Samples",
-                        status: "Stuck",
-                        priority: "High",
-                        members: [{
-                            _id: "u102",
-                            fullname: "Zohar Ganesh",
-                            imgUrl: "https://upload.wikimedia.org/wikipedia/en/0/01/Zohar_Argov_%281980s%29.jpg"
-                        }]
-                    },
-                    {
-                        id: "t113",
-                        title: "Working on css ",
-                        status: "Stuck",
-                        priority: "Medium",
-                        members: []
-                    },
-                    {
-                        id: "t115",
-                        title: "Today i don't feel like doing anything",
-                        status: "Done",
-                        priority: "Low",
-                        members: []
-                    }
-                ],
-                style: {
-                    color: "rgb(87, 155, 252)"
-                }
-            },
-            {
-                id: "g201",
-                title: "Group 5",
-                tasks: [{
-                        id: "c201",
-                        title: "Replace logo",
-                        status: "Working on it",
-                        priority: "Medium",
-                        members: []
-                    },
-                    {
-                        id: "c202",
-                        title: "Add Samples",
-                        status: "Stuck",
-                        priority: "Medium",
-                        members: []
-                    },
-                    {
-                        id: "c213",
-                        title: "Working on css ",
-                        status: "Stuck",
-                        priority: "Medium",
-                        members: []
-                    },
-                    {
-                        id: "c215",
-                        title: "Today i don't feel like doing anything",
-                        status: "Done",
-                        priority: "Medium",
-                        members: []
-                    }
-                ],
-                style: {
-                    color: "rgb(187, 51, 84)"
-                }
-            }
-        ],
-        activitiesLog: [{
-            id: "a101",
-            txt: "Changed Color",
-            createdAt: 154514,
-            byMember: {
-                _id: "u101",
-                fullname: "Abi Abambi",
-                imgUrl: "http://some-img"
-            },
-            task: {
-                id: "t101",
-                title: "Replace Logo"
-            }
-        }],
-        cmpsOrder: [
-            "status-picker",
-            "date-picker",
-            "priority-picker",
-            "member-picker"
-        ]
-    },
-];
-
-const user = [{
-        _id: "u101",
-        fullname: "Inbari Tzvik",
-        username: "1234",
-        password: "4321",
-        imgUrl: "http://some-img.jpg",
-        mentions: [{
-            id: "m101",
-            boardId: "62430dc81cdd644b3e5acabd",
-            taskId: "t101"
-        }],
-        isAdmin: true
-    },
-    {
-        _id: "u102",
-        fullname: "Zohar Ganesh",
-        username: "1234",
-        password: "4321",
-        imgUrl: "https://upload.wikimedia.org/wikipedia/en/0/01/Zohar_Argov_%281980s%29.jpg",
-        mentions: [{
-            id: "m101",
-            boardId: "62430dc81cdd644b3e5acabd",
-            taskId: "t101"
-        }],
-        isAdmin: true
-    },
-    {
-        _id: "u103",
-        fullname: "Baba Ninja",
-        username: "1234",
-        password: "4321",
-        imgUrl: "https://cdn.myimgstock.com/myimgstock/preview/sri-sai-baba-face-images-photos-2-11609604164xclnpdmkfv.jpg",
-        mentions: [{
-            id: "m101",
-            boardId: "62430dc81cdd644b3e5acabd",
-            taskId: "t101"
-        }],
-        isAdmin: false
-    },
-    {
-        _id: "u104",
-        fullname: "Erez tal",
-        username: "baba23",
-        password: "4321",
-        imgUrl: "https://pbs.twimg.com/media/DxwB0a_WoAEQShC.jpg",
-        mentions: [{
-            id: "m101",
-            boardId: "62430dc81cdd644b3e5acabd",
-            taskId: "t101"
-        }],
-        isAdmin: false
-    }
-]
-
 export const boardGroupService = {
+    //Boards
     query,
+    //board (saveBoard also create new board, just send it without _id!)
     getBoardById,
-    getGroupById,
-    getTaskById,
-    removeBoard,
-    removeGroup,
-    removeTask,
     saveBoard,
+    removeBoard,
+    //group
+    getGroupById,
     saveGroup,
+    removeGroup,
+
+    //task
+    getTaskById,
     saveTask,
+    removeTask,
+
+    //ASK INBAR  - this for local?? only when changed - send it to server
     createEmptyTask,
     createEmptyGroup,
     createNewBoard,
 };
 
 //************CHEKING AREA - can put on comment *********/
-storageService._save(KEY, boards);
-
+// storageService._save(KEY, boards);
 check();
 async function check() {
-    // var boardById = await getBoardById("b101")
+    // var boards = await query()
+    // console.log('getBoardsFromQuery: ', boards);
+    // var boardById = await getBoardById("62430dc81cdd644b3e5acabd")
     // console.log('getBoardById: ', boardById);
-    // var groupById = await getGroupById('b101', 'g102')
+    // var groupById = await getGroupById('62430dc81cdd644b3e5acabd', 'g101')
     // console.log('getGroupById: ', groupById);
-    // var taskById = await getTaskById('b101', 'g101', 'c102')
+    // var taskById = await getTaskById('62430dc81cdd644b3e5acabd', 'g101', 't101')
     // console.log('getTaskById: ', taskById);
-    // await removeBoard('b101')
-    // await removeGroup('b101', 'g102')
-    // await removeTask('b101', 'g102', 'c103')
+    // var boardIdRemoved = await removeBoard('6244348361f64dd3ad955758')
+    // console.log('success removing board id:', boardIdRemoved);
+    // await removeGroup('62430dc81cdd644b3e5acabe', 'g101')
+    // await removeTask('62430dc81cdd644b3e5acabd', 'g201', 'c201')
+    // await saveBoard((await createNewBoard()))
     // await createNewBoard()
     // var emptyTask = createEmptyTask()
     // var emptyGroup = await createEmptyGroup('b101')
     // console.log(emptyTask, emptyGroup);
     // var group = {
     //     id: 'g101',
-    //     title: 'shiva'
+    //     title: 'shivaaa'
     // }
-    // await saveGroup('b101', group);
+    // await saveGroup('62430dc81cdd644b3e5acabe', group);
     // var task = {
-    //     id: 'c102',
-    //     title: 'hello',
+    //     id: 't102check',
+    //     title: 'checking!',
     // }
-    // await saveTask('b101', 'g101', task);
+    // await saveTask('62430dc81cdd644b3e5acabd', 'g101', task);
 }
+//********** /CHECKING AREA FINISH *********/
 
-//********** /CHECKING AREA *********/
-
-function query(filterBy) {
-    return storageService.query(KEY) || [];
-
-    //LOCAL STORAGE:
-    // return storageService.query(KEY)
-
+async function query(filterBy = null) {
     //SERVER:
-    // try {
-    //     const res = await axios.get(TOY_URL, { params: filterBy })
-    //     storageService._save(KEY, res.data)
-    //     return res.data
-    // } catch (err) {
-    //     console.log('Cannot get query', err);
-    // }
-}
-
-async function getBoardById(boardId) {
-    //LOCAL STORAGE
-    return storageService.get(KEY, boardId);
-}
-
-async function getGroupById(boardId, groupId) {
-    //LOCAL STORAGE
     try {
-        const board = await storageService.get(KEY, boardId);
+        return await httpService.get('board', filterBy)
+    } catch (err) {
+        console.log('Cannot get query', err);
+    }
+}
+
+async function getBoardById(boardId, data = null) {
+    //SERVER:
+    try {
+        return await httpService.get(`board/${boardId}`, data)
+    } catch (err) {
+        console.log('Cannot get boardById from server', err);
+    }
+}
+
+//FOR NOW we'll get all the board from server, and then send back the group
+async function getGroupById(boardId, groupId) {
+    //SERVER:
+    try {
+        const board = await httpService.get(`board/${boardId}`)
         const group = board.groups.find((group) => group.id === groupId);
         return group;
     } catch (err) {
-        console.log('Cannot find group', err);
+        console.log('Cannot get group from server', err);
     }
 }
 
 async function getTaskById(boardId, groupId, taskId) {
     try {
-        const currBoard = await storageService.get(KEY, boardId);
-        const currGroup = currBoard.groups.find((group) => group.id === groupId);
+        const board = await httpService.get(`board/${boardId}`)
+        const currGroup = board.groups.find((group) => group.id === groupId);
         const currTask = currGroup.tasks.find((task) => task.id === taskId);
         return currTask;
     } catch (err) {
@@ -515,73 +111,109 @@ async function getTaskById(boardId, groupId, taskId) {
     }
 }
 
-//TODO - do we need async here? "storageService.remove" returns nothing
 async function removeBoard(boardId) {
-    return storageService.remove(KEY, boardId);
+    try {
+        const boardIdRemoved = await httpService.delete(`board/${boardId}`)
+            //TODO THIS REMOVE SOCKET!
+        _emitToServerSocket('boardChanged', boardId)
+        return boardIdRemoved;
+    } catch (err) {
+        console.log('Cannot find/remove board', err);
+    }
 }
 
 async function removeGroup(boardId, groupId, removedIndex = null) {
-
-    return storageService.remove(KEY, boardId, 'groups', groupId);
+    //SERVER:
+    try {
+        const board = await httpService.get(`board/${boardId}`)
+        const groupIdx = board.groups.findIndex((group) => group.id === groupId);
+        board.groups.splice(groupIdx, 1)
+            // console.log('groupIdx', groupIdx);
+        saveBoard(board)
+        return board;
+    } catch (err) {
+        console.log('Cannot get group from server', err);
+    }
 }
 
 async function removeTask(boardId, groupId, taskId) {
-    return storageService.remove(KEY, boardId, 'groups', groupId, 'tasks', taskId);
+    try {
+        const board = await httpService.get(`board/${boardId}`)
+        const groupIdx = board.groups.findIndex((group) => group.id === groupId);
+        const taskIdx = board.groups[groupIdx].tasks.findIndex((task) => task.id === taskId);
+        board.groups[groupIdx].tasks.splice(taskIdx, 1)
+        console.log('board', board);
+        saveBoard(board)
+        socketService.emit('boardChanged', board._id)
+        return board;
+    } catch (err) {
+        console.log('Cannot get group from server', err);
+    }
 }
 
 async function saveBoard(board) {
     if (board._id) {
         try {
-            return storageService.put(KEY, board);
+            const addedBoard = await httpService.put(`board`, board)
+            console.log('addedBoard', addedBoard);
+            socketService.emit('boardChanged', board._id)
         } catch (err) {
             console.log('Cannot find group', err);
         }
     } else {
-        return storageService.post(KEY, board);
+        const addedBoard = await httpService.post(`board`, board)
+        return addedBoard
     }
 }
 
 //ASK - THE FUNCTION RETURN THE NEW Board!!, or something else??
 //WHAT SHULD DO WITH ERRORS?
 async function saveGroup(boardId, updateGroup, addedIdxForDrop = null) {
-    try {
-        var currBoard = await getBoardById(boardId);
-        var currGroup = currBoard.groups.find((group) => group.id === updateGroup.id);
-        var currGroupIdx = currBoard.groups.indexOf(currGroup);
 
-        if (addedIdxForDrop) {
-            currBoard.groups.splice(addedIdxForDrop, 0, updateGroup)
-        } else {
-            if (currGroup) {
-                currBoard.groups[currGroupIdx] = updateGroup;
-            } else currBoard.groups.push(updateGroup);
-        }
-        await saveBoard(currBoard);
-        return currBoard;
+    try {
+        const board = await httpService.get(`board/${boardId}`)
+        const groupIdx = board.groups.findIndex((group) => group.id === updateGroup.id);
+        if (groupIdx >= 0) {
+            board.groups.splice(groupIdx, 1, updateGroup)
+        } else board.groups.splice(0, 0, updateGroup)
+            // console.log('board', board);
+            //THIS SEND TO SERVER TWICE, IF WILL BE TIME, NEED TO FIX TO SEND ONCE!(in backend api...)
+        await saveBoard(board)
+        _emitToServerSocket('boardChanged', board._id)
+            // socketService.on('boardChanged', this.addMsg)
+
+        return board;
     } catch (err) {
-        console.log('Cannot update/save group', err);
+        console.log('Cannot get group from server', err);
     }
 }
 async function saveTask(boardId, groupId, updateTask, fromIdx = null) {
     try {
-        var currGroup = await getGroupById(boardId, groupId);
-        var currTask = currGroup.tasks.find((task) => task.id === updateTask.id);
-        var currTaskIdx = currGroup.tasks.indexOf(currTask);
-        // console.log(currTaskIdx);
+        const board = await httpService.get(`board/${boardId}`)
+        const groupIdx = board.groups.findIndex((group) => group.id === groupId);
+        // var currGroup = board.groups[groupIdx]
+        const taskIdx = board.groups[groupIdx].tasks.findIndex((task) => task.id === updateTask.id);
+        // console.log('taskIdx', taskIdx);
+        // console.log('groupIdx,taskIdx', groupIdx, taskIdx);
 
-        if (fromIdx) {
-            currGroup.tasks.splice(fromIdx, 0, updateTask)
-        } else {
-            if (currTask) {
-                currGroup.tasks[currTaskIdx] = updateTask;
-            } else {
-                currGroup.tasks.push(updateTask);
-            }
+        if (groupIdx >= 0) {
+            if (taskIdx >= 0) {
+                board.groups[groupIdx].tasks.splice(taskIdx, 1, updateTask)
+            } else board.groups[groupIdx].tasks.push(updateTask)
+                // console.log('board', board);
+            saveBoard(board)
+            return board;
         }
+    } catch (err) {
+        console.log('Cannot get group from server', err);
+    }
 
-        await saveGroup(boardId, currGroup);
-        // return updateTask
-    } catch {}
+
+
+}
+
+async function _emitToServerSocket(eventName, data = null) {
+    socketService.emit(eventName, data)
 }
 
 //DONT SAVE TO STORAGE!
@@ -657,7 +289,8 @@ async function createNewBoard() {
         cmpsOrder: ['status-picker', 'members-picker', 'date-picker'],
     };
 
-    storageService.post(KEY, emptyBoard);
+    // storageService.post(KEY, emptyBoard);
+    return emptyBoard
 }
 
 function _createBoard() {
