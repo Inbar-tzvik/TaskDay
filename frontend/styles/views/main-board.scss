@@ -32,3 +32,17 @@
   pointer-events: none;
   transition: opacity 0.3s;
 }
+.loading-gif {
+  width: 1400px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    height: 400px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

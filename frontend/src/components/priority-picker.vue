@@ -1,6 +1,6 @@
 <template>
   <section class="dropDownMenuWrapper">
-    <button :style="styleObj" class="dropDownMenuButton" ref="menu" @click="openClose">{{ currTask.priority }}</button>
+    <button :style="style" class="dropDownMenuButton" ref="menu" @click="openClose">{{ task.priority }}</button>
 
     <section class="dropdownMenu" v-if="isOpen">
       <div class="menuArrow" />
@@ -65,6 +65,15 @@ export default {
       this.styleObj.backgroundColor = this.bgColor(this.currTask.priority);
 
       this.$emit('updatedStatus', updatedTask);
+    },
+  },
+  computed: {
+    style() {
+      return {
+        color: 'white',
+        backgroundColor: this.bgColor(this.task.priority),
+        borderColor: this.bgColor(this.task.priority),
+      };
     },
   },
 };

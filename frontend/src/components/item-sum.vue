@@ -63,7 +63,6 @@ export default {
     },
     styleObj(status, key) {
       var width = key * this.widthUnitStatus() + 'px';
-      // console.log(width);
       return {
         backgroundColor: this.optsStatus[status],
         width: width,
@@ -74,7 +73,6 @@ export default {
     },
     statusToShow(cmp) {
       if (cmp === 'status-picker') {
-        console.log(cmp);
         return true;
       }
     },
@@ -82,7 +80,7 @@ export default {
       if (cmp !== 'status-picker') return;
       const statusMap = {};
       const cellsColorsStatus = [];
-      this.group.tasks.forEach((item) => {
+      this.group.tasks?.forEach((item) => {
         if (!cellsColorsStatus.includes(item.status)) cellsColorsStatus.push(item.status);
         if (statusMap[item.status]) {
           statusMap[item.status] += 1;
@@ -99,7 +97,7 @@ export default {
       if (cmp !== 'priority-picker') return;
       const priorityMap = {};
       const cellsColorsPriority = [];
-      this.group.tasks.forEach((item) => {
+      this.group.tasks?.forEach((item) => {
         if (!cellsColorsPriority.includes(item.priority)) cellsColorsPriority.push(item.priority);
         if (priorityMap[item.priority]) {
           priorityMap[item.priority] += 1;
@@ -122,6 +120,4 @@ export default {
   },
 };
 </script>
-<style>
-
-</style>
+<style></style>

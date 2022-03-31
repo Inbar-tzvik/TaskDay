@@ -1,0 +1,102 @@
+.block {
+  display: flex;
+}
+.timeline-picker {
+  width: 200px;
+  // display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 33px;
+  border: none;
+  &:hover {
+    cursor: pointer;
+    .date-to-show {
+      display: none;
+    }
+    .days-count-to-show {
+      display: initial;
+    }
+  }
+}
+.timeline {
+  display: flex;
+  position: absolute;
+  width: 200px;
+  background-color: transparent;
+  border: none;
+  &:hover {
+    background-color: none;
+  }
+
+  .el-range-input,
+  .el-range-separator {
+    opacity: 0;
+  }
+
+  .el-range__close-icon {
+    margin-top: 4px;
+  }
+}
+.el-date-editor .el-range__icon {
+  opacity: 0;
+}
+.el-range-editor--small.el-input__inner {
+  height: 33px;
+  background-color: transparent;
+  &:hover {
+    color: none;
+  }
+}
+
+.data-in-row:hover .el-date-editor {
+  background-color: transparent;
+}
+.time-to-show {
+  width: 90%;
+  padding: 2px 0;
+  margin: auto;
+  margin-top: 6px;
+  border-radius: 20px;
+  line-height: 1.4;
+  color: white;
+  display: flex;
+  justify-content: center;
+  .days-count-to-show {
+    display: none;
+  }
+}
+
+.date-picker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .date {
+    opacity: 1;
+    width: 200px;
+    height: 20px;
+    input {
+      padding-top: 3px;
+      margin: 0px;
+      background-color: transparent;
+      border: none;
+      text-align: center;
+      transition: none;
+      -webkit-transition: none;
+      &:hover {
+        border: 1px dashed #c4c4c4;
+      }
+    }
+    .el-icon-date {
+      display: none;
+    }
+  }
+  .time-to-show {
+    position: absolute;
+    padding-bottom: 8px;
+    z-index: 100;
+  }
+}
+
+.el-date-editor {
+  background-color: none !important;
+}

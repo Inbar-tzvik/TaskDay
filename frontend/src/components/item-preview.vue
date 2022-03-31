@@ -65,7 +65,7 @@ export default {
       this.onEdit = true;
     },
     editTask(value, item) {
-      console.log('input value', value);
+      // console.log('input value', value);
       var currTask = JSON.parse(JSON.stringify(item));
       this.onEdit = false;
 

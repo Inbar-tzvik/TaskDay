@@ -45,6 +45,7 @@
                 :board="board"
                 @setVal="setAns($event, idx)"
                 @removeAssignedMember="removeAssignedMember"
+                @changedDates="changedDates"
               ></component>
               <!-- <component :is="cmp" :info="task" @setVal="setAns($event, idx)"></component> -->
             </label>
@@ -131,6 +132,15 @@ export default {
     memberPicker,
   },
   methods: {
+    changedDates(task) {
+      console.log('change dates', task);
+      this.$store.dispatch({
+        type: 'addItem',
+        boardId: this.board._id,
+        groupId: this.group.id,
+        task: task,
+      });
+    },
     updatedStatus(updatedTask) {
       this.$emit('updatedStatus', this.group.id, updatedTask);
       this.updateStatus();
@@ -141,7 +151,7 @@ export default {
     },
     onDrop(dropResult) {
       this.group.tasks = this.applyDrag(this.group.tasks, dropResult);
-      this.$store.dispatch({ type: 'updateBoard', board: this.board });
+      this.$store.dispatch({ type: 'updateBoard', addItem });
     },
     applyDrag(tasks, dragResult) {
       // console.log('tasks', tasks);

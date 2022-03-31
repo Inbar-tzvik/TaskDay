@@ -21,12 +21,10 @@
           </h1>
         </div>
 
-        <div class="txt">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </div>
+        <div class="txt">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
         <div>
           <button>
-            <router-link to="/main/b101">Get start</router-link>
+            <router-link to="/main/62430dc81cdd644b3e5acabd">Get start</router-link>
           </button>
         </div>
       </div>

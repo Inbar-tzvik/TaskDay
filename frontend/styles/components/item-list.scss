@@ -108,6 +108,12 @@
 .edit-name-task {
   display: flex;
   align-items: center;
+  p {
+    font-size: 13px;
+  }
+  button {
+    font-size: 13px;
+  }
 }
 .data-in-row {
   display: flex;

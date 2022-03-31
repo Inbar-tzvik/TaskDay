@@ -1,7 +1,7 @@
 <template>
   <section class="dropDownMenuWrapper">
-    <button :style="styleObj" class="dropDownMenuButton" ref="menu" @click="openClose">
-      <span v-if="!isPlay">{{ currTask.status }} </span>
+    <button :style="style" class="dropDownMenuButton" ref="menu" @click="openClose">
+      <span v-if="!isPlay">{{ task.status }} </span>
       <span v-else> <img class="done-gif" src="../assets/done.gif" alt="" /> {{ currTask.status }} </span>
     </button>
 
@@ -81,6 +81,14 @@ export default {
       this.$emit('updatedStatus', updatedTask);
     },
   },
-  computed: {},
+  computed: {
+    style() {
+      return {
+        color: 'white',
+        backgroundColor: this.bgColor(this.task.status),
+        borderColor: this.bgColor(this.task.status),
+      };
+    },
+  },
 };
 </script>

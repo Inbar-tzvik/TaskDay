@@ -1,5 +1,7 @@
 <template>
   <section class="flex">
+    <div class="loading-gif" v-if="!board"><img src="../assets/Box-loading-2.gif" /></div>
+
     <div v-if="isDetails" @click="isDetails = false" class="main-screen"></div>
     <div class="empty-div" v-if="!isDetails"></div>
     <section v-if="board" class="main-board">
@@ -24,11 +26,7 @@
           :board="board"
         />
       </section>
-      <details-modal
-        v-if="isDetails"
-        @closeDetails="closeDetails"
-        :class="{ showModal: isDetails }"
-      ></details-modal>
+      <details-modal v-if="isDetails" @closeDetails="closeDetails" :class="{ showModal: isDetails }"></details-modal>
     </section>
   </section>
   <!-- <button @click="goToEdit" class="btn btn-secondary">Add a new car</button> -->
@@ -43,7 +41,6 @@ import detailsModal from '../components/modals/details-modal.vue';
 import { boardGroupService } from '../services/board-group-service';
 // import { boardService } from '../services/board-service.js';
 import { socketService } from '@/services/socket.service.front';
-
 
 export default {
   name: 'main-board',
@@ -65,16 +62,16 @@ export default {
           type: 'setCurrBoard',
           boardId: this.$route.params.boardId,
         });
-        socketService.emit('curr board', this.$route.params.boardId)
+        socketService.emit('curr board', this.$route.params.boardId);
       },
       immediate: true,
     },
   },
   created() {
-    socketService.on('boardChanged', ((boardId)=>{
-              // console.log('boardId',boardId);
-              this.$store.dispatch({type: 'setCurrBoard', boardId});
-            }))
+    socketService.on('boardChanged', (boardId) => {
+      // console.log('boardId',boardId);
+      this.$store.dispatch({ type: 'setCurrBoard', boardId });
+    });
   },
   methods: {
     updateGroup(currGroup, addedIdxForDrop = null) {
@@ -133,7 +130,7 @@ export default {
       });
     },
     updatedStatus(groupId, task) {
-      console.log('i am in board', groupId, task);
+      // console.log('i am in board', groupId, task);
       this.$store.dispatch({
         type: 'addItem',
         boardId: this.board._id,
@@ -145,7 +142,6 @@ export default {
       this.$emit('circleClicked');
     },
     openDetails() {
-      console.log();
       this.isDetails = !this.isDetails;
     },
     closeDetails() {
