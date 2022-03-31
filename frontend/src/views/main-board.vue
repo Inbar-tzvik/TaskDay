@@ -1,9 +1,14 @@
 <template>
   <section class="flex">
-    <div class="loading-gif" v-if="!board"><img src="@/assets/Box-Loading-2.gif" /></div>
+    <div class="loading-gif" v-if="!board">
+      <img src="@/assets/Box-Loading-2.gif" />
+    </div>
 
     <div v-if="isDetails" @click="isDetails = false" class="main-screen"></div>
     <div class="empty-div" v-if="!isDetails"></div>
+    <!-- <div class="loader" v-if="!board">
+      <img src="../../styles/images/loading.gif" alt="" />
+    </div>-->
     <section v-if="board" class="main-board">
       <section class="board-header-content">
         <board-header-main @circleClicked="circleClicked" />
@@ -17,6 +22,7 @@
         <!-- <font-awesome-icon icon="arrow-down" /> -->
         <group-list
           v-if="board"
+          @toggleUpdates="toggleUpdates"
           @updatedStatus="updatedStatus"
           @updateGroup="updateGroup"
           @addItem="addItem"
@@ -26,7 +32,12 @@
           :board="board"
         />
       </section>
-      <details-modal v-if="isDetails" @closeDetails="closeDetails" :class="{ showModal: isDetails }"></details-modal>
+      <details-modal
+      @editTask="editTask"
+        v-if="isDetails"
+        @closeDetails="closeDetails"
+        :class="{ showModal: isDetails }"
+      ></details-modal>
     </section>
   </section>
   <!-- <button @click="goToEdit" class="btn btn-secondary">Add a new car</button> -->
@@ -68,12 +79,23 @@ export default {
     },
   },
   created() {
+    this.$store.commit({ type: 'setCurrPage', page: 'mainPage' });
     socketService.on('boardChanged', (boardId) => {
       // console.log('boardId',boardId);
       this.$store.dispatch({ type: 'setCurrBoard', boardId });
     });
   },
   methods: {
+    toggleUpdates(task, groupId) {
+// console.log('task,groupId',task,groupId);
+      this.$store.dispatch({
+        type: 'taskForDeatil',
+        groupId,
+        boardId: this.board._id,
+        task
+      });
+        this.isDetails = !this.isDetails;
+    },
     updateGroup(currGroup, addedIdxForDrop = null) {
       // console.log('currGroup,addedIdxForDrop',currGroup,addedIdxForDrop);
       this.$store.dispatch({
@@ -120,13 +142,13 @@ export default {
         boardId: this.$store.getters.currBoard._id,
       });
     },
-    editTask(groupId, item) {
-      console.log(groupId, item);
+    editTask(groupId, task) {
+      // console.log('groupId, task',groupId, task);
       this.$store.dispatch({
         type: 'addItem',
         boardId: this.board._id,
         groupId: groupId,
-        task: item,
+        task,
       });
     },
     updatedStatus(groupId, task) {

@@ -1,6 +1,9 @@
 <template>
   <section class="app-container flex">
-    <nav-bar @menuClicked="this.isModalClicked = !this.isModalClicked" />
+    <nav-bar
+      @menuClicked="this.isModalClicked = !this.isModalClicked"
+      @homeClicked="this.isModalClicked = false"
+    />
     <work-space-modal
       :class="[isModalClicked ? 'left' : '']"
       @closeModal="this.isModalClicked = !this.isModalClicked"
@@ -17,7 +20,6 @@ import workSpaceModal from './components/modals/work-space-modal.vue';
 export default {
   name: 'app',
   created() {
-            
     this.$store.dispatch({ type: 'loadBoards' });
   },
   data() {

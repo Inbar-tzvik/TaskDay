@@ -34,7 +34,7 @@
           </el-dropdown>
           <section class="data-in-row">
             <!-- <font-awesome-icon icon="caret-down"></font-awesome-icon> -->
-            <item-preview :group="group.style" :task="task" @editTask="editTask" />
+            <item-preview :group="group.style" :task="task" @editTask="editTask" @toggleUpdates="toggleUpdates" />
             <label v-for="(cmp, idx) in cmps" :key="cmp">
               <!-- <pre>{{ task }}</pre> -->
               <component
@@ -57,7 +57,10 @@
     <div class="add-item" v-if="newTask">
       <div class="empty-block"></div>
       <div class="add-left-indicator">
-        <div class="add-left-indicator-inner" :style="{ backgroundColor: group.style.color }"></div>
+        <div
+          class="add-left-indicator-inner"
+          :style="{ backgroundColor: group.style.color }"
+        ></div>
       </div>
       <form>
         <input
@@ -132,6 +135,10 @@ export default {
     Person,
   },
   methods: {
+        toggleUpdates(task){
+          // console.log('taskIdtaskId',task,this.group.id);
+this.$emit('toggleUpdates', task,this.group.id);
+    },
     changedDates(task) {
       console.log('change dates', task);
       this.$store.dispatch({
@@ -196,7 +203,9 @@ export default {
     updateStatus() {},
     removeAssignedMember(personId, task) {
       const item = JSON.parse(JSON.stringify(task));
-      const personIdx = item.members.findIndex((person) => person._id === personId);
+      const personIdx = item.members.findIndex(
+        (person) => person._id === personId
+      );
       item.members.splice(personIdx, 1);
       this.$store.dispatch({
         type: 'addItem',

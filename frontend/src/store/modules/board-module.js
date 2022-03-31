@@ -1,7 +1,8 @@
 import { boardGroupService } from '../../services/board-group-service';
 import { authService } from '../../services/auth-service';
 import { vModelRadio } from 'vue';
-// import { statSync } from 'fs';
+
+
 export default {
     state: {
         boards: [],
@@ -9,30 +10,43 @@ export default {
         // user: authService.getLoggedinUser(),
         filterBy: {
             title: '',
-            user: ''
+            user: '',
         },
-        // labels: [“funny”, “sad”, “On wheels”, “Box game”, “Art”, “Baby”, “Doll”, “Puzzle”, “Outdoor”]
+        currPage: '',
+        currTask: null,
+        currGroupId: null, // labels: [“funny”, “sad”, “On wheels”, “Box game”, “Art”, “Baby”, “Doll”, “Puzzle”, “Outdoor”]
     },
     getters: {
+        currPage(state) {
+            return state.currPage;
+        },
         boards(state) {
             return JSON.parse(JSON.stringify(state.boards));
         },
         getFilter(state) {
-            return state.filterBy
+            return state.filterBy;
         },
         currBoard(state) {
             // console.log('state.filterBy', state.filterBy);
-            if (!(!state.filterBy || (state.filterBy.title === '' && state.filterBy.user === ''))) {
+            if (!(!state.filterBy ||
+                    (state.filterBy.title === '' && state.filterBy.user === '')
+                )) {
                 //     // email.isRead === filter.isReadnow &&
-                var cmpsToReturn = JSON.parse(JSON.stringify(state.boards[0].cmpsOrder))
+                var cmpsToReturn = JSON.parse(
+                    JSON.stringify(state.boards[0].cmpsOrder)
+                );
                 var regex = new RegExp(state.filterBy.title, 'i');
-                var result = state.currBoard.groups.filter((group) => regex.test(group.title));
+                var result = state.currBoard.groups.filter((group) =>
+                    regex.test(group.title)
+                );
                 var copyCurrBoard = JSON.parse(JSON.stringify(result));
                 // console.log('befoe tasks', copyCurrBoard);
                 copyCurrBoard.groups = result;
                 for (var i = 0; i < state.currBoard.groups.length; i++) {
                     var groupRun = JSON.parse(JSON.stringify(state.currBoard.groups[i]));
-                    var taskFiltered = state.currBoard.groups[i].tasks.filter((task) => regex.test(task.title));
+                    var taskFiltered = state.currBoard.groups[i].tasks.filter((task) =>
+                        regex.test(task.title)
+                    );
                     // console.log(` group ${i}`, taskFiltered);
                     if (taskFiltered.length > 0) {
                         if (!copyCurrBoard.groups.find((group) => group.id === groupRun.id)) {
@@ -43,12 +57,19 @@ export default {
                 }
 
                 // console.log('after flter', copyCurrBoard);
-                copyCurrBoard.cmpsOrder = cmpsToReturn
+                copyCurrBoard.cmpsOrder = cmpsToReturn;
                 return copyCurrBoard;
             } else {
                 // console.log('fullBoard', JSON.parse(JSON.stringify(state.currBoard)));
                 return JSON.parse(JSON.stringify(state.currBoard));
             }
+        },
+        getCurrTask(state) {
+            // return JSON.parse(JSON.stringify(state.currTask))
+            return state.currTask
+        },
+        getCurrGroupId(state) {
+            return JSON.parse(JSON.stringify(state.currGroupId))
         },
     },
     mutations: {
@@ -61,8 +82,14 @@ export default {
         setCurrBoard(state, { board }) {
             state.currBoard = board;
         },
+        setCurrPage(state, { page }) {
+            console.log('set curr page', page);
+            state.currPage = page;
+        },
         addItem(state, { groupId, task, fromIdx = null }) {
-            var groupIdx = state.currBoard.groups.findIndex((group) => group.id === groupId);
+            var groupIdx = state.currBoard.groups.findIndex(
+                (group) => group.id === groupId
+            );
             var taskIdx = state.currBoard.groups[groupIdx].tasks.findIndex(
                 (taskFromCurrBoard) => taskFromCurrBoard.id === task.id
             );
@@ -75,7 +102,9 @@ export default {
             }
         },
         removeItem(state, { groupId, itemId }) {
-            var groupIdx = state.currBoard.groups.findIndex((group) => group.id === groupId);
+            var groupIdx = state.currBoard.groups.findIndex(
+                (group) => group.id === groupId
+            );
             var taskIdx = state.currBoard.groups[groupIdx].tasks.findIndex(
                 (taskFromCurrBoard) => taskFromCurrBoard.id === itemId
             );
@@ -86,12 +115,22 @@ export default {
             state.currBoard.groups.splice(0, 0, newGroup);
         },
         updateGroup(state, { currGroup }) {
-            var groupIdx = state.currBoard.groups.findIndex((group) => group.id === currGroup.id);
+            var groupIdx = state.currBoard.groups.findIndex(
+                (group) => group.id === currGroup.id
+            );
             state.currBoard.groups.splice(groupIdx, 1, currGroup);
         },
         removeGroup(state, { groupId }) {
-            var groupIdxToRemove = state.currBoard.groups.findIndex((group) => group.id === groupId);
+            var groupIdxToRemove = state.currBoard.groups.findIndex(
+                (group) => group.id === groupId
+            );
             state.currBoard.groups.splice(groupIdxToRemove, 1);
+        },
+        setCurrTask(state, { task }) {
+            state.currTask = task
+        },
+        setCurrGroupId(state, { groupId }) {
+            state.currGroupId = groupId
         },
     },
     actions: {
@@ -130,7 +169,11 @@ export default {
         },
         async removeGroup({ dispatch, commit }, { boardId, groupId, removedIndex = null }) {
             try {
-                await boardGroupService.removeGroup(boardId, groupId, (removedIndex = null));
+                await boardGroupService.removeGroup(
+                    boardId,
+                    groupId,
+                    (removedIndex = null)
+                );
                 commit({
                     type: 'removeGroup',
                     groupId,
@@ -147,6 +190,7 @@ export default {
         async addItem({ dispatch, commit }, { boardId, groupId, task, fromIdx = null }) {
             try {
                 await boardGroupService.saveTask(boardId, groupId, task, fromIdx);
+                // commit({ type: 'setCurrTask', task });
                 commit({
                     type: 'addItem',
                     groupId,
@@ -193,9 +237,9 @@ export default {
         },
 
         async updateBoardDrop({ state, commit }) {
-            const copyBoard = JSON.parse(JSON.stringify(state.currBoard))
-                // socketService.emit('board newUpdateBoard', copyBoard)
-            await boardGroupService.saveBoard(copyBoard)
+            const copyBoard = JSON.parse(JSON.stringify(state.currBoard));
+            // socketService.emit('board newUpdateBoard', copyBoard)
+            await boardGroupService.saveBoard(copyBoard);
         },
         async updateBoard({ dispatch, commit }, { board }) {
             try {
@@ -221,6 +265,14 @@ export default {
         setFilter({ commit, dispatch }, { filterBy }) {
             commit({ type: 'setFilter', filterBy });
             //   dispatch({ type: 'loadBoards' });
+        },
+
+        async taskForDeatil({ state, commit }, { groupId, task }) {
+            // console.log('groupId,task', groupId, task);
+            commit({ type: 'setCurrGroupId', groupId });
+            commit({ type: 'setCurrTask', task });
+
+
         },
     },
 };

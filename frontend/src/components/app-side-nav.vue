@@ -1,7 +1,12 @@
 <template>
-  <header class="app-header">
+  <header class="app-header" :class="{ removeSide: myClass }">
     <div>
-      <img src="../../styles/icon/icon.png" alt="" class="icon" />
+      <img
+        src="../../styles/icon/icon.png"
+        alt=""
+        class="icon"
+        @click="goToHomePage"
+      />
 
       <div class="top-navigation-items-area">
         <div class="cliked-btn-nav" @click="onClickWorkSpace">
@@ -64,12 +69,23 @@ export default {
   data() {
     return {
       // isWorkSpace: false,
+      currPage: null,
     };
   },
-  computed: {},
+  computed: {
+    myClass() {
+      console.log('my class', this.currPage);
+      if (this.currPage === 'homePage') return true;
+      else return false;
+    },
+  },
   methods: {
     onClickWorkSpace() {
       this.$emit('menuClicked');
+    },
+    goToHomePage() {
+      this.$emit('homeClicked');
+      this.$router.push(`/`);
     },
   },
   components: {
@@ -81,6 +97,14 @@ export default {
     appsIcon,
     searchIcon,
     helpIcon,
+  },
+  created() {},
+  watch: {
+    '$store.getters.currPage': {
+      handler() {
+        this.currPage = this.$store.getters.currPage;
+      },
+    },
   },
 };
 </script>

@@ -16,7 +16,7 @@
         <button @click="edit">Edit</button>
       </div>
     </div>
-    <div class="add-msg">
+    <div class="add-msg" @click="toggleUpdates(task)">
       <svg
         viewBox="0 0 20 20"
         fill="currentColor"
@@ -61,6 +61,10 @@ export default {
   components: {},
   computed: {},
   methods: {
+    toggleUpdates(task){
+      // console.log('tasktasktask',task);
+this.$emit('toggleUpdates', task);
+    },
     edit() {
       this.onEdit = true;
     },

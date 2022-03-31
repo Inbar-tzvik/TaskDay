@@ -2,14 +2,19 @@
   <section class="board-filter">
     <button @click="addGroup" class="blue-btn">New Group</button>
     <button class="half-btn">
-      <!-- <font-awesome-icon icon="fa-light fa-chevron-right" /> -->
+      <font-awesome-icon icon="angle-down" />
     </button>
     <!-- <div class="blue-symbl">></div> -->
 
     <div>
       <div class="input-container">
         <span class="search-icon"> <search-icon /></span>
-        <input type="text" placeholder="Search" @input="setFilterTitle" v-model="filterBy.title" />
+        <input
+          type="text"
+          placeholder="Search"
+          @input="setFilterTitle"
+          v-model="filterBy.title"
+        />
       </div>
       <button>
         <span>
@@ -55,7 +60,9 @@ export default {
     },
     getUsers() {
       //should be from store???
-      this.users = this.$store.getters.board.members.map((user) => user.fullname);
+      this.users = this.$store.getters.board.members.map(
+        (user) => user.fullname
+      );
       // return this.$store.getters.boards[0].members.map(user => user.fullname)
     },
   },
