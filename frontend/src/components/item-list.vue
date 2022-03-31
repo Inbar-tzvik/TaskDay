@@ -146,20 +146,20 @@ export default {
       this.updateStatus();
     },
     getItemPayload(group) {
-       var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
-if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return
+//        var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
+// if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return
       // console.log('group',group);
       return (index) => group.tasks[index];
     },
     onDrop(dropResult) {
-       var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
-if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return
+//        var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
+// if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return
             this.group.tasks = this.applyDrag(this.group.tasks, dropResult);
       this.$store.dispatch({type: 'updateBoard',board:this.board});
     },
     applyDrag(tasks, dragResult) {
-       var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
-if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return tasks
+//        var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
+// if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return tasks
       // console.log('tasks', tasks);
       const { removedIndex, addedIndex, payload } = dragResult;
       if (removedIndex === null && addedIndex === null) return tasks;
