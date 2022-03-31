@@ -146,12 +146,18 @@ export default {
       this.updateStatus();
     },
     getItemPayload(group) {
+<<<<<<< HEAD
 //        var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
 // if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return
+=======
+      //        var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
+      // if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return
+>>>>>>> 0487cfe8fbb228a8f056bd14b6bf4f56477add25
       // console.log('group',group);
       return (index) => group.tasks[index];
     },
     onDrop(dropResult) {
+<<<<<<< HEAD
 //        var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
 // if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return
             this.group.tasks = this.applyDrag(this.group.tasks, dropResult);
@@ -160,6 +166,16 @@ export default {
     applyDrag(tasks, dragResult) {
 //        var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
 // if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return tasks
+=======
+      //        var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
+      // if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return
+      this.group.tasks = this.applyDrag(this.group.tasks, dropResult);
+      this.$store.dispatch({ type: 'updateBoard', board: this.board });
+    },
+    applyDrag(tasks, dragResult) {
+      //        var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
+      // if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return tasks
+>>>>>>> 0487cfe8fbb228a8f056bd14b6bf4f56477add25
       // console.log('tasks', tasks);
       const { removedIndex, addedIndex, payload } = dragResult;
       if (removedIndex === null && addedIndex === null) return tasks;

@@ -1,9 +1,14 @@
 <template>
   <section class="flex">
-    <div class="loading-gif" v-if="!board"><img src="@/assets/Box-Loading-2.gif" /></div>
+    <div class="loading-gif" v-if="!board">
+      <img src="@/assets/Box-Loading-2.gif" />
+    </div>
 
     <div v-if="isDetails" @click="isDetails = false" class="main-screen"></div>
     <div class="empty-div" v-if="!isDetails"></div>
+    <!-- <div class="loader" v-if="!board">
+      <img src="../../styles/images/loading.gif" alt="" />
+    </div> -->
     <section v-if="board" class="main-board">
       <section class="board-header-content">
         <board-header-main @circleClicked="circleClicked" />
@@ -26,7 +31,11 @@
           :board="board"
         />
       </section>
-      <details-modal v-if="isDetails" @closeDetails="closeDetails" :class="{ showModal: isDetails }"></details-modal>
+      <details-modal
+        v-if="isDetails"
+        @closeDetails="closeDetails"
+        :class="{ showModal: isDetails }"
+      ></details-modal>
     </section>
   </section>
   <!-- <button @click="goToEdit" class="btn btn-secondary">Add a new car</button> -->
@@ -68,6 +77,7 @@ export default {
     },
   },
   created() {
+    this.$store.commit({ type: 'setCurrPage', page: 'mainPage' });
     socketService.on('boardChanged', (boardId) => {
       // console.log('boardId',boardId);
       this.$store.dispatch({ type: 'setCurrBoard', boardId });

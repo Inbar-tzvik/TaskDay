@@ -57,7 +57,11 @@
           </div>
         </div>
         <div class="space-view">
-          <div class="post-component" v-for="comment in getComments" :key="comment.id">
+          <div
+            class="post-component"
+            v-for="comment in getComments"
+            :key="comment.id"
+          >
             <div class="post-header">
               <div class="left-side-post">
                 <div class="img-user-container">
@@ -74,18 +78,31 @@
               </div>
               <div class="post-title">
                 <div>
-                  <img class="clock-post-img" src="../../../styles/icon/clock.png" alt="" />
+                  <img
+                    class="clock-post-img"
+                    src="../../../styles/icon/clock.png"
+                    alt=""
+                  />
                 </div>
                 <div class="time">1d</div>
                 <div>
-                  <img class="alarm-post-img" src="../../../styles/icon/alarm-details.png" alt="" />
+                  <img
+                    class="alarm-post-img"
+                    src="../../../styles/icon/alarm-details.png"
+                    alt=""
+                  />
                 </div>
               </div>
             </div>
             <div class="body-text">
               <p class="text">{{ comment.txt }}</p>
               <div class="seen-area">
-                <span><img class="view-icon" src="../../../styles/icon/view.png" alt="" /></span>
+                <span
+                  ><img
+                    class="view-icon"
+                    src="../../../styles/icon/view.png"
+                    alt=""
+                /></span>
                 <span class="seen">1</span>
                 <p>seen</p>
               </div>
@@ -186,14 +203,14 @@ export default {
             createdAt: 1590999817436.0,
             byMember: {
               _id: 'u10b1',
-              fullname: 'Itzik Vaknin',
+              fullname: 'Puki Ben David',
               imgUrl: '../../../styles/shlomi.jpg',
             },
             reply: [
               {
                 byMember: {
                   _id: 'u10bu1',
-                  fullname: 'Itzik Vaknin',
+                  fullname: 'Benjamin Netanyahu',
                   imgUrl: '../../../styles/shlomi.jpg',
                 },
                 txt: 'this is reply',
@@ -207,14 +224,14 @@ export default {
             createdAt: 1590999817436.0,
             byMember: {
               _id: 'u10f1',
-              fullname: 'Itzik Vaknin',
+              fullname: 'Benjamin Netanyahu',
               imgUrl: '../../../styles/shlomi.jpg',
             },
             reply: [
               {
                 byMember: {
                   _id: 'u1v0b1',
-                  fullname: 'Itzik Vaknin',
+                  fullname: 'Puki Ben David',
                   imgUrl: '../../../styles/shlomi.jpg',
                 },
                 txt: 'this is reply',
@@ -228,7 +245,7 @@ export default {
             createdAt: 1590999417436.0,
             byMember: {
               _id: 'u10d1',
-              fullname: 'shlkomi',
+              fullname: 'shlomi',
               imgUrl: '../../../styles/shlomi.jpg',
             },
             reply: [
@@ -273,7 +290,8 @@ export default {
             _id: 'u1m01',
             username: 'Tal',
             fullname: 'Itzik Vaknin',
-            imgUrl: 'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
+            imgUrl:
+              'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
           },
         ],
         labelIds: ['l101', 'l102'],
@@ -283,7 +301,8 @@ export default {
           _id: 'u10o1',
           username: 'Tal',
           fullname: 'Tal Tarablus',
-          imgUrl: 'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
+          imgUrl:
+            'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
         },
         style: {
           bgColor: '#26de81',
@@ -310,7 +329,9 @@ export default {
     setLike(commentId) {
       console.log(commentId);
       // console.log(JSON.parse(JSON.stringify(this.task)));
-      var idx = this.task.comments.findIndex((comment) => comment.id === commentId);
+      var idx = this.task.comments.findIndex(
+        (comment) => comment.id === commentId
+      );
       // console.log(idx);
       this.task.comments[idx].isLike = !this.task.comments[idx].isLike;
     },
