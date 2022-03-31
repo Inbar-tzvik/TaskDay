@@ -104,7 +104,7 @@
             @removeItem="removeItem"
           />
           <!-- <toy-preview @removeToy="removeToy" v-for="toy in toys" :key="toy.id" :toy="toy" /> -->
-          <li v-if="board.cmpsOrder">
+          <li c v-if="board.cmpsOrder">
             <item-sum :group="group" :cmps="board.cmpsOrder" />
           </li>
         </ul>
@@ -139,6 +139,13 @@ export default {
     };
   },
   computed: {
+        isFilterBy() {
+          console.log('currFilter',(!currFilter || currFilter.title !== '' || currFilter.user !== ''));
+          var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
+if(!currFilter || currFilter.title !== '' || currFilter.user !== '')
+      return false
+      else return true
+    },
     // board() {
     //   return this.board
     //   // return this.$store.getters.currBoard
@@ -165,10 +172,17 @@ export default {
   },
   methods: {
     getChildPayload(index) {
+//           var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
+// if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return
+
+      // if(this.isFilterBy) return
       return this.board.groups[index];
       // generate custom payload data here
     },
     onDrop(dropResult) {
+//                 var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
+// if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return
+      // if(this.isFilterBy) return
       this.board.groups = this.applyDrag(this.board.groups, dropResult);
       this.$store.dispatch({
         type: 'updateBoard',
@@ -177,7 +191,9 @@ export default {
     },
 
     applyDrag(arr, dragResult) {
-      // console.log('currBoard:', this.currBoard)
+//                 var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
+// if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return arr
+      // if(this.isFilterBy) return
       const { removedIndex, addedIndex, payload } = dragResult;
 
       if (removedIndex === null && addedIndex === null) return arr;

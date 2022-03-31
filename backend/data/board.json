@@ -39,6 +39,7 @@
                         "title": "this task updated by Taskday",
                         "status": "Working on it",
                         "priority": "Medium",
+                        "dates": { "startDate": "", "endDate": "" },
                         "members": [{
                                 "_id": "u101",
                                 "fullname": "Inbari Tzvik",
@@ -55,12 +56,14 @@
                                 "imgUrl": "https://pbs.twimg.com/media/DxwB0a_WoAEQShC.jpg"
                             }
                         ]
+
                     },
                     {
                         "id": "t102",
                         "title": "Add Samples",
                         "status": "Stuck",
                         "priority": "High",
+                        "dates": { "startDate": "", "endDate": "" },
                         "members": [{
                                 "_id": "u102",
                                 "fullname": "Ganesh Shiva",
@@ -78,6 +81,7 @@
                         "title": "Working on css ",
                         "status": "Stuck",
                         "priority": "Medium",
+                        "dates": { "startDate": "", "endDate": "" },
                         "members": [{
                             "_id": "u104",
                             "fullname": "Erez Tal",
@@ -89,6 +93,7 @@
                         "title": "Today i don't feel like doing anything",
                         "status": "Done",
                         "priority": "Low",
+                        "dates": { "startDate": "", "endDate": "" },
                         "members": []
                     }
                 ],
@@ -108,14 +113,16 @@
                             "_id": "u103",
                             "fullname": "Baba Ninja",
                             "imgUrl": "https://cdn.myimgstock.com/myimgstock/preview/sri-sai-baba-face-images-photos-2-11609604164xclnpdmkfv.jpg"
-                        }]
+                        }],
+                        "dates": { "startDate": "", "endDate": "" }
                     },
                     {
                         "id": "c202",
                         "title": "Add Samples",
                         "status": "Stuck",
                         "priority": "Medium",
-                        "members": []
+                        "members": [],
+                        "dates": { "startDate": "", "endDate": "" }
                     },
                     {
                         "id": "c213",
@@ -126,14 +133,16 @@
                             "_id": "u103",
                             "fullname": "Baba Ninja",
                             "imgUrl": "https://cdn.myimgstock.com/myimgstock/preview/sri-sai-baba-face-images-photos-2-11609604164xclnpdmkfv.jpg"
-                        }]
+                        }],
+                        "dates": { "startDate": "", "endDate": "" }
                     },
                     {
                         "id": "c215",
                         "title": "Today i don't feel like doing anything",
                         "status": "Done",
                         "priority": "Medium",
-                        "members": []
+                        "members": [],
+                        "dates": { "startDate": "", "endDate": "" }
                     }
                 ],
                 "style": {
@@ -158,7 +167,8 @@
                                 "fullname": "Zohar Ganesh",
                                 "imgUrl": "https://upload.wikimedia.org/wikipedia/en/0/01/Zohar_Argov_%281980s%29.jpg"
                             }
-                        ]
+                        ],
+                        "dates": { "startDate": "", "endDate": "" }
                     },
                     {
                         "id": "t102",
@@ -169,21 +179,24 @@
                             "_id": "u102",
                             "fullname": "Zohar Ganesh",
                             "imgUrl": "https://upload.wikimedia.org/wikipedia/en/0/01/Zohar_Argov_%281980s%29.jpg"
-                        }]
+                        }],
+                        "dates": { "startDate": "", "endDate": "" }
                     },
                     {
                         "id": "t113",
                         "title": "Working on css ",
                         "status": "Stuck",
                         "priority": "Medium",
-                        "members": []
+                        "members": [],
+                        "dates": { "startDate": "", "endDate": "" }
                     },
                     {
                         "id": "t115",
                         "title": "Today i don't feel like doing anything",
                         "status": "Done",
                         "priority": "Low",
-                        "members": []
+                        "members": [],
+                        "dates": { "startDate": "", "endDate": "" }
                     }
                 ],
                 "style": {
