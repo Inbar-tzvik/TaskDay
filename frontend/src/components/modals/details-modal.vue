@@ -165,7 +165,7 @@
 // import { json } from 'stream/consumers';
 import avatarImg from '../../components/avatar-img.vue';
 import likeIcon from '../../components/icons/like-icon.vue';
-import memberPicker from '../../components/member-picker.vue';
+import memberPicker from '../Person.vue';
 
 export default {
   name: '',

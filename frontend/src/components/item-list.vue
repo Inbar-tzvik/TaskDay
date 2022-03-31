@@ -78,11 +78,11 @@
 <script>
 import itemPreview from './item-preview.vue';
 import { boardGroupService } from '../services/board-group-service.js';
-import statusPicker from './status-picker.vue';
-import datePicker from './date-picker.vue';
+import Status from './Status.vue';
+import Timeline from './Timeline.vue';
 import { Container, Draggable } from 'vue3-smooth-dnd';
-import priorityPicker from './priority-picker.vue';
-import memberPicker from './member-picker.vue';
+import Priority from './Priority.vue';
+import Person from './Person.vue';
 import { objectEntries } from '@antfu/utils';
 
 export default {
@@ -124,12 +124,12 @@ export default {
   },
   components: {
     itemPreview,
-    statusPicker,
-    datePicker,
+    Status,
+    Timeline,
     Container,
     Draggable,
-    priorityPicker,
-    memberPicker,
+    Priority,
+    Person,
   },
   methods: {
     changedDates(task) {
