@@ -3,7 +3,7 @@
         "fullname": "Inbari Tzvik",
         "username": "1234",
         "password": "4321",
-        "imgUrl": "http://some-img.jpg",
+        "imgUrl": "https://us.123rf.com/450wm/kitthanesratanasiraanan/kitthanesratanasiraanan1902/kitthanesratanasiraanan190200001/117906554-beautiful-young-asian-woman-with-clean-fresh-skin-look-girl-beauty-face-care-facial-treatment-cosmet.jpg",
         "mentions": [{
             "id": "m101",
             "boardId": "62430dc81cdd644b3e5acabd",
@@ -12,10 +12,10 @@
         "isAdmin": true
     }, {
         "_id": "u102",
-        "fullname": "Zohar Ganesh",
+        "fullname": "Itzik JSON",
         "username": "1234",
         "password": "4321",
-        "imgUrl": "https://upload.wikimedia.org/wikipedia/en/0/01/Zohar_Argov_%281980s%29.jpg",
+        "imgUrl": "https://www4.pictures.zimbio.com/pc/Bruce+Willis+attending+photocall+Moonrise+fNEpMjXt7jcx.jpg",
         "mentions": [{
             "id": "m101",
             "boardId": "62430dc81cdd644b3e5acabd",
@@ -25,10 +25,10 @@
     },
     {
         "_id": "u103",
-        "fullname": "Baba Ninja",
+        "fullname": "Shlomi Nugarker",
         "username": "1234",
         "password": "4321",
-        "imgUrl": "https://cdn.myimgstock.com/myimgstock/preview/sri-sai-baba-face-images-photos-2-11609604164xclnpdmkfv.jpg",
+        "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg",
         "mentions": [{
             "id": "m101",
             "boardId": "62430dc81cdd644b3e5acabd",
@@ -36,17 +36,17 @@
         }],
         "isAdmin": false
     },
-    {
-        "_id": "u104",
-        "fullname": "Erez tal",
-        "username": "baba23",
-        "password": "4321",
-        "imgUrl": "https://pbs.twimg.com/media/DxwB0a_WoAEQShC.jpg",
-        "mentions": [{
-            "id": "m101",
-            "boardId": "62430dc81cdd644b3e5acabd",
-            "taskId": "t101"
-        }],
-        "isAdmin": false
-    }
 ]
+// {
+//     "_id": "u104",
+//     "fullname": "Erez tal",
+//     "username": "baba23",
+//     "password": "4321",
+//     "imgUrl": "https://pbs.twimg.com/media/DxwB0a_WoAEQShC.jpg",
+//     "mentions": [{
+//         "id": "m101",
+//         "boardId": "62430dc81cdd644b3e5acabd",
+//         "taskId": "t101"
+//     }],
+//     "isAdmin": false
+// }
