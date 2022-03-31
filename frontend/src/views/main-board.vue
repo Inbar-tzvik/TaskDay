@@ -1,6 +1,6 @@
 <template>
   <section class="flex">
-    <div class="loading-gif" v-if="!board"><img src="../assets/Box-loading-2.gif" /></div>
+    <div class="loading-gif" v-if="!board"><img src="@/assets/Box-Loading-2.gif" /></div>
 
     <div v-if="isDetails" @click="isDetails = false" class="main-screen"></div>
     <div class="empty-div" v-if="!isDetails"></div>
