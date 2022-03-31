@@ -1,0 +1,49 @@
+[{
+        "name": "Honda",
+        "price": 87,
+        "lables": [
+            "Funny"
+        ],
+        "inStock": false,
+        "reviews": [
+            "nice toy",
+            "bad toy"
+        ]
+    },
+    {
+        "name": "Fiat",
+        "price": 30,
+        "lables": [
+            "Funny"
+        ],
+        "inStock": true,
+        "reviews": [
+            "nice toy",
+            "bad toy"
+        ]
+    },
+    {
+        "name": "Toyota",
+        "price": 54,
+        "lables": [
+            "Sad"
+        ],
+        "inStock": true,
+        "reviews": [
+            "nice toy",
+            "bad toy"
+        ]
+    },
+    {
+        "name": "Shiva",
+        "price": 54,
+        "lables": [
+            "Sad"
+        ],
+        "inStock": false,
+        "reviews": [
+            "nice toy",
+            "bad toy"
+        ]
+    }
+]
