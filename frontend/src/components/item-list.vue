@@ -34,7 +34,11 @@
           </el-dropdown>
           <section class="data-in-row">
             <!-- <font-awesome-icon icon="caret-down"></font-awesome-icon> -->
-            <item-preview :group="group.style" :task="task" @editTask="editTask" />
+            <item-preview
+              :group="group.style"
+              :task="task"
+              @editTask="editTask"
+            />
             <label v-for="(cmp, idx) in cmps" :key="cmp">
               <!-- <pre>{{ task }}</pre> -->
               <component
@@ -57,7 +61,10 @@
     <div class="add-item" v-if="newTask">
       <div class="empty-block"></div>
       <div class="add-left-indicator">
-        <div class="add-left-indicator-inner" :style="{ backgroundColor: group.style.color }"></div>
+        <div
+          class="add-left-indicator-inner"
+          :style="{ backgroundColor: group.style.color }"
+        ></div>
       </div>
       <form>
         <input
@@ -146,27 +153,12 @@ export default {
       this.updateStatus();
     },
     getItemPayload(group) {
-<<<<<<< HEAD
-//        var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
-// if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return
-=======
       //        var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
       // if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return
->>>>>>> 0487cfe8fbb228a8f056bd14b6bf4f56477add25
       // console.log('group',group);
       return (index) => group.tasks[index];
     },
     onDrop(dropResult) {
-<<<<<<< HEAD
-//        var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
-// if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return
-            this.group.tasks = this.applyDrag(this.group.tasks, dropResult);
-      this.$store.dispatch({type: 'updateBoard',board:this.board});
-    },
-    applyDrag(tasks, dragResult) {
-//        var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
-// if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return tasks
-=======
       //        var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
       // if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return
       this.group.tasks = this.applyDrag(this.group.tasks, dropResult);
@@ -175,7 +167,6 @@ export default {
     applyDrag(tasks, dragResult) {
       //        var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
       // if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return tasks
->>>>>>> 0487cfe8fbb228a8f056bd14b6bf4f56477add25
       // console.log('tasks', tasks);
       const { removedIndex, addedIndex, payload } = dragResult;
       if (removedIndex === null && addedIndex === null) return tasks;
@@ -212,7 +203,9 @@ export default {
     updateStatus() {},
     removeAssignedMember(personId, task) {
       const item = JSON.parse(JSON.stringify(task));
-      const personIdx = item.members.findIndex((person) => person._id === personId);
+      const personIdx = item.members.findIndex(
+        (person) => person._id === personId
+      );
       item.members.splice(personIdx, 1);
       this.$store.dispatch({
         type: 'addItem',
