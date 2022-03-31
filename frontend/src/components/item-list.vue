@@ -57,7 +57,10 @@
     <div class="add-item" v-if="newTask">
       <div class="empty-block"></div>
       <div class="add-left-indicator">
-        <div class="add-left-indicator-inner" :style="{ backgroundColor: group.style.color }"></div>
+        <div
+          class="add-left-indicator-inner"
+          :style="{ backgroundColor: group.style.color }"
+        ></div>
       </div>
       <form>
         <input
@@ -200,7 +203,9 @@ this.$emit('toggleUpdates', task,this.group.id);
     updateStatus() {},
     removeAssignedMember(personId, task) {
       const item = JSON.parse(JSON.stringify(task));
-      const personIdx = item.members.findIndex((person) => person._id === personId);
+      const personIdx = item.members.findIndex(
+        (person) => person._id === personId
+      );
       item.members.splice(personIdx, 1);
       this.$store.dispatch({
         type: 'addItem',
