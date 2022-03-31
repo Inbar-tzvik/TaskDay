@@ -57,22 +57,19 @@
     <div class="add-item" v-if="newTask">
       <div class="empty-block"></div>
       <div class="add-left-indicator">
-        <div
-          class="add-left-indicator-inner"
-          :style="{ backgroundColor: group.style.color }"
-        ></div>
+        <div class="add-left-indicator-inner" :style="{ backgroundColor: group.style.color }"></div>
       </div>
-      <form>
-        <input
-          @click="isClicked = true"
-          class="add-new-item"
-          placeholder="+ Add Item"
-          v-model="newTask.title"
-          type="text"
-        />
-        <div class="left-space"></div>
-        <button v-if="isClicked" @click="addItem(group.id)">Add</button>
-      </form>
+      <!-- <form> -->
+      <input
+        @click="isClicked = true"
+        class="add-new-item"
+        placeholder="+ Add Item"
+        v-model="newTask.title"
+        type="text"
+      />
+      <div class="left-space"></div>
+      <button v-if="isClicked" @click="addItem(group.id)">Add</button>
+      <!-- </form> -->
       <div class="end-row"></div>
     </div>
   </section>
@@ -135,9 +132,9 @@ export default {
     Person,
   },
   methods: {
-        toggleUpdates(task){
-          // console.log('taskIdtaskId',task,this.group.id);
-this.$emit('toggleUpdates', task,this.group.id);
+    toggleUpdates(task) {
+      // console.log('taskIdtaskId',task,this.group.id);
+      this.$emit('toggleUpdates', task, this.group.id);
     },
     changedDates(task) {
       console.log('change dates', task);
@@ -203,9 +200,7 @@ this.$emit('toggleUpdates', task,this.group.id);
     updateStatus() {},
     removeAssignedMember(personId, task) {
       const item = JSON.parse(JSON.stringify(task));
-      const personIdx = item.members.findIndex(
-        (person) => person._id === personId
-      );
+      const personIdx = item.members.findIndex((person) => person._id === personId);
       item.members.splice(personIdx, 1);
       this.$store.dispatch({
         type: 'addItem',
@@ -221,9 +216,10 @@ this.$emit('toggleUpdates', task,this.group.id);
 <style>
 .left-space {
   height: 33px;
-  width: 540px;
+  /* width: 540px; */
   border: 1px solid #d0d4e4;
   border-left: none;
+  flex: 1 1 auto;
 }
 .progress {
   max-width: 100%;

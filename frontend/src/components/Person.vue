@@ -201,8 +201,8 @@ export default {
 }
 .avatar-img {
   background-color: transparent;
-  width: 30px;
-  height: 30px;
+  width: 26px;
+  height: 26px;
   margin: 0 -4px;
 }
 .avatar-name {

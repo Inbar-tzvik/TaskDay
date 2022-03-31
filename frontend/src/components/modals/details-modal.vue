@@ -164,7 +164,7 @@
 // import { json } from 'stream/consumers';
 import avatarImg from '../../components/avatar-img.vue';
 import likeIcon from '../../components/icons/like-icon.vue';
-import memberPicker from '../../components/member-picker.vue';
+import Person from '../../components/Person.vue';
 import { utilService } from '../../services/util-service';
 
 export default {
@@ -225,7 +225,7 @@ export default {
       // task:null,
     };
   },
-  components: { avatarImg, likeIcon, memberPicker },
+  components: { avatarImg, likeIcon, Person },
   created() {
     // this.task = this.$store.getters.getCurrTask
   },
