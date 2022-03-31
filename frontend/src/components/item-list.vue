@@ -41,10 +41,7 @@
                 @updatedStatus="updatedStatus"
                 :is="cmp"
                 :task="task"
-                :group="group"
-                :board="board"
                 @setVal="setAns($event, idx)"
-                @removeAssignedMember="removeAssignedMember"
               ></component>
               <!-- <component :is="cmp" :info="task" @setVal="setAns($event, idx)"></component> -->
             </label>
@@ -54,7 +51,6 @@
       </Draggable>
     </Container>
     <div class="add-item" v-if="newTask">
-      <div class="empty-block"></div>
       <div class="add-left-indicator">
         <div class="add-left-indicator-inner" :style="{ backgroundColor: group.style.color }"></div>
       </div>
@@ -66,7 +62,6 @@
           v-model="newTask.title"
           type="text"
         />
-        <div class="left-space"></div>
         <button v-if="isClicked" @click="addItem(group.id)">Add</button>
       </form>
       <div class="end-row"></div>
@@ -100,7 +95,7 @@ export default {
       // tasksForDrop: JSON.parse(JSON.stringify(this.group.tasks)),
       // tasksForDrop:this.group.tasks,
       // currGroups: [],
-      currTasks: JSON.parse(JSON.stringify(this.group.tasks)),
+currTasks: JSON.parse(JSON.stringify(this.group.tasks)),
       newTask: null,
       cmps: null,
       currBoard: JSON.parse(JSON.stringify(this.board)),
@@ -121,6 +116,15 @@ export default {
       console.log('error occured while getting board');
     }
   },
+    computed: {
+        isFilterBy() {
+          var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
+          // console.log('currFilter',(!currFilter || currFilter.title !== '' || currFilter.user !== ''));
+if(!currFilter || currFilter.title !== '' || currFilter.user !== '')
+      return false
+      else return true
+    },
+    },
   components: {
     itemPreview,
     statusPicker,
@@ -136,15 +140,24 @@ export default {
       this.updateStatus();
     },
     getItemPayload(group) {
-      // console.log('group',group);
+          var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
+if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return
+
+      // if(this.isFilterBy) return
       return (index) => group.tasks[index];
     },
     onDrop(dropResult) {
+          var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
+if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return
+
+            // if(this.isFilterBy) return
       this.group.tasks = this.applyDrag(this.group.tasks, dropResult);
-      this.$store.dispatch({ type: 'updateBoard', board: this.board });
+      this.$store.dispatch({type: 'updateBoard',board:this.board});
     },
     applyDrag(tasks, dragResult) {
-      // console.log('tasks', tasks);
+                var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
+if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return tasks
+            // if(this.isFilterBy) return
       const { removedIndex, addedIndex, payload } = dragResult;
       if (removedIndex === null && addedIndex === null) return tasks;
       let itemToAdd = payload;
@@ -178,28 +191,11 @@ export default {
       this.$emit('editTask', item, this.group.id);
     },
     updateStatus() {},
-    removeAssignedMember(personId, task) {
-      const item = JSON.parse(JSON.stringify(task));
-      const personIdx = item.members.findIndex((person) => person._id === personId);
-      item.members.splice(personIdx, 1);
-      this.$store.dispatch({
-        type: 'addItem',
-        boardId: this.board.id,
-        groupId: this.groupId.id,
-        task: item,
-      });
-    },
   },
 };
 </script>
 
 <style>
-.left-space {
-  height: 33px;
-  width: 540px;
-  border: 1px solid #d0d4e4;
-  border-left: none;
-}
 .progress {
   max-width: 100%;
   height: 100%;
@@ -243,13 +239,5 @@ export default {
   left: 40px;
   background-color: white;
   opacity: 0.9;
-}
-.empty-block {
-  position: sticky;
-  /* left: 16px; */
-  flex-shrink: 0;
-  z-index: 2;
-  width: 25px;
-  height: 35px;
 }
 </style>

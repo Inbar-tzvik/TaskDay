@@ -57,7 +57,11 @@
           </div>
         </div>
         <div class="space-view">
-          <div class="post-component" v-for="comment in getComments" :key="comment.id">
+          <div
+            class="post-component"
+            v-for="comment in getComments"
+            :key="comment.id"
+          >
             <div class="post-header">
               <div class="left-side-post">
                 <div class="img-user-container">
@@ -74,18 +78,31 @@
               </div>
               <div class="post-title">
                 <div>
-                  <img class="clock-post-img" src="../../../styles/icon/clock.png" alt="" />
+                  <img
+                    class="clock-post-img"
+                    src="../../../styles/icon/clock.png"
+                    alt=""
+                  />
                 </div>
                 <div class="time">1d</div>
                 <div>
-                  <img class="alarm-post-img" src="../../../styles/icon/alarm-details.png" alt="" />
+                  <img
+                    class="alarm-post-img"
+                    src="../../../styles/icon/alarm-details.png"
+                    alt=""
+                  />
                 </div>
               </div>
             </div>
             <div class="body-text">
               <p class="text">{{ comment.txt }}</p>
               <div class="seen-area">
-                <span><img class="view-icon" src="../../../styles/icon/view.png" alt="" /></span>
+                <span
+                  ><img
+                    class="view-icon"
+                    src="../../../styles/icon/view.png"
+                    alt=""
+                /></span>
                 <span class="seen">1</span>
                 <p>seen</p>
               </div>
@@ -120,9 +137,12 @@
                 <p>like</p>
               </div>
               <div class="right-btn">
-                <!-- <span> -->
-                <!-- <img../member-picker.vue class="reply-icon" src="../../../styles/icon/reply.png" alt="" /></span -->
-                <!-- > -->
+                <span>
+                  <img
+                    class="reply-icon"
+                    src="../../../styles/icon/reply.png"
+                    alt=""
+                /></span>
                 <p @click="isReply = !isReply">Reply</p>
               </div>
             </div>
@@ -273,7 +293,8 @@ export default {
             _id: 'u1m01',
             username: 'Tal',
             fullname: 'Itzik Vaknin',
-            imgUrl: 'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
+            imgUrl:
+              'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
           },
         ],
         labelIds: ['l101', 'l102'],
@@ -283,7 +304,8 @@ export default {
           _id: 'u10o1',
           username: 'Tal',
           fullname: 'Tal Tarablus',
-          imgUrl: 'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
+          imgUrl:
+            'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
         },
         style: {
           bgColor: '#26de81',
@@ -310,7 +332,9 @@ export default {
     setLike(commentId) {
       console.log(commentId);
       // console.log(JSON.parse(JSON.stringify(this.task)));
-      var idx = this.task.comments.findIndex((comment) => comment.id === commentId);
+      var idx = this.task.comments.findIndex(
+        (comment) => comment.id === commentId
+      );
       // console.log(idx);
       this.task.comments[idx].isLike = !this.task.comments[idx].isLike;
     },

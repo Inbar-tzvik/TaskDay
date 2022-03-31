@@ -1,39 +1,14 @@
 <template>
-  <section>
-    <div class="home-page">
-      <header class="header">
-        <div class="getStart">
-          <p>Get Start</p>
-        </div>
-
-        <div class="login-container">
-          <p>Login\ Signup</p>
-        </div>
-      </header>
-
-      <div class="contant-container">
-        <div class="logo">Taskday</div>
-        <div>
-          <h1 class="title">
-            A platform built for a
-            <br />
-            new way of working
-          </h1>
-        </div>
-
-        <div class="txt">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </div>
-        <div>
-          <button>
-            <router-link to="/main/b101">Get start</router-link>
-          </button>
-        </div>
-      </div>
-
-      <footer class="footer"></footer>
-    </div>
+  <section class="home-page">
+    <h1>Home page</h1>
+    <!-- <app-header>
+    <template>
+        <h1>write to slot!</h1>
+    </template>
+    </app-header> -->
+    <hr />
   </section>
+  <!-- <router-view></router-view> -->
 </template>
 
 <script>

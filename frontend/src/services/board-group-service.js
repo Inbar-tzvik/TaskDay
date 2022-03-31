@@ -223,7 +223,6 @@ function createEmptyTask(title = '') {
         title,
         status: '-',
         members: [],
-        dates: { startDate: '', endDate: '' },
     };
 }
 

@@ -1,6 +1,5 @@
 <template>
   <section class="flex">
-    <div v-if="isDetails" @click="isDetails = false" class="main-screen"></div>
     <div class="empty-div" v-if="!isDetails"></div>
     <section v-if="board" class="main-board">
       <section class="board-header-content">

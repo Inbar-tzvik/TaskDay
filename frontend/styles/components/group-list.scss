@@ -115,5 +115,6 @@
 }
 
 .board-content {
-  overflow-y: auto;
+  // overflow-x: auto;
+  flex: 1;
 }
