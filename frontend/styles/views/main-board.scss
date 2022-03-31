@@ -32,3 +32,11 @@
   pointer-events: none;
   transition: opacity 0.3s;
 }
+
+.loader {
+  width: 10%;
+  height: auto;
+  position: absolute;
+  top: calc(50% - 5%);
+  left: calc(50% - 5%);
+}

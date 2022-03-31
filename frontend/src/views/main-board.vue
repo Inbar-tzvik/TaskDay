@@ -1,7 +1,9 @@
 <template>
   <section class="flex">
-    <div v-if="isDetails" @click="isDetails = false" class="main-screen"></div>
     <div class="empty-div" v-if="!isDetails"></div>
+    <!-- <div class="loader" v-if="!board">
+      <img src="../../styles/images/loading.gif" alt="" />
+    </div> -->
     <section v-if="board" class="main-board">
       <section class="board-header-content">
         <board-header-main @circleClicked="circleClicked" />
@@ -44,7 +46,6 @@ import { boardGroupService } from '../services/board-group-service';
 // import { boardService } from '../services/board-service.js';
 import { socketService } from '@/services/socket.service.front';
 
-
 export default {
   name: 'main-board',
   data() {
@@ -65,16 +66,17 @@ export default {
           type: 'setCurrBoard',
           boardId: this.$route.params.boardId,
         });
-        socketService.emit('curr board', this.$route.params.boardId)
+        socketService.emit('curr board', this.$route.params.boardId);
       },
       immediate: true,
     },
   },
   created() {
-    socketService.on('boardChanged', ((boardId)=>{
-              // console.log('boardId',boardId);
-              this.$store.dispatch({type: 'setCurrBoard', boardId});
-            }))
+    this.$store.commit({ type: 'setCurrPage', page: 'mainPage' });
+    socketService.on('boardChanged', (boardId) => {
+      // console.log('boardId',boardId);
+      this.$store.dispatch({ type: 'setCurrBoard', boardId });
+    });
   },
   methods: {
     updateGroup(currGroup, addedIdxForDrop = null) {

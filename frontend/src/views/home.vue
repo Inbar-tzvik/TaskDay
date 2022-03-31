@@ -1,7 +1,9 @@
 <template>
   <section>
+    <div class="bg-img"></div>
     <div class="home-page">
       <header class="header">
+        <!-- <img src="../../styles/images/bg.jpg" alt="" /> -->
         <div class="getStart">
           <p>Get Start</p>
         </div>
@@ -21,12 +23,12 @@
           </h1>
         </div>
 
-        <div class="txt">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </div>
+        <div class="txt">Get your team aligned with everyday's tasks</div>
         <div>
-          <button>
-            <router-link to="/main/b101">Get start</router-link>
+          <button class="get started">
+            <router-link to="/main/62430dc81cdd644b3e5acabd"
+              >Get start</router-link
+            >
           </button>
         </div>
       </div>
@@ -41,11 +43,41 @@ import appHeader from '../components/app-side-nav.vue';
 
 export default {
   name: 'home',
+  data() {
+    return {
+      currBoard: null,
+    };
+  },
   components: {
     appHeader,
+
     // router
     // customButton,
   },
+  created() {
+    console.log('home');
+    this.$store.commit({ type: 'setCurrPage', page: 'homePage' });
+    this.currBoard = this.$store.getters.currBoard;
+  },
+  // watch:{
+  //   '$store.getters.currPage': {
+  //     handler(){
+  //       this.currPage = this.
+  //     }
+  //   }
+  // }
+  computed: {
+    board() {
+      return this.$store.getters.currBoard;
+    },
+  },
+  methods: {
+    moveToBoard(boardId) {
+      this.$router.push(`/main/${boardId}`);
+      //UPDATE CURR BOARD
+    },
+  },
+  watch: {},
 };
 </script>
 

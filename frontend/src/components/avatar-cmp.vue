@@ -1,15 +1,17 @@
 <template>
   <section class="avatar">
-  <!-- {{this.currUser}} -->
+    <!-- {{this.currUser}} -->
     <div class="demo-type">
       <div>
         <el-avatar :icon="UserFilled" />
       </div>
       <div>
-        <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
+        <el-avatar
+          src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+        />
       </div>
       <!-- <div v-for="val in vals" :key="val"> -->
-        <div>
+      <div>
         <el-avatar> user </el-avatar>
       </div>
     </div>
@@ -24,19 +26,15 @@ export default {
   data() {
     return {
       boards: [],
-currUser:null
+      currUser: null,
     };
   },
   created() {
-    this.currUser = val
+    this.currUser = val;
     //     user() {
     //   this.boards = this.$store.getters.boards;
     // },
   },
-  methods: {
-
-  },
+  methods: {},
 };
 </script>
-
-
