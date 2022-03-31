@@ -75,6 +75,7 @@ export default {
     };
   },
   created() {
+    console.log('task log', this.task);
     this.boards = this.$store.getters.boards;
     this.shortMembers = this.task.members?.map((member) => {
       return {
@@ -83,7 +84,7 @@ export default {
       };
     });
     this.assignedMembers = [...this.task.members];
-    this.notAssignedMembers = this.members.filter((member) => {
+    this.notAssignedMembers = this.members?.filter((member) => {
       return !this.assignedMembers.find((assMem) => assMem._id === member._id);
     });
   },
@@ -92,7 +93,6 @@ export default {
     removePerson(person) {
       // console.log(person);
       this.notAssignedMembers.push(person);
-      console.log(this.assignedMembers);
 
       const idx = this.assignedMembers.findIndex((member) => member._id === person._id);
       this.assignedMembers.splice(idx, 1);
@@ -129,6 +129,9 @@ export default {
     },
   },
   computed: {
+    // membersChange() {
+    //   return this.board.members;
+    // },
     checkLength() {
       if (this.shortMembers.length > 0) return true;
       else return false;

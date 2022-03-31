@@ -32,11 +32,17 @@
   pointer-events: none;
   transition: opacity 0.3s;
 }
-
-.loader {
-  width: 10%;
-  height: auto;
-  position: absolute;
-  top: calc(50% - 5%);
-  left: calc(50% - 5%);
+.loading-gif {
+  width: 1400px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    height: 400px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

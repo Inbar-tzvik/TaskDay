@@ -39,6 +39,7 @@
                         "title": "this task updated by Taskday",
                         "status": "Working on it",
                         "priority": "Medium",
+                        "dates": { "startDate": "", "endDate": "" },
                         "members": [{
                                 "_id": "u101",
                                 "fullname": "Inbari Tzvik",
@@ -54,14 +55,15 @@
                                 "fullname": "Erez Tal",
                                 "imgUrl": "https://pbs.twimg.com/media/DxwB0a_WoAEQShC.jpg"
                             }
-                        ],
-                        "dates": { "startDate": "", "endDate": "" }
+                        ]
+
                     },
                     {
                         "id": "t102",
                         "title": "Add Samples",
                         "status": "Stuck",
                         "priority": "High",
+                        "dates": { "startDate": "", "endDate": "" },
                         "members": [{
                                 "_id": "u102",
                                 "fullname": "Ganesh Shiva",
@@ -72,28 +74,27 @@
                                 "fullname": "Erez Tal",
                                 "imgUrl": "https://pbs.twimg.com/media/DxwB0a_WoAEQShC.jpg"
                             }
-                        ],
-                        "dates": { "startDate": "", "endDate": "" }
+                        ]
                     },
                     {
                         "id": "t113",
                         "title": "Working on css ",
                         "status": "Stuck",
                         "priority": "Medium",
+                        "dates": { "startDate": "", "endDate": "" },
                         "members": [{
                             "_id": "u104",
                             "fullname": "Erez Tal",
                             "imgUrl": "https://pbs.twimg.com/media/DxwB0a_WoAEQShC.jpg"
-                        }],
-                        "dates": { "startDate": "", "endDate": "" }
+                        }]
                     },
                     {
                         "id": "t115",
                         "title": "Today i don't feel like doing anything",
                         "status": "Done",
                         "priority": "Low",
-                        "members": [],
-                        "dates": { "startDate": "", "endDate": "" }
+                        "dates": { "startDate": "", "endDate": "" },
+                        "members": []
                     }
                 ],
                 "style": {

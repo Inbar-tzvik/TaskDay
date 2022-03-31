@@ -22,10 +22,7 @@ export default {
   props: {
     task: Object,
   },
-  created() {
-    console.log("i'm alive");
-    console.log(this.task);
-  },
+  created() {},
   components: {},
   computed: {},
   methods: {

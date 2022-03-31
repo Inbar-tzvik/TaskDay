@@ -1,5 +1,10 @@
 <template>
   <section class="flex">
+    <div class="loading-gif" v-if="!board">
+      <img src="@/assets/Box-Loading-2.gif" />
+    </div>
+
+    <div v-if="isDetails" @click="isDetails = false" class="main-screen"></div>
     <div class="empty-div" v-if="!isDetails"></div>
     <!-- <div class="loader" v-if="!board">
       <img src="../../styles/images/loading.gif" alt="" />
@@ -135,7 +140,7 @@ export default {
       });
     },
     updatedStatus(groupId, task) {
-      console.log('i am in board', groupId, task);
+      // console.log('i am in board', groupId, task);
       this.$store.dispatch({
         type: 'addItem',
         boardId: this.board._id,
@@ -147,7 +152,6 @@ export default {
       this.$emit('circleClicked');
     },
     openDetails() {
-      console.log();
       this.isDetails = !this.isDetails;
     },
     closeDetails() {

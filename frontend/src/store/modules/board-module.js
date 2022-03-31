@@ -7,22 +7,35 @@ export default {
     boards: [],
     currBoard: null,
     // user: authService.getLoggedinUser(),
-    filterBy: null,
+    filterBy: {
+      title: '',
+      user: '',
+    },
     currPage: '',
     // labels: [“funny”, “sad”, “On wheels”, “Box game”, “Art”, “Baby”, “Doll”, “Puzzle”, “Outdoor”]
   },
   getters: {
-    boards(state) {
-      return JSON.parse(JSON.stringify(state.boards));
-    },
     currPage(state) {
       return state.currPage;
     },
+    boards(state) {
+      return JSON.parse(JSON.stringify(state.boards));
+    },
+    getFilter(state) {
+      return state.filterBy;
+    },
     currBoard(state) {
       // console.log('state.filterBy', state.filterBy);
-      if (state.filterBy) {
+      if (
+        !(
+          !state.filterBy ||
+          (state.filterBy.title === '' && state.filterBy.user === '')
+        )
+      ) {
         //     // email.isRead === filter.isReadnow &&
-
+        var cmpsToReturn = JSON.parse(
+          JSON.stringify(state.boards[0].cmpsOrder)
+        );
         var regex = new RegExp(state.filterBy.title, 'i');
         var result = state.currBoard.groups.filter((group) =>
           regex.test(group.title)
@@ -47,7 +60,7 @@ export default {
         }
 
         // console.log('after flter', copyCurrBoard);
-
+        copyCurrBoard.cmpsOrder = cmpsToReturn;
         return copyCurrBoard;
       } else {
         // console.log('fullBoard', JSON.parse(JSON.stringify(state.currBoard)));
