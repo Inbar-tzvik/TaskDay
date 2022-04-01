@@ -3,16 +3,16 @@
 
 @media (min-width: 1600px) {
   .empty-block {
-    width: 33px;
+    // width: 33px;
   }
 }
 
 @media (min-width: 1683px) {
   .empty-block {
-    width: 43px;
+    // width: 43px;
   }
   .task-full-line {
-    grid-template-columns: 715px 190px 210px 190px 30px;
+    grid-template-columns: 690px 190px 210px 190px 30px;
     // margin-left: 45px;
   }
   .group-title-btn {

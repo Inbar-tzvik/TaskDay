@@ -7,6 +7,7 @@
     <work-space-modal
       :class="[isModalClicked ? 'left' : '']"
       @closeModal="this.isModalClicked = !this.isModalClicked"
+      @boardClicked="this.isModalClicked = false"
     ></work-space-modal>
 
     <router-view @circleClicked="this.isModalClicked = !this.isModalClicked" />

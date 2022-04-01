@@ -270,7 +270,7 @@ export default {
   /* left: 16px; */
   flex-shrink: 0;
   z-index: 2;
-  width: 25px;
+  width: 21px;
   height: 35px;
 }
 </style>
