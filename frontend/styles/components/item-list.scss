@@ -39,17 +39,8 @@
   display: flex;
   // margin-left: 25px;
   margin-top: 1px;
-  form {
-    border: none;
-    height: 35px;
-    // width: 1324px;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    // border: 1px solid #d0d4e4;
+  max-width: 1534px;
 
-    // z-index: 2;
-  }
   input {
     // width: 92.14rem;
     border: 1px solid #d0d4e4;
@@ -69,9 +60,10 @@
     text-align: left;
     position: sticky;
     left: 38px;
-    flex: 0 1 800px;
+    // width: 1468px;
     border-right: none;
     opacity: 1;
+    flex: 0 1;
     // position: fixed;
     // left: 40px;
     &:focus {
@@ -195,6 +187,7 @@ input:focus {
 .side-drop-down {
   position: sticky;
   left: 10px;
+  width: 19px;
   // padding-right: 4px;
 }
 

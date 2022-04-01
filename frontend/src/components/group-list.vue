@@ -96,6 +96,7 @@
           <!-- //TOFIX - boards here is boards[0]!!! fix it!!!! -->
 
           <item-list
+            @toggleUpdates="toggleUpdates"
             @updatedStatus="updatedStatus"
             :board="board"
             :group="group"
@@ -139,12 +140,11 @@ export default {
     };
   },
   computed: {
-        isFilterBy() {
-          console.log('currFilter',(!currFilter || currFilter.title !== '' || currFilter.user !== ''));
-          var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
-if(!currFilter || currFilter.title !== '' || currFilter.user !== '')
-      return false
-      else return true
+    isFilterBy() {
+      console.log('currFilter', !currFilter || currFilter.title !== '' || currFilter.user !== '');
+      var currFilter = this.$store.getters.filterBy ? this.$store.getters.filterBy : '';
+      if (!currFilter || currFilter.title !== '' || currFilter.user !== '') return false;
+      else return true;
     },
     // board() {
     //   return this.board
@@ -171,18 +171,16 @@ if(!currFilter || currFilter.title !== '' || currFilter.user !== '')
     itemSum,
   },
   methods: {
+    toggleUpdates(task, groupId) {
+      // console.log('taskIdtaskId',task,groupId);
+      this.$emit('toggleUpdates', task, groupId);
+    },
     getChildPayload(index) {
-//           var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
-// if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return
-
-      // if(this.isFilterBy) return
+      //                 var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
+      // if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return
       return this.board.groups[index];
-      // generate custom payload data here
     },
     onDrop(dropResult) {
-//                 var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
-// if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return
-      // if(this.isFilterBy) return
       this.board.groups = this.applyDrag(this.board.groups, dropResult);
       this.$store.dispatch({
         type: 'updateBoard',
@@ -191,9 +189,6 @@ if(!currFilter || currFilter.title !== '' || currFilter.user !== '')
     },
 
     applyDrag(arr, dragResult) {
-//                 var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';
-// if(!(!currFilter || currFilter.title !== '' || currFilter.user !== '')) return arr
-      // if(this.isFilterBy) return
       const { removedIndex, addedIndex, payload } = dragResult;
 
       if (removedIndex === null && addedIndex === null) return arr;
@@ -246,7 +241,7 @@ if(!currFilter || currFilter.title !== '' || currFilter.user !== '')
   color: #676879;
   left: 168px;
   min-width: 188px;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   /* margin: 0 5px; */
   /* //TODO - height should be determine! */

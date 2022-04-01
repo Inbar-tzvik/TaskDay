@@ -34,11 +34,7 @@
           </el-dropdown>
           <section class="data-in-row">
             <!-- <font-awesome-icon icon="caret-down"></font-awesome-icon> -->
-            <item-preview
-              :group="group.style"
-              :task="task"
-              @editTask="editTask"
-            />
+            <item-preview :group="group.style" :task="task" @editTask="editTask" @toggleUpdates="toggleUpdates" />
             <label v-for="(cmp, idx) in cmps" :key="cmp">
               <!-- <pre>{{ task }}</pre> -->
               <component
@@ -61,22 +57,19 @@
     <div class="add-item" v-if="newTask">
       <div class="empty-block"></div>
       <div class="add-left-indicator">
-        <div
-          class="add-left-indicator-inner"
-          :style="{ backgroundColor: group.style.color }"
-        ></div>
+        <div class="add-left-indicator-inner" :style="{ backgroundColor: group.style.color }"></div>
       </div>
-      <form>
-        <input
-          @click="isClicked = true"
-          class="add-new-item"
-          placeholder="+ Add Item"
-          v-model="newTask.title"
-          type="text"
-        />
-        <div class="left-space"></div>
-        <button v-if="isClicked" @click="addItem(group.id)">Add</button>
-      </form>
+      <!-- <form> -->
+      <input
+        @click="isClicked = true"
+        class="add-new-item"
+        placeholder="+ Add Item"
+        v-model="newTask.title"
+        type="text"
+      />
+      <div class="left-space"></div>
+      <button v-if="isClicked" @click="addItem(group.id)">Add</button>
+      <!-- </form> -->
       <div class="end-row"></div>
     </div>
   </section>
@@ -85,11 +78,11 @@
 <script>
 import itemPreview from './item-preview.vue';
 import { boardGroupService } from '../services/board-group-service.js';
-import statusPicker from './status-picker.vue';
-import datePicker from './date-picker.vue';
+import Status from './Status.vue';
+import Timeline from './Timeline.vue';
 import { Container, Draggable } from 'vue3-smooth-dnd';
-import priorityPicker from './priority-picker.vue';
-import memberPicker from './member-picker.vue';
+import Priority from './Priority.vue';
+import Person from './Person.vue';
 import { objectEntries } from '@antfu/utils';
 
 export default {
@@ -131,14 +124,18 @@ export default {
   },
   components: {
     itemPreview,
-    statusPicker,
-    datePicker,
+    Status,
+    Timeline,
     Container,
     Draggable,
-    priorityPicker,
-    memberPicker,
+    Priority,
+    Person,
   },
   methods: {
+    toggleUpdates(task) {
+      // console.log('taskIdtaskId',task,this.group.id);
+      this.$emit('toggleUpdates', task, this.group.id);
+    },
     changedDates(task) {
       console.log('change dates', task);
       this.$store.dispatch({
@@ -203,9 +200,7 @@ export default {
     updateStatus() {},
     removeAssignedMember(personId, task) {
       const item = JSON.parse(JSON.stringify(task));
-      const personIdx = item.members.findIndex(
-        (person) => person._id === personId
-      );
+      const personIdx = item.members.findIndex((person) => person._id === personId);
       item.members.splice(personIdx, 1);
       this.$store.dispatch({
         type: 'addItem',
@@ -221,9 +216,10 @@ export default {
 <style>
 .left-space {
   height: 33px;
-  width: 540px;
+  /* width: 540px; */
   border: 1px solid #d0d4e4;
   border-left: none;
+  flex: 1 1 auto;
 }
 .progress {
   max-width: 100%;
@@ -274,7 +270,7 @@ export default {
   /* left: 16px; */
   flex-shrink: 0;
   z-index: 2;
-  width: 25px;
+  width: 21px;
   height: 35px;
 }
 </style>

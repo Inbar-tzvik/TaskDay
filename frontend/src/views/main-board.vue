@@ -12,7 +12,7 @@
     </div>
     <!-- <div class="loader" v-if="!board">
       <img src="../../styles/images/loading.gif" alt="" />
-    </div> -->
+    </div>-->
     <section v-if="board" class="main-board">
       <section class="board-header-content">
         <board-header-main @circleClicked="circleClicked" />
@@ -26,6 +26,7 @@
         <!-- <font-awesome-icon icon="arrow-down" /> -->
         <group-list
           v-if="board"
+          @toggleUpdates="toggleUpdates"
           @updatedStatus="updatedStatus"
           @updateGroup="updateGroup"
           @addItem="addItem"
@@ -36,6 +37,7 @@
         />
       </section>
       <details-modal
+      @addItemWithoutServer="addItemWithoutServer"
         v-if="isDetails"
         @closeDetails="closeDetails"
         :class="{ showModal: isDetails }"
@@ -88,6 +90,16 @@ export default {
     });
   },
   methods: {
+    toggleUpdates(task, groupId) {
+// console.log('task,groupId',task,groupId);
+      this.$store.dispatch({
+        type: 'taskForDeatil',
+        groupId,
+        boardId: this.board._id,
+        task
+      });
+        this.isDetails = !this.isDetails;
+    },
     updateGroup(currGroup, addedIdxForDrop = null) {
       // console.log('currGroup,addedIdxForDrop',currGroup,addedIdxForDrop);
       this.$store.dispatch({
@@ -134,13 +146,22 @@ export default {
         boardId: this.$store.getters.currBoard._id,
       });
     },
-    editTask(groupId, item) {
-      console.log(groupId, item);
+    editTask(groupId, task) {
+      // console.log('groupId, task',groupId, task);
       this.$store.dispatch({
         type: 'addItem',
         boardId: this.board._id,
         groupId: groupId,
-        task: item,
+        task,
+      });
+    },
+    addItemWithoutServer(groupId, task) {
+      // console.log('groupId, task',groupId, task);
+      this.$store.dispatch({
+        type: 'addItemWithoutServer',
+        boardId: this.board._id,
+        groupId: groupId,
+        task,
       });
     },
     updatedStatus(groupId, task) {

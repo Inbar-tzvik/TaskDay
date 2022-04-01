@@ -69,15 +69,15 @@ export default {
       };
     },
     priorityToShow(cmp) {
-      if (cmp === 'priority-picker') return true;
+      if (cmp === 'Priority') return true;
     },
     statusToShow(cmp) {
-      if (cmp === 'status-picker') {
+      if (cmp === 'Status') {
         return true;
       }
     },
     statusCount(cmp) {
-      if (cmp !== 'status-picker') return;
+      if (cmp !== 'Status') return;
       const statusMap = {};
       const cellsColorsStatus = [];
       this.group.tasks?.forEach((item) => {
@@ -94,7 +94,7 @@ export default {
       return statusMap;
     },
     priorityCount(cmp) {
-      if (cmp !== 'priority-picker') return;
+      if (cmp !== 'Priority') return;
       const priorityMap = {};
       const cellsColorsPriority = [];
       this.group.tasks?.forEach((item) => {

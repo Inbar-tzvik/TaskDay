@@ -4,7 +4,7 @@ const asyncLocalStorage = require('../../services/als.service')
 
 //FOR LOCAL DATA AND SERVER
 const fs = require('fs')
-const gBoards = require('../../data/board.json')
+    // const gBoards = require('../../data/board.json')
 
 function _saveBoardsToFile() {
     return new Promise((resolve, reject) => {
