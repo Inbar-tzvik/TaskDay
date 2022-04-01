@@ -99,7 +99,8 @@
       height: 35px;
 
       span {
-        margin-right: 7px;
+        width: 20px;
+        margin-right: 10px;
       }
 
       &:hover {
@@ -109,6 +110,12 @@
   }
   .board-container-modal {
     margin-top: 16px;
+
+    .board-item {
+      span {
+        width: 25px;
+      }
+    }
 
     div {
       display: flex;
@@ -140,4 +147,7 @@
 
 .left {
   left: 65px;
+}
+.board-clicked {
+  background-color: #cce5ff;
 }

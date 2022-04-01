@@ -24,7 +24,7 @@
           </button>
         </div>
 
-        <div>
+        <!-- <div>
           <button>
             <img
               class="icon-toolbar"
@@ -32,9 +32,9 @@
               alt=""
             />Main-table
           </button>
-        </div>
+        </div> -->
 
-        <div>
+        <!-- <div>
           <button>
             <img
               class="icon-toolbar"
@@ -43,9 +43,9 @@
             />
             Gantt
           </button>
-        </div>
+        </div> -->
 
-        <div>
+        <!-- <div>
           <button>
             <img
               class="icon-toolbar"
@@ -55,7 +55,7 @@
 
             Kanban
           </button>
-        </div>
+        </div> -->
         <p class="subsets-tab"></p>
         <div>
           <button>+ Add View</button>

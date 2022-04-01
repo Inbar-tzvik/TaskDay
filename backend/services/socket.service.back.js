@@ -27,7 +27,8 @@ function connectSockets(http, session) {
         socket.on('boardChanged', boardId => {
             //FOR MYSELF - try to remove next line cause it wasnt send in this condition
             // console.log('shivaaaa', boardId);
-            gIo.broadcast.to(socket.myBoardId).emit('boardChanged', boardId)
+            // gIo.broadcast.to(socket.myBoardId).emit('boardChanged', boardId)
+            gIo.to(socket.myBoardId).emit('boardChanged', boardId)
         })
         socket.on('chat task', taskId => {
             // console.log('taskIdtaskId', taskId);
