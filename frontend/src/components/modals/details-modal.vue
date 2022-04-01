@@ -109,7 +109,11 @@
             </div>
 
             <div class="post-actions">
-              <div class="left-btn" :class="{ blue: update.like, red: !update.like }" @click="setLike(update.id)">
+              <div
+                class="left-btn"
+                :class="{ blue: update.like, red: !update.like }"
+                @click="setLike(update.id)"
+              >
                 <span>
                   <font-awesome-icon icon="thumbs-up" />
                 </span>
@@ -162,6 +166,7 @@
 
 <script>
 // import { json } from 'stream/consumers';
+// import { receiveMessageOnPort } from 'worker_threads';
 import avatarImg from '../../components/avatar-img.vue';
 import likeIcon from '../../components/icons/like-icon.vue';
 import Person from '../../components/Person.vue';
@@ -223,54 +228,52 @@ export default {
       isReply: false,
       currDate: null,
       // task:null,
+      task: null,
     };
   },
   components: { avatarImg, likeIcon, Person },
   created() {
-    // this.task = this.$store.getters.getCurrTask
+    this.task = JSON.parse(JSON.stringify(this.$store.getters.getCurrTask));
+    socketService.emit("chat task", JSON.parse(JSON.stringify(this.$store.getters.getCurrTask)).id);
+    socketService.on("task changed", this.updateTask);
+    //to run now func that save here in memory and save bpard
   },
+  unmounted() {
+    socketService.off("chat task", this.task.id);
 
+  },
   computed: {
-    task() {
-      return JSON.parse(JSON.stringify(this.$store.getters.getCurrTask));
-    },
-    // getTask() { },
   },
   methods: {
+    updateTask(task) {
+
+      this.task = task
+      const groupId = this.$store.getters.getCurrGroupId;
+      this.$emit('addItemWithoutServer', groupId, this.task);
+    },
     closeDetails() {
       this.$emit('closeDetails');
     },
     sendUpdate() {
-      // console.log('this.currUpdate',this.currUpdate);
       this.task.updates.splice(0, 0, this.createEmptyUpdate(this.currUpdate));
       this.currUpdate = null;
       this.editTask();
     },
     setLike(updateId) {
-      console.log(updateId);
-      // console.log(JSON.parse(JSON.stringify(this.task)));
       var idx = this.task.updates.findIndex((update) => update.id === updateId);
       // console.log(idx);
       this.task.updates[idx].like = !this.task.updates[idx].like;
       this.editTask();
     },
-    editTask() {
+    async editTask() {
       const groupId = this.$store.getters.getCurrGroupId;
-      // console.log('groupId, this.task',groupId, this.task)
-      this.$emit('editTask', groupId, this.task);
+
+      //bring this line back, need to save to server somehow whithout the "update board" -socket
+      // save only and when you receiveMessageOnPort, also!!
+      this.$emit('addItemWithoutServer', groupId, this.task);
+      socketService.emit("task updated", this.task);
     },
 
-    //       editTask() {
-    // const boardId = this.$store.getters.currBoard._id;
-
-    //       console.log('groupId, boardId',groupId, boardId);
-    //       this.$store.dispatch({
-    //         type: 'addItem',
-    //         boardId,
-    //         groupId,
-    //         task:this.task,
-    //       });
-    //       },
     createEmptyUpdate(message = '') {
       return {
         id: 'up' + utilService.makeId(3),

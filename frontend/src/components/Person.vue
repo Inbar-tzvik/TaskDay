@@ -75,7 +75,6 @@ export default {
     };
   },
   created() {
-    console.log('task log', this.task);
     this.boards = this.$store.getters.boards;
     this.shortMembers = this.task.members?.map((member) => {
       return {
@@ -96,8 +95,6 @@ export default {
 
       const idx = this.assignedMembers.findIndex((member) => member._id === person._id);
       this.assignedMembers.splice(idx, 1);
-      console.log(this.assignedMembers);
-      console.log('removed');
       this.$emit(
         'removeAssignedMember',
 
