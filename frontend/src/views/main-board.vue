@@ -33,7 +33,7 @@
         />
       </section>
       <details-modal
-      @editTask="editTask"
+      @addItemWithoutServer="addItemWithoutServer"
         v-if="isDetails"
         @closeDetails="closeDetails"
         :class="{ showModal: isDetails }"
@@ -146,6 +146,15 @@ export default {
       // console.log('groupId, task',groupId, task);
       this.$store.dispatch({
         type: 'addItem',
+        boardId: this.board._id,
+        groupId: groupId,
+        task,
+      });
+    },
+    addItemWithoutServer(groupId, task) {
+      // console.log('groupId, task',groupId, task);
+      this.$store.dispatch({
+        type: 'addItemWithoutServer',
         boardId: this.board._id,
         groupId: groupId,
         task,

@@ -27,8 +27,29 @@ function connectSockets(http, session) {
         socket.on('boardChanged', boardId => {
             //FOR MYSELF - try to remove next line cause it wasnt send in this condition
             // console.log('shivaaaa', boardId);
-            gIo.to(socket.myBoardId).emit('boardChanged', boardId)
+            gIo.broadcast.to(socket.myBoardId).emit('boardChanged', boardId)
         })
+        socket.on('chat task', taskId => {
+            // console.log('taskIdtaskId', taskId);
+            if (socket.myTaskId === taskId) return;
+            if (socket.myTaskId) {
+                socket.leave(socket.myTaskId)
+            }
+            socket.join(taskId)
+            socket.myTaskId = taskId
+        })
+        socket.on('task updated', task => {
+            // console.log('tasktask', task);
+            // emits to all sockets:
+            // gIo.emit('chat addMsg', msg)
+            // Broadcasting manually:
+            socket.broadcast.to(socket.myTaskId).emit('task changed', task)
+                // emits only to sockets in the same room
+                // gIo.to(socket.myTopic).emit('chat addMsg', msg)
+        })
+
+
+
         socket.on('chat newMsg', msg => {
             console.log('Emitting Chat msg', msg);
             // emits to all sockets:

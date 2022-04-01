@@ -274,5 +274,23 @@ export default {
 
 
         },
+        async addItemWithoutServer({ dispatch, commit }, { boardId, groupId, task }) {
+            try {
+                // await boardGroupService.saveTask(boardId, groupId, task, fromIdx);
+                // commit({ type: 'setCurrTask', task });
+                commit({
+                    type: 'addItem',
+                    groupId,
+                    task,
+                    fromIdx,
+                });
+            } catch (err) {
+                console.log('Couldnt save item', err);
+                commit({
+                    type: 'setIsError',
+                    isError: true,
+                });
+            }
+        },
     },
 };
