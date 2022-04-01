@@ -63,11 +63,13 @@
     // width: 1468px;
     border-right: none;
     opacity: 1;
-    flex: 0 1;
+    flex-basis: 800px;
+    // flex: 0 1;
     // position: fixed;
     // left: 40px;
     &:focus {
-      border-right: none;
+      outline: none;
+      // border-right: none;
     }
   }
   &:hover {
@@ -79,6 +81,11 @@
     }
     input {
       border: 1px solid black;
+      border-right: 0;
+    }
+    .left-space {
+      border: 1px solid black;
+      border-left: 0;
     }
   }
 }

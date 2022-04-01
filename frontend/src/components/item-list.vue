@@ -45,6 +45,7 @@
                 :board="board"
                 @setVal="setAns($event, idx)"
                 @removeAssignedMember="removeAssignedMember"
+                @addAssignedMember="addAssignedMember"
                 @changedDates="changedDates"
               ></component>
               <!-- <component :is="cmp" :info="task" @setVal="setAns($event, idx)"></component> -->
@@ -197,15 +198,28 @@ export default {
     editTask(item) {
       this.$emit('editTask', item, this.group.id);
     },
-    updateStatus() {},
-    removeAssignedMember(personId, task) {
-      const item = JSON.parse(JSON.stringify(task));
+    // updateStatus() {},
+    removeAssignedMember({ personId, task }) {
+      var item = JSON.parse(JSON.stringify(task));
       const personIdx = item.members.findIndex((person) => person._id === personId);
       item.members.splice(personIdx, 1);
       this.$store.dispatch({
         type: 'addItem',
-        boardId: this.board.id,
-        groupId: this.groupId.id,
+        boardId: this.board._id,
+        groupId: this.group.id,
+        task: item,
+      });
+    },
+    addAssignedMember({ person, task }) {
+      var item = JSON.parse(JSON.stringify(task));
+      console.log('addPerson', person, task);
+      item.members.push(person);
+      // const personIdx = item.members.findIndex((person) => person._id === personId);
+      // item.members.splice(personIdx, 1);
+      this.$store.dispatch({
+        type: 'addItem',
+        boardId: this.board._id,
+        groupId: this.group.id,
         task: item,
       });
     },

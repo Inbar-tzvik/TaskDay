@@ -1,9 +1,14 @@
 @media (max-width: 800px) {
 }
 
-@media (min-width: 1600px) {
+@media (max-width: 1680px) {
   .empty-block {
     // width: 33px;
+  }
+  .group-title-btn {
+    .el-dropdown {
+      padding-top: 0px;
+    }
   }
 }
 

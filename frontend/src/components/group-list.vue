@@ -63,7 +63,7 @@
             </div>
             <!-- *****ITZIK***** -->
             <div
-              class="flex cmp-column-title"
+              class="cmp-column-title"
               v-for="cmp in board.cmpsOrder"
               :key="cmp.id"
               @mouseover="group.isOnColumnTitle = true"
@@ -240,9 +240,10 @@ export default {
 .cmp-column-title {
   color: #676879;
   left: 168px;
-  min-width: 188px;
+  min-width: 189px;
   justify-content: center;
   align-items: center;
+  display: flex;
   /* margin: 0 5px; */
   /* //TODO - height should be determine! */
   height: 40px;

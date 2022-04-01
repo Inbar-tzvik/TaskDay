@@ -1,9 +1,6 @@
 <template>
   <section class="app-container flex">
-    <nav-bar
-      @menuClicked="this.isModalClicked = !this.isModalClicked"
-      @homeClicked="this.isModalClicked = false"
-    />
+    <nav-bar @menuClicked="this.isModalClicked = !this.isModalClicked" @homeClicked="this.isModalClicked = false" />
     <work-space-modal
       :class="[isModalClicked ? 'left' : '']"
       @closeModal="this.isModalClicked = !this.isModalClicked"

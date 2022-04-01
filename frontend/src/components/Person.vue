@@ -30,6 +30,7 @@
       <div class="assigned-persons" v-if="task.members.length > 0">
         <div class="avatar" v-for="member in assignedMembers" :key="member">
           <el-avatar fit="cover" class="avatar-img" :src="member.imgUrl" />
+          <div>{{ member.fullname }}</div>
           <div class="remove-person-btn" @click="removePerson(member)">
             <font-awesome-icon icon="xmark" />
           </div>
@@ -42,6 +43,7 @@
         <div class="person-to-pick" v-for="(person, idx) in notAssignedMembers" :key="idx" @click="addPerson(person)">
           <div class="person-img">
             <el-avatar fit="cover" class="avatar-img" :src="person.imgUrl" />
+            <div>{{ person.fullname }}</div>
           </div>
         </div>
       </div>
@@ -95,22 +97,20 @@ export default {
 
       const idx = this.assignedMembers.findIndex((member) => member._id === person._id);
       this.assignedMembers.splice(idx, 1);
-      this.$emit(
-        'removeAssignedMember',
-
-        person._id,
-        // groupId: this.groupId,
-        this.item
-      );
+      this.$emit('removeAssignedMember', {
+        personId: person._id,
+        task: this.task,
+      });
     },
     addPerson(person) {
+      console.log('adding');
       this.assignedMembers.push(person);
       const idx = this.notAssignedMembers.findIndex((member) => member._id === person._id);
       this.notAssignedMembers.splice(idx, 1);
       this.$emit('addAssignedMember', {
-        person,
-        groupId: this.groupId,
-        itemId: this.item.id,
+        person: person,
+        // groupId: this.groupId,
+        task: this.task,
       });
     },
     makeShortName(fullname) {
@@ -141,6 +141,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.persons-to-pick {
+  // display: flex;
+  // flex-direction: column;
+  text-align: left;
+}
+.person-img {
+  display: flex;
+  gap: 8px;
+  // align-items: ;
+  padding: 4px 8px;
+}
+.dropDownMenuWrapper {
+  .dropdownMenu {
+    width: 200px;
+    font-size: 13px;
+    color: #323338;
+    font-family: roboto-thin;
+  }
+}
 .assigned-persons {
   display: flex;
   flex-direction: column;
@@ -157,10 +176,7 @@ export default {
     img {
       border-radius: 50%;
     }
-    // .person-img {
-    //   width: 22px;
-    //   height: 22px;
-    // }
+
     // .person-name {
     //   font-size: rem(12px);
     //   padding: 0 5px;
@@ -195,6 +211,9 @@ export default {
 }
 .avatars {
   display: flex;
+  .avatar-img {
+    display: flex;
+  }
 }
 .avatar-img {
   background-color: transparent;
@@ -208,5 +227,26 @@ export default {
   flex: 1;
   text-align: center;
   margin: 0 -4px;
+}
+.title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 0;
+}
+.title-txt {
+  z-index: 100;
+  background-color: white;
+  padding: 0 10px;
+}
+.title::before {
+  content: '';
+  height: 1px;
+  position: absolute;
+  background-color: #b3b3b3;
+  left: 10px;
+  right: 10px;
+  top: 9px;
 }
 </style>
