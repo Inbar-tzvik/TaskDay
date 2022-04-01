@@ -1,39 +1,40 @@
 <template>
-  <section>
-    <div class="bg-img"></div>
-    <div class="home-page">
-      <header class="header">
-        <!-- <img src="../../styles/images/bg.jpg" alt="" /> -->
-        <div class="getStart">
-          <p>Get Start</p>
-        </div>
+  <section class="home-page">
+    <div id="homepage">
+      <header>
+        <h1>TASKDAY</h1>
 
-        <div class="login-container">
-          <p>Login\ Signup</p>
-        </div>
+        <ul>
+          <li>
+            <router-link to="/main/62430dc81cdd644b3e5acabd"
+              >See demo</router-link
+            >
+          </li>
+          <!-- <li><a href="#">Menu 2</a></li>
+          <li><a href="#">Menu 3</a></li>
+          <li><a href="#">Menu 4</a></li> -->
+        </ul>
       </header>
 
-      <div class="contant-container">
-        <div class="logo">Taskday</div>
-        <div>
-          <h1 class="title">
-            A platform built for a
-            <br />
-            new way of working
-          </h1>
-        </div>
-
-        <div class="txt">Get your team aligned with everyday's tasks</div>
-        <div>
-          <button class="get started">
-            <router-link to="/main/62430dc81cdd644b3e5acabd"
-              >Get start</router-link
-            >
-          </button>
-        </div>
-      </div>
-
-      <footer class="footer"></footer>
+      <img
+        id="showcase-1"
+        src="https://images.unsplash.com/photo-1503926359680-9ddd5b2bcbdc?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1350&amp;q=80"
+      /><img
+        id="showcase-2"
+        src="https://images.unsplash.com/photo-1471086569966-db3eebc25a59?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80"
+      /><img
+        id="showcase-3"
+        src="https://images.unsplash.com/photo-1458225868294-8e9c6d07b3fb?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1355&amp;q=80"
+      /><img
+        id="showcase-4"
+        src="https://images.unsplash.com/photo-1510924199351-4e9d94df18a6?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1353&amp;q=80"
+      /><img
+        id="showcase-5"
+        src="https://images.unsplash.com/photo-1475174767135-6d48cae73003?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1350&amp;q=80"
+      /><img
+        id="showcase-6"
+        src="https://images.unsplash.com/reserve/7vjJbdDRga27ApDoYicw_Sparks.jpg?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1350&amp;q=80"
+      />
     </div>
   </section>
 </template>
@@ -81,10 +82,4 @@ export default {
 };
 </script>
 
-<style>
-.home-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-</style>
+<style></style>

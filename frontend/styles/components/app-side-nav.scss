@@ -1,7 +1,7 @@
 .app-header {
   z-index: 15;
   background-color: #292f4c;
-  width: 65px;
+  width: 70px;
   // width: 4.642857rem;
   height: 100vh;
   display: flex;
@@ -10,6 +10,12 @@
   align-items: center;
   color: white;
   // position: fixed;
+
+  .container-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .icon {
   margin: 5px;
@@ -20,26 +26,27 @@
 .container-name-icon {
   background-color: #ffffff;
   padding: 5px;
+  width: 45px;
 
   border-radius: 50%;
 }
 .name-icon {
-  height: 45px;
+  height: 40px;
   display: flex;
-  width: 45px;
+  width: 40px;
   align-items: center;
-  border: 1px solid rgb(0, 0, 0);
+  // border: 1px solid rgb(0, 0, 0);
   justify-content: center;
-  background-color: #ffcc00;
-  font-size: 20px;
-  padding: 5px;
+  // background-color: #ffcc00;
+  font-size: 16px;
+  // padding: 2px;
   // margin-bottom: 20px;
   border-radius: 50%;
-  padding: 10px;
+  // padding: 10px;
 }
 .icon-container {
-  width: 47px;
-  height: 47px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   margin-bottom: 10px;
   background-color: rgb(255, 255, 255);
@@ -48,16 +55,6 @@
   justify-content: center;
 }
 
-// .right-side-header div {
-//   padding: 10px;
-//   > * {
-//     color: #78797c;
-
-//     div {
-//       color: #78797c;
-//     }
-//   }
-// }
 .app-header a {
   color: white;
   text-decoration: none;

@@ -42,6 +42,7 @@
         :key="board._id"
         class="board-item"
         @click="moveToBoard(board._id)"
+        :class="{ 'board-clicked': currBoard._id === board._id }"
       >
         <span><board-icon /></span> {{ board.title }}
       </div>
@@ -65,14 +66,19 @@ export default {
     boards() {
       return this.$store.getters.boards;
     },
-    closeModal() {
-      this.$emit('closeModal');
+
+    currBoard() {
+      return this.$store.getters.currBoard;
     },
+    boardBtn() {},
   },
   methods: {
+    closeModal() {
+      this.$emit('boardClicked');
+    },
     moveToBoard(boardId) {
+      this.$emit('boardClicked');
       this.$router.push(`/main/${boardId}`);
-      //UPDATE CURR BOARD
     },
   },
   components: { plusIcon, filterIcon, searchIcon, boardIcon },

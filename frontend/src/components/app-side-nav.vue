@@ -26,7 +26,7 @@
     </div>
     <!-- <router-link class="link" to="/">Home</router-link>
     <router-link class="link" to="/main">Main</router-link> -->
-    <div>
+    <div class="container-bottom">
       <div class="bottom-navigation-items-area">
         <div>
           <appsIcon></appsIcon>
@@ -46,7 +46,8 @@
       </div>
 
       <div class="icon-container">
-        <h3 class="name-icon">SN</h3>
+        <!-- <p class="name-icon">SN</p> -->
+        <img class="name-icon" src="../../styles/icon/def-user.png" alt="" />
         <!-- <p class="name-icon">SN</p> -->
       </div>
     </div>

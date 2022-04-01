@@ -2,9 +2,9 @@
   <section>
     <integrate-btn></integrate-btn>
     <div class="board-header-main">
-      <div class="menu-circle" @click="onCircle">
+      <!-- <div class="menu-circle" @click="onCircle">
         <font-awesome-icon class="arrow-right-icon" icon="angle-right" />
-      </div>
+      </div> -->
       <div>
         <div class="title">
           <h1>sprint 4</h1>
