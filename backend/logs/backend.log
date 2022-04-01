@@ -7268,3 +7268,18 @@
 3/31/2022, 11:38:30 PM - INFO - Req!!!
 3/31/2022, 11:38:30 PM - INFO - Req!!!
 3/31/2022, 11:38:30 PM - INFO - Req!!!
+4/1/2022, 1:55:10 PM - INFO - Server is running on port: 3030
+4/1/2022, 1:55:22 PM - DEBUG - auth.service - login with username: mama
+4/1/2022, 1:55:22 PM - INFO - Req!!!
+4/1/2022, 1:55:24 PM - ERROR - Failed to Login Invalid username or password
+4/1/2022, 1:55:24 PM - INFO - Req!!!
+4/1/2022, 1:55:24 PM - INFO - Req!!!
+4/1/2022, 1:55:24 PM - INFO - Req!!!
+4/1/2022, 1:55:24 PM - INFO - Req!!!
+4/1/2022, 2:28:50 PM - DEBUG - auth.service - login with username: mama
+4/1/2022, 2:28:50 PM - INFO - Req!!!
+4/1/2022, 2:28:50 PM - ERROR - Failed to Login Invalid username or password
+4/1/2022, 2:28:50 PM - INFO - Req!!!
+4/1/2022, 2:28:50 PM - INFO - Req!!!
+4/1/2022, 2:28:50 PM - INFO - Req!!!
+4/1/2022, 2:28:50 PM - INFO - Req!!!
