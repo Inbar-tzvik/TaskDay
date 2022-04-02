@@ -9726,3 +9726,26 @@
 2.4.2022, 20:54:16 - INFO - Req!!!
 2.4.2022, 20:54:16 - INFO - Req!!!
 2.4.2022, 20:54:17 - INFO - Req!!!
+2.4.2022, 20:56:32 - INFO - Server is running on port: 3030
+2.4.2022, 20:56:57 - DEBUG - auth.service - login with username: mama
+2.4.2022, 20:56:57 - INFO - Req!!!
+2.4.2022, 20:57:00 - DEBUG - auth.service - login with username: mama
+2.4.2022, 20:57:00 - ERROR - Failed to Login Invalid username or password
+2.4.2022, 20:57:01 - INFO - Req!!!
+2.4.2022, 20:57:01 - INFO - Req!!!
+2.4.2022, 20:57:01 - INFO - Req!!!
+2.4.2022, 20:57:02 - INFO - Req!!!
+2.4.2022, 20:57:02 - ERROR - Failed to Login Invalid username or password
+2.4.2022, 20:57:02 - INFO - Req!!!
+2.4.2022, 20:57:08 - INFO - Req!!!
+2.4.2022, 20:57:09 - INFO - Req!!!
+2.4.2022, 20:57:10 - INFO - Req!!!
+2.4.2022, 20:57:11 - INFO - Req!!!
+2.4.2022, 21:00:53 - INFO - Server is running on port: 3030
+2.4.2022, 21:01:15 - DEBUG - auth.service - login with username: mama
+2.4.2022, 21:01:16 - INFO - Req!!!
+2.4.2022, 21:01:20 - ERROR - Failed to Login Invalid username or password
+2.4.2022, 21:01:21 - INFO - Req!!!
+2.4.2022, 21:01:21 - INFO - Req!!!
+2.4.2022, 21:01:22 - INFO - Req!!!
+2.4.2022, 21:01:23 - INFO - Req!!!
