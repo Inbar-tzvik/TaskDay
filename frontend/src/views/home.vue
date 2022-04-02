@@ -5,8 +5,12 @@
       <div class="nav">
         <div class="logo">
           <div class="blue"></div>
-          <div class="yellow"></div>
-          <div class="red"></div>
+          <div class="yellow">
+            <div class="green-dot"></div>
+          </div>
+          <div class="red">
+            <div class="yellow-dot"></div>
+          </div>
         </div>
         <!-- <ul>
           <li>Download App</li>

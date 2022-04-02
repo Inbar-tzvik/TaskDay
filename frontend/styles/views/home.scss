@@ -6,8 +6,8 @@
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background: #000;
-    color: #030303;
+    background: rgb(178, 178, 178);
+    color: #d7d7d7;
     font-family: sans-serif;
     background-image: url(../../styles/images/bg.jpg);
     background-size: cover;
@@ -49,16 +49,34 @@
         position: absolute;
         width: 50px;
         height: 150px;
-        border: 5px solid#ffcb00;
+        border: 5px solid #ffcb00;
         left: 80px;
         top: 10px;
+
+        .green-dot {
+          width: 5px;
+          height: 5px;
+          background-color: #00c875;
+          left: -5px;
+          position: absolute;
+          top: 30px;
+        }
       }
       .red {
         position: absolute;
         width: 50px;
         height: 50px;
-        left: 135px;
+        left: 115px;
         border: 5px solid #e2435c;
+
+        .yellow-dot {
+          width: 5px;
+          height: 5px;
+          background-color: #ffcb00;
+          left: 5px;
+          position: absolute;
+          bottom: -5px;
+        }
       }
     }
     .nav ul {
@@ -84,6 +102,13 @@
       padding: 100px 0;
       flex-wrap: wrap;
 
+      position: absolute;
+      bottom: 5%;
+      right: 20%;
+
+      h1 {
+        font-family: cursive;
+      }
       .yellow {
         color: #ffcb00;
       }
@@ -97,16 +122,19 @@
     }
     .title::before {
       content: 'Beats to your rythm';
+      font-family: cursive;
       font-size: 10px;
       letter-spacing: 1.8px;
       font-weight: bold;
       text-align: center;
-      color: #eee;
+      color: black;
       display: block;
       text-transform: uppercase;
       margin-bottom: -5px;
     }
+
     .button {
+      font-family: cursive;
       background: #292f4c;
       // background: #ff4c54;
       padding: 18px 29px;
@@ -116,10 +144,17 @@
       font-size: 20px;
       margin-top: 3%;
       cursor: pointer;
-      transition: all 1s;
+      -webkit-box-shadow: 0px 0px 25px 1px rgba(0, 0, 0, 0.75);
+      box-shadow: 0px 0px 25px 1px rgba(0, 0, 0, 0.75);
+      transition: all 0.3s;
+
+      position: absolute;
+      bottom: 0;
+      left: 120px;
       &:hover {
         background-color: #e2435c;
         color: #000;
+        font-size: 22px;
       }
       a {
         color: white;
