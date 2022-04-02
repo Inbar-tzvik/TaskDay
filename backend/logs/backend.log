@@ -9715,3 +9715,14 @@
 4/2/2022, 1:17:54 PM - INFO - Req!!!
 4/2/2022, 1:17:54 PM - INFO - Req!!!
 >>>>>>> e4610b9083773a77912ce42dd0b957aa380c6571
+2.4.2022, 20:53:48 - INFO - Server is running on port: 3030
+2.4.2022, 20:54:11 - DEBUG - auth.service - login with username: mama
+2.4.2022, 20:54:11 - INFO - Req!!!
+2.4.2022, 20:54:12 - DEBUG - auth.service - login with username: mama
+2.4.2022, 20:54:14 - INFO - Req!!!
+2.4.2022, 20:54:14 - ERROR - Failed to Login Invalid username or password
+2.4.2022, 20:54:14 - ERROR - Failed to Login Invalid username or password
+2.4.2022, 20:54:16 - INFO - Req!!!
+2.4.2022, 20:54:16 - INFO - Req!!!
+2.4.2022, 20:54:16 - INFO - Req!!!
+2.4.2022, 20:54:17 - INFO - Req!!!
