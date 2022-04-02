@@ -51,7 +51,7 @@ export default {
         newDates[0] = this.value1[0].getTime();
         newDates[1] = this.value1[1].getTime();
       }
-      console.log(newDates[0], newDates[1]);
+      console.log('newDATES', newDates[0], newDates[1]);
       // dates: { startDate: '', endDate: '' },
       var currTask = JSON.parse(JSON.stringify(this.task));
       currTask.dates = { startDate: newDates[0], endDate: newDates[1] };

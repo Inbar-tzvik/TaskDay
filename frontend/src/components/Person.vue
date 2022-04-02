@@ -103,7 +103,7 @@ export default {
       });
     },
     addPerson(person) {
-      console.log('adding');
+      console.log();
       this.assignedMembers.push(person);
       const idx = this.notAssignedMembers.findIndex((member) => member._id === person._id);
       this.notAssignedMembers.splice(idx, 1);

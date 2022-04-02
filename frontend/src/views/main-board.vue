@@ -17,7 +17,7 @@
       <section class="board-header-content">
         <board-header-main :board="board" @circleClicked="circleClicked" />
         <board-toolbar @openDetails="openDetails"></board-toolbar>
-        <board-filter @addGroup="addGroup" @filteredTitle="setFilter" />
+        <board-filter :board="board" @addGroup="addGroup" @filteredTitle="setFilter" />
         <!-- <button>New item</button> -->
         <!-- </div> -->
       </section>

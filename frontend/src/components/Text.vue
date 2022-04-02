@@ -1,6 +1,12 @@
 <template>
   <section class="text-cmp">
-    <input class="text-input" :placeholder="task.text" />
+    <input
+      class="text-input"
+      :placeholder="task.text"
+      @blur="editText($event.target.value)"
+      @keyup.enter="editText($event.target.value)"
+    />
+    <pre>{{ text }}</pre>
   </section>
 </template>
 
@@ -10,11 +16,20 @@ export default {
     task: Object,
   }, // Menu title from the parent
   data() {
-    return {};
+    return {
+      text: '',
+    };
   },
   created() {},
   methods: {
-    item: null,
+    editText(value) {
+      var currTask = JSON.parse(JSON.stringify(this.task));
+      //   console.log('currtASK', currTask);
+      if (value) {
+        currTask.text = value;
+        this.$emit('editText', currTask);
+      }
+    },
   },
   computed: {},
 };
