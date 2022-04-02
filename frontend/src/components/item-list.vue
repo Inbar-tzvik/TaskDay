@@ -46,6 +46,7 @@
                 @setVal="setAns($event, idx)"
                 @removeAssignedMember="removeAssignedMember"
                 @addAssignedMember="addAssignedMember"
+                @editText="editText"
                 @changedDates="changedDates"
               ></component>
               <!-- <component :is="cmp" :info="task" @setVal="setAns($event, idx)"></component> -->
@@ -136,6 +137,14 @@ export default {
     Text,
   },
   methods: {
+    editText(task) {
+      this.$store.dispatch({
+        type: 'addItem',
+        boardId: this.board._id,
+        groupId: this.group.id,
+        task: task,
+      });
+    },
     toggleUpdates(task) {
       // console.log('taskIdtaskId',task,this.group.id);
       this.$emit('toggleUpdates', task, this.group.id);

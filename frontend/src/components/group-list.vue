@@ -242,7 +242,7 @@ export default {
   color: #676879;
   left: 168px;
   min-width: 168px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   display: flex;
   /* margin: 0 5px; */

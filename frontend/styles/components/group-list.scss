@@ -12,9 +12,16 @@
     height: 40px;
   }
 }
-.group-header-columns:nth-child(4) {
+.group-header-columns :nth-child(4) {
   width: 200px;
   margin-left: 4px;
+}
+
+.group-header-columns :nth-child(7) {
+  min-width: 150px !important;
+  margin-left: 4px;
+
+  // margin-left: 4px;
 }
 .cmp-column-title {
   &:hover {
@@ -88,6 +95,7 @@
   position: sticky;
   z-index: 4;
   left: 32px;
+  width: 450px;
 }
 
 .fa-caret-down {

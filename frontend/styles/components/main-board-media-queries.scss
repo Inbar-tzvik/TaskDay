@@ -1,4 +1,7 @@
-@media (max-width: 800px) {
+@media (max-width: 1557px) {
+  .task-full-line {
+    margin-left: 10px;
+  }
 }
 
 @media (max-width: 1680px) {
@@ -17,7 +20,7 @@
     // width: 43px;
   }
   .task-full-line {
-    grid-template-columns: 690px 190px 210px 190px 30px;
+    grid-template-columns: 692px 170px 205px 170px 30px;
     // margin-left: 45px;
   }
   .group-title-btn {
