@@ -41,7 +41,7 @@
         Person
       </button>
       <button>
-        <span><font-awesome-icon icon="filter" /></span> filter
+        <span><font-awesome-icon icon="filter" /></span> Filter
       </button>
       <button>
         <span><font-awesome-icon icon="sort" /></span> Sort

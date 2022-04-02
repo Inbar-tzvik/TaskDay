@@ -1,5 +1,8 @@
 <template>
   <header class="app-header" :class="{ removeSide: myClass }">
+    <div class="seen-plans">
+      <p>Seen plans</p>
+    </div>
     <div>
       <img
         src="../../styles/icon/icon.png"

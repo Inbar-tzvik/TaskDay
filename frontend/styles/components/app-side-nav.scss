@@ -45,8 +45,8 @@
   // padding: 10px;
 }
 .icon-container {
-  width: 35px;
-  height: 35px;
+  width: 43px;
+  height: 43px;
   border-radius: 50%;
   margin-bottom: 10px;
   background-color: rgb(255, 255, 255);
@@ -123,4 +123,29 @@
 }
 .cliked-btn-nav {
   background-color: rgba(255, 255, 255, 0.3);
+}
+
+.seen-plans {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background-color: #258750;
+  border-radius: 0 16px 16px 0;
+  height: 110px;
+  width: 35px;
+  top: 43%;
+  left: 0;
+  p {
+    transform: rotate(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    writing-mode: vertical-rl;
+    // writing-mode: tb-rl;
+    // font-family:rob;
+    font-size: 15px;
+    line-height: 22.5px;
+  }
 }

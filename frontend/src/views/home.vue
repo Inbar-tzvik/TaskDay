@@ -1,40 +1,61 @@
 <template>
   <section class="home-page">
-    <div id="homepage">
-      <header>
-        <h1>TASKDAY</h1>
+    <div class="background-img"></div>
+    <div class="container">
+      <div class="nav">
+        <div class="logo">
+          <div class="blue"></div>
+          <div class="yellow"></div>
+          <div class="red"></div>
+        </div>
+        <!-- <ul>
+          <li>Download App</li>
+          <li>Login</li>
+          <li>SignUp</li>
+          <li>Help</li>
+        </ul> -->
+      </div>
 
-        <ul>
-          <li>
-            <router-link to="/main/62430dc81cdd644b3e5acabd"
-              >See demo</router-link
-            >
-          </li>
-          <!-- <li><a href="#">Menu 2</a></li>
-          <li><a href="#">Menu 3</a></li>
-          <li><a href="#">Menu 4</a></li> -->
-        </ul>
-      </header>
+      <div class="hero">
+        <div class="title"><span class="yellow">T</span>askday</div>
+        <h1 class="">A platform built for a<br />new way of working</h1>
+        <div class="button">
+          <router-link to="/main/62430dc81cdd644b3e5acabd"
+            >See demo</router-link
+          >
+        </div>
+      </div>
 
-      <img
-        id="showcase-1"
-        src="https://images.unsplash.com/photo-1503926359680-9ddd5b2bcbdc?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1350&amp;q=80"
-      /><img
-        id="showcase-2"
-        src="https://images.unsplash.com/photo-1471086569966-db3eebc25a59?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80"
-      /><img
-        id="showcase-3"
-        src="https://images.unsplash.com/photo-1458225868294-8e9c6d07b3fb?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1355&amp;q=80"
-      /><img
-        id="showcase-4"
-        src="https://images.unsplash.com/photo-1510924199351-4e9d94df18a6?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1353&amp;q=80"
-      /><img
-        id="showcase-5"
-        src="https://images.unsplash.com/photo-1475174767135-6d48cae73003?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1350&amp;q=80"
-      /><img
-        id="showcase-6"
-        src="https://images.unsplash.com/reserve/7vjJbdDRga27ApDoYicw_Sparks.jpg?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1350&amp;q=80"
-      />
+      <!-- <div class="main">
+        <div class="date">
+          <span>
+            <i class="far fa-calendar-alt"></i>
+          </span>
+          <span>11 Nov 2018</span>
+        </div>
+        <div class="date">
+          <span>
+            <i class="far fa-calendar-alt"></i>
+          </span>
+          <span>11 Nov 2018</span>
+        </div>
+        <div class="date">
+          <span>
+            <i class="far fa-user"></i>
+          </span>
+          <span>2 Guests</span>
+        </div>
+        <div class="date">
+          <span>
+            <i class="far fa-calendar-alt"></i>
+          </span>
+          <span>Rooms</span>
+        </div>
+
+        <div class="go">
+          <i class="fas fa-paper-plane"></i>
+        </div>
+      </div> -->
     </div>
   </section>
 </template>
