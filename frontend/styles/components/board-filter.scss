@@ -82,7 +82,17 @@
     }
   }
 }
-
+.img-filter-person {
+  width: 32px;
+  height: 16px;
+  margin: 3px 0px 0px;
+  margin-top: 3px;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+}
+.filter-person {
+  display: flex;
+  justify-content: center;
+}
 .pin-icon {
   // width: 20px;
 }
