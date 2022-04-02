@@ -7,7 +7,7 @@
       </div> -->
       <div>
         <div class="title">
-          <h1>sprint 4</h1>
+          <h1>{{ board.title }}</h1>
           <span @click="onClickInfo" :class="getInfo">
             <font-awesome-icon class="info-icon" icon="circle-info" />
           </span>
@@ -29,11 +29,7 @@
 
         <div>
           <button>
-            <img
-              class="invite-user-img"
-              src="../../styles/icon/user.png"
-              alt=""
-            />
+            <img class="invite-user-img" src="../../styles/icon/user.png" alt="" />
             Invite/ <span>4</span>
           </button>
         </div>
@@ -60,8 +56,8 @@
       </div>
     </div>
     <p class="subtitle" v-if="isInfo">
-      Check out the following items to learn about all the cool features and
-      tools <a href="">monday.com</a> has for you :-)
+      Check out the following items to learn about all the cool features and tools <a href="">monday.com</a> has for you
+      :-)
     </p>
   </section>
 </template>
@@ -71,7 +67,9 @@ import avatarImg from './avatar-img.vue';
 import integrateBtn from './icons/integrate-btn.vue';
 export default {
   name: 'board-header-main',
-  props: {},
+  props: {
+    board: Object,
+  },
   data() {
     return {
       starSrc: {

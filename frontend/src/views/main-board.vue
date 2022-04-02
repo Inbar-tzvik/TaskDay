@@ -15,7 +15,7 @@
     </div>-->
     <section v-if="board" class="main-board">
       <section class="board-header-content">
-        <board-header-main @circleClicked="circleClicked" />
+        <board-header-main :board="board" @circleClicked="circleClicked" />
         <board-toolbar @openDetails="openDetails"></board-toolbar>
         <board-filter @addGroup="addGroup" @filteredTitle="setFilter" />
         <!-- <button>New item</button> -->
@@ -37,7 +37,7 @@
         />
       </section>
       <details-modal
-      @addItemWithoutServer="addItemWithoutServer"
+        @addItemWithoutServer="addItemWithoutServer"
         v-if="isDetails"
         @closeDetails="closeDetails"
         :class="{ showModal: isDetails }"
@@ -91,14 +91,14 @@ export default {
   },
   methods: {
     toggleUpdates(task, groupId) {
-// console.log('task,groupId',task,groupId);
+      // console.log('task,groupId',task,groupId);
       this.$store.dispatch({
         type: 'taskForDeatil',
         groupId,
         boardId: this.board._id,
-        task
+        task,
       });
-        this.isDetails = !this.isDetails;
+      this.isDetails = !this.isDetails;
     },
     updateGroup(currGroup, addedIdxForDrop = null) {
       // console.log('currGroup,addedIdxForDrop',currGroup,addedIdxForDrop);

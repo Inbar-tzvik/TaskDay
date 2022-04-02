@@ -8,6 +8,13 @@
   align-items: center;
   height: 33px;
   border: none;
+  border-radius: initial;
+  background-color: #f5f6f8;
+  .el-input__inner {
+    border-radius: initial;
+    box-shadow: 0 0 0 0;
+  }
+
   &:hover {
     cursor: pointer;
     .date-to-show {
