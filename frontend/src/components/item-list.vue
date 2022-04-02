@@ -84,6 +84,8 @@ import Timeline from './Timeline.vue';
 import { Container, Draggable } from 'vue3-smooth-dnd';
 import Priority from './Priority.vue';
 import Person from './Person.vue';
+import Text from './Text.vue';
+
 import { objectEntries } from '@antfu/utils';
 
 export default {
@@ -131,6 +133,7 @@ export default {
     Draggable,
     Priority,
     Person,
+    Text,
   },
   methods: {
     toggleUpdates(task) {

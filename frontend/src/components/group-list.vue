@@ -30,7 +30,7 @@
                     <el-dropdown-item @click="deleteGroup(group.id)">
                       <font-awesome-icon icon="trash-can" />Delete
                     </el-dropdown-item>
-                    <el-dropdown-item>
+                    <el-dropdown-item @click="open = !open">
                       <font-awesome-icon
                         icon="circle"
                         :style="{
@@ -136,6 +136,7 @@ export default {
       // ITZIK
       sOnColumnTitle: false,
       openGroupName: true,
+      open: false,
       // ITZIK
     };
   },
@@ -240,7 +241,7 @@ export default {
 .cmp-column-title {
   color: #676879;
   left: 168px;
-  min-width: 189px;
+  min-width: 168px;
   justify-content: center;
   align-items: center;
   display: flex;
