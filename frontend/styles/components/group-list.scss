@@ -12,6 +12,17 @@
     height: 40px;
   }
 }
+.group-header-columns :nth-child(4) {
+  width: 200px;
+  margin-left: 4px;
+}
+
+.group-header-columns :nth-child(7) {
+  min-width: 150px !important;
+  margin-left: 4px;
+
+  // margin-left: 4px;
+}
 .cmp-column-title {
   &:hover {
     .drag-handle {
@@ -25,7 +36,7 @@
 .group-header-columns {
   display: flex;
   // justify-content: space-around;
-  gap: 2px;
+  // gap: 2px;
   // margin-bottom: 3px;
   // justify-content: center;
   // align-items: center;
@@ -39,8 +50,8 @@
   }
 }
 .group-title-btn {
-  // height: 40px;
-  // width: 30px;
+  height: 40px;
+  width: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,9 +63,12 @@
   z-index: 8;
 
   // height: 100%;
+  .el-dropdown {
+    padding-top: 12px;
+  }
 }
 .group-name-all {
-  min-width: 695px;
+  min-width: 692px;
   position: sticky;
   min-height: 40px;
   text-align: left;
@@ -81,6 +95,7 @@
   position: sticky;
   z-index: 4;
   left: 32px;
+  width: 450px;
 }
 
 .fa-caret-down {

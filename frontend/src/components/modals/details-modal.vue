@@ -1,6 +1,6 @@
 <template>
   <section class="details-modal" ref="detailModal">
-    <div class="title-container">
+    <div class="ontainer">
       <div class="close-details-btn" @click="closeDetails">
         <font-awesome-icon class="close-icon" icon="x" />
       </div>
@@ -109,11 +109,7 @@
             </div>
 
             <div class="post-actions">
-              <div
-                class="left-btn"
-                :class="{ blue: update.like, red: !update.like }"
-                @click="setLike(update.id)"
-              >
+              <div class="left-btn" :class="{ blue: update.like, red: !update.like }" @click="setLike(update.id)">
                 <span>
                   <font-awesome-icon icon="thumbs-up" />
                 </span>
@@ -234,20 +230,17 @@ export default {
   components: { avatarImg, likeIcon, Person },
   created() {
     this.task = JSON.parse(JSON.stringify(this.$store.getters.getCurrTask));
-    socketService.emit("chat task", JSON.parse(JSON.stringify(this.$store.getters.getCurrTask)).id);
-    socketService.on("task changed", this.updateTask);
+    socketService.emit('chat task', JSON.parse(JSON.stringify(this.$store.getters.getCurrTask)).id);
+    socketService.on('task changed', this.updateTask);
     //to run now func that save here in memory and save bpard
   },
   unmounted() {
-    socketService.off("chat task", this.task.id);
-
+    socketService.off('chat task', this.task.id);
   },
-  computed: {
-  },
+  computed: {},
   methods: {
     updateTask(task) {
-
-      this.task = task
+      this.task = task;
       const groupId = this.$store.getters.getCurrGroupId;
       this.$emit('addItemWithoutServer', groupId, this.task);
     },
@@ -271,7 +264,7 @@ export default {
       //bring this line back, need to save to server somehow whithout the "update board" -socket
       // save only and when you receiveMessageOnPort, also!!
       this.$emit('addItemWithoutServer', groupId, this.task);
-      socketService.emit("task updated", this.task);
+      socketService.emit('task updated', this.task);
     },
 
     createEmptyUpdate(message = '') {

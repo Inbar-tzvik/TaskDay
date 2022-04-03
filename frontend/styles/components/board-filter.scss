@@ -11,7 +11,7 @@
 
   .blue-btn {
     background-color: $blue;
-    padding: 10px;
+    padding: 8px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -34,7 +34,7 @@
     width: 15px;
   }
   div {
-    padding: 7px;
+    padding-left: 7px;
     display: flex;
     align-items: center;
     .search-icon {
@@ -82,7 +82,17 @@
     }
   }
 }
-
+.img-filter-person {
+  width: 32px;
+  height: 16px;
+  margin: 3px 0px 0px;
+  margin-top: 3px;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+}
+.filter-person {
+  display: flex;
+  justify-content: center;
+}
 .pin-icon {
   // width: 20px;
 }

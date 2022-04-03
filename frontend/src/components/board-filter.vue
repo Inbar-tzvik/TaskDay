@@ -29,25 +29,34 @@
           </form>
         </div>
       </div>
-      <button>
-        <span>
-          <!-- <img
+      <button class="filter-person">
+        <img class="img-filter-person" src="https://cdn.monday.com/icons/dapulse-person-column.svg" />Person
+      </button>
+      <!-- <img
             class="icon-img-person"
             src="../../styles/icon/user-filter.png"
             alt=""
           /> -->
-          <font-awesome-icon icon="circle-user" />
-        </span>
-        Person
-      </button>
+      <!-- <section class="dropDownMenuWrapper filter">
+        <button class="dropDownMenuButton" ref="menu" @click="openClose">
+          <font-awesome-icon icon="circle-user" />Person
+        </button>
+        <section class="dropdownMenu" v-if="isOpen">
+          <div v-if="board.members.length > 0">
+            <div class="avatar" v-for="member in board.members" :key="member._id">
+              <el-avatar fit="cover" class="avatar-img" :src="member.imgUrl" />
+              <div>{{ member.fullname }}</div>
+            </div>
+          </div>
+        </section>
+      </section> -->
       <button>
-        <span><font-awesome-icon icon="filter" /></span> filter
+        <span><font-awesome-icon icon="filter" /></span> Filter
       </button>
       <button>
         <span><font-awesome-icon icon="sort" /></span> Sort
       </button>
       <!-- <button><img src="../../styles/icon/pin.png" alt="" /></button> -->
-      <div></div>
     </div>
   </section>
 </template>
@@ -57,9 +66,12 @@ import searchIcon from '../components/icons/search-icon-modal.vue';
 import filterIcon from '../components/icons/filter-icon-modal.vue';
 export default {
   name: 'board-filter',
-  props: {},
+  props: {
+    board: Object,
+  },
   data() {
     return {
+      isOpen: false,
       filterBy: {
         title: '',
         user: '',
@@ -75,13 +87,15 @@ export default {
     },
     getUsers() {
       //should be from store???
-      this.users = this.$store.getters.board.members.map(
-        (user) => user.fullname
-      );
+      this.users = this.$store.getters.board.members.map((user) => user.fullname);
       // return this.$store.getters.boards[0].members.map(user => user.fullname)
     },
   },
   methods: {
+    openClose() {
+      // Toggle between open or closed ( true || false )
+      this.isOpen = !this.isOpen;
+    },
     setFilter() {
       // console.log(this.filterBy);
       this.$emit('setFilter', JSON.parse(JSON.stringify(this.filterBy)));

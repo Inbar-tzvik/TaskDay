@@ -1,9 +1,17 @@
-@media (max-width: 800px) {
+@media (max-width: 1557px) {
+  .task-full-line {
+    margin-left: 10px;
+  }
 }
 
-@media (min-width: 1600px) {
+@media (max-width: 1680px) {
   .empty-block {
     // width: 33px;
+  }
+  .group-title-btn {
+    .el-dropdown {
+      padding-top: 0px;
+    }
   }
 }
 
@@ -12,10 +20,21 @@
     // width: 43px;
   }
   .task-full-line {
-    grid-template-columns: 690px 190px 210px 190px 30px;
+    grid-template-columns: 692px 170px 205px 170px 30px;
     // margin-left: 45px;
   }
   .group-title-btn {
     padding-top: 1px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .menu-circle {
+    left: 12px;
+  }
+}
+@media (max-width: 1100px) {
+  .menu-circle {
+    left: 9px;
   }
 }

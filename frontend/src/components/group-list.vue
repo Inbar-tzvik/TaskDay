@@ -30,7 +30,7 @@
                     <el-dropdown-item @click="deleteGroup(group.id)">
                       <font-awesome-icon icon="trash-can" />Delete
                     </el-dropdown-item>
-                    <el-dropdown-item>
+                    <el-dropdown-item @click="open = !open">
                       <font-awesome-icon
                         icon="circle"
                         :style="{
@@ -63,7 +63,7 @@
             </div>
             <!-- *****ITZIK***** -->
             <div
-              class="flex cmp-column-title"
+              class="cmp-column-title"
               v-for="cmp in board.cmpsOrder"
               :key="cmp.id"
               @mouseover="group.isOnColumnTitle = true"
@@ -136,6 +136,7 @@ export default {
       // ITZIK
       sOnColumnTitle: false,
       openGroupName: true,
+      open: false,
       // ITZIK
     };
   },
@@ -240,9 +241,10 @@ export default {
 .cmp-column-title {
   color: #676879;
   left: 168px;
-  min-width: 188px;
-  justify-content: center;
+  min-width: 168px;
+  justify-content: space-between;
   align-items: center;
+  display: flex;
   /* margin: 0 5px; */
   /* //TODO - height should be determine! */
   height: 40px;

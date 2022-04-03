@@ -45,6 +45,8 @@
                 :board="board"
                 @setVal="setAns($event, idx)"
                 @removeAssignedMember="removeAssignedMember"
+                @addAssignedMember="addAssignedMember"
+                @editText="editText"
                 @changedDates="changedDates"
               ></component>
               <!-- <component :is="cmp" :info="task" @setVal="setAns($event, idx)"></component> -->
@@ -83,6 +85,8 @@ import Timeline from './Timeline.vue';
 import { Container, Draggable } from 'vue3-smooth-dnd';
 import Priority from './Priority.vue';
 import Person from './Person.vue';
+import Text from './Text.vue';
+
 import { objectEntries } from '@antfu/utils';
 
 export default {
@@ -130,8 +134,17 @@ export default {
     Draggable,
     Priority,
     Person,
+    Text,
   },
   methods: {
+    editText(task) {
+      this.$store.dispatch({
+        type: 'addItem',
+        boardId: this.board._id,
+        groupId: this.group.id,
+        task: task,
+      });
+    },
     toggleUpdates(task) {
       // console.log('taskIdtaskId',task,this.group.id);
       this.$emit('toggleUpdates', task, this.group.id);
@@ -197,15 +210,28 @@ export default {
     editTask(item) {
       this.$emit('editTask', item, this.group.id);
     },
-    updateStatus() {},
-    removeAssignedMember(personId, task) {
-      const item = JSON.parse(JSON.stringify(task));
+    // updateStatus() {},
+    removeAssignedMember({ personId, task }) {
+      var item = JSON.parse(JSON.stringify(task));
       const personIdx = item.members.findIndex((person) => person._id === personId);
       item.members.splice(personIdx, 1);
       this.$store.dispatch({
         type: 'addItem',
-        boardId: this.board.id,
-        groupId: this.groupId.id,
+        boardId: this.board._id,
+        groupId: this.group.id,
+        task: item,
+      });
+    },
+    addAssignedMember({ person, task }) {
+      var item = JSON.parse(JSON.stringify(task));
+      console.log('addPerson', person, task);
+      item.members.push(person);
+      // const personIdx = item.members.findIndex((person) => person._id === personId);
+      // item.members.splice(personIdx, 1);
+      this.$store.dispatch({
+        type: 'addItem',
+        boardId: this.board._id,
+        groupId: this.group.id,
         task: item,
       });
     },
