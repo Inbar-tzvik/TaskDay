@@ -10098,3 +10098,88 @@
 4/2/2022, 8:55:38 PM - INFO - Req!!!
 4/2/2022, 8:55:38 PM - INFO - Req!!!
 >>>>>>> 38b260d7a1f1b99f2ede0ebe5dbe70e1c5b9bddb
+2.4.2022, 21:05:52 - INFO - Server is running on port: 3030
+2.4.2022, 21:06:14 - DEBUG - auth.service - login with username: mama
+2.4.2022, 21:06:15 - INFO - Req!!!
+2.4.2022, 21:06:18 - ERROR - Failed to Login Invalid username or password
+2.4.2022, 21:06:19 - INFO - Req!!!
+2.4.2022, 21:06:19 - INFO - Req!!!
+2.4.2022, 21:06:23 - INFO - Req!!!
+2.4.2022, 21:06:24 - INFO - Req!!!
+2.4.2022, 21:06:52 - ERROR - while finding board undefined | {}
+2.4.2022, 21:06:52 - ERROR - [31mFailed to get board[39m | {}
+2.4.2022, 21:06:52 - INFO - Req!!!
+2.4.2022, 21:08:06 - INFO - Req!!!
+2.4.2022, 21:08:06 - INFO - Req!!!
+2.4.2022, 21:08:07 - INFO - Req!!!
+2.4.2022, 21:08:07 - INFO - Req!!!
+2.4.2022, 21:09:09 - INFO - Req!!!
+2.4.2022, 21:09:10 - INFO - Req!!!
+2.4.2022, 21:09:11 - INFO - Req!!!
+2.4.2022, 21:09:13 - INFO - Req!!!
+2.4.2022, 21:09:16 - INFO - Req!!!
+2.4.2022, 21:09:16 - INFO - Req!!!
+2.4.2022, 21:09:17 - INFO - Req!!!
+2.4.2022, 21:09:17 - INFO - Req!!!
+2.4.2022, 21:09:17 - INFO - Req!!!
+2.4.2022, 21:09:18 - INFO - Req!!!
+2.4.2022, 21:09:18 - INFO - Req!!!
+2.4.2022, 21:09:18 - INFO - Req!!!
+2.4.2022, 21:09:18 - INFO - Req!!!
+2.4.2022, 21:09:19 - INFO - Req!!!
+2.4.2022, 21:09:19 - INFO - Req!!!
+2.4.2022, 21:09:19 - INFO - Req!!!
+2.4.2022, 21:09:20 - INFO - Req!!!
+2.4.2022, 21:09:20 - INFO - Req!!!
+3.4.2022, 10:17:19 - INFO - Server is running on port: 3030
+3.4.2022, 10:17:46 - DEBUG - auth.service - login with username: mama
+3.4.2022, 10:17:46 - INFO - Req!!!
+3.4.2022, 10:17:48 - ERROR - Failed to Login Invalid username or password
+3.4.2022, 10:30:26 - DEBUG - auth.service - login with username: mama
+3.4.2022, 10:30:26 - INFO - Req!!!
+3.4.2022, 10:30:26 - ERROR - Failed to Login Invalid username or password
+3.4.2022, 10:32:52 - DEBUG - auth.service - login with username: mama
+3.4.2022, 10:32:52 - ERROR - Failed to Login Invalid username or password
+3.4.2022, 10:32:52 - INFO - Req!!!
+3.4.2022, 10:44:25 - DEBUG - auth.service - login with username: mama
+3.4.2022, 10:44:25 - ERROR - Failed to Login Invalid username or password
+3.4.2022, 10:44:25 - INFO - Req!!!
+3.4.2022, 10:49:54 - DEBUG - auth.service - login with username: mama
+3.4.2022, 10:49:54 - INFO - Req!!!
+3.4.2022, 10:49:54 - ERROR - Failed to Login Invalid username or password
+3.4.2022, 10:50:26 - DEBUG - auth.service - login with username: mama
+3.4.2022, 10:50:26 - INFO - Req!!!
+3.4.2022, 10:50:26 - ERROR - Failed to Login Invalid username or password
+3.4.2022, 10:50:56 - INFO - Req!!!
+3.4.2022, 10:50:56 - INFO - Req!!!
+3.4.2022, 10:50:56 - INFO - Req!!!
+3.4.2022, 10:50:56 - INFO - Req!!!
+3.4.2022, 11:18:31 - ERROR - while finding board undefined | {}
+3.4.2022, 11:18:31 - ERROR - [31mFailed to get board[39m | {}
+3.4.2022, 11:18:31 - INFO - Req!!!
+3.4.2022, 11:19:09 - DEBUG - auth.service - login with username: mama
+3.4.2022, 11:19:09 - INFO - Req!!!
+3.4.2022, 11:19:09 - ERROR - Failed to Login Invalid username or password
+3.4.2022, 11:19:18 - DEBUG - auth.service - login with username: mama
+3.4.2022, 11:19:18 - INFO - Req!!!
+3.4.2022, 11:19:18 - ERROR - Failed to Login Invalid username or password
+3.4.2022, 11:21:01 - DEBUG - auth.service - login with username: mama
+3.4.2022, 11:21:01 - INFO - Req!!!
+3.4.2022, 11:21:02 - ERROR - Failed to Login Invalid username or password
+3.4.2022, 11:22:10 - DEBUG - auth.service - login with username: mama
+3.4.2022, 11:22:10 - INFO - Req!!!
+3.4.2022, 11:22:10 - ERROR - Failed to Login Invalid username or password
+3.4.2022, 11:24:54 - INFO - Req!!!
+3.4.2022, 11:24:54 - INFO - Req!!!
+3.4.2022, 11:24:54 - INFO - Req!!!
+3.4.2022, 11:24:54 - INFO - Req!!!
+3.4.2022, 11:27:52 - ERROR - while finding board undefined | {}
+3.4.2022, 11:27:52 - ERROR - [31mFailed to get board[39m | {}
+3.4.2022, 11:27:52 - INFO - Req!!!
+3.4.2022, 11:29:07 - INFO - Req!!!
+3.4.2022, 11:29:07 - INFO - Req!!!
+3.4.2022, 11:29:07 - INFO - Req!!!
+3.4.2022, 11:29:08 - INFO - Req!!!
+3.4.2022, 11:31:54 - ERROR - while finding board undefined | {}
+3.4.2022, 11:31:54 - ERROR - [31mFailed to get board[39m | {}
+3.4.2022, 11:31:54 - INFO - Req!!!

@@ -1,7 +1,7 @@
 <template>
   <header class="app-header" :class="{ removeSide: myClass }">
     <div class="seen-plans">
-      <p>Seen plans</p>
+      <p>See plans</p>
     </div>
     <div>
       <img
