@@ -10134,3 +10134,148 @@
 4/2/2022, 8:55:38 PM - INFO - Req!!!
 >>>>>>> 38b260d7a1f1b99f2ede0ebe5dbe70e1c5b9bddb
 >>>>>>> 989a0afd82ae450ad3b276dfd4a024283cad6796
+4/3/2022, 9:36:56 AM - INFO - Server is running on port: 3030
+4/3/2022, 9:36:57 AM - DEBUG - auth.service - login with username: mama
+4/3/2022, 9:36:57 AM - INFO - Req!!!
+4/3/2022, 9:36:58 AM - ERROR - Failed to Login Invalid username or password
+4/3/2022, 9:36:59 AM - INFO - Req!!!
+4/3/2022, 9:36:59 AM - INFO - Req!!!
+4/3/2022, 9:36:59 AM - INFO - Req!!!
+4/3/2022, 9:36:59 AM - INFO - Req!!!
+4/3/2022, 9:37:15 AM - INFO - Req!!!
+4/3/2022, 9:37:16 AM - INFO - Req!!!
+4/3/2022, 9:37:16 AM - INFO - Req!!!
+4/3/2022, 9:39:59 AM - DEBUG - auth.service - login with username: mama
+4/3/2022, 9:39:59 AM - ERROR - Failed to Login Invalid username or password
+4/3/2022, 9:39:59 AM - INFO - Req!!!
+4/3/2022, 9:40:59 AM - INFO - Req!!!
+4/3/2022, 9:40:59 AM - INFO - Req!!!
+4/3/2022, 9:41:09 AM - INFO - Req!!!
+4/3/2022, 9:41:09 AM - INFO - Req!!!
+4/3/2022, 9:41:09 AM - INFO - Req!!!
+4/3/2022, 9:41:09 AM - INFO - Req!!!
+4/3/2022, 9:47:54 AM - INFO - Req!!!
+4/3/2022, 9:47:54 AM - INFO - Req!!!
+4/3/2022, 9:47:54 AM - INFO - Req!!!
+4/3/2022, 9:47:55 AM - INFO - Req!!!
+4/3/2022, 9:47:55 AM - INFO - Req!!!
+4/3/2022, 9:47:56 AM - INFO - Req!!!
+4/3/2022, 10:07:21 AM - ERROR - while finding board undefined | {}
+4/3/2022, 10:07:21 AM - ERROR - [31mFailed to get board[39m | {}
+4/3/2022, 10:07:21 AM - INFO - Req!!!
+4/3/2022, 10:08:09 AM - INFO - Req!!!
+4/3/2022, 10:08:09 AM - INFO - Req!!!
+4/3/2022, 10:08:09 AM - INFO - Req!!!
+4/3/2022, 10:08:09 AM - INFO - Req!!!
+4/3/2022, 10:13:57 AM - INFO - Req!!!
+4/3/2022, 10:13:57 AM - INFO - Req!!!
+4/3/2022, 10:13:57 AM - INFO - Req!!!
+4/3/2022, 10:13:58 AM - INFO - Req!!!
+4/3/2022, 10:13:58 AM - INFO - Req!!!
+4/3/2022, 10:13:59 AM - INFO - Req!!!
+4/3/2022, 10:14:01 AM - INFO - Req!!!
+4/3/2022, 10:14:01 AM - INFO - Req!!!
+4/3/2022, 10:14:02 AM - INFO - Req!!!
+4/3/2022, 10:14:04 AM - INFO - Req!!!
+4/3/2022, 10:14:04 AM - INFO - Req!!!
+4/3/2022, 10:14:04 AM - INFO - Req!!!
+4/3/2022, 10:14:06 AM - INFO - Req!!!
+4/3/2022, 10:14:07 AM - INFO - Req!!!
+4/3/2022, 10:14:07 AM - INFO - Req!!!
+4/3/2022, 10:17:32 AM - DEBUG - auth.service - login with username: mama
+4/3/2022, 10:17:32 AM - ERROR - Failed to Login Invalid username or password
+4/3/2022, 10:17:32 AM - INFO - Req!!!
+4/3/2022, 10:17:38 AM - DEBUG - auth.service - login with username: mama
+4/3/2022, 10:17:38 AM - ERROR - Failed to Login Invalid username or password
+4/3/2022, 10:17:38 AM - INFO - Req!!!
+4/3/2022, 10:17:38 AM - INFO - Req!!!
+4/3/2022, 10:17:39 AM - INFO - Req!!!
+4/3/2022, 10:17:39 AM - INFO - Req!!!
+4/3/2022, 10:18:11 AM - INFO - Req!!!
+4/3/2022, 10:18:12 AM - INFO - Req!!!
+4/3/2022, 10:18:12 AM - INFO - Req!!!
+4/3/2022, 10:18:12 AM - INFO - Req!!!
+4/3/2022, 10:18:12 AM - INFO - Req!!!
+4/3/2022, 10:18:13 AM - INFO - Req!!!
+4/3/2022, 10:18:15 AM - INFO - Req!!!
+4/3/2022, 10:18:15 AM - INFO - Req!!!
+4/3/2022, 10:18:15 AM - INFO - Req!!!
+4/3/2022, 10:18:15 AM - INFO - Req!!!
+4/3/2022, 10:18:16 AM - INFO - Req!!!
+4/3/2022, 10:18:16 AM - INFO - Req!!!
+4/3/2022, 10:43:10 AM - DEBUG - auth.service - login with username: mama
+4/3/2022, 10:43:10 AM - ERROR - Failed to Login Invalid username or password
+4/3/2022, 10:43:10 AM - INFO - Req!!!
+4/3/2022, 10:43:10 AM - INFO - Req!!!
+4/3/2022, 10:43:10 AM - INFO - Req!!!
+4/3/2022, 10:43:10 AM - INFO - Req!!!
+4/3/2022, 10:43:11 AM - INFO - Req!!!
+4/3/2022, 10:46:13 AM - DEBUG - auth.service - login with username: mama
+4/3/2022, 10:46:13 AM - ERROR - Failed to Login Invalid username or password
+4/3/2022, 10:46:13 AM - INFO - Req!!!
+4/3/2022, 10:46:13 AM - INFO - Req!!!
+4/3/2022, 10:46:13 AM - INFO - Req!!!
+4/3/2022, 10:46:14 AM - INFO - Req!!!
+4/3/2022, 10:46:14 AM - INFO - Req!!!
+4/3/2022, 10:47:41 AM - DEBUG - auth.service - login with username: mama
+4/3/2022, 10:47:41 AM - ERROR - Failed to Login Invalid username or password
+4/3/2022, 10:47:41 AM - INFO - Req!!!
+4/3/2022, 10:47:41 AM - INFO - Req!!!
+4/3/2022, 10:47:41 AM - INFO - Req!!!
+4/3/2022, 10:47:41 AM - INFO - Req!!!
+4/3/2022, 10:47:41 AM - INFO - Req!!!
+4/3/2022, 10:54:52 AM - DEBUG - auth.service - login with username: mama
+4/3/2022, 10:54:52 AM - ERROR - Failed to Login Invalid username or password
+4/3/2022, 10:54:52 AM - INFO - Req!!!
+4/3/2022, 10:54:52 AM - INFO - Req!!!
+4/3/2022, 10:54:52 AM - INFO - Req!!!
+4/3/2022, 10:54:53 AM - INFO - Req!!!
+4/3/2022, 10:54:53 AM - INFO - Req!!!
+4/3/2022, 10:59:18 AM - DEBUG - auth.service - login with username: mama
+4/3/2022, 10:59:18 AM - ERROR - Failed to Login Invalid username or password
+4/3/2022, 10:59:18 AM - INFO - Req!!!
+4/3/2022, 11:02:57 AM - INFO - Req!!!
+4/3/2022, 11:02:57 AM - INFO - Req!!!
+4/3/2022, 11:02:57 AM - INFO - Req!!!
+4/3/2022, 11:02:57 AM - INFO - Req!!!
+4/3/2022, 11:18:37 AM - DEBUG - auth.service - login with username: mama
+4/3/2022, 11:18:37 AM - ERROR - Failed to Login Invalid username or password
+4/3/2022, 11:18:37 AM - INFO - Req!!!
+4/3/2022, 11:18:38 AM - INFO - Req!!!
+4/3/2022, 11:18:38 AM - INFO - Req!!!
+4/3/2022, 11:18:38 AM - INFO - Req!!!
+4/3/2022, 11:18:38 AM - INFO - Req!!!
+4/3/2022, 11:24:25 AM - DEBUG - auth.service - login with username: mama
+4/3/2022, 11:24:25 AM - ERROR - Failed to Login Invalid username or password
+4/3/2022, 11:24:25 AM - INFO - Req!!!
+4/3/2022, 11:24:25 AM - INFO - Req!!!
+4/3/2022, 11:24:25 AM - INFO - Req!!!
+4/3/2022, 11:24:25 AM - INFO - Req!!!
+4/3/2022, 11:24:25 AM - INFO - Req!!!
+4/3/2022, 11:28:12 AM - DEBUG - auth.service - login with username: mama
+4/3/2022, 11:28:12 AM - ERROR - Failed to Login Invalid username or password
+4/3/2022, 11:28:12 AM - INFO - Req!!!
+4/3/2022, 11:28:13 AM - INFO - Req!!!
+4/3/2022, 11:28:13 AM - INFO - Req!!!
+4/3/2022, 11:28:13 AM - INFO - Req!!!
+4/3/2022, 11:28:13 AM - INFO - Req!!!
+4/3/2022, 11:33:58 AM - DEBUG - auth.service - login with username: mama
+4/3/2022, 11:33:58 AM - ERROR - Failed to Login Invalid username or password
+4/3/2022, 11:33:58 AM - INFO - Req!!!
+4/3/2022, 11:34:01 AM - INFO - Req!!!
+4/3/2022, 11:34:01 AM - INFO - Req!!!
+4/3/2022, 11:34:02 AM - INFO - Req!!!
+4/3/2022, 11:34:02 AM - INFO - Req!!!
+4/3/2022, 11:34:11 AM - DEBUG - auth.service - login with username: mama
+4/3/2022, 11:34:11 AM - ERROR - Failed to Login Invalid username or password
+4/3/2022, 11:34:11 AM - INFO - Req!!!
+4/3/2022, 11:34:24 AM - INFO - Req!!!
+4/3/2022, 11:34:24 AM - INFO - Req!!!
+4/3/2022, 11:34:24 AM - INFO - Req!!!
+4/3/2022, 11:34:24 AM - INFO - Req!!!
+4/3/2022, 11:37:08 AM - INFO - Req!!!
+4/3/2022, 11:37:09 AM - INFO - Req!!!
+4/3/2022, 11:37:09 AM - INFO - Req!!!
+4/3/2022, 11:37:09 AM - INFO - Req!!!
+4/3/2022, 11:37:10 AM - INFO - Req!!!
+4/3/2022, 11:37:10 AM - INFO - Req!!!

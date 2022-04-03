@@ -56,7 +56,7 @@
       </div>
     </div>
     <p class="subtitle" v-if="isInfo">
-      Check out the following items to learn about all the cool features and tools <a href="">monday.com</a> has for you
+      Check out the following items to learn about all the cool features and tools <a href="/main">TaskDay.com</a> has for you
       :-)
     </p>
   </section>

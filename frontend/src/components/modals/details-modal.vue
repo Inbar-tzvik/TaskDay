@@ -19,7 +19,8 @@
           </div>
         </div>
       </div>
-      <div class="item-tabs">
+
+      <!-- <div class="item-tabs">
         <div class="left-tabs">
           <button class="tab-btn tab-btn-clicked">
             <div class="updates">Updates</div>
@@ -35,9 +36,10 @@
           <p class="subsets-tab"></p>
           <div class="add-view">+ Add View</div>
         </div>
-      </div>
-    </div>
+      </div> -->
 
+
+    </div>
     <div class="details-container">
       <div class="update-details-page detail-page">
         <!-- //LOOK -->
@@ -50,7 +52,7 @@
         <div class="send-update">
           <div>
             <!-- ASK - think to remove this "mail" -->
-            <p>Write updates via email:</p>
+            <!-- <p>Write updates via email:</p> -->
           </div>
         </div>
         <!-- //LOOK -->
@@ -117,12 +119,12 @@
               </div>
 
               <!-- //REMOVE - we wont do replay option, only like -->
-              <div class="right-btn">
-                <!-- <span> -->
-                <!-- <img../member-picker.vue class="reply-icon" src="../../../styles/icon/reply.png" alt="" /></span -->
-                <!-- > -->
+              <!-- <div class="right-btn">
+                <span>
+                <img../member-picker.vue class="reply-icon" src="../../../styles/icon/reply.png" alt="" /></span>
                 <p @click="isReply = !isReply">Reply</p>
-              </div>
+              </div> -->
+              
             </div>
             <div class="reply-container" v-if="isReply">
               <div class="left-side-reply">
@@ -274,7 +276,7 @@ export default {
           _id: 'u101',
           fullname: 'Inbari Tzvik',
           imgUrl:
-            'https://us.123rf.com/450wm/kitthanesratanasiraanan/kitthanesratanasiraanan1902/kitthanesratanasiraanan190200001/117906554-beautiful-young-asian-woman-with-clean-fresh-skin-look-girl-beauty-face-care-facial-treatment-cosmet.jpg',
+            'https://freedesignfile.com/upload/2019/04/Smiling-woman-hand-on-face-Stock-Photo.jpg',
         },
         message,
         like: false,

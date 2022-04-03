@@ -1,15 +1,13 @@
 <template>
   <header class="app-header" :class="{ removeSide: myClass }">
     <div class="seen-plans">
-      <p>Seen plans</p>
+      <p>
+        <!-- <img src="../../styles/icon/star-shape-big-and-small.png" alt /> -->
+        See plans
+      </p>
     </div>
     <div>
-      <img
-        src="../../styles/icon/icon.png"
-        alt=""
-        class="icon"
-        @click="goToHomePage"
-      />
+      <img src="../../styles/icon/icon.png" alt class="icon" @click="goToHomePage" />
 
       <div class="top-navigation-items-area">
         <div class="cliked-btn-nav" @click="onClickWorkSpace">
@@ -28,7 +26,7 @@
       </div>
     </div>
     <!-- <router-link class="link" to="/">Home</router-link>
-    <router-link class="link" to="/main">Main</router-link> -->
+    <router-link class="link" to="/main">Main</router-link>-->
     <div class="container-bottom">
       <div class="bottom-navigation-items-area">
         <div>
@@ -50,7 +48,7 @@
 
       <div class="icon-container">
         <!-- <p class="name-icon">SN</p> -->
-        <img class="name-icon" src="../../styles/icon/def-user.png" alt="" />
+        <img class="name-icon" src="../../styles/icon/def-user.png" alt />
         <!-- <p class="name-icon">SN</p> -->
       </div>
     </div>
@@ -102,7 +100,7 @@ export default {
     searchIcon,
     helpIcon,
   },
-  created() {},
+  created() { },
   watch: {
     '$store.getters.currPage': {
       handler() {
