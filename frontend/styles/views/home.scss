@@ -9,9 +9,10 @@
     background: rgb(178, 178, 178);
     color: #d7d7d7;
     font-family: sans-serif;
-    background-image: url(../../styles/images/bg.jpg);
+    background-image: url(../../styles/images/1.jpg);
     background-size: cover;
-    filter: blur(3px);
+    // filter: blur(3px);
+    filter: brightness(60%);
   }
   .container {
     position: absolute;
@@ -101,13 +102,16 @@
       align-items: center;
       padding: 100px 0;
       flex-wrap: wrap;
+      left: 37%;
 
       position: absolute;
-      bottom: 5%;
-      right: 20%;
+      // bottom: 50%;
+      // right: 40%;
 
       h1 {
+        font-size: 26px;
         font-family: cursive;
+        color: rgba(255, 255, 255, 0.773);
       }
       .yellow {
         color: #ffcb00;
@@ -119,15 +123,15 @@
       width: 100%;
       font-family: monospace;
       font-weight: bold;
+      color: white;
     }
     .title::before {
-      content: 'Beats to your rythm';
       font-family: cursive;
       font-size: 10px;
       letter-spacing: 1.8px;
       font-weight: bold;
       text-align: center;
-      color: black;
+      color: rgb(255, 255, 255);
       display: block;
       text-transform: uppercase;
       margin-bottom: -5px;
@@ -152,7 +156,7 @@
       bottom: 0;
       left: 120px;
       &:hover {
-        background-color: #e2435c;
+        background-color: #414c81;
         color: #000;
         font-size: 22px;
       }

@@ -3,14 +3,15 @@
         "fullname": "Inbari Tzvik",
         "username": "1234",
         "password": "4321",
-        "imgUrl": "https://us.123rf.com/450wm/kitthanesratanasiraanan/kitthanesratanasiraanan1902/kitthanesratanasiraanan190200001/117906554-beautiful-young-asian-woman-with-clean-fresh-skin-look-girl-beauty-face-care-facial-treatment-cosmet.jpg",
+        "imgUrl": "https://freedesignfile.com/upload/2019/04/Smiling-woman-hand-on-face-Stock-Photo.jpg",
         "mentions": [{
             "id": "m101",
             "boardId": "62430dc81cdd644b3e5acabd",
             "taskId": "t101"
         }],
         "isAdmin": true
-    }, {
+    },
+    {
         "_id": "u102",
         "fullname": "Itzik JSON",
         "username": "1234",
@@ -25,7 +26,7 @@
     },
     {
         "_id": "u103",
-        "fullname": "Shlomi Nugarker",
+        "fullname": "Bill Gabriel",
         "username": "1234",
         "password": "4321",
         "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg",

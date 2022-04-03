@@ -1,12 +1,15 @@
 <template>
   <header class="app-header" :class="{ removeSide: myClass }">
     <div class="seen-plans">
-      <p>Seen plans</p>
+      <p>
+        <!-- <img src="../../styles/icon/star-shape-big-and-small.png" alt /> -->
+        See plans
+      </p>
     </div>
     <div>
       <img
         src="../../styles/icon/icon.png"
-        alt=""
+        alt
         class="icon"
         @click="goToHomePage"
       />
@@ -28,7 +31,7 @@
       </div>
     </div>
     <!-- <router-link class="link" to="/">Home</router-link>
-    <router-link class="link" to="/main">Main</router-link> -->
+    <router-link class="link" to="/main">Main</router-link>-->
     <div class="container-bottom">
       <div class="bottom-navigation-items-area">
         <div>
@@ -50,7 +53,7 @@
 
       <div class="icon-container">
         <!-- <p class="name-icon">SN</p> -->
-        <img class="name-icon" src="../../styles/icon/def-user.png" alt="" />
+        <img class="name-icon" src="../../styles/icon/def-user.png" alt />
         <!-- <p class="name-icon">SN</p> -->
       </div>
     </div>

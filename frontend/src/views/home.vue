@@ -22,7 +22,10 @@
 
       <div class="hero">
         <div class="title"><span class="yellow">T</span>askday</div>
-        <h1 class="">A platform built for a<br />new way of working</h1>
+        <h1 class="">
+          A platform built for a<br />
+          &nbsp; new way of working
+        </h1>
         <div class="button">
           <router-link to="/main/62430dc81cdd644b3e5acabd"
             >See demo</router-link
