@@ -29,13 +29,15 @@
           </form>
         </div>
       </div>
-
+      <button class="filter-person">
+        <img class="img-filter-person" src="https://cdn.monday.com/icons/dapulse-person-column.svg" />Person
+      </button>
       <!-- <img
             class="icon-img-person"
             src="../../styles/icon/user-filter.png"
             alt=""
           /> -->
-      <section class="dropDownMenuWrapper">
+      <!-- <section class="dropDownMenuWrapper filter">
         <button class="dropDownMenuButton" ref="menu" @click="openClose">
           <font-awesome-icon icon="circle-user" />Person
         </button>
@@ -47,7 +49,7 @@
             </div>
           </div>
         </section>
-      </section>
+      </section> -->
       <button>
         <span><font-awesome-icon icon="filter" /></span> Filter
       </button>

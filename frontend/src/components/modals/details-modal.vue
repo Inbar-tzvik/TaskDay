@@ -1,6 +1,6 @@
 <template>
   <section class="details-modal" ref="detailModal">
-    <div class="title-container">
+    <div class="ontainer">
       <div class="close-details-btn" @click="closeDetails">
         <font-awesome-icon class="close-icon" icon="x" />
       </div>
@@ -19,7 +19,8 @@
           </div>
         </div>
       </div>
-      <div class="item-tabs">
+
+      <!-- <div class="item-tabs">
         <div class="left-tabs">
           <button class="tab-btn tab-btn-clicked">
             <div class="updates">Updates</div>
@@ -35,9 +36,10 @@
           <p class="subsets-tab"></p>
           <div class="add-view">+ Add View</div>
         </div>
-      </div>
-    </div>
+      </div> -->
 
+
+    </div>
     <div class="details-container">
       <div class="update-details-page detail-page">
         <!-- //LOOK -->
@@ -50,7 +52,7 @@
         <div class="send-update">
           <div>
             <!-- ASK - think to remove this "mail" -->
-            <p>Write updates via email:</p>
+            <!-- <p>Write updates via email:</p> -->
           </div>
         </div>
         <!-- //LOOK -->
@@ -109,11 +111,7 @@
             </div>
 
             <div class="post-actions">
-              <div
-                class="left-btn"
-                :class="{ blue: update.like, red: !update.like }"
-                @click="setLike(update.id)"
-              >
+              <div class="left-btn" :class="{ blue: update.like, red: !update.like }" @click="setLike(update.id)">
                 <span>
                   <font-awesome-icon icon="thumbs-up" />
                 </span>
@@ -121,12 +119,12 @@
               </div>
 
               <!-- //REMOVE - we wont do replay option, only like -->
-              <div class="right-btn">
-                <!-- <span> -->
-                <!-- <img../member-picker.vue class="reply-icon" src="../../../styles/icon/reply.png" alt="" /></span -->
-                <!-- > -->
+              <!-- <div class="right-btn">
+                <span>
+                <img../member-picker.vue class="reply-icon" src="../../../styles/icon/reply.png" alt="" /></span>
                 <p @click="isReply = !isReply">Reply</p>
-              </div>
+              </div> -->
+              
             </div>
             <div class="reply-container" v-if="isReply">
               <div class="left-side-reply">
@@ -234,20 +232,17 @@ export default {
   components: { avatarImg, likeIcon, Person },
   created() {
     this.task = JSON.parse(JSON.stringify(this.$store.getters.getCurrTask));
-    socketService.emit("chat task", JSON.parse(JSON.stringify(this.$store.getters.getCurrTask)).id);
-    socketService.on("task changed", this.updateTask);
+    socketService.emit('chat task', JSON.parse(JSON.stringify(this.$store.getters.getCurrTask)).id);
+    socketService.on('task changed', this.updateTask);
     //to run now func that save here in memory and save bpard
   },
   unmounted() {
-    socketService.off("chat task", this.task.id);
-
+    socketService.off('chat task', this.task.id);
   },
-  computed: {
-  },
+  computed: {},
   methods: {
     updateTask(task) {
-
-      this.task = task
+      this.task = task;
       const groupId = this.$store.getters.getCurrGroupId;
       this.$emit('addItemWithoutServer', groupId, this.task);
     },
@@ -271,7 +266,7 @@ export default {
       //bring this line back, need to save to server somehow whithout the "update board" -socket
       // save only and when you receiveMessageOnPort, also!!
       this.$emit('addItemWithoutServer', groupId, this.task);
-      socketService.emit("task updated", this.task);
+      socketService.emit('task updated', this.task);
     },
 
     createEmptyUpdate(message = '') {
@@ -281,7 +276,7 @@ export default {
           _id: 'u101',
           fullname: 'Inbari Tzvik',
           imgUrl:
-            'https://us.123rf.com/450wm/kitthanesratanasiraanan/kitthanesratanasiraanan1902/kitthanesratanasiraanan190200001/117906554-beautiful-young-asian-woman-with-clean-fresh-skin-look-girl-beauty-face-care-facial-treatment-cosmet.jpg',
+            'https://freedesignfile.com/upload/2019/04/Smiling-woman-hand-on-face-Stock-Photo.jpg',
         },
         message,
         like: false,
