@@ -160,7 +160,7 @@ export default {
     },
     updatedStatus(updatedTask) {
       this.$emit('updatedStatus', this.group.id, updatedTask);
-      this.updateStatus();
+      // this.updateStatus();
     },
     getItemPayload(group) {
       //        var currFilter = this.$store.getters.filterBy?this.$store.getters.filterBy:'';

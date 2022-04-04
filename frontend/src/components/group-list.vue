@@ -105,7 +105,7 @@
             @removeItem="removeItem"
           />
           <!-- <toy-preview @removeToy="removeToy" v-for="toy in toys" :key="toy.id" :toy="toy" /> -->
-          <li c v-if="board.cmpsOrder">
+          <li v-if="board.cmpsOrder">
             <item-sum :group="group" :cmps="board.cmpsOrder" />
           </li>
         </ul>
@@ -130,6 +130,7 @@ export default {
 
   data() {
     return {
+       
       // board: this.boards[0],
       currentGroup: null,
       show: false,

@@ -9,6 +9,7 @@ async function getBoards(req, res) {
         var queryParams = req.query;
         const boards = await boardService.query(queryParams)
         console.log(chalk.green('got your boards from server!'));
+        // console.log('boardsboardsboards', boards);
         res.json(boards);
     } catch (err) {
         logger.error(chalk.red('Failed to get boards'), err)

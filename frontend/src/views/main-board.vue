@@ -1,15 +1,15 @@
 <template>
   <section class="flex">
-    <div class="loading-gif" v-if="!board">
-      <img src="@/assets/Box-Loading-2.gif" />
-    </div>
-
     <div v-if="isDetails" @click="isDetails = false" class="main-screen"></div>
     <div class="empty-div" v-if="!isDetails">
       <div class="menu-circle" @click="circleClicked">
         <font-awesome-icon class="arrow-right-icon" icon="angle-right" />
       </div>
     </div>
+    <div class="loading-gif" v-if="!board">
+      <img src="@/assets/Box-Loading-2.gif" />
+    </div>
+
     <!-- <div class="loader" v-if="!board">
       <img src="../../styles/images/loading.gif" alt="" />
     </div>-->
