@@ -12424,7 +12424,18 @@
 4/4/2022, 10:03:46 AM - INFO - Req!!!
 4/4/2022, 10:03:46 AM - INFO - Req!!!
 4/4/2022, 10:03:46 AM - INFO - Req!!!
+<<<<<<< HEAD
+4/4/2022, 10:35:34 AM - INFO - Server is running on port: 3030
+4/4/2022, 10:35:44 AM - INFO - Req!!!
+4/4/2022, 10:35:44 AM - INFO - Req!!!
+4/4/2022, 10:35:44 AM - INFO - Req!!!
+4/4/2022, 10:35:44 AM - INFO - Req!!!
+4/4/2022, 10:40:29 AM - ERROR - while finding board undefined | {}
+4/4/2022, 10:40:29 AM - ERROR - [31mFailed to get board[39m | {}
+4/4/2022, 10:40:29 AM - INFO - Req!!!
+=======
 >>>>>>> f40bc0497e2fb429ce55b7cf66e8ae75c9a6547d
+<<<<<<< HEAD
 4/4/2022, 10:28:02 AM - INFO - Server is running on port: 3030
 4/4/2022, 10:28:18 AM - DEBUG - auth.service - login with username: mama
 4/4/2022, 10:28:18 AM - INFO - Req!!!
@@ -12465,3 +12476,6 @@
 4/4/2022, 10:34:37 AM - INFO - Req!!!
 4/4/2022, 10:34:37 AM - INFO - Req!!!
 4/4/2022, 10:34:38 AM - INFO - Req!!!
+=======
+>>>>>>> c15995b1eb5ffdf6602214bfd283a1a9dd840809
+>>>>>>> 59995a2860407d1bf18fb4bfcd3b7059716f48d1
