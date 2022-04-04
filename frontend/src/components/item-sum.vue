@@ -1,15 +1,16 @@
 <template>
   <section v-if="cmps" class="task-full-line">
     <div class="epmty-div"></div>
-    <div v-for="cmp in cmps" :key="cmp">
-      <section class="progress-bar" v-if="statusToShow(cmp)">
+    <div v-for="cmp in cmps" :key="cmp.length + Math.random()">
+
+      <!-- <section class="progress-bar" v-if="statusToShow(cmp)">
         <div
           class="el-progress-bar"
           v-for="(status, key) in statusCount(cmp)"
-          :key="key"
+          :key="status +  Math.random()"
           :style="styleObj(key, status)"
         ></div>
-      </section>
+      </section> -->
 
       <section class="progress-bar" v-if="datesToCount(cmp)">
         <div class="block flex">
@@ -18,20 +19,16 @@
             <span class="days-count-to-show">{{ daysCountToshow }}</span>
           </div>
         </div>
-        <!-- <div
-          class="el-progress-bar dates"
-          v-for="(status, key) in datesToCount(cmp)"
-          :key="key"
-          :style="styleObj(key, status)"--->
       </section>
-      <section class="progress-bar" v-if="priorityToShow(cmp)">
+
+      <!-- <section class="progress-bar" v-if="priorityToShow(cmp)">
         <div
           class="el-progress-bar"
           v-for="(status, key) in priorityCount(cmp)"
           :key="key"
           :style="styleObj(key, status)"
         ></div>
-      </section>
+      </section> -->
     </div>
   </section>
 </template>
@@ -46,7 +43,6 @@ export default {
       type: Array,
     },
   },
-
   data() {
     return {
       optsStatus: [],
@@ -90,9 +86,7 @@ export default {
       if (cmp === 'Priority') return true;
     },
     statusToShow(cmp) {
-      if (cmp === 'Status') {
-        return true;
-      }
+        return cmp === 'Status';
     },
     statusCount(cmp) {
       if (cmp !== 'Status') return;
@@ -130,9 +124,11 @@ export default {
     datesToCount(cmp) {
       if (cmp !== 'Timeline') return;
 
-      this.datesArray = [null, null];
+//delete this shit!!!!!!!!!!
+      // this.datesArray = [null, null];
+   
       this.group.tasks?.forEach((item) => {
-        console.log(item.dates);
+        // console.log(item.dates);
         if (item.dates.startDate !== '' && !this.datesArray[0]) {
           this.datesArray[0] = item.dates.startDate;
         } else if (
@@ -147,10 +143,12 @@ export default {
         else if (this.datesArray[1] !== null && item.dates.endDate > this.datesArray[1])
           this.datesArray[1] = item.dates.endDate;
       });
-      console.log('array of dates', this.datesArray);
+      // console.log('array of dates', this.datesArray);
       return true;
     },
   },
+
+  
   computed: {
     datesToShow() {
       if (!this.datesArray[0] && !this.datesArray[1]) return '-';
