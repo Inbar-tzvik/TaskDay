@@ -4,8 +4,8 @@
       <div class="plus-btn">+</div>
 
       <!-- {{ `${imgUrl}` }} -->
-      <div class="avatars" v-if="assignedMembers.length > 0">
-        <div v-for="member in assignedMembers" :key="member">
+      <div class="avatars" v-if="this.task.members.length > 0">
+        <div v-for="member in this.task.members" :key="member">
           <div v-if="member.imgUrl">
             <el-avatar fit="cover" class="avatar-img" :src="member.imgUrl" />
           </div>
@@ -84,10 +84,11 @@ export default {
         imgUrl: member.imgUrl,
       };
     });
-    this.assignedMembers = [...this.task.members];
-    this.notAssignedMembers = this.members?.filter((member) => {
-      return !this.assignedMembers.find((assMem) => assMem._id === member._id);
-    });
+    this.membersChange;
+    // this.assignedMembers = [...this.task.members];
+    // this.notAssignedMembers = this.members?.filter((member) => {
+    //   return !this.assignedMembers.find((assMem) => assMem._id === member._id);
+    // });
   },
 
   methods: {
@@ -126,9 +127,12 @@ export default {
     },
   },
   computed: {
-    // membersChange() {
-    //   return this.board.members;
-    // },
+    membersChange() {
+      this.assignedMembers = [...this.task.members];
+      this.notAssignedMembers = this.members?.filter((member) => {
+        return !this.assignedMembers.find((assMem) => assMem._id === member._id);
+      });
+    },
     checkLength() {
       if (this.shortMembers.length > 0) return true;
       else return false;

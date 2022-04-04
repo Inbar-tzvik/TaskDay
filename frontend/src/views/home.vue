@@ -1,6 +1,5 @@
 <template>
   <section class="home-page">
-    <div class="background-img"></div>
     <div class="container">
       <div class="nav">
         <div class="logo">
@@ -18,22 +17,38 @@
           <li>SignUp</li>
           <li>Help</li>
         </ul> -->
-      </div>
-
-      <div class="hero">
-        <div class="title"><span class="yellow">T</span>askday</div>
-        <h1 class="">
-          A platform built for a<br />
-          &nbsp; new way of working
-        </h1>
-        <div class="button">
-          <router-link to="/main/62430dc81cdd644b3e5acabd"
-            >See demo</router-link
-          >
+        <div class="button2">
+          <router-link to="/main/62430dc81cdd644b3e5acabd">See demo</router-link>
         </div>
       </div>
+      <div class="home">
+        <!-- <img src="../../styles/images/blue-black.png" /> -->
 
-      <!-- <div class="main">
+        <div class="background-img"></div>
+        <!-- d <div class="home-container">
+        <div class="container1">
+          <div class="image-stack">
+            <div class="image-stack__item image-stack__item--top">
+              <img src="../../styles/images/1.jpg" alt="" />
+            </div>
+            <div class="image-stack__item image-stack__item--bottom">
+              <img src="../../styles/images/board.jpg" />
+            </div>
+          </div>
+        </div> -->
+        <div class="hero">
+          <div class="title"><span class="yellow">T</span>askday</div>
+          <h1 class="">
+            A platform built for a<br />
+            &nbsp; new way of working
+          </h1>
+          <div class="button">
+            <router-link to="/main/62430dc81cdd644b3e5acabd">See demo</router-link>
+          </div>
+        </div>
+        <!-- </div> -->
+
+        <!-- <div class="main">
         <div class="date">
           <span>
             <i class="far fa-calendar-alt"></i>
@@ -63,6 +78,7 @@
           <i class="fas fa-paper-plane"></i>
         </div>
       </div> -->
+      </div>
     </div>
   </section>
 </template>
