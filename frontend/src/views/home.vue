@@ -23,8 +23,30 @@
       </div>
       <div class="home">
         <!-- <img src="../../styles/images/blue-black.png" /> -->
-
-        <div class="background-img"></div>
+        <div class="hero">
+          <div class="title"><span class="yellow">T</span>askday</div>
+          <h1 class="">
+            A platform built for a<br />
+            &nbsp; new way of working
+          </h1>
+          <div class="button">
+            <router-link to="/main/62430dc81cdd644b3e5acabd">See demo</router-link>
+          </div>
+        </div>
+        <video
+          preload="auto"
+          autoplay
+          loop
+          poster="https://dapulse-res.cloudinary.com/video/upload/so_0p/Generator_featured images/Home Page - 2022 Rebrand/products/products_video.jpg"
+          playsinline
+          webkit-playsinline
+          x5-playsinline
+        >
+          <source
+            src="https://dapulse-res.cloudinary.com/video/upload/q_auto,f_auto,cs_copy/Generator_featured images/Home Page - 2022 Rebrand/products/products_video.mp4"
+          />
+        </video>
+        <!-- <div class="background-img"></div> -->
         <!-- d <div class="home-container">
         <div class="container1">
           <div class="image-stack">
@@ -36,16 +58,7 @@
             </div>
           </div>
         </div> -->
-        <div class="hero">
-          <div class="title"><span class="yellow">T</span>askday</div>
-          <h1 class="">
-            A platform built for a<br />
-            &nbsp; new way of working
-          </h1>
-          <div class="button">
-            <router-link to="/main/62430dc81cdd644b3e5acabd">See demo</router-link>
-          </div>
-        </div>
+
         <!-- </div> -->
 
         <!-- <div class="main">
