@@ -56,8 +56,7 @@
       </div>
     </div>
     <p class="subtitle" v-if="isInfo">
-      Check out the following items to learn about all the cool features and tools <a href="/main">TaskDay.com</a> has for you
-      :-)
+      Learn how to create tasks that are clear, transparent, and on point.
     </p>
   </section>
 </template>
