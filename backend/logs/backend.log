@@ -12425,3 +12425,43 @@
 4/4/2022, 10:03:46 AM - INFO - Req!!!
 4/4/2022, 10:03:46 AM - INFO - Req!!!
 >>>>>>> f40bc0497e2fb429ce55b7cf66e8ae75c9a6547d
+4/4/2022, 10:28:02 AM - INFO - Server is running on port: 3030
+4/4/2022, 10:28:18 AM - DEBUG - auth.service - login with username: mama
+4/4/2022, 10:28:18 AM - INFO - Req!!!
+4/4/2022, 10:28:19 AM - ERROR - Failed to Login Invalid username or password
+4/4/2022, 10:28:19 AM - INFO - Req!!!
+4/4/2022, 10:28:19 AM - ERROR - while finding board undefined | {}
+4/4/2022, 10:28:19 AM - ERROR - [31mFailed to get board[39m | {}
+4/4/2022, 10:28:19 AM - INFO - Req!!!
+4/4/2022, 10:28:24 AM - INFO - Req!!!
+4/4/2022, 10:28:24 AM - INFO - Req!!!
+4/4/2022, 10:28:25 AM - INFO - Req!!!
+4/4/2022, 10:28:25 AM - INFO - Req!!!
+4/4/2022, 10:28:41 AM - DEBUG - auth.service - login with username: mama
+4/4/2022, 10:28:41 AM - ERROR - Failed to Login Invalid username or password
+4/4/2022, 10:28:41 AM - INFO - Req!!!
+4/4/2022, 10:28:44 AM - INFO - Req!!!
+4/4/2022, 10:28:45 AM - INFO - Req!!!
+4/4/2022, 10:28:45 AM - INFO - Req!!!
+4/4/2022, 10:28:45 AM - INFO - Req!!!
+4/4/2022, 10:28:47 AM - ERROR - while finding board undefined | {}
+4/4/2022, 10:28:47 AM - ERROR - [31mFailed to get board[39m | {}
+4/4/2022, 10:28:48 AM - INFO - Req!!!
+4/4/2022, 10:28:55 AM - INFO - Req!!!
+4/4/2022, 10:28:55 AM - INFO - Req!!!
+4/4/2022, 10:28:56 AM - INFO - Req!!!
+4/4/2022, 10:28:56 AM - INFO - Req!!!
+4/4/2022, 10:34:18 AM - DEBUG - auth.service - login with username: mama
+4/4/2022, 10:34:18 AM - ERROR - Failed to Login Invalid username or password
+4/4/2022, 10:34:18 AM - INFO - Req!!!
+4/4/2022, 10:34:18 AM - INFO - Req!!!
+4/4/2022, 10:34:18 AM - INFO - Req!!!
+4/4/2022, 10:34:18 AM - INFO - Req!!!
+4/4/2022, 10:34:19 AM - INFO - Req!!!
+4/4/2022, 10:34:31 AM - INFO - Req!!!
+4/4/2022, 10:34:35 AM - INFO - Req!!!
+4/4/2022, 10:34:36 AM - INFO - Req!!!
+4/4/2022, 10:34:36 AM - INFO - Req!!!
+4/4/2022, 10:34:37 AM - INFO - Req!!!
+4/4/2022, 10:34:37 AM - INFO - Req!!!
+4/4/2022, 10:34:38 AM - INFO - Req!!!
