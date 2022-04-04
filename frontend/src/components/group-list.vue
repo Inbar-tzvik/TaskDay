@@ -229,6 +229,7 @@ export default {
       this.$emit('editTask', groupId, item);
     },
     updatedStatus(groupId, task) {
+      // console.log('sssss',groupId, task);
       this.$emit('updatedStatus', groupId, task);
     },
   },

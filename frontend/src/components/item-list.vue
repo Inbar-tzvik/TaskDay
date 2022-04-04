@@ -102,17 +102,21 @@ export default {
   data() {
     return {
       currGroup: JSON.parse(JSON.stringify(this.group)),
-      // tasksForDrop: JSON.parse(JSON.stringify(this.group.tasks)),
-      // tasksForDrop:this.group.tasks,
-      // currGroups: [],
       currTasks: JSON.parse(JSON.stringify(this.group.tasks)),
       newTask: null,
       cmps: null,
       currBoard: JSON.parse(JSON.stringify(this.board)),
-      // currGroup: null,
       isClicked: false,
       counter: 0,
     };
+  },
+  computed:{
+    // currGroup(){
+    //   return JSON.parse(JSON.stringify(this.group))
+    // },
+    //     currTasks(){
+    //   return JSON.parse(JSON.stringify(this.group.tasks))
+    // }
   },
   async created() {
     this.counter = 0;
@@ -159,6 +163,7 @@ export default {
       });
     },
     updatedStatus(updatedTask) {
+      // console.log('itzik this.group.id, updatedTask',this.group.id, updatedTask);
       this.$emit('updatedStatus', this.group.id, updatedTask);
       // this.updateStatus();
     },
