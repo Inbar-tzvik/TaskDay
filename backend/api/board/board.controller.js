@@ -3,7 +3,7 @@ const logger = require('../../services/logger.service')
     // Importing chalk module
 const chalk = require("chalk");
 
-//shiva
+
 // GET LIST
 async function getBoards(req, res) {
     try {
