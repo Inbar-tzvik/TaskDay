@@ -30,7 +30,10 @@
         </div>
       </div>
       <button class="filter-person">
-        <img class="img-filter-person" src="https://cdn.monday.com/icons/dapulse-person-column.svg" />Person
+        <img
+          class="img-filter-person"
+          src="https://cdn.monday.com/icons/dapulse-person-column.svg"
+        />Person
       </button>
       <!-- <img
             class="icon-img-person"
@@ -50,12 +53,24 @@
           </div>
         </section>
       </section> -->
-      <button>
+      <button class="filter-btn">
+        <span
+          ><img class="filter" src="../../styles/icon/filter.svg" alt=""
+        /></span>
+        Filter
+      </button>
+      <!-- <button>
         <span><font-awesome-icon icon="filter" /></span> Filter
+      </button> -->
+      <button class="">
+        <span
+          ><img class="sort-icon" src="../../styles/icon/sort.svg" alt=""
+        /></span>
+        Sort
       </button>
-      <button>
+      <!-- <button>
         <span><font-awesome-icon icon="sort" /></span> Sort
-      </button>
+      </button> -->
       <!-- <button><img src="../../styles/icon/pin.png" alt="" /></button> -->
     </div>
   </section>
@@ -87,7 +102,9 @@ export default {
     },
     getUsers() {
       //should be from store???
-      this.users = this.$store.getters.board.members.map((user) => user.fullname);
+      this.users = this.$store.getters.board.members.map(
+        (user) => user.fullname
+      );
       // return this.$store.getters.boards[0].members.map(user => user.fullname)
     },
   },
@@ -110,19 +127,4 @@ export default {
 };
 </script>
 
-<style>
-form.nosubmit {
-  border: none;
-  padding: 0;
-}
-
-input.nosubmit {
-  width: 260px;
-  border: 1px solid #555;
-  display: block;
-  padding: 9px 4px 9px 40px;
-  background: transparent
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-    no-repeat 13px center;
-}
-</style>
+<style></style>

@@ -29,7 +29,11 @@
 
         <div>
           <button>
-            <img class="invite-user-img" src="../../styles/icon/user.png" alt="" />
+            <img
+              class="invite-user-img"
+              src="../../styles/icon/user.png"
+              alt=""
+            />
             Invite/ <span>4</span>
           </button>
         </div>
@@ -55,10 +59,10 @@
         </div>
       </div>
     </div>
-    <p class="subtitle" v-if="isInfo">
+    <!-- <p class="subtitle" v-if="isInfo">
       Check out the following items to learn about all the cool features and tools <a href="/main">TaskDay.com</a> has for you
       :-)
-    </p>
+    </p> -->
   </section>
 </template>
 
