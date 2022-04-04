@@ -1,6 +1,6 @@
 [{
         "_id": "62430dc81cdd644b3e5acabd",
-        "title": "Project Task-day",
+        "title": "Project-X",
         "createdAt": 1589983468418,
         "style": {
             "bgColor": "blue"
@@ -28,8 +28,13 @@
             },
             {
                 "_id": "u103",
-                "fullname": "Bill Gabriel",
+                "fullname": "Bill Gabi",
                 "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg"
+            },
+            {
+                "_id": "u104",
+                "fullname": "Shlomi Nugr.",
+                "imgUrl": "https://image.shutterstock.com/image-photo/close-portrait-smiling-handsome-man-260nw-1011569245.jpg"
             }
         ],
         "groups": [{
@@ -41,8 +46,8 @@
                         "status": "Working on it",
                         "priority": "Medium",
                         "dates": {
-                            "startDate": "",
-                            "endDate": ""
+                            "startDate": 1648587600000,
+                            "endDate": 1649278800000
                         },
                         "members": [{
                                 "_id": "u101",
@@ -51,14 +56,14 @@
                             },
                             {
                                 "_id": "u103",
-                                "fullname": "Bill Gabriel",
+                                "fullname": "Bill Gabi",
                                 "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg"
                             }
                         ],
                         "updates": [{
                             "byMember": {
                                 "_id": "u103",
-                                "fullname": "Bill Gabriel",
+                                "fullname": "Bill Gabi",
                                 "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg"
                             },
                             "message": "please start with desktop first",
@@ -69,26 +74,26 @@
                         "id": "t102",
                         "title": "Optimizing the user experience. - UX",
                         "status": "Stuck",
-                        "priority": "High",
+                        "priority": "Medium",
                         "dates": {
-                            "startDate": "",
-                            "endDate": ""
+                            "startDate": 1649451600000,
+                            "endDate": 1652302800000
                         },
                         "members": [{
                                 "_id": "u102",
-                                "fullname": "Ganesh Shiva",
-                                "imgUrl": ""
+                                "fullname": "Itzik JSON",
+                                "imgUrl": "https://www4.pictures.zimbio.com/pc/Bruce+Willis+attending+photocall+Moonrise+fNEpMjXt7jcx.jpg"
                             },
                             {
                                 "_id": "u103",
-                                "fullname": "Bill Gabriel",
+                                "fullname": "Bill Gabi",
                                 "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg"
                             }
                         ],
                         "updates": [{
                             "byMember": {
                                 "_id": "u103",
-                                "fullname": "Bill Gabriel",
+                                "fullname": "Bill Gabi",
                                 "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg"
                             },
                             "message": "change this JSON please",
@@ -101,8 +106,8 @@
                         "status": "Stuck",
                         "priority": "Medium",
                         "dates": {
-                            "startDate": "",
-                            "endDate": ""
+                            "startDate": 1648414800000,
+                            "endDate": 1648674000000
                         },
                         "members": [{
                                 "_id": "u101",
@@ -116,14 +121,14 @@
                             },
                             {
                                 "_id": "u103",
-                                "fullname": "Bill Gabriel",
+                                "fullname": "Bill Gabi",
                                 "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg"
                             }
                         ],
                         "updates": [{
                             "byMember": {
                                 "_id": "u103",
-                                "fullname": "Bill Gabriel",
+                                "fullname": "Bill Gabi",
                                 "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg"
                             },
                             "message": "change this JSON please",
@@ -136,38 +141,18 @@
                         "status": "Done",
                         "priority": "Low",
                         "dates": {
-                            "startDate": "",
-                            "endDate": ""
+                            "startDate": 1649538000000,
+                            "endDate": 1652130000000
                         },
                         "members": [{
                             "_id": "u103",
-                            "fullname": "Bill Gabriel",
+                            "fullname": "Bill Gabi",
                             "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg"
                         }],
                         "updates": [{
                             "byMember": {
                                 "_id": "u103",
-                                "fullname": "Bill Gabriel",
-                                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg"
-                            },
-                            "message": "change this JSON please",
-                            "like": false
-                        }]
-                    },
-                    {
-                        "id": "t116",
-                        "title": "Developing and maintaining the user interface.",
-                        "status": "Done",
-                        "priority": "Low",
-                        "dates": {
-                            "startDate": "",
-                            "endDate": ""
-                        },
-                        "members": [],
-                        "updates": [{
-                            "byMember": {
-                                "_id": "u103",
-                                "fullname": "Bill Gabriel",
+                                "fullname": "Bill Gabi",
                                 "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg"
                             },
                             "message": "change this JSON please",
@@ -183,23 +168,43 @@
                 "id": "g201",
                 "title": "Backend Tasks",
                 "tasks": [{
+                        "id": "t116",
+                        "title": "Developing and maintaining the user interface.",
+                        "status": "Done",
+                        "priority": "Low",
+                        "dates": {
+                            "startDate": "",
+                            "endDate": ""
+                        },
+                        "members": [],
+                        "updates": [{
+                            "byMember": {
+                                "_id": "u103",
+                                "fullname": "Bill Gabi",
+                                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg"
+                            },
+                            "message": "change this JSON please",
+                            "like": false
+                        }]
+                    },
+                    {
                         "id": "c201",
                         "title": "Participate in the entire application lifecycle, focusing on coding and debugging.",
                         "status": "Working on it",
                         "priority": "Medium",
                         "members": [{
                             "_id": "u103",
-                            "fullname": "Bill Gabriel",
+                            "fullname": "Bill Gabi",
                             "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg"
                         }],
                         "dates": {
-                            "startDate": "1650315600000",
-                            "endDate": "1652043600000"
+                            "startDate": 1650315600000,
+                            "endDate": 1652043600000
                         },
                         "updates": [{
                             "byMember": {
                                 "_id": "u103",
-                                "fullname": "Bill Gabriel",
+                                "fullname": "Bill Gabi",
                                 "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg"
                             },
                             "message": "change this JSON please",
@@ -223,7 +228,7 @@
                         "updates": [{
                             "byMember": {
                                 "_id": "u103",
-                                "fullname": "Bill Gabriel",
+                                "fullname": "Bill Gabi",
                                 "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg"
                             },
                             "message": "change this JSON please",
@@ -237,17 +242,17 @@
                         "priority": "Medium",
                         "members": [{
                             "_id": "u103",
-                            "fullname": "Bill Gabriel",
+                            "fullname": "Bill Gabi",
                             "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg"
                         }],
                         "dates": {
-                            "startDate": "1652043600000",
-                            "endDate": "1649106000000"
+                            "startDate": 1652043600000,
+                            "endDate": 1649106000000
                         },
                         "updates": [{
                             "byMember": {
                                 "_id": "u103",
-                                "fullname": "Bill Gabriel",
+                                "fullname": "Bill Gabi",
                                 "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg"
                             },
                             "message": "change this JSON please",
@@ -271,13 +276,13 @@
                             }
                         ],
                         "dates": {
-                            "startDate": "1649192400000",
-                            "endDate": "1652216400000"
+                            "startDate": 1649192400000,
+                            "endDate": 1652216400000
                         },
                         "updates": [{
                             "byMember": {
                                 "_id": "u103",
-                                "fullname": "Bill Gabriel",
+                                "fullname": "Bill Gabi",
                                 "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg"
                             },
                             "message": "change this JSON please",
@@ -297,7 +302,7 @@
                         "updates": [{
                             "byMember": {
                                 "_id": "u103",
-                                "fullname": "Bill Gabriel",
+                                "fullname": "Bill Gabi",
                                 "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg"
                             },
                             "message": "change this JSON please",
@@ -306,15 +311,15 @@
                     }
                 ],
                 "style": {
-                    "color": "rgb(127, 83, 71)"
+                    "color": "rgb(120, 75, 209)"
                 }
             },
             {
                 "id": "g134",
-                "title": "this new group by Taskday",
+                "title": "New Hire Checklist Steps",
                 "tasks": [{
                         "id": "t101",
-                        "title": "this task updated by Taskday",
+                        "title": "Complete a background check",
                         "status": "Working on it",
                         "priority": "Medium",
                         "members": [{
@@ -350,7 +355,7 @@
                         "updates": [{
                             "byMember": {
                                 "_id": "u103",
-                                "fullname": "Bill Gabriel",
+                                "fullname": "Bill Gabi",
                                 "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg"
                             },
                             "message": "change this JSON please",
@@ -370,7 +375,7 @@
                         "updates": [{
                             "byMember": {
                                 "_id": "u103",
-                                "fullname": "Bill Gabriel",
+                                "fullname": "Bill Gabi",
                                 "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg"
                             },
                             "message": "change this JSON please",
@@ -390,7 +395,7 @@
                         "updates": [{
                             "byMember": {
                                 "_id": "u103",
-                                "fullname": "Bill Gabriel",
+                                "fullname": "Bill Gabi",
                                 "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg"
                             },
                             "message": "change this JSON please",
@@ -455,7 +460,7 @@
             },
             {
                 "_id": "u103",
-                "fullname": "Bill Gabriel",
+                "fullname": "Bill Gabi",
                 "imgUrl": "https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg"
             }
         ],

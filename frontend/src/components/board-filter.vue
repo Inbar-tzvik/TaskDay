@@ -66,9 +66,9 @@ import searchIcon from '../components/icons/search-icon-modal.vue';
 import filterIcon from '../components/icons/filter-icon-modal.vue';
 export default {
   name: 'board-filter',
-  props: {
-    board: Object,
-  },
+  // props: {
+  //   board: Object,
+  // },
   data() {
     return {
       isOpen: false,
@@ -83,7 +83,6 @@ export default {
   computed: {
     board() {
       return this.$store.getters.currBoard;
-      // return this.$store.getters.boards[0];
     },
     getUsers() {
       //should be from store???
