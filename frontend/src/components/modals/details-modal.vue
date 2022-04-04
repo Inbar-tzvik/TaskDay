@@ -70,7 +70,8 @@
                   <!-- <member-picker :task="task"></member-picker> -->
 
                   <!-- fix this: -->
-                  <img class="user-img" :src="update.byMember.imgUrl" alt />
+                  <el-avatar :src="update.byMember.imgUrl" />
+                  <!-- <img class="user-img" :src="update.byMember.imgUrl" /> -->
                 </div>
                 <div class="title">{{ update.byMember.fullname }}</div>
 
