@@ -1,6 +1,6 @@
 <template>
   <header class="app-header">
-    <img src="../../styles/icon/icon.png" alt="" class="icon" />
+    <img src="../styles/icon/icon.png" alt="" class="icon" />
     <router-link class="link" to="/">Home</router-link>
     <router-link class="link" to="/main">Main</router-link>
     <div class="top-navigation-items-area">

@@ -296,7 +296,7 @@ export default {
   /* left: 16px; */
   flex-shrink: 0;
   z-index: 2;
-  width: 30px;
+  width: 21px;
   height: 35px;
 }
 </style>

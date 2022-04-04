@@ -18,11 +18,7 @@ export default {
   name: '',
   data() {
     return {
-      imgs: [
-        '../../styles/shlomi.jpg',
-        '../../styles/shlomi.jpg',
-        '../../styles/shlomi.jpg',
-      ],
+      imgs: ['../styles/shlomi.jpg', '../styles/shlomi.jpg', '../styles/shlomi.jpg'],
       margin: -5,
     };
   },
