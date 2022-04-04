@@ -30,10 +30,7 @@
         </div>
       </div>
       <button class="filter-person">
-        <img
-          class="img-filter-person"
-          src="https://cdn.monday.com/icons/dapulse-person-column.svg"
-        />Person
+        <img class="img-filter-person" src="https://cdn.monday.com/icons/dapulse-person-column.svg" />Person
       </button>
       <!-- <img
             class="icon-img-person"
@@ -54,18 +51,14 @@
         </section>
       </section> -->
       <button class="filter-btn">
-        <span
-          ><img class="filter" src="../../styles/icon/filter.svg" alt=""
-        /></span>
+        <span><img class="filter" src="../styles/icon/filter.svg" alt="" /></span>
         Filter
       </button>
       <!-- <button>
         <span><font-awesome-icon icon="filter" /></span> Filter
       </button> -->
       <button class="">
-        <span
-          ><img class="sort-icon" src="../../styles/icon/sort.svg" alt=""
-        /></span>
+        <span><img class="sort-icon" src="../styles/icon/sort.svg" alt="" /></span>
         Sort
       </button>
       <!-- <button>
@@ -101,9 +94,7 @@ export default {
     },
     getUsers() {
       //should be from store???
-      this.users = this.$store.getters.board.members.map(
-        (user) => user.fullname
-      );
+      this.users = this.$store.getters.board.members.map((user) => user.fullname);
       // return this.$store.getters.boards[0].members.map(user => user.fullname)
     },
   },

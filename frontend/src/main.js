@@ -6,7 +6,7 @@ import store from './store';
 import DropdownMenu from '@innologica/vue-dropdown-menu';
 
 // Styles
-import '../styles/styles.scss';
+import '../src/styles/styles.scss';
 // import { UserFilled } from '@element-plus/icons-vue';
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';

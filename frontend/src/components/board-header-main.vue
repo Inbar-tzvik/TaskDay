@@ -13,7 +13,7 @@
           </span>
 
           <span @click="onClickStar" :class="getStar">
-            <img class="star-icon" v-bind:src="getStar" />
+            <img class="star-icon" src="../styles/icon/star-yellow.png" />
           </span>
         </div>
       </div>
@@ -29,11 +29,7 @@
 
         <div>
           <button>
-            <img
-              class="invite-user-img"
-              src="../../styles/icon/user.png"
-              alt=""
-            />
+            <img class="invite-user-img" src="../styles/icon/user.png" alt="" />
             Invite/ <span>4</span>
           </button>
         </div>
@@ -59,9 +55,7 @@
         </div>
       </div>
     </div>
-    <p class="subtitle" v-if="isInfo">
-      Learn how to create tasks that are clear, transparent, and on point.
-    </p>
+    <p class="subtitle" v-if="isInfo">Learn how to create tasks that are clear, transparent, and on point.</p>
   </section>
 </template>
 
@@ -76,13 +70,13 @@ export default {
   data() {
     return {
       starSrc: {
-        notYellow: '../../../styles/icon/star.png',
-        yellow: '../../styles/icon/star-yellow.png',
+        notYellow: '../styles/icon/star.png',
+        yellow: '../styles/icon/star-yellow.png',
       },
       isStared: true,
       infoSrc: {
-        mark: '../../styles/icon/info.png',
-        notMark: '../../styles/icon/info.png',
+        mark: '../styles/icon/info.png',
+        notMark: '../styles/icon/info.png',
       },
       isInfo: true,
     };

@@ -7,12 +7,7 @@
       </p>
     </div>
     <div>
-      <img
-        src="../../styles/icon/icon.png"
-        alt
-        class="icon"
-        @click="goToHomePage"
-      />
+      <img src="../styles/icon/icon.png" alt class="icon" @click="goToHomePage" />
 
       <div class="top-navigation-items-area">
         <div class="cliked-btn-nav" @click="onClickWorkSpace">
@@ -53,7 +48,7 @@
 
       <div class="icon-container">
         <!-- <p class="name-icon">SN</p> -->
-        <img class="name-icon" src="../../styles/icon/def-user.png" alt />
+        <img class="name-icon" src="../styles/icon/def-user.png" alt />
         <!-- <p class="name-icon">SN</p> -->
       </div>
     </div>

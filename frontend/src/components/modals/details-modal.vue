@@ -83,7 +83,7 @@
                 <div>
                   <img
                     class="clock-post-img"
-                    src="../../../styles/icon/clock.png"
+                    src="../../styles/icon/clock.png"
                     alt
                   />
                 </div>
@@ -91,7 +91,7 @@
                 <div>
                   <img
                     class="alarm-post-img"
-                    src="../../../styles/icon/alarm-details.png"
+                    src="../../styles/icon/alarm-details.png"
                     alt
                   />
                 </div>
@@ -103,7 +103,7 @@
                 <span>
                   <img
                     class="view-icon"
-                    src="../../../styles/icon/view.png"
+                    src="../../styles/icon/view.png"
                     alt
                   />
                 </span>

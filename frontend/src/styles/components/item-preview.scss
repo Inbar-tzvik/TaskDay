@@ -52,7 +52,7 @@
 .dropDownMenuWrapper {
   display: flex;
   justify-content: center;
-  // position: relative;
+  position: relative;
   // width: 150px;
   // height: 60px;
   height: 33px;
@@ -106,9 +106,9 @@
     border-width: 10px 10px 0 0;
   }
 
-  .dropDownMenuButton--dark {
-    // color: #eee;
-  }
+  // .dropDownMenuButton--dark {
+  //   // color: #eee;
+  // }
 
   .iconWrapper {
     width: 25px;
@@ -277,18 +277,18 @@
     }
   }
 
-  .dropdownMenu--dark {
-    background: #333;
-    border: none;
+  // .dropdownMenu--dark {
+  //   background: #333;
+  //   border: none;
 
-    .option {
-      border-bottom: 1px solid #888;
-    }
+  //   .option {
+  //     border-bottom: 1px solid #888;
+  //   }
 
-    * {
-      color: #eee;
-    }
-  }
+  //   * {
+  //     color: #eee;
+  //   }
+  // }
 
   @keyframes menu {
     from {
