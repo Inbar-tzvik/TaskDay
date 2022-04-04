@@ -14738,6 +14738,7 @@
 4/4/2022, 6:15:43 PM - INFO - Req!!!
 4/4/2022, 6:15:44 PM - INFO - Req!!!
 4/4/2022, 6:15:44 PM - INFO - Req!!!
+<<<<<<< HEAD
 4/4/2022, 6:17:07 PM - INFO - Server is running on port: 3030
 4/4/2022, 6:41:37 PM - DEBUG - auth.service - login with username: mama
 4/4/2022, 6:41:37 PM - DEBUG - auth.service - login with username: mama
@@ -14802,3 +14803,95 @@
 4/4/2022, 6:48:36 PM - INFO - Req!!!
 4/4/2022, 6:48:36 PM - INFO - Req!!!
 4/4/2022, 6:48:36 PM - INFO - Req!!!
+=======
+4/4/2022, 6:20:32 PM - INFO - Server is running on port: 3030
+4/4/2022, 6:20:49 PM - DEBUG - auth.service - login with username: mama
+4/4/2022, 6:20:49 PM - INFO - Req!!!
+4/4/2022, 6:20:50 PM - ERROR - Failed to Login Invalid username or password
+4/4/2022, 6:20:50 PM - INFO - Req!!!
+4/4/2022, 6:20:51 PM - INFO - Req!!!
+4/4/2022, 6:20:51 PM - INFO - Req!!!
+4/4/2022, 6:20:51 PM - INFO - Req!!!
+4/4/2022, 6:33:29 PM - INFO - Server is running on port: 3030
+4/4/2022, 6:33:43 PM - DEBUG - auth.service - login with username: mama
+4/4/2022, 6:33:44 PM - INFO - Req!!!
+4/4/2022, 6:33:45 PM - ERROR - Failed to Login Invalid username or password
+4/4/2022, 6:33:47 PM - INFO - Req!!!
+4/4/2022, 6:33:47 PM - INFO - Req!!!
+4/4/2022, 6:33:47 PM - INFO - Req!!!
+4/4/2022, 6:33:47 PM - INFO - Req!!!
+4/4/2022, 6:33:56 PM - INFO - Req!!!
+4/4/2022, 6:34:11 PM - INFO - Req!!!
+4/4/2022, 6:34:11 PM - INFO - Req!!!
+4/4/2022, 6:34:11 PM - INFO - Req!!!
+4/4/2022, 6:34:17 PM - INFO - Req!!!
+4/4/2022, 6:34:20 PM - INFO - Req!!!
+4/4/2022, 6:34:21 PM - INFO - Req!!!
+4/4/2022, 6:34:21 PM - INFO - Req!!!
+4/4/2022, 6:48:08 PM - INFO - Server is running on port: 3030
+4/4/2022, 6:48:16 PM - DEBUG - auth.service - login with username: mama
+4/4/2022, 6:48:16 PM - INFO - Req!!!
+4/4/2022, 6:48:17 PM - ERROR - Failed to Login Invalid username or password
+4/4/2022, 6:48:18 PM - INFO - Req!!!
+4/4/2022, 6:48:18 PM - INFO - Req!!!
+4/4/2022, 6:48:18 PM - INFO - Req!!!
+4/4/2022, 6:48:18 PM - INFO - Req!!!
+>>>>>>> 8fbc14916310408ce6a6bbed7a300e92241589a3
+4/4/2022, 6:52:33 PM - INFO - Server is running on port: 3030
+4/4/2022, 6:52:55 PM - DEBUG - auth.service - login with username: mama
+4/4/2022, 6:52:55 PM - DEBUG - auth.service - login with username: mama
+4/4/2022, 6:52:55 PM - DEBUG - auth.service - login with username: mama
+4/4/2022, 6:52:55 PM - DEBUG - auth.service - login with username: mama
+4/4/2022, 6:52:55 PM - INFO - Req!!!
+4/4/2022, 6:52:56 PM - ERROR - Failed to Login Invalid username or password
+4/4/2022, 6:52:56 PM - ERROR - Failed to Login Invalid username or password
+4/4/2022, 6:52:56 PM - ERROR - Failed to Login Invalid username or password
+4/4/2022, 6:52:56 PM - INFO - Req!!!
+4/4/2022, 6:52:56 PM - ERROR - Failed to Login Invalid username or password
+4/4/2022, 6:52:56 PM - INFO - Req!!!
+4/4/2022, 6:52:57 PM - INFO - Req!!!
+4/4/2022, 6:52:57 PM - INFO - Req!!!
+4/4/2022, 6:52:57 PM - INFO - Req!!!
+4/4/2022, 6:52:57 PM - INFO - Req!!!
+4/4/2022, 6:52:57 PM - INFO - Req!!!
+4/4/2022, 6:52:58 PM - INFO - Req!!!
+4/4/2022, 6:52:58 PM - INFO - Req!!!
+4/4/2022, 6:52:58 PM - INFO - Req!!!
+4/4/2022, 6:52:58 PM - INFO - Req!!!
+4/4/2022, 6:52:58 PM - INFO - Req!!!
+4/4/2022, 6:52:58 PM - INFO - Req!!!
+4/4/2022, 6:52:58 PM - INFO - Req!!!
+4/4/2022, 6:52:58 PM - INFO - Req!!!
+4/4/2022, 6:52:58 PM - INFO - Req!!!
+4/4/2022, 6:52:58 PM - INFO - Req!!!
+4/4/2022, 6:52:58 PM - INFO - Req!!!
+4/4/2022, 6:52:58 PM - INFO - Req!!!
+4/4/2022, 6:53:02 PM - DEBUG - auth.service - login with username: mama
+4/4/2022, 6:53:02 PM - INFO - Req!!!
+4/4/2022, 6:53:02 PM - ERROR - Failed to Login Invalid username or password
+4/4/2022, 6:53:02 PM - INFO - Req!!!
+4/4/2022, 6:53:02 PM - INFO - Req!!!
+4/4/2022, 6:53:02 PM - INFO - Req!!!
+4/4/2022, 6:53:02 PM - INFO - Req!!!
+4/4/2022, 6:53:45 PM - INFO - Req!!!
+4/4/2022, 6:53:46 PM - INFO - Req!!!
+4/4/2022, 6:53:46 PM - INFO - Req!!!
+4/4/2022, 6:53:46 PM - INFO - Req!!!
+4/4/2022, 6:53:46 PM - INFO - Req!!!
+4/4/2022, 6:53:46 PM - INFO - Req!!!
+4/4/2022, 6:53:46 PM - INFO - Req!!!
+4/4/2022, 6:53:46 PM - INFO - Req!!!
+4/4/2022, 7:03:39 PM - ERROR - while finding board undefined | {}
+4/4/2022, 7:03:39 PM - ERROR - [31mFailed to get board[39m | {}
+4/4/2022, 7:03:39 PM - INFO - Req!!!
+4/4/2022, 7:03:40 PM - INFO - Req!!!
+4/4/2022, 7:03:40 PM - INFO - Req!!!
+4/4/2022, 7:03:40 PM - INFO - Req!!!
+4/4/2022, 7:03:40 PM - INFO - Req!!!
+4/4/2022, 7:04:41 PM - ERROR - while finding board undefined | {}
+4/4/2022, 7:04:41 PM - ERROR - [31mFailed to get board[39m | {}
+4/4/2022, 7:04:41 PM - INFO - Req!!!
+4/4/2022, 7:04:42 PM - INFO - Req!!!
+4/4/2022, 7:04:42 PM - INFO - Req!!!
+4/4/2022, 7:04:42 PM - INFO - Req!!!
+4/4/2022, 7:04:42 PM - INFO - Req!!!

@@ -312,7 +312,7 @@
 }
 
 .smooth-dnd-container.vertical > .smooth-dnd-draggable-wrapper {
-  overflow: visible;
+  overflow: visible !important;
   display: block;
 }
 

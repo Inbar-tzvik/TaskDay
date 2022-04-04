@@ -23,7 +23,7 @@ export default defineConfig({
         },
     },
     build: {
-        chunkSizeWarningLimit: 3000,
+        chunkSizeWarningLimit: 4000,
         outDir: '../backend/public',
         emptyOutDir: true,
     },
