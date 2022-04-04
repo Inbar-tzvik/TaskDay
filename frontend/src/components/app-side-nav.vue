@@ -7,7 +7,12 @@
       </p>
     </div>
     <div>
-      <img src="../../styles/icon/icon.png" alt class="icon" @click="goToHomePage" />
+      <img
+        src="../../styles/icon/icon.png"
+        alt
+        class="icon"
+        @click="goToHomePage"
+      />
 
       <div class="top-navigation-items-area">
         <div class="cliked-btn-nav" @click="onClickWorkSpace">
@@ -100,7 +105,7 @@ export default {
     searchIcon,
     helpIcon,
   },
-  created() { },
+  created() {},
   watch: {
     '$store.getters.currPage': {
       handler() {

@@ -1,6 +1,6 @@
 <template>
   <section class="details-modal" ref="detailModal">
-    <div class="ontainer">
+    <div class="container">
       <div class="close-details-btn" @click="closeDetails">
         <font-awesome-icon class="close-icon" icon="x" />
       </div>
@@ -37,14 +37,16 @@
           <div class="add-view">+ Add View</div>
         </div>
       </div> -->
-
-
     </div>
     <div class="details-container">
       <div class="update-details-page detail-page">
         <!-- //LOOK -->
         <div class="input-update">
-          <input v-model="currUpdate" type="text" placeholder="Write an update" />
+          <input
+            v-model="currUpdate"
+            type="text"
+            placeholder="Write an update"
+          />
           <div>
             <button @click="sendUpdate()">update</button>
           </div>
@@ -57,7 +59,11 @@
         </div>
         <!-- //LOOK -->
         <div class="space-view">
-          <div class="post-component" v-for="update in task.updates" :key="update.id">
+          <div
+            class="post-component"
+            v-for="update in task.updates"
+            :key="update.id"
+          >
             <div class="post-header">
               <div class="left-side-post">
                 <div class="img-user-container">
@@ -74,11 +80,19 @@
               </div>
               <div class="post-title">
                 <div>
-                  <img class="clock-post-img" src="../../../styles/icon/clock.png" alt />
+                  <img
+                    class="clock-post-img"
+                    src="../../../styles/icon/clock.png"
+                    alt
+                  />
                 </div>
                 <div class="time">1d</div>
                 <div>
-                  <img class="alarm-post-img" src="../../../styles/icon/alarm-details.png" alt />
+                  <img
+                    class="alarm-post-img"
+                    src="../../../styles/icon/alarm-details.png"
+                    alt
+                  />
                 </div>
               </div>
             </div>
@@ -86,7 +100,11 @@
               <p class="text">{{ update.message }}</p>
               <div class="seen-area">
                 <span>
-                  <img class="view-icon" src="../../../styles/icon/view.png" alt />
+                  <img
+                    class="view-icon"
+                    src="../../../styles/icon/view.png"
+                    alt
+                  />
                 </span>
                 <span class="seen">1</span>
                 <p>seen</p>
@@ -111,7 +129,11 @@
             </div>
 
             <div class="post-actions">
-              <div class="left-btn" :class="{ blue: update.like, red: !update.like }" @click="setLike(update.id)">
+              <div
+                class="left-btn"
+                :class="{ blue: update.like, red: !update.like }"
+                @click="setLike(update.id)"
+              >
                 <span>
                   <font-awesome-icon icon="thumbs-up" />
                 </span>
@@ -124,7 +146,6 @@
                 <img../member-picker.vue class="reply-icon" src="../../../styles/icon/reply.png" alt="" /></span>
                 <p @click="isReply = !isReply">Reply</p>
               </div> -->
-              
             </div>
             <div class="reply-container" v-if="isReply">
               <div class="left-side-reply">
@@ -178,19 +199,22 @@ export default {
       //ITZIK
       tasksss: {
         id: 'c201',
-        title: 'Participate in the entire application lifecycle, focusing on coding and debugging.',
+        title:
+          'Participate in the entire application lifecycle, focusing on coding and debugging.',
         status: 'Working on it',
         priority: 'Medium',
         members: [
           {
             _id: 'u103',
             fullname: 'Shlomi Nugarker',
-            imgUrl: 'https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg',
+            imgUrl:
+              'https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg',
           },
           {
             _id: 'u103',
             fullname: 'Shlomi Nugarker',
-            imgUrl: 'https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg',
+            imgUrl:
+              'https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg',
           },
         ],
         dates: {
@@ -203,7 +227,8 @@ export default {
             byMember: {
               _id: 'u103',
               fullname: 'Shlomi Nugarker',
-              imgUrl: 'https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg',
+              imgUrl:
+                'https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg',
             },
             message: 'change this JSON please',
             like: true,
@@ -213,7 +238,8 @@ export default {
             byMember: {
               _id: 'u103',
               fullname: 'hare krishna',
-              imgUrl: 'https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg',
+              imgUrl:
+                'https://cdn.pixabay.com/photo/2020/02/17/20/22/beard-4857726_960_720.jpg',
             },
             message: 'Jost for test',
             like: false,
@@ -232,7 +258,10 @@ export default {
   components: { avatarImg, likeIcon, Person },
   created() {
     this.task = JSON.parse(JSON.stringify(this.$store.getters.getCurrTask));
-    socketService.emit('chat task', JSON.parse(JSON.stringify(this.$store.getters.getCurrTask)).id);
+    socketService.emit(
+      'chat task',
+      JSON.parse(JSON.stringify(this.$store.getters.getCurrTask)).id
+    );
     socketService.on('task changed', this.updateTask);
     //to run now func that save here in memory and save bpard
   },
