@@ -3,14 +3,14 @@
     <div class="epmty-div"></div>
     <div v-for="cmp in cmps" :key="cmp.length + Math.random()">
 
-      <!-- <section class="progress-bar" v-if="statusToShow(cmp)">
+      <section class="progress-bar" v-if="statusToShow(cmp)">
         <div
           class="el-progress-bar"
           v-for="(status, key) in statusCount(cmp)"
           :key="status +  Math.random()"
           :style="styleObj(key, status)"
         ></div>
-      </section> -->
+      </section>
 
       <section class="progress-bar" v-if="datesToCount(cmp)">
         <div class="block flex">
@@ -21,14 +21,14 @@
         </div>
       </section>
 
-      <!-- <section class="progress-bar" v-if="priorityToShow(cmp)">
+      <section class="progress-bar" v-if="priorityToShow(cmp)">
         <div
           class="el-progress-bar"
           v-for="(status, key) in priorityCount(cmp)"
           :key="key"
           :style="styleObj(key, status)"
         ></div>
-      </section> -->
+      </section>
     </div>
   </section>
 </template>

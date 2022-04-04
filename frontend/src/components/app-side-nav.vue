@@ -81,7 +81,7 @@ export default {
   },
   computed: {
     myClass() {
-      console.log('my class', this.currPage);
+      // console.log('my class', this.currPage);
       if (this.currPage === 'homePage') return true;
       else return false;
     },
